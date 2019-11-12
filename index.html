@@ -171,80 +171,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/Hexo%20%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/12/Hexo%20%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Hexo 笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-12 21:16:30" itemprop="dateCreated datePublished" datetime="2019-11-12T21:16:30+08:00">2019-11-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Hexo-笔记"><a href="#Hexo-笔记" class="headerlink" title="Hexo 笔记"></a>Hexo 笔记</h1><p>本篇主要参考了这篇博文：<a href="https://www.jianshu.com/p/cb0750324e26" target="_blank" rel="noopener">使用Hexo搭建GitHub博客（2018年Mac版）</a></p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>主题文件可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题网页</a>中下载，以Material为例，点击主题预览图下方的主题名称链接即可进入该主题的源码发布页面 <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">GitHub - viosey/hexo-theme-material: Material Design theme for hexo.</a></p>
-<p>根据主题安装指导，下载项目至博客项目下的<code>themes</code>目录中，文件夹命名为<code>material</code>，并在博客配置文件<code>_config.yml</code>中指定使用该主题：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">material</span></span><br></pre></td></tr></table></figure>
-
-<p>将material主题目录下的<code>_config.template.yaml</code>重命名为<code>_config.yaml</code></p>
-<p>参考<a href="https://material.viosey.com/docs/#/" target="_blank" rel="noopener">Material主题文档</a>进行必要配置</p>
-<p>再次执行 <code>hexo g</code> 将会根据新主题重新构建整个博客</p>
-<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><h3 id="创建github-io仓库"><a href="#创建github-io仓库" class="headerlink" title="创建github.io仓库"></a>创建github.io仓库</h3><p>在自己的GitHub中，创建新仓库，标准命名为<code>GitHub用户名.github.io</code>，例如我的：wavky.github.io</p>
-<p>仓库Readme、License之类的留空即可，之后在发布上传时会被强制覆盖抹掉</p>
-<h3 id="配置SSH密钥"><a href="#配置SSH密钥" class="headerlink" title="配置SSH密钥"></a>配置SSH密钥</h3><p>参考 <a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">https://my.oschina.net/ryaneLee/blog/638440</a> 配置SSH密钥一节</p>
-<h3 id="修改博客配置文件-config-yml"><a href="#修改博客配置文件-config-yml" class="headerlink" title="修改博客配置文件_config.yml"></a>修改博客配置文件<code>_config.yml</code></h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">GitHub上传仓库的完整路径，如</span> <span class="string">https://github.com/wavky/wavky.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="发布到GitHub"><a href="#发布到GitHub" class="headerlink" title="发布到GitHub"></a>发布到GitHub</h3><p>在<code>hexo g</code>生成完毕后，可执行该命令发布博客到GitHub上：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>或在生成网站的同时进行发布：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,7 +282,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
