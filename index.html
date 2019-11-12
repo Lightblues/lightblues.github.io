@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Frank Shi" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -21,10 +21,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.5.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -52,9 +52,9 @@
 </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Frank Shi">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Frank Shi">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>Frank Shi</title>
   
 
 
@@ -116,10 +116,11 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Frank Shi</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">O ever youthful, O ever weeping.</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -138,6 +139,21 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -175,17 +191,17 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Frank Shi">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Frank Shi">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/12/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo搭建Github博客</a>
+            <a href="/2019/11/12/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo+Github搭建简易博客&基础配置</a>
         </h1>
 
         <div class="post-meta">
@@ -194,9 +210,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-12 21:20:12 / Modified: 21:51:36" itemprop="dateCreated datePublished" datetime="2019-11-12T21:20:12+08:00">2019-11-12</time>
+              <time title="Created: 2019-11-12 21:20:12" itemprop="dateCreated datePublished" datetime="2019-11-12T21:20:12+08:00">2019-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-13 00:29:40" itemprop="dateModified" datetime="2019-11-13T00:29:40+08:00">2019-11-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learning/" itemprop="url" rel="index">
+                    <span itemprop="name">learning</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -210,71 +243,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hexo-Github-Pages-笔记"><a href="#Hexo-Github-Pages-笔记" class="headerlink" title="Hexo+Github Pages 笔记"></a>Hexo+Github Pages 笔记</h1><p>记录主要参考了几篇博文：</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/cb0750324e26" target="_blank" rel="noopener">使用Hexo搭建GitHub博客（2018年Mac版）</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></li>
-</ul>
-<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p>度娘谷歌搜索了Hexo各种资料解说，个人感觉上这是一套使用第三方主题模板+自己的博客文章（.md文件）+网站信息配置，通过Node.js进行本地连接混合生成一套静态网站的工具链套件</p>
-<p>也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布</p>
-<p>优势是可使用网上各种免费的静态网站空间，节省服务器租金，省去维护服务器的工作，不需担心后台被黑导致数据丢失，无痛随时全站更换主题…</p>
-<p>劣势是不能在公司电脑上随时在线更新博客，除非带着Hexo博客源码…</p>
-<p>和需要自己保管好Hexo博客源码，否则数据丢了看上去有点难重新把博文整理下来</p>
-<h3 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h3><p>度娘谷歌搜索了Node.js各种资料解说，个人感觉上这就是一套SDK，一套使用JavaScript编写的，包含多个应用级功能模块，可用于一般应用开发的工具包</p>
-<p>JavaScript的运行需要一个JS解释器实时运算每一句JavaScript代码，一般情况下网页上的JS代码段会使用浏览器提供的解释器运行，而Node.js使用了谷歌开源的一个名为V8引擎的良心产品（JS解释器），实现脱离浏览器下运行JavaScript代码</p>
-<h3 id="什么是nvm"><a href="#什么是nvm" class="headerlink" title="什么是nvm"></a>什么是nvm</h3><p>nvm，Node Version Manager 是一个开源的Node.js版本管理Bash工具，可方便的在Bash环境下下载、更新、管理多个版本并存的Node.js，并选择性地使用其中一个</p>
-<h3 id="什么是GitHub-Pages"><a href="#什么是GitHub-Pages" class="headerlink" title="什么是GitHub Pages"></a>什么是GitHub Pages</h3><p>GitHub Pages 是GitHub提供的个人静态主页网站托管服务，原目的是用于提供你在GitHub上托管的所有开源项目介绍，后来也推荐作为个人博客之类的用途</p>
-<p>优势是使用简单方便，免费高效实时，可用空间高达1G，可绑定自定义域名，原生自带GitHub级别防护…好像无敌了</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>为了便于发布到GitHub上，建议同时安装<code>hexo-deployer-git</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo安装文档</a></p>
-<h2 id="初始化，建立博客项目"><a href="#初始化，建立博客项目" class="headerlink" title="初始化，建立博客项目"></a>初始化，建立博客项目</h2><p>选定博客网站项目程序文件的存放位置，如<code>~/develop/hexo/github/</code>，Bash中cd进入该目录下，执行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<p>执行完毕后，该命令将在当前目录下生成一套标准的Hexo博客项目模板</p>
-<h2 id="生成网站"><a href="#生成网站" class="headerlink" title="生成网站"></a>生成网站</h2><p>上面的操作只是生成了一套网站构成所需的“源代码”，实际发布时需要根据这套“源代码”当中的配置文件、博客文档（.md文件）、主题模板等，进行组合构建，生成服务器可识别的标准HTML网站目录，此时可使用该命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>执行完毕后，在<code>public</code>目录下可看到我们自己书写的博客文档（.md文件）与所选的博客主题模板链接组合，生成的最终静态网站文件，该目录也差不多就是之后发布到GitHub上的实际文件（实际发布到GitHub的是.deploy_git目录），外部的网站“源代码”不会上传到<code>github.io</code>库</p>
-<h2 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h2><p>启动本地服务器可即时查看网站运行效果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>默认地址是 <a href="http://localhost:4000/" target="_blank" rel="noopener">localhost:4000</a></p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>主题文件可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题网页</a>中下载，以Material为例，点击主题预览图下方的主题名称链接即可进入该主题的源码发布页面 <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">GitHub - viosey/hexo-theme-material: Material Design theme for hexo.</a></p>
-<p>根据主题安装指导，下载项目至博客项目下的<code>themes</code>目录中，文件夹命名为<code>material</code>，并在博客配置文件<code>_config.yml</code>中指定使用该主题：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">material</span></span><br></pre></td></tr></table></figure>
-
-<p>将material主题目录下的<code>_config.template.yaml</code>重命名为<code>_config.yaml</code></p>
-<p>参考<a href="https://material.viosey.com/docs/#/" target="_blank" rel="noopener">Material主题文档</a>进行必要配置</p>
-<p>再次执行 <code>hexo g</code> 将会根据新主题重新构建整个博客</p>
-<hr>
-<p>这里使用的主题是<code>NexT</code>，Github地址为：<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a></p>
-<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><h3 id="创建github-io仓库"><a href="#创建github-io仓库" class="headerlink" title="创建github.io仓库"></a>创建github.io仓库</h3><p>在自己的GitHub中，创建新仓库，标准命名为<code>GitHub用户名.github.io</code>，例如我的：wavky.github.io</p>
-<p>仓库Readme、License之类的留空即可，之后在发布上传时会被强制覆盖抹掉</p>
-<h3 id="配置SSH密钥"><a href="#配置SSH密钥" class="headerlink" title="配置SSH密钥"></a>配置SSH密钥</h3><p>参考 <a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">https://my.oschina.net/ryaneLee/blog/638440</a> 配置SSH密钥一节</p>
-<h3 id="修改博客配置文件-config-yml"><a href="#修改博客配置文件-config-yml" class="headerlink" title="修改博客配置文件_config.yml"></a>修改博客配置文件<code>_config.yml</code></h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">GitHub上传仓库的完整路径，如</span> <span class="string">https://github.com/wavky/wavky.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="发布到GitHub"><a href="#发布到GitHub" class="headerlink" title="发布到GitHub"></a>发布到GitHub</h3><p>在<code>hexo g</code>生成完毕后，可执行该命令发布博客到GitHub上：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>或在生成网站的同时进行发布：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>GitHub Pages 默认提供的是 <code>GitHub用户名.github.io</code>（例如我的：wavky.github.io）作为博客访问地址，可设置绑定自定义域名</p>
-<p>在博客项目目录的source文件夹中，创建一个CNAME文件，存储预备使用的个人域名，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在source目录下</span></span><br><span class="line"><span class="built_in">echo</span> story.wavky.com &gt; CNAME</span><br></pre></td></tr></table></figure>
-
-<p>清理Hexo缓存并重新生成发布</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<p>GitHub项目页面中Setting设置界面，滚到GitHub Pages部分确认域名无误</p>
-<p>在个人域名提供商（如阿里云万网）中，进入DNS设置界面，追加一条CNAME记录，这里我指定以story前缀的个人域名跳转到原来的默认的博客域名<code>wavky.github.io</code></p>
-<h2 id="常用Hexo命令"><a href="#常用Hexo命令" class="headerlink" title="常用Hexo命令"></a>常用Hexo命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g #安装Hexo</span><br><span class="line">npm install hexo-deployer-git --save  #安装Git部署插件</span><br><span class="line">npm update hexo -g #升级</span><br><span class="line">hexo init #初始化博客</span><br><span class="line"></span><br><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</span><br><span class="line">hexo g == hexo generate #生成</span><br><span class="line">hexo s == hexo server #启动服务预览</span><br><span class="line">hexo d == hexo deploy #部署</span><br><span class="line"></span><br><span class="line">hexo server #Hexo会监视文件变动并自动更新，无须重启服务器</span><br><span class="line">hexo server -s #静态模式</span><br><span class="line">hexo server -p 5000 #更改端口</span><br><span class="line">hexo server -i 192.168.1.1 #自定义 IP</span><br><span class="line">hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</span><br></pre></td></tr></table></figure>
-
-
+          <p>记录使用Hexo+Github Pages配置此博客的过程，由于自己能力有限而且也确实太懒，在过程中参考了网上很多教程，多把自己用到的部分直接转了过来，在文中有链接说明，若有冒犯实表抱歉。</p><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p>度娘谷歌搜索了Hexo各种资料解说，个人感觉上这是一套使用第三方主题模板+自己的博客文章（.md文件）+网站信息配置，通过Node.js进行本地连接混合生成一套静态网站的工具链套件</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/12/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -297,12 +274,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Frank Shi">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Frank Shi">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -332,19 +309,14 @@
 
       
           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/12/hello-world/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -396,7 +368,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">Frank Shi</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -408,9 +380,17 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-      <div class="site-state-item site-state-tags">
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -423,6 +403,8 @@
 
 
       </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28138493&auto=1&height=66"></iframe>
 
     </div>
   </aside>
@@ -443,12 +425,12 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Frank shi</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
   </div>
 
         
@@ -474,7 +456,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
@@ -497,6 +479,56 @@
 
 
   
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
