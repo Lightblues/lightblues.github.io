@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Frank Shi" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="《数学之美》吴军目录第1章文字和语言vs数字和信息文字和语言与数学，从产生起原本就有相通性，虽然它们的发展一度分道扬镇，但是最终还是能走到一起。1 信息2 文字和数字3 文字和语言背后的数学4小结第2章自然语言处理——从规则到统计人类对机器理解自然语言的认识走了一条大弯路。早期的研究集中采用基于规则的方法，虽然解决了一些简单的问题，但是无法从根本上将自然语言理解实用化。直到20多年后，人们开始尝试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数学之美》吴军">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;14&#x2F;%E3%80%8A%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%E3%80%8B%E5%90%B4%E5%86%9B&#x2F;index.html">
+<meta property="og:site_name" content="Frank Shi">
+<meta property="og:description" content="《数学之美》吴军目录第1章文字和语言vs数字和信息文字和语言与数学，从产生起原本就有相通性，虽然它们的发展一度分道扬镇，但是最终还是能走到一起。1 信息2 文字和数字3 文字和语言背后的数学4小结第2章自然语言处理——从规则到统计人类对机器理解自然语言的认识走了一条大弯路。早期的研究集中采用基于规则的方法，虽然解决了一些简单的问题，但是无法从根本上将自然语言理解实用化。直到20多年后，人们开始尝试">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-14T12:43:10.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/08/14/%E3%80%8A%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%E3%80%8B%E5%90%B4%E5%86%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>《数学之美》吴军 | Frank Shi</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frank Shi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">O ever youthful, O ever weeping.</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/%E3%80%8A%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%E3%80%8B%E5%90%B4%E5%86%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Frank Shi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Shi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《数学之美》吴军
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-08-14 20:43:10" itemprop="dateCreated datePublished" datetime="2019-08-14T20:43:10+08:00">2019-08-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="《数学之美》吴军"><a href="#《数学之美》吴军" class="headerlink" title="《数学之美》吴军"></a>《数学之美》吴军</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h4 id="第1章文字和语言vs数字和信息"><a href="#第1章文字和语言vs数字和信息" class="headerlink" title="第1章文字和语言vs数字和信息"></a>第1章文字和语言vs数字和信息</h4><p>文字和语言与数学，从产生起原本就有相通性，虽然它<br>们的发展一度分道扬镇，但是最终还是能走到一起。<br>1 信息<br>2 文字和数字<br>3 文字和语言背后的数学<br>4小结</p><h4 id="第2章自然语言处理——从规则到统计"><a href="#第2章自然语言处理——从规则到统计" class="headerlink" title="第2章自然语言处理——从规则到统计"></a>第2章自然语言处理——从规则到统计</h4><p>人类对机器理解自然语言的认识走了一条大弯路。早期<br>的研究集中采用基于规则的方法，虽然解决了一些简单<br>的问题，但是无法从根本上将自然语言理解实用化。直<br>到20多年后，人们开始尝试用基于统计的方法进行自<br>然语言处理，才有了突破性进展和实用的产品。<br>1 机器智能<br>2 从规则到统计<br>3 小结</p><a id="more"></a>
+
+<h4 id="第3章-统计语言模型"><a href="#第3章-统计语言模型" class="headerlink" title="第3章 统计语言模型"></a>第3章 统计语言模型</h4><p>统计语言模型是自然语言处理的基础,并且被广泛应用<br>于机器翻译、语音识别、印刷体或手写体识别、拼写纠错、<br>汉字输入和文献查询。<br>1 用数学的方法描述语言规律<br>2 延伸阅读:统计语言模型的工程决窍<br>3 小结</p>
+<h4 id="第4章-谈谈分词"><a href="#第4章-谈谈分词" class="headerlink" title="第4章 谈谈分词"></a>第4章 谈谈分词</h4><p>中文分词是中文信息处理的基础,它同样走过了一段弯<br>路,目前依靠统计语言模型已经基本解决了这个问题。<br>1 中文分词方法的演变<br>2 延伸阅读:如何衡量分词的结果<br>3 小结</p>
+<h4 id="第5章-隐含马尔可夫模型"><a href="#第5章-隐含马尔可夫模型" class="headerlink" title="第5章 隐含马尔可夫模型"></a>第5章 隐含马尔可夫模型</h4><p>隐含马尔可夫模型最初应用于通信领域,继而推广到语<br>音和语言处理中,成为连接自然语言处理和通信的桥梁。<br>同时,隐含马尔可夫模型也是机器学习的主要工具之一。<br>1 通信模型<br>2 隐含马尔可夫模型<br>3延伸阅读：隐含马尔可夫模型的训练<br>4小结</p>
+<h4 id="第6章信息的度量和作用"><a href="#第6章信息的度量和作用" class="headerlink" title="第6章信息的度量和作用"></a>第6章信息的度量和作用</h4><p>信息是可以量化度量的。信息灯不仅是对信息的量化度<br>量，也是整个信息论的基础。它对于通信、数据压缩、<br>自然语言处理都有很强的指导意义。<br>1 信息滴<br>2 信息的作用<br>3互信息<br>4延伸阅读：相对滴<br>5小结</p>
+<h4 id="第7章贾里尼克和现代语言处理"><a href="#第7章贾里尼克和现代语言处理" class="headerlink" title="第7章贾里尼克和现代语言处理"></a>第7章贾里尼克和现代语言处理</h4><p>作为现代自然语言处理的奠基者，贾里尼克教授成功地<br>将数学原理应用于自然语言处理领域中，他的一生富于<br>传奇色彩。<br>1 早年生活<br>2从水门事件到莫妮卡·莱温斯基<br>3 一位老人的奇迹</p>
+<h4 id="第8章简单之美—布尔代数和搜索引擎"><a href="#第8章简单之美—布尔代数和搜索引擎" class="headerlink" title="第8章简单之美—布尔代数和搜索引擎"></a>第8章简单之美—布尔代数和搜索引擎</h4><p>布尔代数虽然非常简单，却是计算机科学的基础，它不<br>仅把逻辑和数学合二为一，而且给了我们一个全新的视<br>角看待世界，开创了数字化时代。<br>1布尔代数<br>2索引<br>3小结</p>
+<h4 id="第9章图论和网络爬虫"><a href="#第9章图论和网络爬虫" class="headerlink" title="第9章图论和网络爬虫"></a>第9章图论和网络爬虫</h4><p>互联网搜索引擎在建立索引前需要用一个程序自动地将<br>所有的网页下载到服务器上，这个程序称为网络爬虫，<br>它的编写是基于离散数学中图论的原理。<br>1 图论<br>2网络爬虫<br>3延伸阅读：图论的两点补充说明<br>4小结</p>
+<h4 id="第10章-PageRank——Google的民主表决式网页排名技术"><a href="#第10章-PageRank——Google的民主表决式网页排名技术" class="headerlink" title="第10章 PageRank——Google的民主表决式网页排名技术"></a>第10章 PageRank——Google的民主表决式网页排名技术</h4><p>网页排名技术PageRank是早期Google的杀手铜，它<br>的出现使得网页搜索的质量上了一个大的台阶。它背后<br>的原理是图论和线性代数的矩阵运算。<br>1 PageRank算法的原理<br>2延伸阅读：PageRank的计算方法<br>3小结</p>
+<h4 id="第11章-如何确定网页和查询的相关性"><a href="#第11章-如何确定网页和查询的相关性" class="headerlink" title="第11章 如何确定网页和查询的相关性"></a>第11章 如何确定网页和查询的相关性</h4><p>确定网页和查询的相关性是网页搜索的根本问题，其中确<br>定查询中每个关键词的重要性有多高是关键。TF-IDF是目<br>前通用的关键词重要性的度量，其背后的原理是信息论。<br>1 搜索关键词权重的科学度量TF-IDF<br>2延伸阅读：TF-IDF的信息论依据<br>3小结</p>
+<h4 id="第12章-有限状态机和动态规划——地图与本地"><a href="#第12章-有限状态机和动态规划——地图与本地" class="headerlink" title="第12章 有限状态机和动态规划——地图与本地"></a>第12章 有限状态机和动态规划——地图与本地</h4><p>搜索的核心技术<br>地图和本地服务中要用到有限状态机和动态规划技术。<br>这两项技术是机器智能和机器学习的工具，它们的应用<br>非常广泛，还包括语音识别、拼写和语法纠错、拼音输<br>入法、工业控制和生物的序列分析等。<br>1地址分析和有限状态机<br>2全球导航和动态规划<br>3延伸阅读：有限状态传感器<br>4小结</p>
+<h4 id="第13章-Google-AK-47的设计者——阿米特·"><a href="#第13章-Google-AK-47的设计者——阿米特·" class="headerlink" title="第13章 Google AK-47的设计者——阿米特·"></a>第13章 Google AK-47的设计者——阿米特·</h4><p>辛格博士<br>在所有轻武器中最有名的是AK-47冲锋枪，因为它从不<br>卡壳，不易损坏，可在任何环境下使用，可靠性好，杀<br>伤力大并且操作简单。Google的产品就是按照上述原<br>则设计的。</p>
+<h4 id="第14章余弦定理和新闻的分类"><a href="#第14章余弦定理和新闻的分类" class="headerlink" title="第14章余弦定理和新闻的分类"></a>第14章余弦定理和新闻的分类</h4><p>计算机虽然读不懂新闻，却可以准确地对新闻进行分类。<br>其数学工具是看似毫不相干的余弦定理。<br>1新闻的特征向量<br>2向量距离的度量<br>3延伸阅读：计算向量余弦的技巧<br>4小结</p>
+<h4 id="第15章-矩阵运算和文本处理中的两个分类问题"><a href="#第15章-矩阵运算和文本处理中的两个分类问题" class="headerlink" title="第15章 矩阵运算和文本处理中的两个分类问题"></a>第15章 矩阵运算和文本处理中的两个分类问题</h4><p>无论是词汇的聚类还是文本的分类，都可以通过线性代<br>数中矩阵的奇异值分解来进行。这样一来，自然语言处<br>理的问题就变成了一个数学问题。<br>1 文本和词汇的矩阵<br>2延伸阅读：奇异值分解的方法和应用场景<br>3 小结</p>
+<h4 id="第16章信息指纹及其应用"><a href="#第16章信息指纹及其应用" class="headerlink" title="第16章信息指纹及其应用"></a>第16章信息指纹及其应用</h4><p>世间万物都有一个唯一标识的特征，信息也是如此。每<br>一条信息都有它特定的指纹，通过这个指纹可以区别不<br>同的信息。<br>1 信息指纹<br>2 信息指纹的用途<br>3延伸阅读：信息指纹的重复性和相似哈希<br>4 小结</p>
+<h4 id="第17章由电视剧《暗算》所想到的——谈谈"><a href="#第17章由电视剧《暗算》所想到的——谈谈" class="headerlink" title="第17章由电视剧《暗算》所想到的——谈谈"></a>第17章由电视剧《暗算》所想到的——谈谈</h4><p>密码学的数学原理<br>密码学的根本是信息论和数学。没有信息论指导的密码<br>是非常容易被破解的。只有在信息论被广泛应用于密码<br>学后，密码才真正变得安全。<br>1密码学的自发时代<br>2信息论时代的密码学<br>3小结</p>
+<h4 id="第18章闪光的不一定是金子——谈谈搜索引擎"><a href="#第18章闪光的不一定是金子——谈谈搜索引擎" class="headerlink" title="第18章闪光的不一定是金子——谈谈搜索引擎"></a>第18章闪光的不一定是金子——谈谈搜索引擎</h4><p>反作弊问题和搜索结果的权威性问题<br>闪光的不一定是金子，搜索引擎中排名靠前的网页也<br>未必是有用的网页。消除这些作弊网页的原理和通信<br>中过滤噪音的原理相同。这说明信息处理和通信的很<br>多原理是相通的。<br>1搜索引擎的反作弊<br>2 搜索结果的权威性<br>3小结</p>
+<h4 id="第19章谈谈数学模型的重要性"><a href="#第19章谈谈数学模型的重要性" class="headerlink" title="第19章谈谈数学模型的重要性"></a>第19章谈谈数学模型的重要性</h4><p>正确的数学模型在科学和工程中至关重要，而发现正确<br>模型的途径常常是曲折的。正确的模型在形式上通常是<br>简单的。</p>
+<h4 id="第20章-不要把鸡蛋放到一个篮子里——谈谈最大熵模型"><a href="#第20章-不要把鸡蛋放到一个篮子里——谈谈最大熵模型" class="headerlink" title="第20章 不要把鸡蛋放到一个篮子里——谈谈最大熵模型"></a>第20章 不要把鸡蛋放到一个篮子里——谈谈最大熵模型</h4><p>最大灯模型是一个完美的数学模型。它可以将各种信息<br>整合到一个统一的模型中，在信息处理和机器学习中有<br>着广泛的应用。它在形式上非常简单、优美，而在实现<br>时需要有精深的数学基础和高超的技巧。<br>1最大摘原理和最大嘀模型<br>2延伸阅读：最大滴模型的训练<br>3小结</p>
+<h4 id="第21章-拼音输入法的数学原理"><a href="#第21章-拼音输入法的数学原理" class="headerlink" title="第21章 拼音输入法的数学原理"></a>第21章 拼音输入法的数学原理</h4><p>汉字的输入过程本身就是人和计算机之间的通信。好的<br>输入法会自觉或不自觉地遵循通信的数学模型。当然要<br>做出最有效的输入法，应当自觉使用信息论做指导。<br>1输入法与编码<br>2输入一个汉字需要敲多少个键——谈谈香<br>农第一定理<br>3 拼音转汉字的算法<br>4延伸阅读：个性化的语言模型<br>5小结</p>
+<h4 id="第22章自然语言处理的教父马库斯和他的优秀"><a href="#第22章自然语言处理的教父马库斯和他的优秀" class="headerlink" title="第22章自然语言处理的教父马库斯和他的优秀"></a>第22章自然语言处理的教父马库斯和他的优秀</h4><p>弟子们<br>将自然语言处理从基于规则的研究方法转到基于统计的<br>研究方法上，宾夕法尼亚大学的教授米奇·马库斯功不可没。<br>他创立了今天在学术界广泛使用的LCD语料库，<br>同时培养了一大批精英人物。<br>1 教父马库斯<br>2从宾夕法尼亚大学走出的精英们</p>
+<h4 id="第23章-布隆过滤器"><a href="#第23章-布隆过滤器" class="headerlink" title="第23章 布隆过滤器"></a>第23章 布隆过滤器</h4><p>日常生活中，经常要判断一个元素是否在一个集合中。<br>布隆过滤器是计算机工程中解决这个问题最好的数学工<br>1布隆过滤器的原理<br>2延伸阅读：布隆过滤器的误识别问题<br>3小结</p>
+<h4 id="第24章马尔可夫链的扩展——贝叶斯网络"><a href="#第24章马尔可夫链的扩展——贝叶斯网络" class="headerlink" title="第24章马尔可夫链的扩展——贝叶斯网络"></a>第24章马尔可夫链的扩展——贝叶斯网络</h4><p>贝叶斯网络是一个加权的有向图，是马尔可夫链的扩展。<br>而从认识论的层面看：贝叶斯网络克服了马尔可夫链那<br>种机械的线性约束，它可以把任何有关联的事件统一到<br>它的框架下面。它在生物统计、图像处理、决策支持系<br>统和博奕论中都有广泛的使用。<br>1 贝叶斯网络<br>2 贝叶斯网络在词分类中的应用<br>3延伸阅读：贝叶斯网络的训练<br>4.小结</p>
+<h4 id="第25章-条件随机场、文法分析及其他"><a href="#第25章-条件随机场、文法分析及其他" class="headerlink" title="第25章 条件随机场、文法分析及其他"></a>第25章 条件随机场、文法分析及其他</h4><p>条件随机场是计算联合概率分布的有效模型,而句法<br>分析似乎是英文课上英语老师教的东西,这两者有什<br>么联系呢?<br>1 文法分析——计算机算法的演变<br>2 条件随机场<br>3 条件随机场在其他领域的应用<br>4 小结</p>
+<h4 id="第26章维特比和他的维特比算法"><a href="#第26章维特比和他的维特比算法" class="headerlink" title="第26章维特比和他的维特比算法"></a>第26章维特比和他的维特比算法</h4><p>维特比算法是现代数字通信中使用最频繁的算法,同时<br>也是很多自然语言处理的解码算法。可以毫不夸张地讲。<br>维特比是对我们今天生活的影响力最大的科学家之一,<br>因为如今基于CDMA的3G移动通信标准主要就是他创<br>办的高通公司制定的。<br>1 维特比算法<br>2 CDMA技术——3G移动通信的基础<br>3 小结</p>
+<h4 id="第27章-上帝的算法——期望最大化算法"><a href="#第27章-上帝的算法——期望最大化算法" class="headerlink" title="第27章 上帝的算法——期望最大化算法"></a>第27章 上帝的算法——期望最大化算法</h4><p>只要有一些训练数据,再定义一个最大化函数,采用<br>EM算法,利用计算机经过若干次法代,就可以得到所<br>需要的模型。这实在是太美妙了,这也许是我们的造物<br>主刻意安排的。所以我把它称作上帝的算法。<br>1 文本的自收敛分类<br>2 延伸阅读:期望最大化和收敛的必然性<br>3 小结</p>
+<h4 id="第28章逻辑回归和搜索广告"><a href="#第28章逻辑回归和搜索广告" class="headerlink" title="第28章逻辑回归和搜索广告"></a>第28章逻辑回归和搜索广告</h4><p>逻辑回归模型是一种将影响概率的不同因素结合在一起<br>的指数模型,它不仅在搜索广告中起着重要的作用,而<br>且被广泛应用于信息处理和生物统计中。<br>1 搜索广告的发展<br>2 逻辑回归模型<br>3 小结</p>
+<h4 id="第29章-各个击破算法和Google-云计算的基础"><a href="#第29章-各个击破算法和Google-云计算的基础" class="headerlink" title="第29章 各个击破算法和Google 云计算的基础"></a>第29章 各个击破算法和Google 云计算的基础</h4><p>Google颇为神秘的云计算中最重要的MapReduce工具,<br>其原理就是计算机算法中常用的“各个击破”算法,它<br>的原理原来这么简单——将复杂的大问题分解成很多小<br>问题分别求解,然后再把小问题的解合并成原始问题的<br>解。由此可见,在生活中大量用到的、真正有用的方法<br>常常都是简单朴实的。<br>1 分治算法的原理<br>2 从分治算法到 MapReduce<br>3 小结</p>
+<h4 id="第30章-Google大脑和人工神经网络"><a href="#第30章-Google大脑和人工神经网络" class="headerlink" title="第30章 Google大脑和人工神经网络"></a>第30章 Google大脑和人工神经网络</h4><p>Google 大脑并不是一个什么都能思考的大脑,而是一<br>个很能计算的人工神经网络。因此,与其说Google大<br>脑很聪明,不如说它很能算。不过,换个角度来说,随<br>着计算能力的不断提高,计算量大但简单的数学方法有<br>时能够解决很复杂的问题。<br>1 人工神经网络<br>2 训练人工神经网络<br>3 人工神经网络与贝叶斯网络的关系<br>4 延伸阅读:“Google大脑”<br>5 小结</p>
+<h4 id="第31章大数据的威力——谈谈数据的重要性"><a href="#第31章大数据的威力——谈谈数据的重要性" class="headerlink" title="第31章大数据的威力——谈谈数据的重要性"></a>第31章大数据的威力——谈谈数据的重要性</h4><p>如果说在过去的40年里,主导全球IT产业发展的是摩<br>尔定律,那么在今后的20年里,主导IT行业继续发展<br>的动力则将来自于数据。<br>1 数据的重要性<br>2 数据的统计和信息技术<br>3 为什么需要大数据<br>4 小结<br>附录 计算复杂度</p>
+<h2 id="人工神经网络与贝叶斯网络"><a href="#人工神经网络与贝叶斯网络" class="headerlink" title="人工神经网络与贝叶斯网络"></a>人工神经网络与贝叶斯网络</h2><p>3人工神经网络与贝叶斯网络的关系<br>从上面很多图中可以看到，人工神经网络与贝叶斯网络非常相似。比如<br>图30.8所示的有向图，如果我们说它就是一个贝叶斯网络，也是完全正<br>确的。人工神经网络和贝叶斯网络至少有这样几个共同点。<br>1.它们都是有向图，每一个节点的取值只取决于前一级的节点，而<br>与更前面的节点无关，也就是说遵从马尔可夫假设。<br>2.它们的训练方法相似，这一点从上面的介绍中就能够看出来了。<br>3.对于很多模式分类问题，这两种方法在效果上相似，也就是说<br>很多用人工神经网络解决的问题，也能用贝叶斯网络解决，反之亦然，<br>但是它们的效率可能会不同。如果把人工神经网络和贝叶斯网络都<br>看成是统计模型，那么这两种模型的准确性也是类似的。<br>4.它们的训练计算量都特别大，对此大家在使用人工神经网络时<br>要有心理准备。<br>不过，人工神经网络与贝叶斯网络还是有不少不同之处的。<br>1.人工神经网络在结构上是完全标准化的，而贝叶斯网络更灵活。<br>Google大脑选用人工神经网络，就是因为看中了它的标准化这一特点。<br>2.虽然神经元函数为非线性函数，但是各个变量只能先进行线性<br>组合，最后对一个变量（即前面组合出来的结果）进行非线性变换，<br>因此用计算机实现起来比较容易。而在贝叶斯网络中，变量可以组<br>合成任意的函数，毫无限制，在获得灵活性的同时，也增加了复杂性。<br>3.贝叶斯网络更容易考虑（上下文）前后的相关性，因此可以解<br>码一个输入的序列，比如将一段语音识别成文字，或者将一个英语<br>句子翻译成中文。而人工神经网络的输出相对孤立，它可以识别一<br>个个字，但是很难处理一个序列，因此它主要的应用常常是估计一<br>个概率模型的参数，比如语音识别中声学模型参数的训练、机器翻<br>译中语言模型参数的训练，等等，而不是作为解码器。<br>了解到人工神经网络和贝叶斯网络的异同，你会发现很多机器学习的数<br>学工具其实是一通百通，并且可以根据实际问题找到最方便的工具。</p>
+<h3 id="Google大脑与机器学习"><a href="#Google大脑与机器学习" class="headerlink" title="Google大脑与机器学习"></a>Google大脑与机器学习</h3><p>Google大脑为什么要采用人工神经网络而不是其他机器学习的技术呢？<br>这里面的原因有三：<br>第一，从理论上讲，人工神经网络可以在多维空间“画出”各种形状的<br>模式分类边界，因此它有很好的通用性；<br>第二，虽然在过去的20多年里，各种机器学习的算法不断涌现，而且<br>不断在改进，但是人工神经网络的算法非常稳定，几乎没有怎么变过。<br>Google希望自己开发的计算工具（Google大脑）能够设计一次，长期使<br>用。否则，如果使用一种每年都要改进的机器学习算法，基础架构也要<br>随之改变，在此之上开发的工具也必须全部重新开发，那么即便这种工<br>具再好也不会有人使用了；<br>第三，并非所有的机器学习算法（比如贝叶斯网络）都容易并行化，人<br>工神经网络的训练算法相对简单，容易并行实现。</p>
+<h3 id="03-统计语言模型"><a href="#03-统计语言模型" class="headerlink" title="03 统计语言模型"></a>03 统计语言模型</h3><ol>
+<li><p>Turing, Alan(October 1950), “Computing Machinery and Intelligence”,<br>Mind LIX(236):433-460,doi:10.1093/mind/LIX.236.433</p>
+</li>
+<li><p>Katz, S. M. (1987). Estimation of probabilities from sparse data for the language model<br>component of a speech recogniser. IEEE Transactions on Acoustics, Speech, and Signal<br>Processing,35(3),400-401</p>
+</li>
+<li><p>Frederick Jelinek, Statistical Methods for Speech Recognition (Language, Speech, and<br>Communication), 1998 MIT Press.</p>
+</li>
+<li><p>Kneser, Reinhard, and Ney. 1995. Improved backing-off for m-gram language modeling.<br>In Proceedings of ICASSP-95,vol.1,18-184.</p>
+</li>
+</ol>
+<h3 id="04-分词"><a href="#04-分词" class="headerlink" title="04 分词"></a>04 分词</h3><ol>
+<li>梁南元书面汉语自动分词系统<br><a href="http://www.touchwrite.com/demo/LiangNanyuan-JCIP-1987.pdf" target="_blank" rel="noopener">http://www.touchwrite.com/demo/LiangNanyuan-JCIP-1987.pdf</a></li>
+<li>郭进统计语言模型和汉语音字转换的一些新结果<br><a href="http://www.touchwrite.com/demo/GuoJin-JCIP-1993.pdf" target="_blank" rel="noopener">http://www.touchwrite.com/demo/GuoJin-JCIP-1993.pdf</a></li>
+<li>郭进Critical Tokenization and its Properties <a href="http://acl.ldc.upenn.edu/J/J97/J97-4004.pdf" target="_blank" rel="noopener">http://acl.ldc.upenn.edu/J/J97/J97-4004.pdf</a></li>
+<li>孙茂松 Chinese word segmentation without using lexicon and hand-crafted training<br>data <a href="http://portal.acm.org/citation.cfm?coll=GUIDE&amp;dl=GUIDE&amp;id=980775" target="_blank" rel="noopener">http://portal.acm.org/citation.cfm?coll=GUIDE&amp;dl=GUIDE&amp;id=980775</a></li>
+<li>Dekai WU. “Stochastic inversion transduction grammars, with application to<br>segmentation, bracketing, and alignment of parallel corpora”. UCAI-95: 14th Intl. Joint<br>Conf. on Artificial Intelligence, 1328-1335. Montreal: Aug 1995</li>
+</ol>
+<h3 id="05-隐马尔科夫"><a href="#05-隐马尔科夫" class="headerlink" title="05 隐马尔科夫"></a>05 隐马尔科夫</h3><ol>
+<li>1.Baum,L.E.;Petrie,T.(1966).”Statistical Inference for Probabilistic Functions of Finite<br> State Markov Chains”. The Annals of Mathematical Statistics 37 (6): 1554-1563.<br> 2.Baum,L.E.;Eagon,J.A.(1967).”An inequality with applications to statistical estimation<br> for probabilistic functions of Markov processes and to a model for ecology”. Bulletin of<br> the American Mathematical Society 73 (3):<br> 3.Baum,L.E.;Sell,G.R.(1968).”Growth transformations for functions on manifolds”.<br> Pacific Journal of Mathematics 27 (2): 211-227.<br> 4.Baum,L.E.;Petrie,T.;Soules,G.;Weiss,N.(1970).”A Maximization Technique Occurring<br> in the Statistical Analysis of Probabilistic Functions of Markov Chains”. The Annals of<br> Mathematical Statistics 41:</li>
+<li>Jelinek, F.; Bahl, L.; Mercer, R. (1975). “Design of a linguistic statistical decoder for the<br> recognition of continuous speech”. IEEE Transactions on Information Theory 21 (3): 250.</li>
+</ol>
+<h3 id="06-信息论"><a href="#06-信息论" class="headerlink" title="06 信息论"></a>06 信息论</h3><ol>
+<li>Thomas M. Cover, Joy A. Thomas. Elements of Information Theory New York: Wiley,</li>
+<li>ISBN0-471-06259-6<br>中译本：Thomas M. Cover, Joy A. Thomas,信息论基础，清华大学出版社，2003</li>
+<li>Kai-Fu Lee, Automatic Speech Recognition: The Development of the SPHINX System,<br> Springer,1989.</li>
+<li>Gale, W., K. Church, and D. Yarowsky. A Method for Disambiguating Word Senses in a<br> Large Corpus.” Computers and the Humanities. 26, pp. 415-439, 1992</li>
+</ol>
+<h3 id="10-Pagerank"><a href="#10-Pagerank" class="headerlink" title="10 Pagerank"></a>10 Pagerank</h3><ol>
+<li>Sergey Brin and Lawrence Page, The Anatomy of a Large-Scale Hypertextual Web<br>Search Engine,<a href="http://infolab.stanford.edu/~backrub/google.html" target="_blank" rel="noopener">http://infolab.stanford.edu/~backrub/google.html</a></li>
+</ol>
+<h3 id="11-TF-IDF"><a href="#11-TF-IDF" class="headerlink" title="11 TF-IDF"></a>11 TF-IDF</h3><ol>
+<li>Sparck Jones, Karen “A statistical interpretation of term specificity and its application<br>in retrieval”. Journal of Documentation28 (1): 11-21, 1972</li>
+<li>Salton, G. and M.J. McGill, Introduction to modern information retrieval. McGraw-Hill,<br> 1986</li>
+<li>H.C.Wu,R.W.P.Luk,K.F.Wong,K.L.Kwok”Interpreting tf-idf term weights as making<br> relevance decisions”. ACM Transactions on Information Systems 26 (3): 1-37, 2008</li>
+</ol>
+<h3 id="12-有限状态机"><a href="#12-有限状态机" class="headerlink" title="12 有限状态机"></a>12 有限状态机</h3><ol>
+<li>MehryarMohri, Fernando Pereira, Michael Riley, Weighted finite-state transducers in<br> speech recognition, Computer Speech and Language, V16-1, pp69-88,2002</li>
+</ol>
+<h3 id="15-矩阵运算"><a href="#15-矩阵运算" class="headerlink" title="15 矩阵运算"></a>15 矩阵运算</h3><ol>
+<li>J.R.Bellegarda,Exploiting latent semantic information in statistical language<br> modeling, Proceedings of the IEEE, Volume: 88 Issue: 8, 1279-1296, August 2008.</li>
+</ol>
+<h3 id="16-信息指纹"><a href="#16-信息指纹" class="headerlink" title="16 信息指纹"></a>16 信息指纹</h3><ol>
+<li>Moses Charikar, Similarity Estimation Techniques from Rounding Algorithms,<br> Proceedings of the 34th Annual ACM Symposium on Theory of Computing, 2002.</li>
+<li>Gurmeet Singh Manku, Arvind Jain and Anish Das Sarma, Detecting Near-Duplicates<br> for Web Crawling,WWW2007,2007.</li>
+</ol>
+<h3 id="20-最大熵模型"><a href="#20-最大熵模型" class="headerlink" title="20 最大熵模型"></a>20 最大熵模型</h3><ol>
+<li>Csiszar, 1. I-Divergene Geometry of Probability Distributionsand Minimization<br>Problems. The Annals of Statistics. Vol. 3, No 1, pp.146-158, 1975</li>
+<li>Csiszar, 1. A Geometric Interpretation of Darroch and Ratcliff sGeneralized iterative<br>Scaling. The Annals of Statistics. Vol. 17, No.3, pp.1409-1413. 1989</li>
+<li>Della Pietra, S., Della Pietra, V. &amp; Lafferty, J. Inducing Features of Random Fields, IEEE<br>Trans.on PatternAnalysis and Machine Intelligence.vol.19,No.4,pp280-393,1997</li>
+<li>Khudanpur, S. &amp; Wu,J. Maximum Entropy Techniques for Exploiting Syntactic,<br>Semantic and Collocational Dependencies in Language Modeling. Computer Speech and<br>Language Vol.14,No.5,pp.355-372,2000</li>
+<li>Wu,J,Maximum entropy language modeling with non-local dependencies,<br> Ph.Ddissertation,<a href="http://www.cs.jhu.edu/~junwu/publications/dissertation.pdf,2002" target="_blank" rel="noopener">www.cs.jhu.edu/~junwu/publications/dissertation.pdf,2002</a></li>
+</ol>
+<h3 id="24-贝叶斯网络"><a href="#24-贝叶斯网络" class="headerlink" title="24 贝叶斯网络"></a>24 贝叶斯网络</h3><p>对贝叶斯网络有特别兴趣的读者，可以阅读比尔默和茨威格共同发表的论文：<br><a href="http://ssli.ee.washington.edu/~bilmes/pgs/sort_date.html" target="_blank" rel="noopener">http://ssli.ee.washington.edu/~bilmes/pgs/sort_date.html</a><br>如果想更系统地了解这方面的知识，可阅读斯坦福大学科勒（Daphne<br>Koller)教授写的巨著 Probabilistic Graphical Models: Principles and<br>Techniques,这本书有一千多页，而且价格不菲，因此只适合于专业人士。<br>读者还可以从“数学之美番外篇：平凡而又神奇的贝叶斯方法”一文中<br>找到更多的贝叶斯网络的应用。</p>
+<h3 id="30-神经网络"><a href="#30-神经网络" class="headerlink" title="30 神经网络"></a>30 神经网络</h3><ol>
+<li>Quoc V. Le,Marc’ Aurelio Ranzato, Rajat Monga, Matthieu Devin, Kai Chen, Greg S. Corrado,<br>Jeff Dean, Andrew Y. Ng, Building High-level Features Using Large Scale Unsupervised Learnin,<br>Proceedings of 20th International Conference of Machine Learning, 2012.</li>
+<li>Andrea Frome<em>, Greg S. Corrado</em>, Jonathon Shlens*, Samy Bengio Jeffrey Dean,<br>Marc’ Aurelio Ranzato, Tomas Mikolov, DeViSE: A Deep Visual-Semantic Embedding Model</li>
+</ol>
+<h3 id="31-大数据"><a href="#31-大数据" class="headerlink" title="31 大数据"></a>31 大数据</h3><ol>
+<li><p>盛骤，谢式干，潘承毅，概率论与数理统计（第4版）高等教育出版社，2010年</p>
+</li>
+<li><p>Thorsten Brants, Ashok C. Popat, Peng Xu, Franz J. Och, Jeffrey Dean, Large Language<br>Models in Machine Translation Proceedings of the 2007 EMNLP-CoNLL, pp. 858-867</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/08/13/%E3%80%8A%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86%E3%80%8B%E6%9B%BC%E6%98%86/" rel="next" title="《经济学原理》曼昆">
+                  <i class="fa fa-chevron-left"></i> 《经济学原理》曼昆
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/08/15/%E3%80%8A%E6%9D%9C%E5%B0%9A%E8%AE%BF%E8%B0%88%E5%BD%95%E3%80%8B%E5%8D%A1%E5%B7%B4%E5%86%85/" rel="prev" title="《杜尚访谈录》卡巴内">
+                  《杜尚访谈录》卡巴内 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《数学之美》吴军"><span class="nav-number">1.</span> <span class="nav-text">《数学之美》吴军</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第1章文字和语言vs数字和信息"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">第1章文字和语言vs数字和信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第2章自然语言处理——从规则到统计"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">第2章自然语言处理——从规则到统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第3章-统计语言模型"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">第3章 统计语言模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第4章-谈谈分词"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">第4章 谈谈分词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第5章-隐含马尔可夫模型"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">第5章 隐含马尔可夫模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第6章信息的度量和作用"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">第6章信息的度量和作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第7章贾里尼克和现代语言处理"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">第7章贾里尼克和现代语言处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第8章简单之美—布尔代数和搜索引擎"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">第8章简单之美—布尔代数和搜索引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第9章图论和网络爬虫"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">第9章图论和网络爬虫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第10章-PageRank——Google的民主表决式网页排名技术"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">第10章 PageRank——Google的民主表决式网页排名技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第11章-如何确定网页和查询的相关性"><span class="nav-number">1.1.0.11.</span> <span class="nav-text">第11章 如何确定网页和查询的相关性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第12章-有限状态机和动态规划——地图与本地"><span class="nav-number">1.1.0.12.</span> <span class="nav-text">第12章 有限状态机和动态规划——地图与本地</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第13章-Google-AK-47的设计者——阿米特·"><span class="nav-number">1.1.0.13.</span> <span class="nav-text">第13章 Google AK-47的设计者——阿米特·</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第14章余弦定理和新闻的分类"><span class="nav-number">1.1.0.14.</span> <span class="nav-text">第14章余弦定理和新闻的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第15章-矩阵运算和文本处理中的两个分类问题"><span class="nav-number">1.1.0.15.</span> <span class="nav-text">第15章 矩阵运算和文本处理中的两个分类问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第16章信息指纹及其应用"><span class="nav-number">1.1.0.16.</span> <span class="nav-text">第16章信息指纹及其应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第17章由电视剧《暗算》所想到的——谈谈"><span class="nav-number">1.1.0.17.</span> <span class="nav-text">第17章由电视剧《暗算》所想到的——谈谈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第18章闪光的不一定是金子——谈谈搜索引擎"><span class="nav-number">1.1.0.18.</span> <span class="nav-text">第18章闪光的不一定是金子——谈谈搜索引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第19章谈谈数学模型的重要性"><span class="nav-number">1.1.0.19.</span> <span class="nav-text">第19章谈谈数学模型的重要性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第20章-不要把鸡蛋放到一个篮子里——谈谈最大熵模型"><span class="nav-number">1.1.0.20.</span> <span class="nav-text">第20章 不要把鸡蛋放到一个篮子里——谈谈最大熵模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第21章-拼音输入法的数学原理"><span class="nav-number">1.1.0.21.</span> <span class="nav-text">第21章 拼音输入法的数学原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第22章自然语言处理的教父马库斯和他的优秀"><span class="nav-number">1.1.0.22.</span> <span class="nav-text">第22章自然语言处理的教父马库斯和他的优秀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第23章-布隆过滤器"><span class="nav-number">1.1.0.23.</span> <span class="nav-text">第23章 布隆过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第24章马尔可夫链的扩展——贝叶斯网络"><span class="nav-number">1.1.0.24.</span> <span class="nav-text">第24章马尔可夫链的扩展——贝叶斯网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第25章-条件随机场、文法分析及其他"><span class="nav-number">1.1.0.25.</span> <span class="nav-text">第25章 条件随机场、文法分析及其他</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第26章维特比和他的维特比算法"><span class="nav-number">1.1.0.26.</span> <span class="nav-text">第26章维特比和他的维特比算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第27章-上帝的算法——期望最大化算法"><span class="nav-number">1.1.0.27.</span> <span class="nav-text">第27章 上帝的算法——期望最大化算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第28章逻辑回归和搜索广告"><span class="nav-number">1.1.0.28.</span> <span class="nav-text">第28章逻辑回归和搜索广告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第29章-各个击破算法和Google-云计算的基础"><span class="nav-number">1.1.0.29.</span> <span class="nav-text">第29章 各个击破算法和Google 云计算的基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第30章-Google大脑和人工神经网络"><span class="nav-number">1.1.0.30.</span> <span class="nav-text">第30章 Google大脑和人工神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第31章大数据的威力——谈谈数据的重要性"><span class="nav-number">1.1.0.31.</span> <span class="nav-text">第31章大数据的威力——谈谈数据的重要性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人工神经网络与贝叶斯网络"><span class="nav-number">1.2.</span> <span class="nav-text">人工神经网络与贝叶斯网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Google大脑与机器学习"><span class="nav-number">1.2.1.</span> <span class="nav-text">Google大脑与机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-统计语言模型"><span class="nav-number">1.2.2.</span> <span class="nav-text">03 统计语言模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-分词"><span class="nav-number">1.2.3.</span> <span class="nav-text">04 分词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-隐马尔科夫"><span class="nav-number">1.2.4.</span> <span class="nav-text">05 隐马尔科夫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06-信息论"><span class="nav-number">1.2.5.</span> <span class="nav-text">06 信息论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Pagerank"><span class="nav-number">1.2.6.</span> <span class="nav-text">10 Pagerank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-TF-IDF"><span class="nav-number">1.2.7.</span> <span class="nav-text">11 TF-IDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-有限状态机"><span class="nav-number">1.2.8.</span> <span class="nav-text">12 有限状态机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-矩阵运算"><span class="nav-number">1.2.9.</span> <span class="nav-text">15 矩阵运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-信息指纹"><span class="nav-number">1.2.10.</span> <span class="nav-text">16 信息指纹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-最大熵模型"><span class="nav-number">1.2.11.</span> <span class="nav-text">20 最大熵模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-贝叶斯网络"><span class="nav-number">1.2.12.</span> <span class="nav-text">24 贝叶斯网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#30-神经网络"><span class="nav-number">1.2.13.</span> <span class="nav-text">30 神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31-大数据"><span class="nav-number">1.2.14.</span> <span class="nav-text">31 大数据</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Frank Shi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frank shi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
