@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="Frank Shi">
 <meta property="og:description" content="记录使用Hexo+Github Pages配置此博客的过程，由于自己能力有限而且也确实太懒，在过程中参考了网上很多教程，多把自己用到的部分直接转了过来，在文中有链接说明，若有冒犯实表抱歉。相关概念什么是Hexo度娘谷歌搜索了Hexo各种资料解说，个人感觉上这是一套使用第三方主题模板+自己的博客文章（.md文件）+网站信息配置，通过Node.js进行本地连接混合生成一套静态网站的工具链套件">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-12T16:29:40.938Z">
+<meta property="og:updated_time" content="2019-11-20T11:25:03.374Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/12/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/">
@@ -221,7 +221,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-13 00:29:40" itemprop="dateModified" datetime="2019-11-13T00:29:40+08:00">2019-11-13</time>
+                <time title="Modified: 2019-11-20 19:25:03" itemprop="dateModified" datetime="2019-11-20T19:25:03+08:00">2019-11-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,9 +291,8 @@
 <h3 id="设置站点相关内容"><a href="#设置站点相关内容" class="headerlink" title="设置站点相关内容"></a>设置站点相关内容</h3><p>设置站点名、作者昵称和站点描述等内容：打开博客配置文件，博客根目录下_config.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">copy# Site</span><br><span class="line">title: Vicの博客</span><br><span class="line">subtitle: 测试攻城狮</span><br><span class="line">description: 人生苦短，我学Python</span><br><span class="line">keywords:</span><br><span class="line">author: Vic</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加网易云音乐"><a href="#添加网易云音乐" class="headerlink" title="添加网易云音乐"></a>添加网易云音乐</h3><p>打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器</p>
-<p>复制外链的代码</p>
-<p>比如在侧栏插入这首歌的音乐播放器，修改 blog\themes\next\layout_macro的sidebar.swig文件，添加刚刚复制的外链代码。</p>
+<h3 id="添加网易云音乐"><a href="#添加网易云音乐" class="headerlink" title="添加网易云音乐"></a>添加网易云音乐</h3><p>打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器，复制外链的代码</p>
+<p>比如在侧栏插入这首歌的音乐播放器，修改 blog\themes\next\layout\_macro的sidebar.swig文件，找合适的地方添加刚刚复制的外链代码。</p>
 <h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>参考</p>
 <ul>
 <li><a href="https://vic.kim/2019/05/25/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E4%B9%8BNext%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener">Hexo博客优化之Next主题美化</a></li>
@@ -419,6 +418,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
 <h3 id="插入图片：图床"><a href="#插入图片：图床" class="headerlink" title="插入图片：图床"></a>插入图片：图床</h3><p>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法<code>![图片信息](外部链接)</code> 完成图片的插入，这种网站就被成为图床。常见的简易的图床网站有：<a href="https://link.zhihu.com/?target=http%3A//www.tietuku.com/">贴图库图片外链</a> 国内算比较好的图床我认为有两个：新浪微博和 <a href="https://link.zhihu.com/?target=https%3A//www.qiniu.com/">七牛云</a> ，七牛云的使用方法可以参看其他文章。图床最重要的就是稳定速度快，所以在挑选图床的时候一定要仔细</p>
+<p><a href="https://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="noopener">如何使用七牛云做为图床？</a></p>
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>GitHub Pages 默认提供的是 <code>GitHub用户名.github.io</code>（例如我的：wavky.github.io）作为博客访问地址，可设置绑定自定义域名</p>
 <p>在博客项目目录的source文件夹中，创建一个CNAME文件，存储预备使用的个人域名，如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在source目录下</span></span><br><span class="line"><span class="built_in">echo</span> story.wavky.com &gt; CNAME</span><br></pre></td></tr></table></figure>
@@ -533,9 +533,6 @@
 
 
       </div>
-
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28138493&auto=1&height=66"></iframe>
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
