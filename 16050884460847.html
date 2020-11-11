@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【NAS】群晖 WordPress 使用记录 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【NAS】群晖 WordPress 使用记录   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/11</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Tech.html'>Tech</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16050884460847.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_NAS.html'>#NAS</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>【这算是我的第一次建站尝试，使用的是最为大众熟知的 WordPress，不过由于种种原因换了很多平台，之后有机会再做记录吧；兜兜转转，现在主要的方案放在了 CNblog 上，提供了更为省心并且体验不错的服务，主要是对于 Markdown 的支持非常好。】</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">安装 WordPress</h2>
+
+<h3 id="toc_1">安装之前：服务器LNMP环境搭建</h3>
+
+<p>想要运行Wordpress网站程序，必须要有对应的软件，也就是服务器环境，比如我们常说的LNMP就是 <strong>Linux + Nginx + Mysql + PHP</strong> 环境，这是WordPress运行的基础。</p>
+
+<p>方案一：使用 <a href="https://themeforwp.net/go/bt/">宝塔面板</a> 这款工具帮助搭建WordPress运行环境</p>
+
+<p>方案二：自己搭建，因为在群晖下我们可以很方便的安装这些软件，因此在 DSM 界面进行安装，以下详解：</p>
+
+<p>需要用到的几个 packages：</p>
+
+<ul>
+<li>Web Station</li>
+<li>phpMyAdmin</li>
+<li>MariaDB 10（现在安装MariaDB的时候貌似要先设置密码了，记住用户名和密码就行）</li>
+</ul>
+
+<p>当安装完 <code>web station</code> 这个套件以后，在 <code>file station</code> 就能发现多了一个<code>web</code>的文件夹，可以在<code>我的电脑</code>那里添加了这个文件夹，方便处理数据。</p>
+
+<h3 id="toc_2">安装</h3>
+
+<p>从下载文件，解压缩后拖到<code>web</code>的文件夹，这个<code>wordpress</code>的文件夹就是博客网站了。</p>
+
+<p>接下来设置“wordpress”的文件夹的读写权限，不然安装过程会有问题，而且后续装完博客也无法安装新主题。在<code>file station</code>里面打开“web”，找到 “wordpress”，右击“wordpress”文件夹，点击“属性”，选择“权限“。把所有http的权限都改为”读取&amp;写入“。一开始可能不能修改，所以要先选择高级选项-使继承权限显式化。</p>
+
+<p>至此，博客已经安装完毕。你只需要输入你群晖的<code>IP地址+端口号</code>，就能访问编辑你的博客了。</p>
+
+<p>在安装完博客以后，会遇到更新站点、主题和插件时，出现输入FTP账号密码问题。</p>
+
+<p>其实这个是因为php没有取得写入权限的问题。解决办法就是打开 <code>wp-config.php</code> ，在最后添加一段代码：</p>
+
+<pre class="line-numbers"><code class="language-php">define(“FS_METHOD”, “direct”);
+define(“FS_CHMOD_DIR”, 0777);
+define(“FS_CHMOD_FILE”, 0777);
+</code></pre>
+
+<blockquote>
+<p>这个问题在在之前困扰了很久，可能是因为上面的更改文件权限没做好（之后才是修改wp-config.php？）。最后重新设置了文件选择，勾选了<code>apply to this folder, subfolders and files</code> 然后更改 <code>wp-config.php</code> 就可以了。</p>
+
+<p>详细可以参考这篇文章：WordPress 需要 执行请求的操作 访问您网页服务器的权限问题: <a href="https://www.hczdu.com/57153.html">https://www.hczdu.com/57153.html</a></p>
+</blockquote>
+
+<h2 id="toc_3">设置外网访问 wordpress</h2>
+
+<p>在 <code>web station</code> 中以 <code>Post-based</code> 方式新建 <code>visual host</code> 随意选择一个HTTP端口如 666，注意相应地在路由器上设置好端口转发。<code>document root</code> 填写 <code>web/wordpress</code> PHP建议选择最新的版本（不然Wordpress会提示更新）。</p>
+
+<p>然后，相应地在wordpress中修改 <code>wordpress地址</code> 和 <code>站点地址</code> 即修改为 <code>域名:端口号</code> ，然后就可以自由访问，如 <code>http://domain:port/</code> 。</p>
+
+<h2 id="toc_4">WP 插件推荐</h2>
+
+<h3 id="toc_5">主题：Twenty Sixteen</h3>
+
+<p>首先是主题，选了一个简洁现代风的主题，另外，Twenty Twelve 也很好看。</p>
+
+<p>子主题：Twenty Sixteen Child </p>
+
+<p>创建子主题进行个性化配置，参考了以下几篇文章  </p>
+
+<ol>
+<li>创建子主题：<a href="https://www.melissacarterdesign.com/wordpress-101-part-5-how-to-make-a-child-theme-why-you-need-one/">WORDPRESS 101 PART 5: HOW TO MAKE A CHILD THEME &amp; WHY YOU NEED ONE</a><br/></li>
+<li>取消 Twenty Sixteen 四周的黑边：<a href="https://www.melissacarterdesign.com/twenty-sixteen-black-border/">WORDPRESS TWENTY SIXTEEN – GETTING RID OF THE BLACK BORDER</a><br/></li>
+<li>中文教程：<a href="https://blog.wpjam.com/article/child-themes/">使用 WordPress 的子主题（Child Themes）功能快速制作自己的主题</a> </li>
+</ol>
+
+<h3 id="toc_6">代码高亮：Enlighter</h3>
+
+<p>用过 Crayon Syntax Highlighter，但因为年久失修用起来不是很满意，现在选择这个插件，提供了中文配置环境，整体的效果很棒，在编辑页面选择区块 Enlighter Sourcesode 即可使用。 <br/>
+另外，也短暂用过 Code Prettify，一个不需要设置的新手友好的插件，但功能没有 Enlighter 全。</p>
+
+<h3 id="toc_7">显示数学公式：MathJax</h3>
+
+<p>一个基于LaTeX显示数学公式的JavaScript引擎-MathJax-<a rel="noreferrer noopener" href="https://www.mathjax.org/" target="_blank"><a href="https://www.mathjax.org/">https://www.mathjax.org/</a></a>，这个 JS 引擎的优点是全浏览器支持，不需要额外插件设置。 </p>
+
+<p>使用方法：仅需在主题 <code>header.php</code> 文件里添加 JS 引用即可，在head标签里添加以下代码即可，注意必须要放到 <code>&lt;?php wp_head(); ?&gt;</code>之前，否则不生效。</p>
+
+<pre class="line-numbers"><code class="language-text">&lt;script src=&#39;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML&#39;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Reference： WordPress如何显示数学公式 <a href="http://www.fanyeong.com/2017/07/21/wordpress-how-to-display-equation/">http://www.fanyeong.com/2017/07/21/wordpress-how-to-display-equation/</a></p>
+
+<h3 id="toc_8">显示摘要：WP-UTF8-Excerpt</h3>
+
+<p>显示文章摘要，另外尝试过WP ZN Excerpt，但不适配这个主题，目前使用的这个插件的效果还行。</p>
+
+<h3 id="toc_9">表格：Easy Table</h3>
+
+<p>一个强化表格的的插件。</p>
+
+<h3 id="toc_10">BTT：WPFront Scroll Top</h3>
+
+<p>一个 Back to Top 的插件，图标可自定义为图片或文字。</p>
+
+<h3 id="toc_11">Markdown</h3>
+
+<p>关于 Markdown 是一个比较纠结的事情，希望能无缝转到网站上进行 MD 的写作，但体验总没有如 Typora 之类的软件优秀，另外，害怕因为 WordPress 的更新等问题导致页面混乱，因此，现在采用在 Typora 上进行编辑，然后复制到 WP 上再进行修改的流程。 <br/>
+如果要使用插件的话，使用过 WP Editor.md，感觉还不错。</p>
+
+<h2 id="toc_12">Reference:</h2>
+
+<ol>
+<li>wordpress 搭建教程 在家用群晖搭建wordpress博客: <a href="https://www.moks.cc/?p=42">https://www.moks.cc/?p=42</a> </li>
+<li>WordPress 需要 执行请求的操作 访问您网页服务器的权限问题: <a href="https://www.hczdu.com/57153.html">https://www.hczdu.com/57153.html</a> </li>
+</ol>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+                      
+
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

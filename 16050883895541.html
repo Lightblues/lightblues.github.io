@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【NAS】搭建 Chevereto 图床 & Typora 上传指南 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【NAS】搭建 Chevereto 图床 & Typora 上传指南   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/02/15</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Tech.html'>Tech</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16050883895541.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_NAS.html'>#NAS</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>在 <a href="https://www.cnblogs.com/easonshi/p/13205857.html">Markdown 新解决方案：Typora+本地备份+GitHub 图床</a> 中，我给出的 Markdown 图片管理方案是采用本地备份加上 GitHub 同步的思路；简言之，为了保证图片的安全性采用了本地存储，需要进行分享的话将其中的图片连接改为 GitHub 图床，这种方案在稳定性上表现得很好，但是操作上到底还是有些繁琐（需要手动上传图片，并运行链接替换的代码）。</p>
+
+<p>疫情在家，这样的方案也十分有效，最近回了学校，重新用起了 NAS，于是参考这篇文章 <a href="http://guiu.xyz/p/ab70f304.html">http://guiu.xyz/p/ab70f304.html</a> （已失效），配合 Chevereto 探索了一套新的方案；相较于之前的那种，这里的优势在于配合代码实现了图片的自动上传，因此可以直接分享；但与此同时带来的问题在于，服务依赖于图床的稳定性，由于是自用的 NAS 所以相对来说还是可以的，用了一个多月下来体验不错（域名选择的话，直接用了 Synology 免费的那个 id.synology.me 还是比较可靠的）。</p>
+
+<span id="more"></span><!-- more -->
+
+<h1 id="toc_0">搭建 Chevereto 图床</h1>
+
+<p>图床搭建的话，可以参考这一篇 <a href="https://post.smzdm.com/p/a3gvxnon/">https://post.smzdm.com/p/a3gvxnon/</a> ，没什么好多说的，我把当时参考的链接放在下面。</p>
+
+<ul>
+<li>Chevereto 的 GitHub 主页在这里 <a href="https://github.com/Chevereto/Chevereto-Free">https://github.com/Chevereto/Chevereto-Free</a> ；这是中文文档 <a href="https://ch.cndrew.cn/cn/Preface/Introduction/">https://ch.cndrew.cn/cn/Preface/Introduction/</a> </li>
+<li>另外可能需要图片的转移，参见 <a href="http://guiu.xyz/p/1bcf5275.html">http://guiu.xyz/p/1bcf5275.html</a> 写的非常好</li>
+<li>Typora 结合 Chevereto 方案：python编写typora插件实现传图到chevereto <a href="http://guiu.xyz/p/ab70f304.html">http://guiu.xyz/p/ab70f304.html</a> </li>
+</ul>
+
+<p>搭建完成之后可以收获一个支持多账号的在线图床服务，可以自行探索，我不在用也就不多说了。</p>
+
+<h2 id="toc_1">利用 Python 实现 Typora 图片上传</h2>
+
+<p>原始方案来自 <a href="http://guiu.xyz/p/ab70f304.html">http://guiu.xyz/p/ab70f304.html</a> 不过网页已失效，这里 <a href="https://zhuanlan.zhihu.com/p/150785463">https://zhuanlan.zhihu.com/p/150785463</a> 有一个备份可供参考，下面也赘述一番。</p>
+
+<p>在合适的文件夹下新建一个 <code>upload.py</code> 文件，内容如下（记得当时好像做了一点修改，原始的可参考上面的知乎链接）</p>
+
+<pre class="line-numbers"><code class="language-python">#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+# author: guiu
+# data: 2020.2.28
+
+import requests
+import json
+import mimetypes
+import argparse
+import sys
+
+APP_DESC = &quot;&quot;&quot;
+一个上传图片到chevereto图床的命令行工具
+&quot;&quot;&quot;
+
+print(APP_DESC)
+if len(sys.argv) == 1:
+    sys.argv.append(&#39;--help&#39;)
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&#39;-s&#39;, &#39;--source&#39;, type=str, nargs=&#39;+&#39;, help=&quot;&quot;, required=True)
+parser.add_argument(&#39;-c&#39;, &#39;--config&#39;, default=&quot;./config.json&quot;, help=&quot;读取配置文件&quot;, required=True)
+args = parser.parse_args()
+
+# 从参数中获取要上传的文件列表
+img_list = args.source
+# print(img_list)
+
+def read_conf(path):
+    with open(path,&quot;r&quot;,encoding=&quot;utf-8&quot;) as f:
+        confstr = f.read()
+        conf = json.loads(confstr)
+    return conf
+
+def up_to_chevereto(img_list):
+    # 获得本地图片路径后，上传至图床并记录返回的json字段
+    for img in img_list:
+        # 先判断传过来的是本地路径还是远程图片地址
+        if &quot;http&quot; == img[:4]:
+            # 非本地图片的话可以考虑下载到本地再上传，但是没这个必要
+            print(img)
+            continue
+        else:
+            try:
+                res_json = upload(formatSource(img))
+                parse_response_url(res_json,img)
+            except:
+                print(img+&quot;\t上传失败&quot;)
+
+def upload(files):
+    # 图床api
+    # APIKey = &quot;THERE PUT YOUR APIKEY&quot;
+    conf = read_conf(args.config)
+    url = conf[&#39;url&#39;] + &quot;?key=&quot; + conf[&#39;APIKEY&#39;]
+    r = requests.post(url, files=files)
+    return json.loads(r.text)
+
+def formatSource(filename):
+    imageList = []
+    mime_type = mimetypes.guess_type(filename)[0]
+    imageList.append(
+        (&#39;source&#39;, (filename, open(filename, &#39;rb&#39;), mime_type))
+    )
+    #print (imageList)
+    return imageList
+
+def parse_response_url(json, img_path):
+        # 从返回的json中解析字段
+    if json[&#39;status_code&#39;] != 200:
+        print(&quot;{}\tweb端返回失败,可能是APIKey不对. status_code {} .&quot;.format(
+            img_path, json[&#39;status_code&#39;])
+        )
+    else:
+        img_url = json[&quot;image&quot;][&quot;url&quot;]
+        print(img_url)
+
+up_to_chevereto(img_list)
+</code></pre>
+
+<p>可以看到需要调用 Chevereto 的 APIKEY。需要在 Chevereto 的 <code>仪表板-设置</code> 中，在设置旁边的下列菜单中选择 <code>API</code> ，即可找到 key，默认有一个也可以自定义。</p>
+
+<p>新建一个 <code>config.json</code> 保存配置</p>
+
+<pre class="line-numbers"><code class="language-javascript"> {
+     &quot;APIKEY&quot;: &quot;YOUR API KEY&quot;, 
+     &quot;url&quot;: &quot;http://your_website/api/1/upload/&quot;
+ }
+</code></pre>
+
+<p>注意将其中的 key 值和网址做相应的替换。</p>
+
+<h2 id="toc_2">Typora 中进行相应设置</h2>
+
+<p>配置如下</p>
+
+<p><img src="media/16050883895541/16050884355374.png" alt=""/></p>
+
+<p>其中的上传代码为，下面是我的配置，注意在使用的时候，将 Python 地址、代码地址、配置文件地址作相应的替换。</p>
+
+<pre class="line-numbers"><code class="language-shell">~/miniconda3/bin/python ~/SynologyDrive/Markdown/upload.py -c ~/SynologyDrive/Markdown/config.json -s
+</code></pre>
+
+<p>不知道为什么直接用 <code>python</code> 不可以，只好写了个全地址，上传的速度还是可以的。</p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+                      
+
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>
