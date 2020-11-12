@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       
-    MWeb 入门 - 
+    MWeb 入门指南 - 
     
     </title>
     <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
@@ -85,7 +85,7 @@
                   <div class="post-body single-content">
                     
                     <h1 class="title">
-                            MWeb 入门   
+                            MWeb 入门指南   
                       </h1>
                      
                     
@@ -161,7 +161,10 @@
 <li>快速搜索 <a href="http://zh.mweb.im/15303804636963.html">http://zh.mweb.im/15303804636963.html</a> 使用 <code>CMD+O</code> 进行全局搜索；</li>
 <li>MWeb 外部模式详细介绍 <a href="http://zh.mweb.im/15304187309476.html">http://zh.mweb.im/15304187309476.html</a> 这个功能应该是为了照顾例如我这种从 Typora 转过来的人，不过已经准备将外部的这些文件全部放到 MWeb 中管理了；</li>
 <li>MWeb 生成静态网站 &amp; 博客 <a href="http://zh.mweb.im/mweb-static-blog.html">http://zh.mweb.im/mweb-static-blog.html</a> 介绍了 <strong>两种文章类型（文章和页面）、网站拓展设置、文档拓展、设置网页主菜单、添加阅读更多注释</strong> 等内容；</li>
-<li>自定义或制作自己的静态网站模板 <a href="http://zh.mweb.im/make_your_site_template.html">http://zh.mweb.im/make_your_site_template.html</a> ###</li>
+<li>自定义或制作自己的静态网站模板 <a href="http://zh.mweb.im/make_your_site_template.html">http://zh.mweb.im/make_your_site_template.html</a> ###
+<ul>
+<li>介绍了 MWeb 静态网站的生成过程、如何自定义网站模板，以及所有变量参考，日后技能点加上了之后再去琢磨……</li>
+</ul></li>
 </ul>
 
 <h2 id="toc_1">图片管理</h2>
@@ -246,21 +249,38 @@
 
 <p>自己试了几个系统自带的主题，最后选择了 <code>site-mwev-bulma</code> ，原因是包含了该主题默认包含了 分类、标签 的功能；美中不足的地方有：1. 每个文档需要手工设定 <code>eexcerpt</code> 和 <code>featured</code> 以显示简介或封面图，当然这一点也见仁见智；2. 没有自带的搜索功能。</p>
 
-<h3 id="toc_9">添加评论等功能</h3>
+<h3 id="toc_9">添加评论、分享、流量分析功能</h3>
 
-<p>一份比较成功的实践可参考 <a href="http://lsof.fun/15625029387037.html">我的博客搬家啦</a>，包括添加 评论、分享、点击量分析 功能的代码，可惜没有实现教程。</p>
+<p>参见 <a href="http://lsof.fun/15625029387037.html">我的博客搬家啦</a> 一文，包括 <strong>评论、分享、流量分析</strong>，可惜只有代码没有实现教程。</p>
+
+<p>其中评论功能功能比较复杂自己搞了很久也不算满意，最后用的是 Disqus；分享的话比较简单直接用了 Addthis；而流量分析之前在 <a href="https://www.cnblogs.com/easonshi/">cnblogs</a> 里实践过，用的还是 Google Analytics。</p>
 
 <h4 id="toc_10">评论</h4>
 
 <p>完全是因为无知，在评论的问题上折腾了好久，尝试了 Disqus、来必力和 Gitalk，最终还是选择了 Disqus；由于周知的原因，Disqus 在国内的使用体验并不理想，另外自己在配置方面也有很多的问题；因此目前只能算是权衡之计，日后有机会再去研究。</p>
 
+<p>对于静态博客的评论方案比较，可参考 <a href="https://weiweitop.fun/2019/08/10/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%AF%94%E8%BE%83%E5%8F%8A%E9%80%89%E6%8B%A9/">静态博客评论系统的比较及选择</a> ；此外，<a href="https://www.xdx97.com/article?bamId=672122394537623552">个人博客【留言功能】生命历程</a> 介绍了如何实现动手实现一个留言板。</p>
+
 <ul>
 <li>想要使用 <code>来必力</code> 的话，可以参考 <a href="https://zhuanlan.zhihu.com/p/33617273">Hexo博客优化之实现来必力评论功能</a>，按照教程成功完成安装；</li>
 <li>关于 <code>Disqus</code> 的话，MWeb 的很多模板是自带这个拓展的，到官网完成注册之后，在「网站拓展-网站拓展设置-disqus」中填写相应的 shartname 即可；似乎本地生成的静态网站好像是不支持的（大概是需要 JavaScript？就是因为这一点导致了我后面的一系列折腾 Orz）；</li>
-<li>我之后找了很多相关的材料，这里罗列一部分：Disqus 在一般网站上的通用引入，可以参考 <a href="https://blog.zxbing0066.com/jekyll/2014/11/12/disqus.html">Jekyll--在Github Pages中使用Disqus</a>（MWeb 的模板应该也是这么干的，只是帮我们简单实现了）；另外还有一个高阶教程 <a href="https://blog.ichr.me/post/use-disqus-conveniently/">在特殊地区科学使用 Disqus 评论系统</a>；</li>
+<li>我之后找了很多相关的材料，这里罗列一部分：Disqus 在一般网站上的通用引入，可以参考 <a href="https://blog.zxbing0066.com/jekyll/2014/11/12/disqus.html">Jekyll--在Github Pages中使用Disqus</a>（MWeb 的模板应该也是这么干的，只是帮我们简单实现了）；另外还有一个高阶教程 <a href="https://blog.ichr.me/post/use-disqus-conveniently/">在特殊地区科学使用 Disqus 评论系统</a>；详细介绍配置的文章有 <a href="https://www.wpchen.net/zh-hans/posts/disqus">Disqus 详细教学：让网站拥有社群网络形式的网站留言服务系统、社会化评论框</a>；</li>
+<li>另外似乎还有一个比较火的方案是 <code>Gitalk</code> <a href="https://github.com/gitalk/gitalk">gitalk/gitalk</a>，不过似乎挺复杂的我没有实践成功；参见 <a href="https://segmentfault.com/a/1190000018072952">Gitalk评论插件使用教程</a>。</li>
 </ul>
 
 <h4 id="toc_11">分享</h4>
+
+<p>这个非常简单，直接到 Addthis 网站 <a href="https://www.addthis.com/">https://www.addthis.com/</a> 注册一个账户，按几下就可以得到嵌入代码，复制到对应位置即可；参考最后一篇官方文档，我试着放在 MWeb 自定义模板的 <code>footer.html</code> 中（放在 body 的最后部分），成功实现。</p>
+
+<h4 id="toc_12">流量分析</h4>
+
+<p>Google Analytics 对中文非常友好，注册之后填写相应的站点信息，最后即可得到代码，同样放在 <code>footer.html</code> 文件中即可。</p>
+
+<p>具体步骤由于是之前注册的记不太清了，这次新增了一个站点，重新生成了一个「媒体资源」，简单记录如下（由于整个网站还是比较复杂的，涉及到很多的名词，以下方案不一定规范但至少自己是实践成功了）。</p>
+
+<p>进入主界面之后，点击左下角的「管理」，在中间列「创建媒体资源」（如果注册过程中已创建好就不需要改动）；然后在「数据流」中添加一个网站即可，每一个数据流会对应一个「衡量 ID」，这个 ID 会出现在生成的流量分析代码上。然后添加该代码到模板的指定位置即可。接下来就可以愉快的玩耍 Google Analytics 了，虽然整体挺复杂的，但可玩性真的很高 hhh。</p>
+
+<p>可参考 <a href="https://zhuanlan.zhihu.com/p/136378374">谷歌流量分析工具Google Analytics使用方法指南教程</a>。</p>
 
                   </article>
                   <div class="comments-wrap">
@@ -283,20 +303,7 @@
 
 
 
- <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fac9798ce396e15"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ML8DH9Q4FV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ML8DH9Q4FV');
-</script>
-
-   <footer class="footer">
+    <footer class="footer">
         <div class="content has-text-centered">
           <p>
               Copyright &copy; 2019
@@ -349,6 +356,20 @@ s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 </script>
   
     
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fac9798ce396e15"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ML8DH9Q4FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ML8DH9Q4FV');
+</script>
 
 
 
