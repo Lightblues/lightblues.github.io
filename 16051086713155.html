@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【人工智能】Adversarial Search - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【人工智能】Adversarial Search   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/17</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051086713155.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>博弈 Game 的分类维度</p>
+
+<ul>
+<li>Deterministic or stochastic?</li>
+<li>One, two, or more players?</li>
+<li>Zero sum?</li>
+<li>Perfect information (can you see the state)?</li>
+</ul>
+
+<h2 id="toc_0">Adversarial Search</h2>
+
+<p>对抗搜索 Adversarial Search 关注的是 <strong>perfect information, deterministic, two players, zero-sum, alternate turns</strong> 的博弈。典型的例子有 Tic-tac-toe, chess, Go, Gomoku 等。</p>
+
+<p>在双人博弈的场景下，由于是零和游戏一方分数为正，则另一方则必为相应的负数。这样的话，我们可以给场上的局势统一「打分」，一方欲求最大化该分数，而另一方意图最小化该分数。例如对 MAX 节点来说<br/>
+\[<br/>
+V(s)=\max_{s&#39;\in successor(s)}V(s&#39;)<br/>
+\]<br/>
+这样的话，我们给出 <strong>Minimax Search</strong> 的定义：</p>
+
+<blockquote>
+<p>A state-space search tree. Players alternate turns </p>
+
+<p>Compute each node’s <strong>minimax value</strong>: the best achievable utility against a rational (optimal) adversary</p>
+</blockquote>
+
+<p>具体到算法层面，对于一个特定的节点，我们可以给出一个统一的求其值的形式</p>
+
+<p><img src="media/16051086713155/16051087905922.png" alt=""/></p>
+
+<p>对于一个 MAX 节点来说，玩家希望最大化分数，所以肯定会选择最有利的那一个策略（后继中分数最高的），对于 MIN 节点同理。</p>
+
+<p><strong>Note</strong>：我们对于「局势」的打分一般不是根据最终的结果来决定的（例如若 A 胜利则给 1，A 负则设为-1），因为受到资源的约束我们没法搜索很深（显然会采用 <strong>DFS</strong>，时间空间复杂度分别为 \(O(b^m )\), \(O(bm)\)，对于 chess 来说，b 约为 35，m 约为 100）；所以我们会给中间节点基于场上的「形势」打分，也就是说，我们采用的是 <strong>Depth-limited search</strong>，限制了搜索深度，需要 Evaluation function 对于 non-terminal positions 评分。当然，算法给出的策略的 optimal 无法保障；我们总希望越深越好，所以可以采用 iterative deepening 的策略。对于 Evaluation function 来说，理想的显然是返回这一状态的真实「价值」，但其计算就会变得相当复杂，因此其体现的是 tradeoff between complexity of features and complexity of computation；对于其我们的要求有</p>
+
+<blockquote>
+<ul>
+<li>Utility for a win state should be higher than a tie. (correct) </li>
+<li>The computation of evaluation function should be efficient. (quick) </li>
+<li>It should be related to the chance of wining the game. (consistent)</li>
+</ul>
+</blockquote>
+
+<h2 id="toc_1">Game Tree Pruning</h2>
+
+<p>当然是最有名的 Alpha-Beta Pruning 了。其<strong>想法</strong>非常简单（然而，在具体实现中代码有难度，所以我们详细讲一下）：对于一个 MAX 节点来说，若其第一个子节点 A 返回的是 3，那么对于第二个子节点 B（注意是 MIN 节点），若 B 的第一个子节点返回的是 2，那么我们可以确定 B 的值肯定要 ≤2（因为 B 为 MIN 节点），也就必 &lt;3，因此我们没有必要继续探索 B 的剩余子节点了。</p>
+
+<p>注意到，上述是<strong>对于 MIN 节点进行的剪枝</strong>，MIN 的子节点返回的一个值与其维护的一个值（\(\alpha\)）进行比较，若小于了这个值则直接将此 MIN 节点剪去不去看剩下的子节点。上述只是一个特例，下图是一般情况</p>
+
+<p><img src="media/16051086713155/16051088069195.png" alt=""/></p>
+
+<p>这里的逻辑是这样的：在之前的例子中我们只关注了 MIN 的父 MAX 节点，事实上我们可以「看」得更远（剪枝也就更有效率），也就是这里标识出来的两个 MAX 节点，实际上是一条 MAX 节点序列，为什么可以这样呢？这里要注意我们所维护的 \(\alpha\) 的含义，它是<strong>这条路径上 MAX 节点的最优选择</strong>。</p>
+
+<p>对于 MIN 节点 n 来说，<strong>一方面</strong>，它要从它的子节点这里选出最小的那一个（Note：我们结合下图中右边的伪码来看），也就是算法中的 v，若这个值小于了 \(\alpha\) ，即这条路径上 MAX 节点的最优选择（标红行），那么我们直接返回 v（对于该 MIN 节点值的一个保守估计）。那么，关键在于 \(\alpha\) 究竟是从哪里来的呢？我们来看算法中左边的 MAX 节点的操作（注意，对于 \(\alpha\) 的更新只在 MAX 节点进行）：\(\alpha=\max(\alpha, v)\) 。分开来讨论，若 1. max 取到的是 v，那么 \(\alpha\) 就表示了该 MAX 节点在 for 循环中取到的最优结果（此前的子节点中的最优结果），在下一个循环中我们在标紫行调用了子节点的 min-value，即右边的算法；2. max 取到的  \(\alpha\) 来自本身传入 max-value 中的那个值（这里我们结合上图），也就是这条路径之上的 MAX 节点的最优选择，比如说，对于上面的那个蓝色 MAX 节点 A，我们在其左孩子取到了 3，我们把这个 \(\alpha\) 值传给了 n 的父 MAX 节点 B：老大 A 告诉小弟 B：我另一个小弟已经献给我 3 了，你如果比这个值小就甭给我拿出来丢人了，于是 B 也会拿这个 \(\alpha\) 来给其子 MIN 节点进行剪枝（也就是右边算法中标红的操作）。当然，<strong>另一方面</strong>，MIN 节点要维护一个\(\beta\) ：该条路径下 MIN 节点的最优选择，分析和上述是相一致的。</p>
+
+<p><img src="media/16051086713155/16051088188155.png" alt=""/></p>
+
+<p>上图总结得真的完美，若还有不懂的再多看两遍，或者画一棵树自己跑一下吧。对于 alpha-beta 剪枝我们有如下说明：1. This pruning has no effect on minimax value computed for the root. Minimax values of intermediate nodes might be wrong. 对于根节点来说，我们初始化 \(\alpha=-\infty, \beta=+\infty\) 并进行搜索，注意到 alpha-beta 剪枝仅仅是把一些肯定对结果没有影响的节点删去了，因此不会影响最终的值；然而，对于中层的节点来说，alpha-beta 剪枝所给出值是在减去了一些分支的情况下得到的，这样给出的「分数」就可能不是其真值了。2. Ordering Matters 显然，若所有可剪的分支都排在最后那么对于最终的效率就没什么影响了，一般情况下，alpha-beta 剪枝可以Doubles solvable depth! </p>
+
+<h2 id="toc_2">Uncertain Outcomes</h2>
+
+<p>主体就这些内容，后面介绍了一下非确定情况下的节点，增加了随机性：例如玩家是非理性的，或游戏本身就有随机性如 Dice，这样的话我们可以取期望。</p>
+
+<h2 id="toc_3">Utilities</h2>
+
+<p>这部分更多是简单抽象的博弈中超脱了出来，毕竟这种情况是确定的理想的；事实上，相同的结果对于不同人的价值是不一样的，也就是效用这一概念的由来。</p>
+
+<blockquote>
+<p>Utilities are functions <strong>from outcomes (states of the world) to real numbers</strong> that describe an agent’s preferences</p>
+
+<p>In a game, may be simple (+1/-1) <br/>
+Utilities summarize the agent’s goals <br/>
+Theorem: any “rational” preferences can be summarized as a utility function</p>
+</blockquote>
+
+<p>注意，我们这里讨论的并非上述的双方博弈，而是 <strong>Maximum Expected Utility</strong> 算法<br/>
+\[<br/>
+𝑎𝑐𝑡𝑖𝑜𝑛 = \arg \max 𝐸𝑥𝑝𝑒𝑐𝑡𝑒𝑑𝑈𝑡𝑖𝑙𝑖𝑡𝑦(𝑎|𝑒)<br/>
+\]<br/>
+<img src="media/16051086713155/16051088291346.png" alt=""/></p>
+
+<p>最后再对 Utilities 的概念做一点说明，正如定义中所说它反映的是一个人的 preferences ，相较于简单的 outcomes 更具有现实性，例如一个不爱冒风险的人和一个赌徒的偏好是不同的。另外，很少有人的真正理性的，例如：Famous example of Allais (1953)</p>
+
+<blockquote>
+<p>A: \([0.8,\$4k; 0.2,\$0]\)<br/>
+B: \([1.0, \$3k; 0.0, \$0]\)</p>
+
+<p>C: \([0.2, \$4k; 0.8, \$0]\)<br/>
+D: \([0.25, \$3k; 0.75, \$0]\)</p>
+</blockquote>
+
+<p>Most people prefer B &gt; A, C &gt; D </p>
+
+<p>然而，人是否真的是理性的呢？假若 \(U(\$0) = 0\)，那么 B &gt; A 可推出 \(U(\$3k) &gt; 0.8 U(\$4k)\)，而 C &gt; D 则可推出 \(0.8 U(\$4k) &gt; U(\$3k)\)——出现了两个矛盾的结果。</p>
+
+<blockquote>
+<p>一下仅仅是个人感想：我们假定 utility 正是回报，那么这里例子深刻地反映了人对于概率/数字并不敏感。对于 A 和 B，3k 和 4k 刀差别不大，我们可能出于厌恶风险的原则选 B；对于 C 和 D，两者都有一定的风险，而我们对于 .2 和 .25 的区别并不敏感，这时候 4k 和 3k 刀的差距就显现出来，也就更倾向于选大一点的 C（虽然这时是一个正确的选择）。</p>
+</blockquote>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

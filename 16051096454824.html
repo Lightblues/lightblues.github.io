@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【人工智能】Reinforced Learning - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【人工智能】Reinforced Learning   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/10</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051096454824.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                  
+                                    <a class="tag is-link is-light" href='tag_AI.html'>#AI</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>在 MDP 中，我们给出了 model（即转移 T 和奖励 R 的具体形式），然而，这种情况显然是理想的，要解决现实中的问题，我们一般不能得到 model，因此，就进入到了这个专题——强化学习 RL。<br/>
+和 MDP 中的概念类似，这里有状态集 S，动作集 A，对于我们的每个 \((s,a)\) 环境会给出一个回报 r ，并转移到新的状态 \(s&#39;\)，注意，我们并不知道 R 和 T 的具体形式，只能获得这一系列的 \(s,a,r,s&#39;\) 序列，基于此，我们要训练出决策 \(\pi(s)\)。</p>
+
+<h2 id="toc_0">Model-based RL</h2>
+
+<p>在 model-baesd 中，我们仍未放弃模型，相较于 MDP，我们通过数据训练出一个估计的模型，并利用这个模型使用 MDP 的方法来学习，例如 value iteration, policy iteration 等。<br/>
+具体来说，我们的观测是一系列的 episode，即从一个初始状态出发，经过一些动作，最终到达了一个终止状态，这一幕就结束了。</p>
+
+<p><img src="media/16051096454824/16051096871474.png" alt=""/></p>
+
+<p>基于这些 episodes，我们可以用极大似然的方法近似估计 Transition model, Reward model，再用 MDP 方法求解。</p>
+
+<h2 id="toc_1">Model-free RL</h2>
+
+<p>而在 model-free 中，我们则改用了另一种策略——事实上，在 model-based 中，我们重新通过模型来进行学习，可以说是浪费了序列的一些信息；另一方面，这种方法可能需要大量的观测，对于数据的要求较高。</p>
+
+<p>教材和讲课的方式是按照 passive, active 的区分来讲的，passive 的意思是说，我们固定了一个策略，在这个策略下生成观测，最终计算出结果；而在 active 中，我们不固定策略，而是在搜索过程中不断调整更新，目的是为了找到最优的策略。参照 MDP 里面的内容，可以认为 active 是一个完整的求解问题的过程，而在 passive，我们仅做了在 policy iteration 中固定策略，更新值的操作。</p>
+
+<h3 id="toc_2">Passive RL</h3>
+
+<p>当然，两者还有有一定的区别的，从课程内容来看，在 passive 中，我们更多使用的是 V，而在 active 中我们一般使用 Q 值迭代。具体来说，有 MC 和 TD 两种 passive 算法。</p>
+
+<p><strong>Monte Carlo MC</strong>：即 Direct evaulation<br/>
+\[<br/>
+V^\pi (s)=E_\pi[\sum_{k=1}^T \gamma^kR_{t+k+1}|S_t=s)<br/>
+\]<br/>
+在这里，我们对于每一个 episode 中的 state，以衰减因子\(\gamma\) 计算其期望的 reward（直到 episode 结束）具体计算的时候，上述的求期望即求和平均（对于一个 episode 中出现多次的状态来说，可以只使用第一个出现的，也可以重复使用）。</p>
+
+<p>或者说，我们通过每一个出现的样本值更新了 policy value（我们的样本生成所采用的 policy）<br/>
+\[<br/>
+V^\pi(s)=(1-\eta)V^\pi(s)+\eta v_i^\pi(s), \eta={1\over N&#39;}<br/>
+\]<br/>
+（我们在这里给出了一个等价的表述，但事实上计算的时候不是照此计算的，这里是为了和后面的 TD 统一起来。）这里计算了在给定一个固定的 policy 下的价值迭代，我们可以根据得到的结果更新策略生成数据，再次进行上述 MC。下面给出了这种「policy evaluation」的思想。</p>
+
+<p><img src="media/16051096454824/16051096798227.png" alt=""/></p>
+
+<p>这是一个比较直观的想法，最终的结果是对于每一个状态得到了期望的值。然而，问题在于：1. states are learned separately, 2. waste information about state connections. <br/>
+比较在有 model ，即 MDP 下的公式<br/>
+\[<br/>
+V_{k+1}^\pi(s)\leftarrow \sum_{s&#39;}T(s,\pi(s),s&#39;)[R(s,\pi(s),s&#39;)+\gamma V_k^\pi(s&#39;)]<br/>
+\]</p>
+
+<p>这里 take samples 的想法是比较容易理解的。</p>
+
+<p>那么，我们如何在 model-free 下利用到 model 的信息呢？</p>
+
+<p><strong>Temporal Difference TD</strong> Learning: <br/>
+\[<br/>
+V^\pi(s)\leftarrow V(s)+\alpha(N(s))(R+\gamma V(s&#39;)-V(s))\\\tag{1}<br/>
+\]<br/>
+对于后项来说，我们计算得新的 value，减去原来的 value 得到 difference，再以学习率 \(\alpha\) 更新原来的 V。注意这里的学习率可以是上面的随着 N 递减的函数，也可以是一个 fixed 的函数。</p>
+
+<p><img src="media/16051096454824/16051096728952.png" alt=""/></p>
+
+<p>最后，来比较一个这两种方式：对于一个长度为 L 的 episode 来说，两者的时间复杂度都是 \(O(L)\)。而对于 TD 来说，它利用了 Markov 的结构；对于 MC 来说，它必须等到整个 episode 结束之后才能进行学习，而 TD 则随着 episode 的延伸进行学习，因此是 <strong>online</strong> 的。</p>
+
+<p><img src="media/16051096454824/16051096672066.png" alt=""/></p>
+
+<h3 id="toc_3">Active RL</h3>
+
+<p>在主动学习中，我们需要学习策略，也正因于此上述对于 V 进行学习的方法就比较低效了，所以我们一般使用 <code>Q-Learing</code> 。回忆在 MDP 中我们基于模型的公式：<br/>
+\[<br/>
+Q_{k+1}(s,a)\leftarrow \sum_{s&#39;}T(s,a,s&#39;)[R(s,a,s&#39;)+\gamma\max_{a&#39;}Q_k(s&#39;,a&#39;)]<br/>
+\]<br/>
+在 model-free 中我们可基于 TD 采用以下公式迭代：<br/>
+\[<br/>
+Q(s,a)\leftarrow (1-\alpha)Q(s,a) +\alpha [R(s,a,s&#39;)+\gamma \max_{a&#39;}Q(s&#39;,a&#39;)]\\\tag{2}<br/>
+\]<br/>
+可以看到，和在 passive 下的 TD value 迭代（1）思想上是一致的：都是基于生成一个 sample 以学习率 \(\alpha\) 进行学习。不同之处在于，之前我们对于值直接进行操作不会涉及到策略的选择问题，而在 <code>Q-Learning</code> 中，我们要用 \(s&#39;\) 的值来更新 <code>Q-state=(s,a)</code> ，我们很自然得进行了取 max 操作。</p>
+
+<p>我们可以对所有 Q 状态初始化为 0，接着开始迭代，然而这样会出现一个问题：一旦 agent 找到了一条路径，祂会始终选择这条路径进行决策，从而生成的 episode 失去了一定的随机性——也就是说，我们陷入了局部最优。</p>
+
+<h4 id="toc_4">Exploration v.s. Exploitation</h4>
+
+<p>也就是说，我们除了 expoit 原有的信息，也要保证一定的 exploration。为此，可以的策略有多种：例如：1. 每次行动除了按照 policy extraction 的结果之外以一定的概率随机行动（\(\epsilon-greedy\) ，随机概率随时间减小）；2. 我们不是基于 Q 值 extract 而是使用函数 <code>f</code> 形成策略，如 \(f(u,n)=u+{k\over n}\) ，其中的 u 是我们的 Q 值而 n 为这一策略的次数，直观来解释，我们倾向于采取次数较少（或全新）的 action。</p>
+
+<p><img src="media/16051096454824/16051096579075.png" alt=""/></p>
+
+<h3 id="toc_5">Approximate Q-Learning</h3>
+
+<p>有时候，我们并不需要用 state 来描述整个状态空间（Pacman 的例子，1. 状态空间过大；2. 很多状态相似），我们可以提取几个 feature 来 represent 这个状态。——一种降维的思想。<br/>
+\[<br/>
+Q(s,a)=w_1f_1(s,a)+...+w_nf_n(s,a)\\<br/>
+\]</p>
+
+<p>\[<br/>
+transition = (x,a,r,s&#39;)\\<br/>
+difference = [r+\gamma\max_{a&#39;}Q(s&#39;,a&#39;)-Q(s,a)]\\<br/>
+Q(s,a)\leftarrow Q(s,a)+\alpha [difference]\\<br/>
+w_i\leftarrow w_i \alpha [difference]f_i(s,a)<br/>
+\]</p>
+
+<p>注意到，我们对于每一个 sample，用它来更新了各特征的 weight；直观来看，若一个 policy 不够好，那么 difference 可能是负数，那么在这种情况下我们就会把在这里表现较为突出的 feature（\(f_i(s,a)\) 较大）的权重 \(w_i\) 进行缩减。</p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

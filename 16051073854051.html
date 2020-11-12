@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    概率论基础（一）随机事件和概率 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            概率论基础（一）随机事件和概率   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2019/10/24</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051073854051.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>本节内容主要可分为</p>
+
+<ul>
+<li>什么是概率</li>
+<li>古典概率计算</li>
+<li>事件的关系与运算
+<ul>
+<li>条件概率与独立性</li>
+<li>全概率公式和贝叶斯公式</li>
+</ul></li>
+</ul>
+
+<p>概率论是一门数学分支，同数学科目的其他分支一样，是建立在一些公理上的严格的数学体系，其研究的主要对象是随机变量、随机分布和随机过程。对于随机事件是不可能准确预测其结果的，但是我们可以描述其规律，分别是<strong>大数定理</strong>和<strong>中心极限定理</strong>，<strong>统计学</strong>正是建立在这个基础之上的。</p>
+
+<h2 id="toc_0">什么是概率</h2>
+
+<p>概率是一个生活中常见的词汇，笼统地说来很容易理解，但若从理论或者从哲学地高度去分析，就可以提出一系列问题，具体可参考<strong>测度学</strong>，在此不给出一个定义，直接从一些实例中理解：</p>
+
+<ol>
+<li>简单的例子如投骰子、扔硬币等事件，虽然可能的结果又多种，但是根据生活的经验，我们可能会对于每种可能出现的结果给出一个描述其“<strong>可能性</strong>”的数量指标，是即为概率。如果忽略一个硬币的物理不均匀性和投掷因素的影响，我们有理由认为正反两面出现的机会是均等的，称之为“<strong>等可能性</strong>”。</li>
+<li>生活中，第二天的天气也是未知的，但是我们每个人根据自己的经验可以对“明天是否会下雨”给出一个可能性的估计，可理解为一种心态或倾向性，是为<strong>主观概率</strong>。</li>
+<li>对于一个随机的事件，比如说从一批产品中随机抽取一个，其合格的可能性是为知的。但若我们持续抽取，根据抽出的产品的质量情况，可以对其做出一个估计，或者说是<strong>用频率来估计概率</strong>，是为<strong>统计概率</strong>。</li>
+</ol>
+
+<p>以下对于相关概念做一些解释：</p>
+
+<ul>
+<li>从上述例子也可以看出，概率是对于<strong>事件</strong>而言的，不同于生活中的意思，概率论中，“事件”是指某种情况的的“陈述”，它可能发生，也可能不发生，发生与否，要到有关的“试验”有了结果以后，才能知晓。</li>
+<li>对于“事件”进一步解释：1. 有一个明确界定的实验，即人为主动的意思，只是记录而不干预称为“<strong>观察</strong>”；2. 这个实验的全部可能结果，是在实验前就明确的。</li>
+<li>对于“<strong>必然事件</strong>”“<strong>不可能事件</strong>”等同于概率为1和0的事件，严格的理论而言二者有所区别，但这种区别并无实际的重要性。</li>
+</ul>
+
+<h2 id="toc_1">古典概率计算</h2>
+
+<p>古典概型可以说是我们生活中最为常见、也是最好理解的概率场景。其核心在于假定试验中所有结果出现的可能性是相等的，即上述所谓的等可能性，而古典概率的计算主要基于排列组合。在《A Fist Course in Probability》中第一章就讲排列组合，在此给出基本公式。</p>
+
+<h4 id="toc_2">1 组合分析</h4>
+
+<ul>
+<li>排列：从n个元素中取出k个元素，k个元素的排列数量为 <br/>
+\(P_k^n=n!/(n−k)!\)</li>
+<li>组合：和排列不同的是，组合取出元素的顺序不考虑 <br/>
+\(C_k^n=n!/k!(n−k)! \)</li>
+<li>常用公式 <br/>
+\((2n)!!=(2n)(2n−2)…2\) <br/>
+\(C_n^0+C_n^1+…+C_n^n=2^n\) <br/>
+\(C_n^0+C_n^2+…=2^{n−1}\) <br/>
+\(C_m^{n+m}+C_{m+1}^{n+m}=C_{m+1}^{n+m+1}\)</li>
+</ul>
+
+<blockquote>
+<p>古典概型中涉及到一些计数公式；原以为除了在概率论的考试中涉及以后不会遇到，没想到后来一次通选课的考试居然也涉及到了；在此补充。</p>
+
+<ul>
+<li>高中时候讲到的分类的加法原理、分步骤的乘法原理</li>
+<li>有重复的排列数：n 种球放回取 m 次，共 \(n^m\) </li>
+<li>排列数：无放回取 m 次，共 \(A_n^m={n!\over (n-m)!}\) </li>
+<li>组合数：n 种球无放回取 m 次，不计顺序，共 \(C_n^m=(\begin{matrix}n\\m\end{matrix})={n!\over m!(n-m)!}\) </li>
+<li>分组方式数：n 个不同元素分为有顺序的 k 组，共 \((\begin{matrix}n\\ n_1, ...,n_k\end{matrix})={n!\over n_1!...n_k!}\) 。形式上看是组合数的推广，后者可以看做是特例，其关注的是两组中的一组。直观的对于公式的理解：n 个不同元素排列共 \(n!\) 种可能，将依次的 \(n_1,...,n_k\) 个元素认为是一组的，顺序无关，所以分母上除以各自的组内排列的可能。再次注意，组间是有顺序的。如 5 个元素分为 \((1,2,2)\) 三组，不讲顺序，则还要在公式上除以 2。</li>
+<li>可重复分组数：n 个球有放回取 m 次，结果不计顺序，共 \(C_{n+m-1}^{m}=C_{n+m-1}^{n-1}\) 。这里和上一中情况的区别在于取到的 m 个球随机。需要换一种想法：和每个球标号序号，然后把 m 个球按序号排列，显然就变成了有序的 n 组，其中有 \(n-1\) 个「空格」；反过来，我们还没有取出球，但我们知道了最终的结果是 \(n-1\) 个分隔符分割了 m 个球（高中时候好像是用 0 和 1 来示意），也就是从 \(n+m-1\) 个元素中选  \(n-1\) 个分隔符，所以是 \(C_{n+m-1}^{m}=C_{n+m-1}^{n-1}\) 。注意，这里的每一个分组是<strong>非等可能</strong>的（前面的分组方式数按这种定义是等可能的）。</li>
+</ul>
+</blockquote>
+
+<h4 id="toc_3">2 计算示例</h4>
+
+<ul>
+<li>n双相异的鞋共2n只，随机分为n堆，每堆2只，问“各堆都自成一双鞋”这一事件E的概率是多少？
+<ul>
+<li>对于把n个相异物件分成k堆，分法有 \(n!/(r_1 !r_2 !…r_k !) \)，注意上式是有序的，所以对于本题可分为 \(N=(2n)!/2^n\) 种（所有可能情况）。对于事件\(E\) ，可以看作把每一双鞋看成一个整体分成n堆，可见有 \(M=n!\) 种可能性。于是 \(P(E)=M/N=(2^n n!)/(2n)!=1/(2n−1)!! \)</li>
+<li>另一种算法：把这2n个鞋子从左到右排成一排，然后把1，2位置的看作一堆，3，4看成一堆。因此有所可能情况为种，而各成一堆的情况下，每组中第一个元素取定后，第二个元素是确定了的，因此可能的情况有\( (2n)(2n−2)…2=(2n)!!\)种，因此\(P(E)=M/N=2^n/(2n)!!=1/(2n−1)!!\) </li>
+</ul></li>
+</ul>
+
+<h2 id="toc_4">事件的关系与运算</h2>
+
+<h4 id="toc_5">1 基本关系与运算</h4>
+
+<p>上述已对随机事件有所介绍，对于任一事件，我们想要用概率的方式去描述它。但是对于我们感兴趣的复杂事件来说，直接计算其概率是困难的，<strong>因此我们希望能够利用复杂事件与简单事件之间的关系，以便利用简单事件的概率去计算复杂事件的概率</strong>。正如微积分中，利用导数所满足的法则，可据此计算出复杂函数的导数，若直接利用定义来计算则太过复杂。以下对于事件的关系和运算做简单描述，很多是符合直觉的，注意这部分可以从<strong>集合论</strong>的角度来考虑。</p>
+
+<ul>
+<li><strong>蕴含、包含和相等</strong></li>
+</ul>
+
+<p>字面理解，若A蕴含B，也可说为B包含A，记为 \(A\subset B\)，这意味着A发生则B一定发生，从集合论的角度来说A是B的子集，从韦恩图上来看A被B所“包围”。</p>
+
+<ul>
+<li><strong>互斥和对立</strong></li>
+</ul>
+
+<p>若A和B不能在同一次试验内都发生，则称它们为互斥的。对立事件是一种特殊的互斥事件，即B是A的补集，记作 \( B=\bar{A} \) 。</p>
+
+<ul>
+<li><strong>事件的和（并）</strong></li>
+</ul>
+
+<p>对于两事件A和B，定义事件和\(C = \{A发生，或B发生\}\)，记作 \(A\cup B\), 或 \(A+B \)，即为代表两事件的集合的并集，通过韦恩图来看更为直观。</p>
+
+<p><strong>概率的加法定理</strong>：对于互斥事件，我们有，若干互斥事件之和的概率，等于各事件概率之和。即\(P(A_1+A_2+…)=P(A_1 )+P(A_2 )+…\)</p>
+
+<ul>
+<li><strong>事件的积（交）、事件的差</strong></li>
+</ul>
+
+<p>定义事件积\(C = \{A，B都发生\}\)，记为 \(A\cap B\) 或 \(AB \)。 <br/>
+定义事件差 \(C = \{A发生，B不发生\}\)，记为 \(A−B\) 。</p>
+
+<p>容易看出上述定义的事件关系及其运算满足以下性质。同时，虽然上面借用了算术中的相关名词，算术法则不一定能用于计算事件运算（因为本质上可以说是集合之间的关系）。注：可以根据韦恩图进行直观的理解不需要死记硬背。</p>
+
+<ul>
+<li><strong>事件和、事件积的交换律、结合律</strong></li>
+</ul>
+
+<p>\(A\cup B = B\cup A,AB=BA \)</p>
+
+<p>\(A\cup B\cup C = (A\cup B)\cup C = A \cup (B\cup C), ABC = (AB)C = A(BC) \)</p>
+
+<ul>
+<li><strong>事件和对事件积、事件积对事件和的分配律</strong></li>
+</ul>
+
+<p>\((A\cup B)C = AC\cup BC \)</p>
+
+<p>\((AB)\cup C = (A\cup C)(B\cup C) \)</p>
+
+<ul>
+<li><strong>棣莫弗公式（对偶法则）</strong></li>
+</ul>
+
+<p>\(\overline{A\cup B} =\bar{A}\cap\bar{B} \)</p>
+
+<p>\(\overline{A\cap B} = \bar{A} \cup \bar{B} \)</p>
+
+<p>此公式可以推广到n个事件：<strong>事件和的非等于事件非的积；事件积的非等于事件非的和</strong>。</p>
+
+<blockquote>
+<p>当时怎么没有介绍概率的加法公式，补充如下：<br/>
+\[<br/>
+P(A\cup B)=P(A)+P(B)-P(AB)<br/>
+\]<br/>
+其推广，Jordan 公式<br/>
+\[<br/>
+P(\bigcup^n_{i=1}A_i)=\sum_{k=1}^n(-1)^{k-1}p_k<br/>
+\]<br/>
+其中 <br/>
+\[<br/>
+p_k=\sum_{1\le j_1\le j_2\le...\le n}P(A_{j_1}...A_{j_k})<br/>
+\]<br/>
+可以根据韦恩图直观理解。</p>
+</blockquote>
+
+<h4 id="toc_6">2 条件概率</h4>
+
+<p>条件概率是概率论中非常重要的概念，此后随机变量的条件分布等一系列知识点需要建立在对于条件概率的理解上。一般来讲，条件概率就是在附加一定条件之下所计算的概率。严格来说，现实中的任何概率都是条件概率：假定你在实验室投掷硬币，出现正面的频率约为1/2，你只能说在此时此地，在这种试验条件下，可以认为这枚硬币是均匀的，试验环境即为“<strong>条件</strong>”。形式化的定义：设有两事件A，B，在给定B发生的条件下A的条件概率记为 \(P(A|B)\) ：</p>
+
+<p>\[<br/>
+P(A|B) = \frac{P(AB)}{P(B)}<br/>
+\]</p>
+
+<p>其中，当\(P(B)=0\)时，上式无意义，因此在一般的定义中还要求\(P(B)\)不为零。当然，在高等概率论中也会给出在\(P(B)=0\)时概率的定义，在此不表。</p>
+
+<h4 id="toc_7">3 事件的独立性</h4>
+
+<p>一般情况下，A的无条件概率和在给定B发生之下的条件概率是有差异的，这反映了两者之间的<strong>关联</strong>。例如，若 \(P(A|B)&gt;P(A) \)，则B的发生使A发生的可能性增加的，B促进了A的发生。反之，若 \(P(A|B)=P(A) \)，则B的发生与否与A发生的可能性无关，这就称为两事件独立。因此上式即可作为事件独立的定义。然而，根据条件概率的定义，上式<strong>等价于：</strong></p>
+
+<p>\(P(AB)=P(A)P(B) \)</p>
+
+<p>在这条式子中，A和B是对称的，即“<strong>A和B相互独立</strong>”，更好得反映了事件独立的概念，因此在一般的教材中采用此作为独立性定义。推广到多个事件，其独立性定义如下：设 \(A_1,A_2,...; \)为有限或无限个事件，若从中任意取出有限个事件，都有：</p>
+
+<p>\[<br/>
+P(A_{i_{1}}A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})P(A_{i_{2}})...P(A_{i_{m}}) <br/>
+\]</p>
+
+<p>则称事件 \(A_1,A2,...\)<strong>（相互）独立</strong>。注意，这个定义与由条件概率出发的定义等价：\(P(A_{i_{1}}|A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})\) 对于任意的 \(A_{i_1} \)都成立。从这里也可以看到，n个事件独立和此n个事件两两独立是不同的，后者只能保证在“简单条件”下某一事件的概率不受影响，但不意味着其他任意多个事件的发生与否与它是否有关联。</p>
+
+<p>在实际运用中，虽然我们常用两种等价定义来形式化得证明事件的独立性，但在更多的情况中，我们假定事件满足独立性，然后用\(P(A_{i_{1}}A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})P(A_{i_{2}})...P(A_{i_{m}})\)式，从简单事件的概率出发计算事件积的概率。因此，从另一个角度出发来看定义式，则可认为是<strong>独立事件事件积的乘法公式</strong>。</p>
+
+<h4 id="toc_8">4 全概率公式</h4>
+
+<p>对于一组事件 \(B_1,B_2,...\) 来说，若它们两两互斥，并且在每次试验中至少发生一个（事件积为空，概率之和为1），则称这组事件为一个“<strong>完备事件群</strong>”。形象地理解，这些事件对于所有可能发生的情况构成了一个分割，用集合论或文氏图来理解更为直观。例如，一个事件B和它的对立事件即构成完备事件群。考虑任一事件A， \(A=A\Omega =AB_1 +AB_2 + ... \) ，因 \(B_i \)两两互斥，可见 \(AB_i\) 也两两互斥，因此有 \(P(A)= P(AB_1) +P(AB_2) + ...\) ，再由条件概率公式，</p>
+
+<p>\[<br/>
+P(A)= P(B_1)P(A|B_1) +P(B_2)P(A|B_2) + ...<br/>
+\]</p>
+
+<p>称为全<strong>概率公式</strong>，即全部概率被分成许多部分之和，因此，在现实中，若某一事件A经常伴随 \(B_i\) 发生，我们可以构造一组 \(B_i\) 来计算A的概率。</p>
+
+<p>从另一个角度来理解，可以把 \(B_i\) 看作导致事件 \(A\) 发生的一种可能途径。对不同途径，A发生的概率即条件概率各各不同，而采取哪个途径却是随机的。因此对于所有可能的途径 \( P(B_i)\) 作加权平均。</p>
+
+<blockquote>
+<p>特别的， \(A,\bar A\)  构成一个完备事件组，于是 \(P(B)=P(A)P(A|B)+P(A)P(A|\bar B)\)</p>
+
+<p>补充一道题：证明 n 个签中有 m 个为目标，无放回抽样，<strong>则每一次「中签」的概率均为</strong> \(m/n\) 。</p>
+
+<p>记抽中这一事件为 \(A_j\)。下用归纳法证明。首先，必有 \(P(A_1)=m/n\)；假设上面的概率公式在 \(j-1\) 时成立，则对于第 j 次抽样，我们用全概率公式：<br/>
+\[<br/>
+P(A_j)=P(A_1)P(A_j|A_1)+P(\overline{A_1})P(A_j\overline {A_1})<br/>
+\]<br/>
+这样，后面的两个条件概率就转化成了 \(j-1\) 的形式，代入假设中的公式（分别为 \(m-1\over n-1\), \(m \over n-1\)）即可得 \(P(A_j)={m\over n}\)</p>
+</blockquote>
+
+<h4 id="toc_9">5 贝叶斯（逆概率）公式</h4>
+
+<p>由全概率公式可得著名的<strong>贝叶斯公式</strong>：</p>
+
+<p>\[<br/>
+P(B_i|A)= \frac{P(AB_i)}{P(A)} = \frac{P(B_i)P(A|B_i)}{\sum_{j}{P(B_j)P(A|B_j)}}<br/>
+\]</p>
+
+<p>刚看到这个公式有点绕，似乎只是一个数学变换，更重要的是理解其意义。在等式的右边，我们已知了 \(P(B_i)\) 和 \(P(A|B_i) \)，而在等式右边，我们希望得到的是 \(P(B_i|A) \)，也就是在A发生的情况下，新的信息之下我们对于事件 \(B_i\) 的可能性有了新的认识。</p>
+
+<p>如果我们把A看成“结果”，把看成导致者结果的可能“原因”，则可形象地把全概率公式看作成为“<strong>由原因推结果</strong>”，而贝叶斯公式作用在于“<strong>由结果推原因</strong>”：现在一个结果A发生了，在众多可能的原因中，哪一个导致了结果。</p>
+
+<p>好的说了这么多也不知道有没有表达清楚，反正我一开始学的时候一脸懵逼，还是看一个例子理解一下：</p>
+
+<ul>
+<li>某种病菌在人群中带菌率为0.03，由于检测技术存在一定的误差，带菌者检测出阳性的概率为0.99，而未带菌者检出阳性的概率为0.05，问若一人检测出阳性，其带菌的概率。</li>
+<li>\(P(阳性|带菌) = 0.99\)； \(P(阳性|不带菌) = 0.05\)；\(P(带菌)= 0.03\)； 问 \(P(带菌|阳性) \)</li>
+<li>由贝叶斯公式，易得答案为 \(\frac{0.03\times0.99}{0.03\times0.99+0.97\times0.05} = 0.380\)</li>
+</ul>
+
+<p>一个有趣的结论：检测结果为阳性的患者带菌的可能性不到0.4，理由很简单：因为人群中带菌率很低，即使误检的可能性很低，因为其基数很大，所以检测结果为阳性的人中任有很大一部分是这些误检患者。</p>
+
+<p>从这个例子也可以看出贝叶斯公式在统计学之中的重要意义。在统计学中，我们搜集相关的数据，希望能找到所感兴趣问题的答案（由结果找原因），然而，在此之前，我们需要对其有一个大致的估计（即<strong>先验概率</strong>），然后根据所得到的信息更新我们的估计（即<strong>后验概率</strong>）。事实上，根据这个公式的思想发展了一整套统计推断方法，叫做“<strong>贝叶斯统计</strong>”。</p>
+
+<hr/>
+
+<p>以下补充关于贝叶斯公式的论述</p>
+
+<ul>
+<li>在贝叶斯公式中，我们把 \(P(B_i)\) 叫作<strong>先验概率</strong>，它们的值是根据先前的只是和经验确定出，既可以利用频率和概率的关系来确定，也可以基于「主观概率」来确定。</li>
+<li>\(P(B_i|A) \)是在观察到事件A后发生\(B_i \)的概率，称之为<strong>后验概率</strong>，贝叶斯公式可以看成是从先验概率到后验概率的转换公式。</li>
+</ul>
+
+<blockquote>
+<p>贝叶斯公式在之后的无论什么课程中真的用的超级多……</p>
+</blockquote>
+
+<hr/>
+
+<p>另外，在《概率与统计》一书中，「补充知识」部分提到了和概率相关的一些内容，有助于对其理解，在此列出。</p>
+
+<p>分为四部分：1. 关于概率论的起源；2. 几何概型；3. 熵；4. 概率的另类应用（概率方法解决确定性问题）。</p>
+
+<p>信息量；熵；熵定理（各事件等概率是熵最大为\(log(n)\) ）；熵增加原理</p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    概率论基础：补充（1）概率的公理化定义与随机变量的概念 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            概率论基础：补充（1）概率的公理化定义与随机变量的概念   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2019/10/24</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051079545668.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <h2 id="toc_0">概率的公理化定义</h2>
+
+<p>为了准确理解与深入研究随机现象，我们不能满足于从直觉出发形成的概率定义（概率的稳定值或可能性大小的个人信念），必须把概率论建立在坚实的数学基础上，科尔莫哥洛夫1933年在《概率论基本概念》一书中用集合论观点和功利化方法成功解决了这个问题。</p>
+
+<p>首先，可以看到事件的关系和集合关系之间存在着重要的联系。我们给出两者之间的对应关系，之后对于事件的研究就转化为对集合的研究。</p>
+
+<ul>
+<li>条件 S 下的「事件」就是若干个结果的集合（即 \(\Sigma\) 的子集），所谓观察到事件 A 发生就是指 S 下出现的结果属于 A 。显然，\(\Sigma\) 本身是必然事件，空集 \(\varnothing\) 是不可能事件。</li>
+<li>如果\(A\in \Sigma\)，则\(A^c=\Omega -A\)就是 A 的对立事件 \(\bar{A}\)。</li>
+<li>所谓 A 与 B 不相容就是指\(A\cap B= \varnothing\)（即A与B不相交）。</li>
+<li>事件的并和交分别归结为集合的并和交。</li>
+</ul>
+
+<hr/>
+
+<p>\(\Sigma\) 是任意的非空集合，叫作基本事件空间（样本空间），其背景是条件 S 下所有可能的不同结果的全体（每个结果是一个「基本事件」）</p>
+
+<p><strong>定义1</strong>: 设 \(\mathcal{F}\) 是由 \(\Sigma\) 的一些子集组成的集合（这种由集合组成的集合一般叫作集合系），\(P=P(\cdot)\) 是 \(\mathcal{F}\) 上有定义的实值函数。如果定义域 \(\mathcal{F}\) 和函数 P 满足下列条件：</p>
+
+<ol>
+<li>\(\Omega\in\mathcal{F} \)</li>
+<li>若\(A \in\mathcal{F} \)，则\(A^c=\Omega-A \in\mathcal{F}\) </li>
+<li>若\(A_n \in\mathcal{F} (n=1,2,...)\)，则 \(\bigcup_{n=1}^\infty A_n \in\mathcal{F} \)</li>
+<li>\(P(A)\ge 0 (A\in \mathcal{F} )\)</li>
+<li>\(P(\Omega)=1\)</li>
+<li>若\(A_n \in\mathcal{F} (n=1,2,..)\)且两两不相交，则\(P(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty P(A_n)\)</li>
+</ol>
+
+<p>那么称 \(P\) 是 \(\mathcal{F}\) 上的概率测度（简称概率），\( P(A)\) 为 \(A\) 的概率（也称 \(A\) 发生的概率）。附有 \(\mathcal{F}\) 和 \(P\) 的 \(\Omega\) 叫作概率空间，有时也说 \((\Omega, \mathcal{F}, P)\) 是概率空间。</p>
+
+<p><strong>定义2</strong>: 设 \(\mathcal{F}\) 是由 \(\Omega\) 的一些子集组成的集合，具有上述 1-3 的性质，则称 \(\mathcal{F}\) 是 \(\Omega\) 中的 \(\sigma\) 域（或 \(\sigma\) 代数）。</p>
+
+<blockquote>
+<p>其中前三条构成的集合称为 \(\sigma\) 域；而后三条，即非负性、完全性、可列可加性则是概率的<strong>公理化定义</strong>。</p>
+</blockquote>
+
+<p>补充定义（测度）：设\(\mathcal{F}\)是由\(\Omega\)的一些子集组成的集合，\(\varnothing\in\mathcal{F}\)，称\(\mathcal{F}\)上有定义的函数\(\mu=\mu(\cdot)\)为测度，如果它满足：</p>
+
+<ul>
+<li>\(0\le\mu(A)\le+\infty\)</li>
+<li>\(\mu(\varnothing)=0\)</li>
+<li>若\(A_n \in\mathcal{F} (n=1,2,...)\)两两不相交且 \(\bigcup_{n=1}^\infty A_n\in\mathcal{F}\)，则\(\mu(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty \mu(A_n)\)</li>
+</ul>
+
+<p>可以看到，我们定义的概率测度是一种特殊的测度。</p>
+
+<hr/>
+
+<p>任意指定非空集合 \(\Omega\) 及 \(\Omega\) 中的一些子集组成的 \(\sigma\) 域 \(\mathcal{F}\) 以及\(\mathcal{F}\) 上有定义的概率 P ，所得到的三元组 \((\Omega, \mathcal{F}, P)\) 是我们研究概率的基础和出发点。</p>
+
+<ul>
+<li>（前三条）首先指出，\(\sigma\) 域 \(\mathcal{F}\) 关于集合的基本运算是「封闭」的。即，任意个数（有限、可数）集合的交/并仍属于\(\mathcal{F}\)，两集合之差也属于\(\mathcal{F}\)。</li>
+<li>（后三条）其次，经由上述定义在 \(\sigma\) 域 \(\mathcal{F}\) 上的概率函数 P 有一系列的性质（在此省略）。</li>
+</ul>
+
+<h2 id="toc_1">随机变量的概念</h2>
+
+<p>注意到，随机变量是概率论乃至统计学的核心概念之一，因此以下对这一概念进行进一步的阐释。</p>
+
+<p>在《概率与统计》中，对于随机变量有两种定义（后者更为完全）</p>
+
+<p><strong>定义1</strong>: 如果条件 S 下所有可能的结果组成集合 \(\Omega=\{\omega\}\)， \(X=X(\omega)\) 是 \(\Omega\) 上有定义的实值函数，而且对任何实数 c，事件\(\{\omega: X(\omega)\le c\}\) 是有概率的，则称 X 是随机变量。</p>
+
+<p><strong>定义2</strong>: 设\((\Omega, \mathcal{F}, P)\)是概率空间， \(X=X(\omega)\)是\(\Omega\) 上有定义的实值函数，如果对任何实数x，集合\(\{\omega: X(\omega)\le x\}\) 属于\(\mathcal{F}\)，则称X是\((\Omega, \mathcal{F}, P)\)上的<strong>随机变量</strong>。</p>
+
+<p>包含两个方面的内容：</p>
+
+<ol>
+<li>随机变量 \(X=X(\omega)\) 是基本事件 \(\omega\) 的函数，它体现随机而变</li>
+<li>虽然\(X=X(\omega)\) 的值不能预先确定（因为无法预料将出现什么样的 \(X=X(\omega)\) ，但是对给定的 x，事件\(\{\omega: X(\omega)\le x\}\) 是有确定概率的，这体现了随机变量的一种「规则性」</li>
+</ol>
+
+<p>最后，给出 wiki 上的定义作为参考：</p>
+
+<blockquote>
+<p>A <u><strong>random variable</strong></u> is a <u><a href="https://en.wikipedia.org/wiki/Measurable_function">measurable function</a></u> \(X: \Omega\rightarrow E\) from a set of possible <a href="https://en.wikipedia.org/wiki/Outcome_(probability)">outcomes</a> \(\Omega\)  to a <u><a href="https://en.wikipedia.org/wiki/Measurable_space">measurable space</a></u> \(E\). The technical axiomatic definition requires \(\Omega\)  to be a sample space of a <u><a href="https://en.wikipedia.org/wiki/Probability_space">probability triple</a></u> (see the _<a href="https://en.wikipedia.org/wiki/Random_variable#Measure-theoretic_definition">measure-theoretic definition</a>_).<br/>
+<u>The probability that \(X\) takes on a value in a measurable set \({\displaystyle S\subseteq E}\) is written as</u> <br/>
+<u>\({\displaystyle \operatorname {P} (X\in S)=\operatorname {P} (\{\omega \in \Omega \mid X(\omega )\in S\})}\),</u> <br/>
+where \({\displaystyle \operatorname {P} } \) is the _<a href="https://en.wikipedia.org/wiki/Probability_measure">probability measure</a>_on \({\displaystyle (\Omega ,{\mathcal {F}})}\).</p>
+</blockquote>
+
+<hr class="wp-block-separator" />
+
+<p>在这样严格定义的随机变量的概念下，用分布函数来刻画随机变量的概率特性：</p>
+
+<p><strong>定义</strong>：设 \(X=X(\omega)\)是随机变量，称函数<br/>
+\[<br/>
+F(x)=P(X\le x), (x\in R)<br/>
+\]</p>
+
+<p>为 \(X\) 的分布函数，有时记为 \(F_X(x)\)。</p>
+
+<p>由此定义的分布函数有以下三条性质</p>
+
+<ul>
+<li>单调性：若\(a&lt;b\)，则 \(F(a)\le F(b)\)</li>
+<li>\(\underset{x\rightarrow -\infty}{lim}F(x)=0, \underset{x\rightarrow +\infty}{lim}F(x)=1\)</li>
+<li>右连续性：\(\underset{\delta\rightarrow 0+}{lim}F(x+\delta)=F(x)\)</li>
+</ul>
+
+<p>后两条的证明可考虑事件并公式，注意到右连续性是从分布函数的定义推导出来的，在此基础上，有</p>
+
+<ul>
+<li>\(F(X&lt;x)=F(x-0)\)</li>
+<li>\(F(a&lt;X\le b)=F(b)-F(a)\)</li>
+<li>\(F(a\le X\le b)=F(b)-F(a-0)\)</li>
+<li>\(F(a&lt;X&lt; b)=F(b-0)-F(a)\)</li>
+</ul>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

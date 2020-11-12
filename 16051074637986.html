@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    概率论基础（二）随机变量 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            概率论基础（二）随机变量   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2019/10/28</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051074637986.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>本部分主要介绍常见的随机变量及其关系。主要内容有：</p>
+
+<ul>
+<li>随机变量的概念</li>
+<li>常见离散随机变量</li>
+<li>常见连续随机变量</li>
+<li>随机变量函数的分布</li>
+</ul>
+
+<p>在上一节从经验直观出发，引入随机事件及其概率的概念之后，为进一步研究随机现象，我们需要引入<strong>随机变量</strong>的概念。</p>
+
+<blockquote>
+<p>补充了随机变量函数的分布这一部分内容</p>
+</blockquote>
+
+<h2 id="toc_0">什么是随机变量</h2>
+
+<blockquote>
+<p>顾名思义，随机变量就是其值随机会而定的变量，正如随机事件是其发生与否随机会而定的事件。</p>
+</blockquote>
+
+<p>机会表现在实验结果，一个随机试验有许多可能的结果，出现哪一个要看机会，即有一定的概率。到底是哪一个，要等掷骰子以后才知道。因此，又可以说，<strong>随机变量就是实验结果的函数</strong>。关键在于实验前后之分：前，我们不能预制其取值，“随机”；试验后，取值就确定了。</p>
+
+<p>随机变量的反面是“<strong>确定性变量</strong>”，其取值遵循某种严格的规律的变量。</p>
+
+<blockquote>
+<p>随机事件这个概念实际上是包含在随机变量这个更广的概念之内。也可以说：随机事件是从静态的观点来研究随机现象，而随机变量则是一种动态的观点。一如数学分析中的常量和变量的区分那样，变量概念是高等数学有别于初等数学的基础概念。同样，概率论能从一些孤立事件的概率发展为一个更高的理论体系，基础就是随机变量。</p>
+</blockquote>
+
+<p>从中可以看到随机变量与随机事件的联系及其意义，以下给出随机变量形式化的定义：</p>
+
+<blockquote>
+<p>A <u><strong>random variable</strong></u> is a <u><a href="https://en.wikipedia.org/wiki/Measurable_function">measurable function</a></u> \(X: \Omega\rightarrow E\) from a set of possible <a href="https://en.wikipedia.org/wiki/Outcome_(probability)">outcomes</a> \(\Omega\)  to a <u><a href="https://en.wikipedia.org/wiki/Measurable_space">measurable space</a></u> \(E\). The technical axiomatic definition requires \(\Omega\)  to be a sample space of a <u><a href="https://en.wikipedia.org/wiki/Probability_space">probability triple</a></u> (see the _<a href="https://en.wikipedia.org/wiki/Random_variable#Measure-theoretic_definition">measure-theoretic definition</a>_).<br/>
+<u>The probability that \(X\) takes on a value in a measurable set \({\displaystyle S\subseteq E}\) is written as</u> <br/>
+<u>\({\displaystyle \operatorname {P} (X\in S)=\operatorname {P} (\{\omega \in \Omega \mid X(\omega )\in S\})}\),</u> <br/>
+where \({\displaystyle \operatorname {P} } \) is the _<a href="https://en.wikipedia.org/wiki/Probability_measure">probability measure</a>_on \({\displaystyle (\Omega ,{\mathcal {F}})}\).</p>
+</blockquote>
+
+<p>从中可以看到随机变量与随机事件的联系及其意义。简言之，<strong>随机变量是定义在样本空间上\(\Omega\) 样本点的实值函数 \(X=X(\omega)\)，是随机事件的数量表示</strong>。</p>
+
+<p>考虑到随机变量概念的重要性，对其此概念的介绍参见 <a href="https://www.cnblogs.com/easonshi/p/12828674.html">概率论基础：补充（1）概率的公理化定义与随机变量的概念</a> </p>
+
+<blockquote>
+<p>下面说明一些符号：如定义所示，随机变量其实是一个定义在样本空间的一个函数 \(X(\omega)\) ，而我们平时多简记为 \(X\)，但要注意其取值始终是和一个事件联系起来的；也就是说，从 \(\omega\) 这个事件得出随机变量 \(X\) 的值。反过来，对于一个随机变量我们也可以定义出一个对应的事件，例如常见 \(X\in A\) 或 \(\{X\in A\}\) 其实指的是 \(\{\omega|X(\omega)\in A\}\)；同理， \(a&lt;X\le b\) 其实指的是 \(\{\omega|a&lt;X(\omega)\le b\}\) 这样一个事件。虽然随机变量是我们之后一直要接触的一个概念，但至少就我来说，常常仅记住了最为简单的符号却忘了其作为一个函数的本质。</p>
+
+<p>另外，既然是函数自然可以进行变换，也就是随机变量的函数 \(Y(\omega)=g(X(\omega))\) 也是一个随机变量，只是将每一个样本映射到了不同的测度空间上，例如 \(X^2, \sqrt{X}\) 等。</p>
+</blockquote>
+
+<h2 id="toc_1">重要的离散分布</h2>
+
+<blockquote>
+<p>下面两节分别介绍了一些常见的离散和连续分布，应该是在课程上较为着重介绍的，在日后的学习过程中用到的也比较多；但由于这里主要是复习性质的笔记，所以仅仅列出了自己认为比较重要的内容，若是初学请参考相关教材。</p>
+</blockquote>
+
+<ol>
+<li><strong>0-1分布</strong>：设随机变量 X 只取 0,1 两值，\(P(X = 1) = p\)，\(P(X = 0) = 1 − p\)，则称 X 服从 0-1 分布或 Bernoulli 分布。</li>
+<li><strong>二项分布</strong>：两个重要条件：1. 各次试验的条件是<strong>稳定的</strong>（各次试验中的概率不变），2. 各次试验的<strong>独立性</strong>。</li>
+<li><strong>几何分布</strong>：可列重复伯努利实验中第一次成功，试验的次数。\(P(X = k) = q^{k−1}p, k = 1, 2,...\)。几何分布的无记忆性 \(P(ξ &gt; m + n | ξ &gt; m) = P(ξ &gt; n)\)</li>
+<li><strong>负二项(Pascal)分布</strong>：命名来由一则是“负指数二项展开式”，二则是由于它与二项分布相比是“反其道而行之”：二项分布是定下总抽样个数ｎ而把废品个数X作为变量；负二项分布是定下废品个数ｒ而把总抽样次数减去ｒ作为变量。 
+可列重复伯努利实验中第 r 次成功时试验次数，\(P(X_r = k) = C_{r−1}^{ k−1}p^{ r−1} q^{ k−r} p = C_{r−1}^{ k−1}p^{r} q^{k−r}\)。注意到，几何分布时负二项分布在\(r=1\)时的特例。</li>
+<li><strong>泊松(Poisson)分布</strong>：泊松分布多出现在当 X 表示在<strong>一定的时间或空间内出现的事件个数</strong>（例如单位时间的放射粒子数，一天之内的顾客数量等）。<strong>泊松分布可作为二项分布的极限得到</strong>。若\(X\)服从二项分布，\(n\) 很大，\(p\) 很小，\(np\) 不太大时，\(X\) 的分布接近参数为 \(\lambda=np\) 的泊松分布。 其概率分布为 \(P(X=k)={\lambda^k\over k!}e^{-\lambda}\) 
+另外，需注意柏松分布的实际含义；其一个重要应用在于对二项分布的近似。</li>
+<li><strong>离散的均匀分布</strong>：设随机变量 X 取值 \(a_1, a_2, …, a_n\) ，且有\(P(X = a_k) = {1\over n}, k = 1, …, n\)。可以看出, 离散的均匀分布正是古典概型的抽象。</li>
+<li><strong>超几何分布</strong>：抽取不放回的情况。概率分布为 \(P(X=m)={C_M^m C_{N-M}^{n-m}\over C_N^n}\)，可想成从 N 个样品中抽 M 个，记其废品数。命名是因其形式与“超几何函数”的级数展开式的系数有关。这个分布在涉及抽样的问题中常用（无放回）。\(X\) 服从超几何分布，当ｎ固定；\(M/N＝ｐ\)固定；<strong>Ｎ趋向无穷时，\(X\) 近似服从二项分布</strong>。 
+其数学形式比较复杂，虽然在现实中很多都是超几何分布，但当样本量很大的时候，可将其近似为放回情况，即近似为二项分布。</li>
+</ol>
+
+<h2 id="toc_2">重要的连续分布</h2>
+
+<p>在古典的「概率」框架下，我们可以很自然得理解上面离散分布的含义；在上面，我们是直接根据某一个「数值」变量作为一个随机变量的，这时这个变量取不同的值，对应着某一个事件；然而，除了离散的变量之外，还可能有连续取值的变量，在这时单个状态就没有合理的「概率」内涵了；所以根据概率的定义导出<strong>概率密度函数 pdf</strong> <br/>
+\[<br/>
+P(a&lt;X\le b)=\int_a^b f(x)dx<br/>
+\]<br/>
+这时 \(f(x)\) 就不是表征某个事件概率的绝对大小而仅仅是概率的「集中程度」，或者是「单位长度」下的概率大小，因此其取值可大于 1（一定要用微积分的角度来理解）。对于 pdf，显然有</p>
+
+<ul>
+<li><p>\[<br/>
+\int_{-\infty}^\infty f(x)dx=1<br/>
+\]</p></li>
+<li><p>\[<br/>
+P(X=a)=0<br/>
+\]</p>
+<p>因此有<br/>
+\[<br/>
+P(a&lt;X\le b)=P(a\le X\le b)<br/>
+\]</p></li>
+<li><p>对数集 \(A\) （严格意义下要求可测性）有<br/>
+\[<br/>
+P(X\in A)=\int _A f(x)ds<br/>
+\]</p></li>
+</ul>
+
+<ol>
+<li><p><strong>均匀分布</strong>：\(U[a, b]\) </p>
+<p>其一个案例就是作为<strong>示性函数</strong>（indicator function）。</p></li>
+<li><p><strong>指数分布</strong>：\(f(x) = \lambda e^{−\lambda x} (x &gt; 0)\)。可以看出, 参数 λ 愈大, 密度函数下降得愈快。指数分布经常<strong>用于作为各种「寿命」 的分布的近似</strong>。 <br/>
+指数分布的最重要的特点是 <strong>「无记忆性」</strong>，即若 X 服从指数分布，则对任意的 \(s, t &gt; 0\) ，有\(P(X &gt; s + t | X &gt; s) = P(X &gt; t)\)。可以理解成，当仪器工 作了 s 小时后再能继续工作 t 小时的概率等于该仪器刚开始就能工作 t 小时的概率，说明该仪器的使用寿命不随使用时间的增加发生变化，或说仪器是「永葆青春」的。</p></li>
+<li><p><strong>正态分布</strong>：正态分布的密度函数是以 \(x = µ\) 为对称轴的对称函数，\(µ\) 称为位置参数，密度函数在 x = µ 处达到最大值，在\((−∞, µ)\) 和 \((µ, +∞)\) 内严格单调。\(σ\) 的大小决定了密度函数的陡峭程度，通常称 \(σ\) 为正态分布的形状参数。</p></li>
+<li><p><strong>威布尔(Weibull)分布</strong>：许多产品（如轴承）的使用寿命服从威布尔分布，注意，m=1时退化为指数分布。</p></li>
+<li><p><strong>伽马 \(\Gamma(\alpha, \beta)\)分布</strong>：密度函数为 \(f(x;\alpha,\lambda)={\lambda^\alpha\over \Gamma(\alpha)} x^{\alpha-1}e^{-\lambda x}, x\ge 0\)。</p>
+<p>伽马分布与指数分布、正态分布有密切关系。显然 \(Γ(1, λ) = E(λ)\)。</p></li>
+<li><p><strong>帕累托(Pareto)分布</strong>：家庭年收入</p></li>
+<li><p><strong>贝塔分布 \(B(\alpha,\beta)\) 分布</strong>：贝塔分布与二项分布、伽马分布有密切关系。</p></li>
+</ol>
+
+<p>另外，可以参看以下文章：</p>
+
+<ul>
+<li><strong><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/">二项分布、泊松分布、正态分布的关系</a></strong></li>
+<li><a href="http://www.math.wm.edu/%7Eleemis/2008amstat.pdf">Univariate Distribution Relationships</a>（是时候祭出这张辣眼睛的图了）</li>
+</ul>
+
+<hr/>
+
+<p>懒得打公式了，可以参考这篇总结 <a href="https://wzbtech.com/tech/distributions.html">统计分布总结</a> #优秀的总结</p>
+
+<p>以下来谈谈自己关于各离散和连续分布的理解。</p>
+
+<ol>
+<li>还是先从经典的 <strong>Binomial (0-1) 分布</strong>讲起，它给出了单次实验成功的概率分布；若要关心 n 次实验中成功的概率，则变为 <strong>Bernoulli 分布</strong>，它们之间体现的是一种「一和多」的关系；另外，这是我们从实验成功的角度来看的，或者说，是事件发生的「次数」；</li>
+<li>给定试验次数（一定的时间限定），事件发生的次数分布为上述 Binomial 和 Bernoulli；那么，换一个角度，我们感兴趣的是事件的次数，所需要的次数（时间）是多少呢？这就是下面的两个：若只关心首次出现时用了多少次实验（时间），那么就服从 <strong>Geometric 分布</strong>；这是「一」，而对于「多」次事件发生所需要的试验次数（时间），则服从的是 <strong>Negative Binomial 分布</strong>；</li>
+<li>上面介绍了两组离散的分布；另外注意到我在这里反复使用了时间的概念，正是想要和连续情况下对应起来：在连续情况下，一个事件在一个连续的情况下都有一定的概率发生（这时候自然没有了「实验」的概念），我们的关注点可以放在「时间间隔」上。对于事件首次发生/两次事件之间的间隔（假定独立性，这两者显然是等价的），服从的是 <strong>Exponential 分布</strong> ，对应了离散情况下的 Geometric 分布；若考虑的是发生了多次事件所用事件，则服从 <strong>Gamma 分布</strong> ，对应离散情况下的 Negative Binomial 分布；</li>
+<li>上面是一组对应关系，那么对于 1 中是否也有这样的关系呢？这时候，因为我们关心的变为事件的「次数」了，显然是离散的了，所以没有了直接的对应关系。这里涉及到了另一个重要的分布——<strong>Poisson 分布</strong>。从某种程度上，它通过次数的概念把离散和连续变量结合了起来。一方面，我们可以把它看做是一个计数函数（参考 <a href="https://www.zhihu.com/question/34866983">https://www.zhihu.com/question/34866983</a> ，泊松过程），描述了在一定的时间间隔下事件发生的次数，从而和 Exponential 分布相联系；另一方面，它的密度公式事实上是 Bernoulli 分布在次数很大，而事件的概率很小的情况下的极限（同时需要两者的乘积满足 \(λ=np\) ，n 很大可以看做次数越来越多，间隔越来越小趋向于连续；而在趋向连续时 p 显然趋向于 0）。</li>
+</ol>
+
+<h2 id="toc_3">随机变量函数的分布</h2>
+
+<p>在之前的概率密度函数 pdf/pmf 的基础上，我们可以定义<strong>（累积）分布函数 cdf</strong>。即 \(F(x)=P(X&lt;x)\) 。显然，其有单调不减、右连续等性质。</p>
+
+<p>下面我们要导出随机变量的函数的分布。对于离散情况来说，我们可以直接根据分布列变换得到；所以关键是连续变量（当然可以推广得到统一的形式？）。我们有定理：</p>
+
+<p><strong>定理</strong>：设随机变量 X 取值于 \(C\ ⊂ \mathbb{R},Y = g(X),g(x)\) 是 \(C\) 到 \(D ⊂ \mathbb{R}\) 的一一变换，\(x = h(y) = g^{−1} (y)\)  是 \(g(x)\) 的反函数，设 \(h(y)\) 有连续的 导数。则<br/>
+\[<br/>
+f_Y (y) = f(h(y))|h ′ (y)|, y ∈ D\tag{4.1}<br/>
+\]<br/>
+事实上，我们可以利用这个公式证明正态分布的线性变换结果。下面给出一个例子：设 \(X ∼ N(0, 1)\)，求 \(Y = X^2\) 的分布。注意到，上面的公式是对于单调函数来说的，而对于非单调的函数有相应的拓展形式，我们仅需要记得简单求和即可。</p>
+
+<p>在此例中，并非一个一一变换，设 \(D=(0,\infty)\)，并且事件<br/>
+\[<br/>
+\{Y=y\}=\{X=\sqrt{y}\}+\{X=-\sqrt{y}\}, y\in D<br/>
+\]<br/>
+这里有分段的两个逆变换 \(h_1 (y) =\sqrt y, h_2 (y) = − \sqrt y\) 满足条件，于是<br/>
+\[<br/>
+f(Y)(y)=f_X(h_1(y))|h_1&#39;(y)|+f_X(h_2(y))|h_2&#39;(y)|\\<br/>
+={1\over \sqrt{2\pi}}\exp(-{1 \over 2}h_1^2(y)){1\over 2\sqrt{y}}+{1\over \sqrt{2\pi}}\exp(-{1 \over 2}h_2^2(y)){1\over 2\sqrt{y}}\\<br/>
+={1\over \sqrt{2\pi y}}e^{-y/2}, y&gt;0<br/>
+\]</p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

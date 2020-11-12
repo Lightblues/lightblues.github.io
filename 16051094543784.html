@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【人工智能】Markov Models and Hidden Markov Models - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【人工智能】Markov Models and Hidden Markov Models   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/17</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051094543784.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>前面讲的 BN 是静态的概率推断，而在这里我们考虑在时间上的推移，并且网络的形式更为简单了。时间上的推断在实际中的应用非常广泛，如 Speech recognition, Robot mapping, Medical monitoring。</p>
+
+<h2 id="toc_0">Markov Models</h2>
+
+<p>一个时间点的状态可能取决于前面的所有节点，而马氏模型的假设是该状态仅和前一时间点的状态有关。<br/>
+\[<br/>
+P(X_t|X_1...X_{t-1})=P(X_t|X_{t-1})<br/>
+\]<br/>
+马氏链的几个要素</p>
+
+<ul>
+<li><strong>State</strong>: value of X at a given time </li>
+<li><strong>Initial probabilities</strong>: the prior probability distribution of X </li>
+<li><strong>Transition probabilities (dynamics)</strong>: specify how the state evolves over time</li>
+</ul>
+
+<p>对于转移概率，我们有静态假设 <strong>Stationary assumption</strong>: transition probabilities the same at all times</p>
+
+<p>在这种情况下，我们容易得到一些有用的结论</p>
+
+<blockquote>
+<ol>
+<li><p>给定 \(X_{t-1}\)， 则\(X_{t}\) 与\(X_1,...X_{t-2}\) 均独立；不仅如此，给定了present 状态，past 和 future 节点独立。</p></li>
+<li><p>联合分布有 <br/>
+\[<br/>
+P(X_1, X_2 , . . . ,X_T) = P(X_1)\prod _{t=2}^T P(X_t|X_{t-1})<br/>
+\]</p></li>
+</ol>
+</blockquote>
+
+<p>给出一个经典的 Weather 马氏链的例子，注意我们给出了很多种表示方法</p>
+
+<p><img src="media/16051094543784/16051094827712.png" alt=""/></p>
+
+<p>对于一个马氏链，问题是给定了初始状态，求在时间 t 时的概率分布。为此，我们采用 variable elimination 的思路：因为在马尔科夫假设下仅与其上一个时刻的分布相关，因此我们若知道了\(X_{t-1}\) 的分布，可以容易得到<br/>
+\[<br/>
+P(𝑋_t) = \sum_{X_{t-1}}P(X_{t-1})P(X_T|X_{t-1})\tag{1.1}<br/>
+\]<br/>
+因此，可以递归求解，从\(X_1\) 计算到 \(X_t\) 。</p>
+
+<p>马氏链的另一个重要概念是 <strong>Stationary Distributions</strong>：对于多数的马氏链来说，在一定的转移概率下，初始状态的影响越来越小，最终会收敛到一个固定的分布（仅与转移矩阵有关），这一稳定分布满足<br/>
+\[<br/>
+P_{\infty}(X)=P_{\infty+1}(X)=\sum_xP(X|x)P_\infty(x)<br/>
+\]<br/>
+例子：在 Weblink analysis 中，1. 我们把每个网页看成 state；2. 初始状态可以赋为 1；3. 转移矩阵：以一定的概率 c 随机跳转到任一网页上，在其他情况下以一定的分布连接到其他 state（例如按照链接关系）——那么，此马氏链的 stationary distribution 正是 PageRank 的结果。</p>
+
+<h2 id="toc_1">Hidden Markov Model</h2>
+
+<p>在普通的马氏链中，没有证据变量 E，我们只是建立了一个模型，因此并没有太多的实际用处，Need observations to update your beliefs；在 HMM 中，我们加入了这些观测值，从而提升了模型的模拟能力。</p>
+
+<p><img src="media/16051094543784/16051094879398.png" alt=""/></p>
+
+<p>给出一些案例：在 Speech recognition HMMs 中，观测 E 是 acoustic signals (continuous valued)，而状态 X 则是 words (so, tens of thousands)；在 Machine translation HMMs 中，观测是 words (tens of thousands)，状态是 translation options；在 Robot tracking 中，观测是 range readings (continuous)，而状态是 positions on a map (continuous)。我们不断通过观测来提升我们对于状态的 belief。</p>
+
+<p>给出 HMM 的定义：HMMs defined by</p>
+
+<ul>
+<li>States \(X\) </li>
+<li>Observations \(E\) </li>
+<li>Initial distribution \(P(X_1)\) </li>
+<li>Transitions \(P(X|X_{-1})\) </li>
+<li>Emission \(P(E|X)\)</li>
+</ul>
+
+<p>类似于马尔可夫模型，我们有如下的性质：</p>
+
+<blockquote>
+<ol>
+<li><p>联合分布。<br/>
+\[<br/>
+P(X_1,E_1,...,X_T,E_T)=\\P(X_1)P(E_1|X_1)\prod_{t=1}^TP(X_t|X_1E_1...X_{t-1}E_{t-1})P(E_t|X_1E_1...X_{t-1}E_{t-1}X_t)\tag{1.2}<br/>
+\]</p></li>
+<li><p>条件独立性。这里所有的三元组都可以三成是一条链，因此阻断了\(X_t\)，那么 past 和 future 之间，以及相应的观测 E 之间都是独立的。</p></li>
+</ol>
+</blockquote>
+
+<p>对于一个 HMM 模型来说，我们有以下任务：</p>
+
+<ul>
+<li><p>Filtering: \(P(X_t|e_{1:t})\)</p>
+<p>Computing the <strong>belief state</strong>—the posterior distribution over the most recent state—given all evidence to date.</p></li>
+<li><p>Prediction: \(P(X_k|e_{1:e})\)<br/>
+Computing the posterior distribution over the future state, given all evidence to date.</p></li>
+<li><p>Smoothing: \(P(X_k|e_{1:t})\)<br/>
+Computing the posterior distribution over a past state, given all evidence up to the present.</p></li>
+<li><p>Most Likely Explanation ： \(\arg\max_{x_{1:t}} P(X_{1:t}|e_{1:t})\)<br/>
+Given a sequence of observations, find the sequence of states that is most likely to have generated those observations.</p></li>
+</ul>
+
+<h3 id="toc_2">Filtering</h3>
+
+<p>显然，对于所有的问题我都都可以通过（1）式进行消元得到，而这里的推导是为了方便计算，以及帮助我们理解 HMM 的逻辑。先定义我们对于某一 state 的分布的 belief（这里的 evidence 是\(e_{1:t}\)，也可以是其他的 evidence），即我们在给定了一些观测的情况下对于状态 t 所能做出的推断（推断其分布）。<br/>
+\[<br/>
+B(X_t)=P(X_t|e_{1:t})<br/>
+\]</p>
+
+<ul>
+<li><strong>Passage of Time</strong></li>
+</ul>
+
+<p>这是第一步，在观测 \(e_{1:t}\) 之下，我们已知了对于 \(X_{t}\) 的 belief，而要根据 HMM 上时间的推移去得到  \(X_{t+1}\) 的 belief。有<br/>
+\[<br/>
+\begin{align}<br/>
+P(X_{t+1|e_{1:t}})=\sum_{x_t}P(X_{t+1}x_t|e_{1:t}) \\<br/>
+=\sum_{x_t}P(X_{t+1}|x_te_{1:t})P(x_t|e_{1:t}) \\<br/>
+=\sum_{x_t}P(X_{t+1}|x_t)P(x_t|e_{1:t}) \\<br/>
+\end{align}<br/>
+\]<br/>
+亦即<br/>
+\[<br/>
+B&#39;(X_{t+1})=\sum_{x_t}P(X&#39;|x_t)B(x_t)\tag{2.1}<br/>
+\]<br/>
+看（2.1）式：我们基于对 \(X_t\) 的 belief，通过条件概率进行更新 \(X_{t+1}\) 的 belief。这里的式子和 <code>Mini-forward algo</code> 中是一样的（式（1.1））。</p>
+
+<ul>
+<li><strong>Observation</strong></li>
+</ul>
+
+<p>这是下一步，我们得到了新的观测 \(x_{t+1}\)，来对于先验 prior \(B&#39;(X_{t+1})=P(X_{t+1}|e_{1:t})\) 进行修正，得到 posterior<br/>
+\[<br/>
+P(X_{t+1}|e_{1:t+1})={P(X_{t+1},e_{t+1}|e_{1:t})\over P(e_{t+1}|e_{1:t})}\\<br/>
+\propto_{X_{t+1}}P(X_{t+1},e_{t+1}|e_{1:t})=P(e_{t+1}|e_{1:t},X_{t+1})P(X_{t+1}|e_{1:t})\\<br/>
+=P(e_{t+1}|X_{t+1})P(X_{t+1}|e_{1:t})<br/>
+\]<br/>
+也即<br/>
+\[<br/>
+B(X_{t+1})\propto_{X_{t+1}}P(e_{t+1}|X_{t+1})B&#39;(X_{t+1})\tag{2.2}<br/>
+\]<br/>
+看（2.2）式：我们利用了 \(e_{t+1}\) 出现的条件概率，对于先验的 belief 进行了更新。<strong>beliefs “reweighted” by likelihood of evidence (normalization)</strong>。</p>
+
+<p>另外，看上面推导的式子，可以看到左右两端均是在 \(e_{1:t}\) 这一条件下的，把这个条件「隐藏」掉，式子可表为 \(P(X_{t+1}|e_{t+1})\propto_{X_{t+1}} P(e_{t+1}|X_{t+1})P(X_{t+1})\)；所以我们这里用的其实是一个 Bayes 公式，下标\({X_{t+1}}\) 表示我们应当根据其进行归一化操作。</p>
+
+<ul>
+<li><strong>Online Belief Updates</strong></li>
+<li><strong>The Forward Algorithm</strong></li>
+</ul>
+
+<p>综合上面的 passage of time, observation，对于 Filtering 任务我们可以给出 <code>Forward algo</code>，思路和式（1.1）的<code>Mini-forward algo</code> 是一样的，随着时间一步一步往前计算，只是这里多了由于 evidence 而带来的使用 Bayes 的后验概率更新。<br/>
+\[<br/>
+P(x_t|e_{1:t})\propto_X P(x_t,e_{1:t})=\sum_{x_{t-1}}P(x_{t-1},x_t,e_{1:t})\\<br/>
+=\sum_{x_{t-1}}P(x_{t-1},e_{1:t-1})P(x_t|x_{t-1})P(e_t|x_t)\\<br/>
+=P(e_t|x_t)\sum_{x_{t-1}}P(x_t|x_{t-1})P(x_{t-1},e_{1:t-1})\tag{2.3}<br/>
+\]<br/>
+其中第二行用到了 HMM 的结构。看（2.3）式最终的形式：我们从 \(P(x_{t-1}|e_{t-1})\) 出发，融合了 passage of time（求和运算，和（2.1）式一致）和 observation （Bayes 公式，和（2.2）式一致）。</p>
+
+<h3 id="toc_3">Prediction</h3>
+
+<p>Prediction 和 Filtering 任务的区别即在于，我们欲求其后验分布的变量是现在的时间 t，还是之后的时间 t+k。我们通过 <code>Forward algo</code> 计算到了 \(P(x_t|e_{1:t})\)，之后只要用 Markov 模型下的时间推移 <code>Mini-forward algo</code> 即可。</p>
+
+<h3 id="toc_4">Smoothing</h3>
+
+<p>在 smoothing 中，我们想要通过一个序列的观测 \(e_{1:t}\) 来估计一个历史状态的后验概率，正好和 Filtering 和 Prediction 构成了一个完整的任务：给定至今的观测，去预测现在、未来、过去的某一状态下的分布。</p>
+
+<p><img src="media/16051094543784/16051095020734.png" alt=""/></p>
+
+<p>懒得写了直接截图……第一条式子是把这条 HMM 链通过给定 \(X_k\) 进行隔断，注意第二行用了 Bayes 公式，从而将原条件概率分为两项：前项是一个 Filtering 问题；对于第二项 \(P(e_{k+1:t}|X_k)\) 的处理见第二条式子，我们用边际分布的定义，和 HMM 的结构化为第二行的形式，在提出一个 \(e_{k+1}\) 最终化成第四行——问题转化为求 \(P(e_{k+2:t}|x_{k+1})\)；于是又变成了一个递推关系，可以从 \(P(e_{t}|x_{t-1})\) 倒着往下计算到 \(P(e_{k+1:t}|X_k)\) 。</p>
+
+<h3 id="toc_5">Most Likely Explanation</h3>
+
+<p>前面的问题都是关注某一个状态的分布（当然可以根据该分布算出该节点最有可能的值是什么）；而在 MLE 问题中，我们关心的是在这一观测序列 \(e_{1:t}\) 下有可能的真实值 \(X_{1:t}\) 是什么，亦即，most likely explanation 问题的 query 是<br/>
+\[<br/>
+\arg\max_{x_{1:t}}P(x_{1:t}|e_{1:t})<br/>
+\]<br/>
+<strong>Viterbi</strong></p>
+
+<p><img src="media/16051094543784/16051095093241.png" alt=""/></p>
+
+<p><img src="media/16051094543784/16051095141477.png" alt=""/></p>
+
+<p>给出 Viterbi 算法及其和 Forward 的区别，具体的课上没讲，在此略过，待日后有时机再补完~</p>
+
+<h2 id="toc_6">Particle Filtering</h2>
+
+<p>最后一部分同样是一种近似方法（如同 BN 中）。精确解的问题在于 X 的状态数 \(|X|\) 太大，或根本是连续的；在近似解中，我们对 X 进行 sample，追踪这个 particle。有性质</p>
+
+<ul>
+<li>Time per step is linear in the number of samples</li>
+<li>In memory: list of particles, not states</li>
+</ul>
+
+<p>想法很简单，既然是一个马氏链，我们把几个「粒子」放进去，让它自行跑，待稳定后计算最终的粒子的分布，即可估计稳态分布。对于每一步来说，时间复杂度和粒子数成正比，空间复杂度同样。一般来说，粒子数 N 远小于 \(|X|\)。</p>
+
+<p><strong>Elapse Time</strong></p>
+
+<p>在这一步当中，我们模拟马氏链：对于每一个可能的后继 \(X&#39;\) ，我们以转移概率 transition provavilities 为权重进行抽样。This captures the passage of time. If enough samples, close to exact values before and after (consistent).<br/>
+\[<br/>
+x&#39;=sample(P(X&#39;|x))<br/>
+\]<br/>
+<strong>Observe</strong></p>
+
+<p>在观测步骤中，我们根据这些观测来更新每个粒子的权重（全部初始化为 1）<br/>
+\[<br/>
+w(x)=P(e|x)\\<br/>
+B(X)\propto P(e|X)B&#39;(X)<br/>
+\]<br/>
+\(P(X)\) 表示先验的概率分布；我们的证据 \(e\) 即粒子所在的位置，我们计算的权重 \(w(x)\) 实际上就是该 x 的似然；然后我们根据这个权重来更新 \(B(X)=P(X)\)，这里我们的观测（条件）不好表示了，这里的 belief 实际上是一个条件概率，实质上仍然是一个 Bayes 公式。</p>
+
+<p>Note: As before, the probabilities don’t sum to one, since all have been re-weighted (in fact they now sum to (N times) an approximation of P(e))</p>
+
+<p><strong>Resample</strong></p>
+
+<p>最后，在下一轮中，我们重新选择粒子。N times, we choose from our weighted sample distribution (i.e. draw with replacement)。</p>
+
+<p><img src="http://easonshi.synology.me:8090/images/2020/09/18/hmm-particle.png" alt="hmm-particle.png"/></p>
+
+<p>进一步阅读：这里提到的仅仅是 particle filtering 的一点点概念，而实际上它有着另外的实际背景，在 AL 领域多用在机器人定位上。可参看</p>
+
+<ul>
+<li>一篇很详细的笔记：<a href="http://blog.rexking6.top/2019/01/06/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%99%BA%E8%83%BD%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E6%A6%82%E7%8E%87/">《计算智能》（二）概率</a> </li>
+<li><a href="http://freemind.pluskid.org/machine-learning/hmm-kalman-particle-filtering/">漫谈 HMM：Kalman/Particle Filtering</a> </li>
+<li>论文 <a href="https://www.stats.ox.ac.uk/%7Edoucet/doucet_johansen_tutorialPF2011.pdf">A Tutorial on Particle Filtering and Smoothing: Fifteen years later</a> </li>
+</ul>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

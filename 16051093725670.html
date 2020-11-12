@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【人工智能】Constraint Satisfaction Problems - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【人工智能】Constraint Satisfaction Problems   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/16</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051093725670.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>在搜索算法中，我们关心的是从初始节点到目标节点的一条路径；而在约束满足问题中，我们没有初始状态，只关心 goal 而不在乎 path。</p>
+
+<ul>
+<li>Planning: sequences of actions</li>
+<li>Identification: assignments to variables</li>
+</ul>
+
+<p><strong>Constraint Satisfaction Problems (CSPs)</strong> are specialized for identification problems</p>
+
+<p>我们可以把 CSP 看成是特殊的搜索问题。对于一般的搜索问题来说，State is atomic or indivisible, known as a “black box” without internal structure，而在 CSP 中 State is represented as a <strong>feature vector</strong>；在搜索问题中 Goal test can be any function over states，而CSP 中 Goal test is a set of <strong>constraints</strong> to identify the allowable feature vector。</p>
+
+<p>我们来仔细看看 Feature Vector，它是由 A set of k <strong>variables</strong> (or features) 组成的，对于每个 feature 有值域 <strong>domain</strong>；而我们的目标就是找到满足约束的一组赋值。方便起见我们定义 complete state 和 partial state，后者即对部分变量赋值满足约束，其余部分待赋值。典型的问题有 Map Coloring 和 N-Queens 等。</p>
+
+<h2 id="toc_0">Constraint Graphs</h2>
+
+<p>对于一个 CSP 问题，我们可以采用约束图的方式进行表示：对于一个二元约束来说可将两个 feature 连起来；所以，问题在于<strong>将 N-nary 转化为 Binary constraints</strong>。我们假定 domain 都是有限的。</p>
+
+<p>第一步，引入新的变量（约束）Z，例如对于加法的三元约束来说，我们引入变量，满足 </p>
+
+<blockquote>
+<p>Domain is the set of all possible 3-tuples satisfying \(A+B=C\). \(\{(a_1 , b_1 , c _1 ), (a_ 2 , b _2 , c_ 2 ), …\}， s.t. a_ 1 + b_ 1 = c_ 1 …\)</p>
+</blockquote>
+
+<p>第二步，建立新变量 Z 与 A、B、C 之间的约束，显然可以是 A 与 Z 的 domain 中三元组的第一个元素相同。</p>
+
+<blockquote>
+<p>Create new constraints between Z and three original variables respectively (the position in the tuple is linked to an original variable).</p>
+
+<p>\[<br/>
+(Z,A)\in \{((a_1,b_1,c_1)a_1),...\}\tag{1}\\<br/>
+(Z,B)\in \{((a_1,b_1,c_1)b_1),...\}<br/>
+\]</p>
+</blockquote>
+
+<p>这样，我们通过引入一个新的变量，和三个二元约束，就把该三元约束转换好了；对于更多的约束，可以用相似的方法进行。</p>
+
+<p><strong>Note</strong>：这里可能一时没法理解，我们要<strong>理解究竟什么是约束</strong>。先来看普通的二元约束，以地图问题为例，假设每个国家的颜色均可为红黄蓝，约束的意义在于，若 A 填了红色，那么相邻的 B 就只能涂黄或蓝——也就是说，一个变量的值确定后，另一个变量的值域也变化了——反过来想我们如何表示约束？可以采用集合的形式 \(\{(R,Y),(R,B)...\}\) 。我们重新来理解约束，就是 A 和 B 分别取值，构成一个二元组，要求这个二元组在约束集合中。（我在理解上的困惑实际上在于，没有搞清楚约束的形式化表达。）这样的话，我们来看加法约束，假设 A 已定，对于 A 和 Z 的约束来说，式（1）要求两者构成的二元组要在约束集合中，这样就缩减了 Z 的值域；若进一步定下了 B 的值，Z 的值域将进一步缩小，事实上这时仅可能剩下一个三元组 \((a,b,c=a+b)\) ，接下来可对 C 进行赋值或者检测约束是否满足。</p>
+
+<h2 id="toc_1">Solving CSPs</h2>
+
+<p>我们可采用 Standard search formulation of CSPs，我们的初始状态为一个 empty assignment，后继函数为对任一未赋值变量进行赋值，而目标检测则要求赋值为 complete state 且符合约束。显然，1. 我们只检查了叶节点而事实上在过程中就可以进行约束检查；2. 如前所述，我们并不关心赋值的顺序，只关心 goal。注意到无论是 BFS 还是 DFS 都是低效的，但是我们没必要存储中间节点，因此，要在 DFS 框架下进行改进。</p>
+
+<p><strong>Backtracking Search</strong> 算法针对了这两个问题进行了改进</p>
+
+<ul>
+<li>Idea 1: One variable at a time in fixed ordering</li>
+<li>Idea 2: Check constraints as you go</li>
+</ul>
+
+<p>简言之：<strong>Backtracking = DFS + variable-ordering + fail-on-violation</strong></p>
+
+<p>两个思路都是比较直观的不多介绍。</p>
+
+<p>!<img src="media/16051093725670/16051094159383.png" alt=""/></p>
+
+<p>现在的问题在于，如何 Improving Backtracking。</p>
+
+<h3 id="toc_2">Ordering</h3>
+
+<p>显见，不同的赋值顺序会对效率产生影响，又可分为两类：Which variable should be assigned next? In what order should its values be tried?</p>
+
+<p>对于变量的顺序来说，直观来讲，为了尽早避免可能的冲突，我们会选取那些约束比较多的变量（或者说，是 domain 比较小的，回忆一下约束的意义即在于，某一变量定值之后会缩减另外的变量的 domain）。例如，在地图着色问题中，我们一般会从已着色的国家的相邻国开始进行着色。定义：</p>
+
+<blockquote>
+<p>Variable Ordering: <strong>Minimum remaining values (MRV)</strong></p>
+
+<p>Choose the variable with the fewest legal left values in its domain. Also called <strong>“most constrained variable”</strong></p>
+
+<p>“Fail-fast” ordering</p>
+</blockquote>
+
+<p>对于赋值的顺序来说，我们要尽早找到一组解（而不是回溯），那么我们肯定希望给剩余的变量更多的「可能性」，也就是说要避免其他变量的取值发生缩减；我们定义</p>
+
+<blockquote>
+<p>Value Ordering: <strong>Least Constraining Value (LSV)</strong></p>
+
+<p>Given a choice of variable, choose the least constraining value. I.e., the one that rules out the fewest values in the remaining variables</p>
+
+<p>Note that it may take some computation to determine this! (E.g., rerunning filtering)</p>
+</blockquote>
+
+<p>注意，前者可以让我们避免一些可能的错误（可以<strong>「剪枝」</strong>）；而或者只是提高了找到解的可能性（但并非保障，只能说「更快找到」）。若我们想找到全部的解，那么前者可以帮助减少计算，但后者则并不会有什么助益。</p>
+
+<h3 id="toc_3">Filtering: Can we detect inevitable failure early?</h3>
+
+<p>MRV 可以让我们避免一些简单的错误（如相邻两国填同样的颜色），然而这里我们仅仅检测了这样一个简单的约束；那么我们能否采取更多的计算来提前发现错误呢？这就是 Filtering 的思路。</p>
+
+<p>先来看 <strong>Forward Checking</strong>：Cross off values that violate a constraint when added to the existing assignment。我们在取定一个值（搜索）之后，对于相邻边的 domain 进行缩减（推理）。当然，这里我们只「向前看」了一步，事实上对于缩减了 domain 的变量我们可以继续进行推理，也就是约束传播 <strong>Constraint Propagation</strong> 。我们来给出定义：</p>
+
+<blockquote>
+<p>Consistency of A Single Arc</p>
+
+<p>An arc \(X \rightarrow Y\) is <strong>consistent</strong> iff for every \(x\) in the tail there is some \(y\) in the head which could be assigned without violating a constraint</p>
+
+<p>Forward checking: Enforcing consistency of arcs pointing to each new assignment</p>
+</blockquote>
+
+<p>注意定义，对于一条弧 \(X \rightarrow Y\) 来说，我们减小了 Y 的值域之后，要进行缩减的是 X 的值域；如何缩减，就是要使得 X 的任一个取值，Y 中都至少有一个能满足约束——对于那么不满足的 X 的取值，我们进行缩减。注意其方向，按照这个定义，我们在做 Forward checking 的时候，给定了 A，那么就要对于所以包含指向 A 的弧（事实上都是无向边）的变量进行值域缩减。下面给出具体的算法：!</p>
+
+<p><img src="media/16051093725670/16051094243854.png" alt=""/></p>
+
+<p>更宏观的解释：在 Filtering 中，我们 <strong>交替进行搜索和推理</strong>，在为某一变量赋值之后做弧相容检查。具体来说，当 \(X_i\) 赋值后，我们调用 \(AC-3\)，从 \((X_j,X_i)\) 中未赋值变量\(X_j\)开始，进行约束传播；事实上我们维护了一个队列，一旦某一个变量的值域发生了变化，就将其 neighbors 加入其中。</p>
+
+<p>然而，弧相容仍不能保证不进行回溯。例如，对于一个三角形来说，若每个节点只能赋值为红蓝两色那么显然是无解的，但用弧相容找不错错误来。若想直接得到解，引入 k-相容 <strong>K-Consistency</strong> 的概念：</p>
+
+<ul>
+<li>1-Consistency (Node Consistency): Each single node’s domain has a value which meets that node’s unary constraints</li>
+<li>2-Consistency (Arc Consistency): For each pair of nodes, any consistent assignment to one can be extended to the other</li>
+<li>K-Consistency: For each k nodes, any consistent assignment to k-1 can be extended to the k th node.</li>
+</ul>
+
+<p>并给出强 k-相容 <strong>Strong k-consistency</strong>: also k-1, k-2, … 1 consistent，以及结论，对于一个 n 变量的 CSP 来说，strong n-consistency means we can solve without backtracking。这是显然的。</p>
+
+<h3 id="toc_4">Structure: Can we exploit the problem structure?</h3>
+
+<p>这里问题的结果指的是约束图的结构。考虑极端情况：所有节点结构独立的，那么我们可以任意赋值；更为一般的，Independent sub-problems are identifiable as connected components of constraint graph。事实上，这样可分割的情况是很少见的（如澳大利亚地图着色），一个理想的可分问题能大大降低复杂度。注意到，我们可以用 Search 问题的通用复杂度来衡量 CSP，搜索树的深度显然是节点数，宽度为 domain 的大小；若一个 n 个节点的问题可分割成大小为 c 的若干子问题，则时间复杂度从 \(O(d^n)\) 降为 \(O({n \over c} d^c)\) ，变成了 n 的线性函数。</p>
+
+<p>可分割为 <strong>sub-problems</strong> 的问题也是很少见的，一个更一般的情况是 <strong>Tree-Structured CSPs</strong>，对此我们有定理：</p>
+
+<blockquote>
+<p>Theorem: if the constraint graph has no loops, the CSP can be solved in \(O(n d^2 )\) time</p>
+</blockquote>
+
+<p>同样变为了 n 的线性函数。如何做到呢？1. 对约束树进行拓扑排序；2. 逆着拓扑排序，从孩子到父节点做弧相容检查（即对于\((Parent(X_j),X_j)\)进行检查）；3. 然后顺着拓扑排序，从根节点到到叶节点进行赋值。注意到，进行这样一次弧相容检查之后，我们保障了对于父节点的任意取值，子节点都至少有一个值满足约束，也就保障了算法的正确性（解的存在性）。</p>
+
+<p>树结构也太少见了，一个拓展是 <strong>Nearly Tree-Structured CSPs</strong> 。对其的思路是，选定一组变量，使得删去这些之后的节点构成一棵树，这样的话，我们只要遍历这组节点的所有可能赋值情况即可。</p>
+
+<blockquote>
+<p>Conditioning: instantiate a variable, prune its neighbors&#39; domains</p>
+
+<p><strong>Cycle Cutset</strong> conditioning: instantiate (in all ways) a set of variables such that the remaining constraint graph is a tree.</p>
+</blockquote>
+
+<p>所以我们的任务是找到这样的 Cycle Cutset，若其大小为 c，则找到这个集合之后，搜索的时间复杂度为 \(O( (d^c ) (n-c) d^2)\) </p>
+
+<p><img src="media/16051093725670/16051094337625.png" alt=""/></p>
+
+<h2 id="toc_5">Iterative Improvement</h2>
+
+<p>在上述 Backtracking 算法中，我们仍一个一个对变量进行赋值，但 CSP 只关心结果，因此一个自然的想法是直接从 complete state 出发，寻找解。Iterative Improvement 是一种 <strong>Local Search</strong> 方法。我们</p>
+
+<ul>
+<li>Take an assignment with unsatisfied constraints</li>
+<li>然后 <strong>Operators</strong> reassign variable values。</li>
+</ul>
+
+<p>具体来说，我们 1. Variable selection: randomly select any conflicted variable；2. Value selection: min-conflicts heuristic: Choose a value that violates the fewest constraints。这里第二步的变量选择使得冲突最少的那一个，可以认为是一种 heuristic \(h(n)=\) #total number of violated constraints。</p>
+
+<p>这里体现的是 <strong>Local Search versus Systematic Search</strong>，相较于 BFS, DFS, IDS, Best-First, A* 等系统搜索算法（Keeps some history of visited nodes）来说，后者的一大特点就是不保留 history，然而，这在减少了存储负担的情况带来的问题则是失去了 complet 性质，容易陷入局部最优。</p>
+
+<p>一些 Local Search 包括</p>
+
+<ul>
+<li>Hill climbing：在 neighbor 中找最优值，迭代，可能陷入局部最优</li>
+<li>Simulated annealing：结合了 random walk 和 hill climbing。在循环过程汇总，与 hill climbing  的不同在于，对于 next state 来说，若是较为「好的」则以概率 1 接受；若相较于前一个状态变差了不是直接拒绝而是以一定的概率 \(P(T)\) 接受（random walk）。接受的概率随着时间降低，也就是「模拟退火」的命名原因。具体的，接受概率为 T 的函数，如 \(\exp(\Delta E/T)\) 其中 \(\Delta E\) 可表为 next value - current value，而\(T\) 随着时间而降低，即从 random walk 逐渐变为 hill climbing。</li>
+<li>Local beam search：并行 k 个 hill climbing——对于 Systematic search 来说保留所有的历史，而前两种仅保留一个，都太极端了，Local beam search 每次保留 k 个 complete state 而它们的 successor 中找最好的（加入了 randomness）的 k 个后代进行下一次模拟。</li>
+<li>Genetic algorithm</li>
+</ul>
+
+<p>另，对于连续函数来说，则要采用梯度下降方法 Gradient decent。</p>
+
+<p>进一步阅读：《人工智能》chapter 4.1 – 4.2。</p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

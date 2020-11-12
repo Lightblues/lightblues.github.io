@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【人工智能】MDP - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【人工智能】MDP   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/01/11</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051095352841.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                  
+                                    <a class="tag is-link is-light" href='tag_AI.html'>#AI</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>一个马尔可夫决策过程可由以下五元素定义：</p>
+
+<ul>
+<li><p>State \(s\in S\)</p></li>
+<li><p>Actions \(a\in A\)</p></li>
+<li><p>Transition func \(T(s,a,s&#39;)=P(s&#39;|s,a)\)</p></li>
+<li><p>Reward func \(R(s,a,s&#39;)\)</p></li>
+<li><p>Decay factor</p></li>
+</ul>
+
+<p>其中，转移函数和奖励函数被称为 model，另外奖励也可能简化为 \(R(s,a)\) 或 \(R(s&#39;)\)的形式。</p>
+
+<p>相较于之前的搜索策略（模型是没有随机性），在 MDP 中我们多了随机性。对于一个 MDP 问题来说，我们的目标是根据给定的 T 和 R（这里给定了 model，而在下面的 RL 中我们需要去学习这个模型）， 对于每个 state 寻找一个对应的 action，即给出一个 policy \(\pi*\) （从 state 到 action 的 mapping） 使得期望 utility(reward) 最大化。</p>
+
+<p>由于是一个序列化的过程，我们需要对于这一系列的 reward 以一定的权重进行综合。对于一个必然会结束的问题来说，可以直接加总；但更多时候我们面临的是一个无穷的序列，我们可以定义 discounted utility \(U([r_0, 2_1,...])=r_0+\gamma r_1+\gamma^2 r_2...\) 以保障收敛。直观来理解，我们的 agent 更加偏好近期的收益，这也是符合我们的常识的。</p>
+
+<p>另外，我们除了单个的 state，通常也可以将 \((s,a)\) 作为一个整体定义为 Q-state，具体的应用会在 MDP 和后面的 RL 中涉及。</p>
+
+<p>应用随机节点，我们可以将 MDP 问题以搜索树的形式表达出来</p>
+
+<p><img src="media/16051095352841/16051095676848.png" alt=""/></p>
+
+<h2 id="toc_0">Solving</h2>
+
+<p>显然，直接暴力搜索是不现实的，为求解 MDP 问题，先定义几个 Optimal quantities：</p>
+
+<ul>
+<li>Value of a state: \(V^*(s)=\) expected utility starting from \(s\) and actiong optimally</li>
+<li>Value of a Q-satte: \(Q^*(s,a)=\) expected utility starting out from \((s,a)\) and thereafter acting optimally</li>
+<li>The optimal policy: \(\pi^*(s)=\) optimal action from state \(s\) </li>
+</ul>
+
+<p>显然，为了求解上述的问题，可以采用迭代的方法，有 Bellman Equation:<br/>
+\[<br/>
+\begin{align}<br/>
+V^*(s) &amp;= \max_{a\in A(s)}\sum_{s&#39;}R(s,a,s&#39;)+ \gamma P(s&#39;|s,a)V^*(s&#39;) \\<br/>
+ &amp;=\max_{a\in A(s)}R(s,a,s&#39;)+\gamma Q^*(s,a)\\<br/>
+\end{align}\\<br/>
+\]</p>
+
+<p>\[<br/>
+Q^*(s,a)=\sum_{s&#39;}P(s&#39;|s,a)V^*(s&#39;)<br/>
+\]</p>
+
+<p>具体来说，我们可以采用以下的几种方法</p>
+
+<h3 id="toc_1">Value Iteration</h3>
+
+<p>在值迭代中，我们只关系每个 state 的值，并基于最终得到的结果得到 policy。初始化每个 state 的值为 \(V_0(s)=0\) ，迭代更新<br/>
+\[<br/>
+V_{k+1}(s)\leftarrow\max_{a\in A(s)} R(s,a,s&#39;)+\gamma \sum_{s&#39;}P(s&#39;|s,a)V_k(s&#39;)\tag{1}<br/>
+\]<br/>
+每一步的时间复杂度为 \(O(S^2A)\) 。注意，在 value iteration 中，由于 Bellmen 方程的非线性（其中的 max 操作），我们只能迭代求解。有问题：</p>
+
+<ol>
+<li>收敛速度慢</li>
+<li>事实上，在一定的 \(V_k\) 下，最优策略很少发生改变。</li>
+</ol>
+
+<p>补充最优策略的提取 <strong>Policy extraction</strong>:<br/>
+\[<br/>
+\pi^*=\arg\max_a\sum_{s&#39;}P(s&#39;|s,a)V^*(s&#39;)\\<br/>
+\pi^*=\arg\max_a Q^*(s,a)<br/>
+\]<br/>
+从中也可以看到，把 Q-state 作为节点有着更好的性质。</p>
+
+<h3 id="toc_2">Policy Iteration</h3>
+
+<p>对于 Value Iteration 的问题，我们在 Policy Iteration 进行了改进：交替更新 value 和 policy。</p>
+
+<ol>
+<li>Policy Evaulation：固定策略 \(\pi\)，计算 \(V^\pi(s)=R(s,a,s&#39;)+\gamma\sum_{s&#39;}P(s&#39;|s,a)V^\pi(s&#39;)\) </li>
+<li>Policy Improvement：即根据计算的 value 提取（更新）策略</li>
+</ol>
+
+<p>另外注意到，在 evaluation 的过程中，我们没有了 max 操作，意味着现在变成了一个线性方程，理论上我们可以直接解这个线性方程 \(v = R+\gamma Pv\) 其中 P 为转移矩阵，但事实上矩阵求逆的时间复杂度为 \(O(S^3)\) ，所以一般我们仍会采用（1）中的迭代过程，执行固定的次数过程达到一定的精度。</p>
+
+<p>比较两种算法，其实它们都是 Dynamic Programming，而且本质上都是一样的：只是，在 value iteration 中，我们关注的重点是在 state 的 value 上，对于每一步 iteration，我们<strong>同时更新 value 和 policy</strong> （policy 的更新是隐式的，即我们所取的 max）；在 policy iteration 中，每次迭代我们先固定一个 policy，在这个固定的策略下更新 value，即对于 value iteration 中 policy 在后期不怎么会变化的问题进行了改进。</p>
+
+<p>一个清晰的表示：</p>
+
+<p><img src="media/16051095352841/16051095603959.png" alt=""/></p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

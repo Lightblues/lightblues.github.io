@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    【统计计算】Bootstrap & Jackknife - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            【统计计算】Bootstrap & Jackknife   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2019/12/30</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051080436925.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>这篇来谈谈 Bootstrap 和 Jackknife。先来一个总括：在之前的 MC in Statistic Inference 中，我们假定已知了 population 的分布，并基于此进行样本生成，对于估计的 se、MSE 、置信水平进行估计，或做假设检验；然而这种方法的应用显然有点窄——很多情况下，我们是不知道总体分布，甚至我们能采集到的样本就只有这些，限于种种原因无法采集更多的样本——那么，在不知道总体分布，或者样本量较少的情况下，我们如何对于上述这些进行估计呢？这里就用了 Bootstrap 方法，本质是上一种重抽样的方法：既然我们只知道这些数据，那么我们就把这些数据看做整体（Empirical dist.），基于这些数据再进行多次抽样并计算得我们想要的内容（更加充分运用了这些数据）。补充：1. 我们也把 MC in Statistic Inference 中的方法叫做<strong>参数 Bootstrap</strong>（因为它也涉及到了重新的多次抽样，不过是从 population 中抽取的）；而这里的方法则叫做<strong>非参数 Bootstrap</strong>，我们一般讲的 Bootstrap 就是这里的；2. Jackknife 实际上是 Bootstrap 的一种特例：一种类似于「leave-one-off」的思想。</p>
+
+<h3 id="toc_0">Two Approximations, &quot;Plug-in&quot; Priniciple</h3>
+
+<p>理解整个过程：从 population \(X\sim F(x)\) 中，我们观测到了 n 个样本 \(X=(x_1,...,x_n)\)；我们把这些样本看作一个整体再次抽样，实际上是从 <strong>Empirical dist</strong>. 中进行抽样 \(X^*\sim F_n(x)\)；这些新的样本又有分布 \(F_n^*(x)\)。这里就涉及到了两个近似：<br/>
+\[<br/>
+F\rightarrow X\overset{(x_i)}{\rightarrow} \hat F\\\hat F\rightarrow X^*\overset{(x_i^*)}{\rightarrow} \hat F^*<br/>
+\]<br/>
+在进入 Bootstrap 之前，还需要对统计量和分布的关系；以及 &quot;Plug-in&quot; Priniciple 进行理解。</p>
+
+<ul>
+<li><strong>对于一个 parameter  \(\theta\) 来说，我们可以把它看作是分布 F 上的一个函数 \(\theta=t(F)\) 。</strong></li>
+<li>这是对于 population 的，而在 sample level，我们认为 statistic/estimator 是 sample(\(\hat F\)) 的一个函数 \(\hat\theta=t(\hat F)\)</li>
+</ul>
+
+<p>例如，对于期望来说是在 F 上的一个积分；而其估计则是样本的均值。</p>
+
+<p>而 <strong>&quot;Plug-in&quot; Priniciple</strong> ，简单的理解就是对于我们要估计的参数/统计量，我们用 sample level 上的数来代替 population level 上的数，给出两个例子：</p>
+
+<p>对于均值来说<br/>
+\[<br/>
+\theta=\mu=E_F[X]=\int xdF(x)\\\hat\theta=\hat\mu={1\over n}\sum x_i=\int xd\hat F(x)=E_{\hat F}(X)<br/>
+\]<br/>
+注意这里我们给出了期望及其估计值的另一种表示：用\(E_{\hat F}(X)\) 来估计\(E_{ F}(X)\) 。</p>
+
+<p>对于 standard error of the mean estimator<br/>
+\[<br/>
+F\sim(\mu,\sigma^2), E_F(X)=\mu, Var_F(X)=\sigma^2<br/>
+\]<br/>
+因为有<br/>
+\[<br/>
+\sigma^2=E_F[(X-E_F[X])^2]\\\hat \sigma^2=E_{\hat F}[(X-E_{\hat F}[X])^2]={1\over n}\sum(x_i-\bar x)^2\\<br/>
+\]<br/>
+（注意，这里我们用了<strong>两次</strong> &quot;Plug-in&quot; Priniciple ，并给出了其具体的表达形式。）对于 \(se(\bar X)={\sigma \over\sqrt{n}}\) 我们有估计 \(\hat {se}(\bar X)={\hat\sigma \over\sqrt{n}}\)。</p>
+
+<h3 id="toc_1">Bootstrap</h3>
+
+<p>接下来正式进入 Bootstrap，我们先用它来估计 估计量的 se, bias：</p>
+
+<p>前面讲过，Bootstrap 就是多次抽样，这样就得到了 Empirical dist. \(\hat F(x)\) ，而我们的估计量则是 \(t(\hat F)\) 。我们先来看 se，考虑<br/>
+\[<br/>
+Var(\hat\theta)=E[(\hat\theta -E[\hat\theta])^2]=E_F\big[(t(\hat F)-E_F[t(\hat F)])^2\big]<br/>
+\]<br/>
+（注意这里取的期望都是在原分布下的）我们使用 &quot;Plug-in&quot; Priniciple，则<br/>
+\[<br/>
+\hat{Var}(\hat\theta)=E_\hat F\big[(t(\hat F^*)-E_\hat F[t(\hat F^*)])^2\big]={1\over B-1}\sum(\hat\theta^{(i)}-\bar{\hat\theta^{*}})^2<br/>
+\]<br/>
+其中的 \(\bar{\hat\theta^*}\) 为 B 个 Bootstrap 估计量的均值；分母用了\(B-1\) 是为了无偏。于是我们得到了 <code>se</code> 的 Bootstrap 估计公式<br/>
+\[<br/>
+\hat{se}(\hat\theta)=\sqrt{{1\over B-1}\sum(\hat\theta^{(i)}-\bar{\hat\theta^{*}})^2}\tag{2.1}<br/>
+\]<br/>
+对于 <code>bias</code>，由于<br/>
+\[<br/>
+bias(\hat\theta)=E[\hat\theta-\theta]=E_F[t(\hat F)-t(F)]\\<br/>
+\]</p>
+
+<p>\[<br/>
+\hat{bias}(\hat\theta)=E_\hat F[t(\hat F^*)-t(\hat F)]=E_\hat F[\hat\theta^*]-\hat\theta= \bar{\hat\theta^*}-\hat\theta\tag{2.2}\\<br/>
+\]</p>
+
+<p>注意从第一行到第二行（其估计）中，我们用了三次 &quot;Plug-in&quot; Priniciple。 其中的 \(\bar{\hat\theta^*}\) 为 B 个 Bootstrap 估计量的均值。</p>
+
+<p>还讲了 Bootstrap 方法来估计置信区间，我们把这部分放到后面去讲，接下来，看看一个特例：Jackknife。</p>
+
+<h3 id="toc_2">Jackknife</h3>
+
+<p>这里，我们用了两个例子，来说明该公式与 Bootstrap 下的区别。给出 Jackknife 的流程为：对于一个大小为 n 的样本，每次去除第 i 个样本，将剩下的其余样本作为第 i 次重抽样得到的数据；也就是说，在 Jackknife 下，我们只能有 n 个重抽样结果（而在 Bootstrap 下是不限制的）；每个抽样结果的大小为 \(n-1\)（在 Bootstrap 下为 n）。</p>
+
+<p>来看 <code>bias</code>，以 \(\theta=\sigma^2\) 为例，估计量为\(\hat \theta={1\over n}\sum(x_i-\bar x)^2\) 。注意到有<br/>
+\[<br/>
+bias(\hat\theta)=E[\hat\theta-\theta]=...={1\over n}\sigma^2\tag{3.1}<br/>
+\]<br/>
+我们考虑<br/>
+\[<br/>
+E[\hat\theta^{(j)}-\hat\theta]=E[\hat\theta^{(j)}-\theta]-E[\hat\theta-\theta]\\=(-{\sigma^2\over n-1})-(-{\sigma^2\over n})={1\over n-1}bias(\hat\theta)<br/>
+\]<br/>
+上式第一行到第二行成立，是因为，我们把 \(x_j\) 去除，也可以把剩余的观测看做是 population 的\(n-1\) 次 realization，因此和式（3.1）的估计在形式上是一致的。另，上式只是考虑了编号为 j 的一组抽样，我们将 n 组式子相加，容易得到<br/>
+\[<br/>
+\hat{bias}_{Jack}(\hat\theta)=(n-1)(\bar{\hat\theta^*}-\hat\theta)\tag{3.2}<br/>
+\]<br/>
+其中 \(\bar{\hat\theta^*}\)为 n 个估计量的均值。</p>
+
+<p>再来看 <code>se</code>，以 \(\theta=EX\)为例，\(\hat\theta=\bar X\)。注意到<br/>
+\[<br/>
+se(\hat\theta)=\sqrt{Var(\bar{X})}={\sigma\over\sqrt{n}}<br/>
+\]<br/>
+另外，我们仔细看这几个估计量，<br/>
+\[<br/>
+\hat\theta^{(j)}={1\over n-1}(n\bar{x}-x_i),\\<br/>
+\bar{\hat\theta^*}={1\over n}\sum{n\bar{x}-x_i\over n-1}=\bar{x}<br/>
+\]<br/>
+则有<br/>
+\[<br/>
+\sum(\hat\theta-\bar{\hat\theta^*})^2=\sum ({n\bar{x}-x_i\over n-1}-\bar{x})^2={1\over(n-1)^2}\sum(x_i-\bar{x})^2={s^2\over n-1}<br/>
+\]</p>
+
+<p>显然 \({s\over\sqrt{n}}\) 是\(se(\hat\theta)={\sigma\over\sqrt{n}}\) 的无偏估计，比较形式，我们可以得到最终的形式<br/>
+\[<br/>
+\hat{se}_{Jack}(\hat\theta)=\sqrt{{n-1\over n}\sum(\hat\theta-\bar{\hat\theta^*})^2}\tag{3.3}<br/>
+\]<br/>
+比较（3.2）（3.3）和（2.1）（2.2），我们可以发现 Jackknife 估计要比 Bootstrap 估计在分子上多一个\(n-1\)，这可以理解为，<strong>the Jackknife sample \(x^{(i)}\) is very similar to \(x\) compared with Bootstrap replicates</strong>。</p>
+
+<h3 id="toc_3">Bootstrap CI</h3>
+
+<p>下面回过头来继续介绍使用 Bootstrap 方法来估计置信区间。主要介绍了 5 中方法：</p>
+
+<ol>
+<li>Standard normal</li>
+<li>Basic CI</li>
+<li>Percential CI</li>
+<li>Bootstrap t CI</li>
+<li>Better BCa CI</li>
+</ol>
+
+<p>第一种 <strong>Standard normal</strong> 中，引入了 pivot quantity <br/>
+\[<br/>
+Z={\hat\theta-E[\hat\theta]\over se(\hat\theta)}<br/>
+\]<br/>
+显然，该量在 n 很大情况下由 CLL 可知是近似标准正态；那么1. 再假设该统计量是无偏的，即\(\theta=E[\hat\theta]\) ；2. 使用 Bootstrap 方法估计 se，我们就可以得到 \(\theta\) 的一个置信区间<br/>
+\[<br/>
+[\hat\theta\pm z_{\alpha/2}\hat{se}(\hat\theta)]\tag{5}<br/>
+\]<br/>
+其中 \(z_{\alpha/2}=\Phi(1-\alpha/2)\) ，即标准正态的上 \(\alpha /2\)分位数。</p>
+
+<p>第二种 <strong>Basic CI</strong>中，我们对于偏差进行考虑：<br/>
+\[<br/>
+P((\hat\theta-\theta)_{\alpha/2}&lt;\hat\theta-\theta&lt; (\hat\theta-\theta)_{1-\alpha/2})=1-\alpha<br/>
+\]<br/>
+我们用 \(\hat\theta^*-\hat\theta\) 来估计 \(\hat\theta-\theta\) ，就有<br/>
+\[<br/>
+P((\hat\theta^*-\hat\theta)_{\alpha/2}&lt;\hat\theta-\theta&lt; (\hat\theta^*-\hat\theta)_{1-\alpha/2})\approx 1-\alpha<br/>
+\]<br/>
+整理可得结果<br/>
+\[<br/>
+[2\hat\theta-\hat\theta^*_{1-\alpha/2}, 2\hat\theta-\hat\theta^*_{\alpha/2}]\tag{6}<br/>
+\]<br/>
+第三种 <strong>Percential CI</strong> 仅和 Basic CI 有微小的区别：直接使用了 \(\hat\theta\) 的分布来估计 \(\theta\) ，因此形式为<br/>
+\[<br/>
+[\hat\theta^*_{\alpha/2}, \hat\theta^*_{1-\alpha/2}]\tag{7}<br/>
+\]<br/>
+注意到，这里没有出现 \(\hat\theta\) ！</p>
+
+<p>第四种 <strong>Bootstrap t CI</strong> 是对 Standard normal 的改进——显然，后者的要求过高了（1. 无偏；2. 近似正态）。在 Bootstrap t CI 中，我们引入了一个 t-type statistic ，作为对于（1）中 pivot quantity \(Z\) 的改进：<br/>
+\[<br/>
+t^{(b)}={\hat\theta^{(b)}-\hat\theta\over\hat{se}(\hat\theta^{(b)})}<br/>
+\]<br/>
+注意到，在 Standard normal 中，我们仅需要用 Bootstrap 方法来估计 \(se(\hat\theta)\) 。而在这里，我们需要使用 Bootstrap 生成 B 个  t-type statistic；对于每一个 \(t^{(b)}\)，我们都需要估计\(\hat{se}(\hat\theta^{(b)})\) ，也就是说，我们要在内部再嵌套一个 Bootstrap。显然，Bootstrap t CI 提高了计算的成本，但也避免了简单的 Standard normal 所具有的一些不足；并且带来了后面讲到的二阶性质。</p>
+
+<p>参考 Standard normal 中的结果，其最终的形式是<br/>
+\[<br/>
+[\hat\theta-t_{1-\alpha/2}^*\hat{se}(\hat\theta), \hat\theta-t_{\alpha/2}^*\hat{se}(\hat\theta)]\tag{8}<br/>
+\]</p>
+
+<p>第五种 <strong>Better BCa CI</strong>，太过复杂在此不做展开，感兴趣可自行搜索。它主要的思想是对于 Percential CI 进行提升。最终形式为<br/>
+\[<br/>
+[\hat\theta^*_{1-\alpha/2}, \hat\theta^*_{\alpha/2}]\tag{9}<br/>
+\]<br/>
+最后，我们从两个维度来比较这些 CI：1. Transformation respecting: given \(t(.)\) , whether CI for \(\theta\) can be t-transformed directly to CI for \(t(\theta)\) ; 2. Second order accuracy </p>
+
+<p>第一点，变换性指出了，在一定的变换下，我们直接对 CI 的 upper 和 lower 进行相应的变换就可以得到 \(t(\theta)\) 的 CI（似乎是说，upper 和 lower 似乎和分位数相关？）。第二点，二阶精准意味着<br/>
+\[<br/>
+P(\theta&lt;\hat\theta_{lower})={\alpha\over 2}+{C_{lower}\over n}\\<br/>
+P(\theta&lt;\hat\theta_{upper})={\alpha\over 2}+{C_{upper}\over n}<br/>
+\]<br/>
+这是相较于一阶，也就是说下面的 \(n\) 变为 \(\sqrt{n}\) ，借助数值的内容刻画了某种「收敛速度」。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Trans</th>
+<th>Second order</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Standard normal</td>
+<td>✕</td>
+<td>✕</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>✕</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Percentile</td>
+<td>✓</td>
+<td>✕</td>
+</tr>
+<tr>
+<td>Bootstrap t</td>
+<td>✕</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Better BCa</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>

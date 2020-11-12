@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    概率论基础（三）随机向量 - 
+    
+    </title>
+    <link rel="shortcut icon" href="media/16050975119974/world.png" type="image/png" />
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="_self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+                <a target="_self" class="navbar-item " href="about.html">About</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        <a href="https://github.com/Lightblues" target="_blank" title="github">
+                            <span class="icon is-large has-text-grey-darker">
+                               <svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github fa-lg"></i> -->
+                            </span>
+                          </a>
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            概率论基础（三）随机向量   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <figure class="media-left">
+                              <p class="image is-48x48">
+                                
+                                  <img class="is-rounded" src="media/16050975119974/logo.jpg">
+                                
+                              </p>
+                            </figure>
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2020/05/05</span>
+                                  <span class="tran-posted-in">posted in</span>&nbsp; 
+                                  
+                                      <span class="posted-in"><a href='Notes.html'>Notes</a></span>
+                                         
+                                  
+                                    &nbsp;&nbsp;<a href="16051077657809.html#disqus_thread"><span class="tran-disqus-comments">comments</span></a>
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Note.html'>#Note</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <blockquote>
+<p>由于疫情在家，之间参考的陈老的那本教材留在学校了，所以从这部分开始主要参考了北大李东风教授的公开讲义，见 <a href="http://www.math.pku.edu.cn/teachers/lidf/course/probstathsy/probstathsy.pdf">http://www.math.pku.edu.cn/teachers/lidf/course/probstathsy/probstathsy.pdf</a> 。因此也对于笔记结构稍做了些调整。</p>
+</blockquote>
+
+<p>这部分主要包括</p>
+
+<ul>
+<li>随机向量的概念</li>
+<li>离散随机向量</li>
+<li>连续随机向量</li>
+<li>随机向量函数的分布</li>
+<li>条件分布</li>
+</ul>
+
+<h2 id="toc_0">随机向量</h2>
+
+<ul>
+<li>随机向量 \((X,Y)\)</li>
+<li>联合概率分布 \(F(x,y)=P(X\le x,Y\le y)\) </li>
+<li>边缘分布 \(F_X(x)=P(X\le x,Y\le\infty)=F(x,\infty)\) </li>
+</ul>
+
+<p><strong>随机向量，或者说是向量之间的独立性</strong>：对于事件我们已经定义过了其独立性，显然为了自洽我们需要根据事件的独立性来进行定义。对于 \(\forall x,y\) ，事件 \(\{X\le x\}, \{Y\le y\}\) 独立，则称随机变量 X 和 Y 独立。显然，对于这个定义，我们用概率的形式写出来就是<br/>
+\[<br/>
+P(X\le x,Y\le y)=P(X\le x)P(Y\le y)\tag{1.1}\\<br/>
+F(x,y)=F_X(x)F_Y(y)<br/>
+\]<br/>
+上面的两条概率分布的形式对于判断离散或者连续的随机变量的独立性都是适用的。（然而事实上我们无法得到一些分布函数的形式，所以更常用的是之后会提到的 pmf/pdf 形式）</p>
+
+<p>这是两个变量独立性的式子，事实上我们可以推导出更高维的式子，<strong>即其联合分布函数可以写成各自的边缘分布的乘积的形式</strong>。另外，对于独立性，我们有性质</p>
+
+<ul>
+<li>对于数集 \(A_1,...,A_n\) ，事件 \(\{X_1\in A_1\}, ...,\{X_n\in A_n\}\) 也独立。</li>
+<li>一元/多元函数变换后独立，例如 \(\varphi(X_1,...,X_k), g_{k+1}(X_{k+1}),...,g_n(X_n)\) 之间也独立。</li>
+</ul>
+
+<h2 id="toc_1">离散随机向量</h2>
+
+<p><strong>独立性</strong>：<br/>
+\[<br/>
+X\perp \!\!\! \perp Y\Leftrightarrow \forall x_j,y_j, P(X=x_i,Y=y_j)=P(X=x_i)P(Y=y_j)<br/>
+\]<br/>
+e.g. <strong>多项分布</strong>：对于二项分布的拓展，每一次实验的结果可能有 r 种。其 pmf 为<br/>
+\[<br/>
+P(X_1=k_1,...,X_r=k_r)={n!\over k_1!...k_r!}p_1^{k_1}...p_r^{k_r}<br/>
+\]</p>
+
+<h2 id="toc_2">连续随机向量</h2>
+
+<ul>
+<li><p>Def：若对于随机向量 \((X,Y)\) 有 \(P((X,Y)\in D)=\int\int_Df(x,y)dxdy\) ，则称 \((X,Y)\) 为<strong>连续型随机向量</strong>，并称 \(f(x,y)\) 为其<strong>联合密度函数</strong>。</p></li>
+<li><p><strong>边缘 pdf</strong>：离散情况下简单相加，连续时换成积分 \(f_X(x)=\int f(x,y)dy\)</p></li>
+</ul>
+
+<p>由定义可知，仅仅是取值连续并不能保障其为连续型随机向量，因为我们要求其具有联合 pdf 才算。下面给出一个例子，来说明<strong>有连续的联合分布，并不一定是连续型随机向量</strong>。假定 \(X\sim Unif(0,1), Y=X\) ，则这时候<br/>
+\[<br/>
+F(x,y)=P(X\le x,Y\le y)=P(X\le\min\{x,y\})=\min\{x,y\}, 0&lt;\min\{x,y\}\le 1<br/>
+\]<br/>
+也就是说，\((X,Y)\) 只在直线 \(D=\{(x,y)|0\le x=y\le1\}\) 上取值，显然在这上的积分=0。若\((X,Y)\) 有联合 pdf，则会出现<br/>
+\[<br/>
+1=P((X,Y)\in D)=\int_Df(x,y)dxdy=0<br/>
+\]<br/>
+的矛盾。</p>
+
+<ul>
+<li>独立性</li>
+</ul>
+
+<p>对于连续型随机向量来说，其独立性除了根据 1.1 式来判定外，还有 pdf 的形式，即 \(f(x,y)=f_X(x)f_Y(y)\) 。也就是说，我们若能将联合 pdf 分解成不同的变量乘积的形式，就能说明这些随机变量独立。</p>
+
+<h2 id="toc_3">随机向量函数的分布</h2>
+
+<ul>
+<li>设 \(Z=X+y\) ，则其 pdf 为 \(f_Z(z)=\int f(x,z-x)dx\) </li>
+<li>设 \(V=X+y\) ，则其 pdf 为 \(f_V(v)=\int f(x,x-v)dx\) </li>
+</ul>
+
+<p>e.g. <strong>Rayleigh 分布</strong>。假设 \(X,Y\overset{iid}{\sim} N(0,1)\) ，求脱靶量 \(Z=\sqrt{X^2+Y^2}\) 的分布<br/>
+\[<br/>
+F_Z(z)=P(\sqrt{X^2+Y^2}\le z)=\int\int_{\sqrt{X^2+Y^2}\le z}{1\over 2\pi}\exp(-{x^2+y^2\over 2})dxdy\\<br/>
+={1\over 2\pi}\int _0^{2\pi}d\theta\int_1^z e^{-r^2/2}dr\\<br/>
+=\int_0^z e^{-r^2/2} rdr<br/>
+\]<br/>
+其中，第二行用了极坐标变换，且 Jacobian 行列式为 r。于是，\(f_Z(z)=z e^{-z^2/2}, z\ge 0\)</p>
+
+<p>上面举的例子是变换为一元函数，现在考虑变换为二元函数的情况，类似随机变量的变换，我们有定理：</p>
+
+<p><strong>定理</strong>： \(f(x,y), U=u(X,Y), V=v(X,Y)\) ，若在 D 上有 \(P((U,V)\in d)=1\) ，且存在逆变换 \(x=x(u,v), y=y(u,v)\) ，Jacabian 行列式 \({\partial(x,y)\over\partial(u,v)}\ne 0\) 则 \((U,V)\) 有联合 pdf<br/>
+\[<br/>
+g(u,v)=f(x(u,v), v(u,v))\bigg|{\partial(x,y)\over\partial(u,v)}\bigg|, (u,x)\in D<br/>
+\]<br/>
+这里简化了一些条件的表达，总之就是要求存在逆变换；类似一元情况，也可推广到分区域可逆的情况，最终的表达式变为累加即可（下面有个例子）。</p>
+
+<p>e.g. \(X,Y\sim N(0,1), (R,\Theta)\) 由 \(\bigg\{\begin{matrix}X=R\cos(\Theta)\\Y=R\sin(\Theta)\end{matrix}\) 决定，求 \((R,\Theta)\) 的联合 pdf</p>
+
+<p>显然上面的表达式就构建了一个逆变换，Jacobian 行列式值为 r，于是有联合 pdf <br/>
+\[<br/>
+g(r,\theta)=f(x,y)|{\partial(x,y)\over\partial(u,v)}|={1\over 2\pi}re^{-r^2/2}<br/>
+\]<br/>
+ 分别积分，可得边缘分布 \(R\sim Rayleigh\) 即脱靶量； \(\Theta\sim Unif(0,2\pi)\) </p>
+
+<p>e.g. \(X,Y\sim N(0,1),\bigg\{ \begin{matrix}U=X/Y\\V=X^2+Y^2\end{matrix}\) ，求 \((U,V)\) 的 pdf</p>
+
+<p>定义 \(D=\{(u,v)|v&gt;0\}\)，满足 \(P((U,V)\in D)=1\) （忽略了为零的部分）。而对于任意 \((u,v)\in D\) 我们定义函数 \(x=u\sqrt{{v\over 1+u^2}}, y=\sqrt{{v\over 1+u^2}}\) ，于是事件<br/>
+\[<br/>
+\{U=u,V=v\}=\{X/Y=u, X^2+Y^2=v\}=\{X=x,Y=y\}+\{X=-x,Y=-y\}<br/>
+\]<br/>
+另外，可计算 Jacobian 行列式 \(={1\over 2(1+u^2)}\)，于是联合 pdf<br/>
+\[<br/>
+g(u,v)=f(x,y)|J|+f(-x,-y)|J|={1\over 2}e^{-v/2}{1\over\pi(1+u^2)}<br/>
+\]<br/>
+从表达式可见，U 和 V 独立，并且 \(V\sim Exp({1\over 2}), U\sim Cauchy\)</p>
+
+<h2 id="toc_4">条件分布</h2>
+
+<p>离散时，直接根据（事件的）条件概率公式即可得到条件分布。下面推导连续时的条件分布：<br/>
+\[<br/>
+\lim_{\epsilon\rightarrow0^+}P(Y\le y|x-\epsilon&lt;X\le x)=\lim_{\epsilon\rightarrow0^+}{P(Y\le y, x-\epsilon&lt;X\le x)\over P(x-\epsilon&lt;X\le x)} = \lim_{\epsilon\rightarrow0^+}{F(x,y)-F(x-\epsilon,y)\over F_X(x)-F_X(x-\epsilon)}\\<br/>
+={{\partial F(x,y)\over\partial x}\over F&#39;_X(x)}={{\partial\over\partial x}\int_{-\infty}^x\int_{-\infty}^yf(s,t)dtds\over f_X(x)}=\int_{-\infty}^y{f(x,t)\over f_X(x)}dt<br/>
+\]<br/>
+于是，在条件 \(X=x\) 下，Y 的<strong>条件分布函数</strong> \(F_{Y|X}(y|x)=P(Y\le y|X=x)=\int_{-\infty}^y{f(x,t)\over f_X(x)}dt\) ，另外称 \(f_{Y|X}(y|x)={f(x,t)\over f_X(x)}\) 为条件 \(X=x\) 下，Y 的<strong>条件 pdf</strong>。（注意到，这里我们用事件 \(\{x-\epsilon&lt;X\le x\}\) 取极限，从而得到连续状态下的条件分布，并定义了条件密度函数。）</p>
+
+<p>e.g. （<strong>二维正态的条件分布</strong>） 我们知道二维正态分布 \((X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\) 有联合 pdf<br/>
+\[<br/>
+f(x,y)={1\over 2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\{-{1\over 2\sqrt{1-\rho^2}}\big({(x-\mu_1)^2\over\sigma_1^2}-{2\rho(x-mu_1)(y-\mu_2)\over2\sigma_1\sigma_2}+ {(y-\mu_2)^2\over\sigma_2^2}\big)\}<br/>
+\]<br/>
+又知 X 的边缘分布为 \(X\sim N(\mu_1,\sigma_1^2)\) ，于是 \(Y|X=x\) 的条件密度为<br/>
+\[<br/>
+f_{Y|X}(y|x)={f(x,y)\over f_X(x)}={1\over \sqrt{2\pi(1-\rho^2)}\sigma_2}\exp(-{(y-\mu_x)^2\over 2(1-\rho^2)\sigma_2^2})<br/>
+\]<br/>
+即 \(Y|X=x\sim N(\mu_x, (1-\rho^2)\sigma_2^2)\)，其中 \(\mu_x=\mu_2+{\rho\sigma_2\over\sigma_1}(x-\mu_1)\) </p>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+                        <div id="disqus_thread"></div>
+           
+                      
+
+                      
+
+                      <!-- 来必力City版安装代码 -->
+                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
+                        <script type="text/javascript">
+                         (function(d, s) {
+                             var j, e = d.getElementsByTagName(s)[0];
+
+                             if (typeof LivereTower === 'function') { return; }
+
+                             j = d.createElement(s);
+                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                             j.async = true;
+
+                             e.parentNode.insertBefore(j, e);
+                         })(document, 'script');
+                        </script>
+                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                      </div> -->
+                      <!-- City版安装代码已完成 -->
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'Easonshi'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'Easonshi'; 
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+  
+    
+
+
+
+
+  </body>
+</html>
