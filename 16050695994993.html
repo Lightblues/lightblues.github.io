@@ -248,14 +248,14 @@
 
 <h3 id="toc_9">添加评论等功能</h3>
 
-<p>因为 MWeb 的教程中没有，因此折腾了好久。心心念念的是 Disqus，可惜设置有问题终告失败，以后有机会再去折腾吧~</p>
+<p>完全是因为无知，在评论的问题上折腾了好久，尝试了 Disqus、来必力和 Gitalk，最终还是选择了 Disqus；由于周知的原因，Disqus 在国内的使用体验并不理想，另外自己在配置方面也有很多的问题；因此目前只能算是权衡之计，日后有机会再去研究。</p>
 
 <p>一份比较成功的实践可参考 <a href="http://lsof.fun/15625029387037.html">我的博客搬家啦</a>，包括添加 评论、分享、点击量分析 功能的代码，可惜没有实现教程。</p>
 
 <ul>
-<li>最后妥协之计用的是 <a href="https://zhuanlan.zhihu.com/p/33617273">Hexo博客优化之实现来必力评论功能</a> 中提到的 <code>来必力</code> ，按照教程成功能完成安装；</li>
-<li>一个 Disqus 的案例是 <a href="https://blog.zxbing0066.com/jekyll/2014/11/12/disqus.html">Jekyll--在Github Pages中使用Disqus</a>，不过实践失败了 Orz；</li>
-<li>另外一个高阶教程有 <a href="https://blog.ichr.me/post/use-disqus-conveniently/">在特殊地区科学使用 Disqus 评论系统</a>，有缘再见……</li>
+<li>想要使用 <code>来必力</code> 的话，可以参考 <a href="https://zhuanlan.zhihu.com/p/33617273">Hexo博客优化之实现来必力评论功能</a>，按照教程成功完成安装；</li>
+<li>关于 <code>Disqus</code> 的话，MWeb 的很多模板是自带这个拓展的，到官网完成注册之后，在「网站拓展-网站拓展设置-disqus」中填写相应的 shartname 即可；似乎本地生成的静态网站好像是不支持的（大概是需要 JavaScript？就是因为这一点导致了我后面的一系列折腾 Orz）；</li>
+<li>我之后找了很多相关的材料，这里罗列一部分：Disqus 在一般网站上的通用引入，可以参考 <a href="https://blog.zxbing0066.com/jekyll/2014/11/12/disqus.html">Jekyll--在Github Pages中使用Disqus</a>（MWeb 的模板应该也是这么干的，只是帮我们简单实现了）；另外还有一个高阶教程 <a href="https://blog.ichr.me/post/use-disqus-conveniently/">在特殊地区科学使用 Disqus 评论系统</a>；</li>
 </ul>
 
                   </article>
@@ -269,25 +269,6 @@
                       
 
                       
-
-                      <!-- 来必力City版安装代码 -->
-                      <!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81MTk1NS8yODQzNg==">
-                        <script type="text/javascript">
-                         (function(d, s) {
-                             var j, e = d.getElementsByTagName(s)[0];
-
-                             if (typeof LivereTower === 'function') { return; }
-
-                             j = d.createElement(s);
-                             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                             j.async = true;
-
-                             e.parentNode.insertBefore(j, e);
-                         })(document, 'script');
-                        </script>
-                      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-                      </div> -->
-                      <!-- City版安装代码已完成 -->
                       
                     </div>
                   </div><!-- end comments wrap -->
@@ -298,7 +279,9 @@
 
 
 
-    <footer class="footer">
+ <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fac9798ce396e15"></script>
+   <footer class="footer">
         <div class="content has-text-centered">
           <p>
               Copyright &copy; 2019
