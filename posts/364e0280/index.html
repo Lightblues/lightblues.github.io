@@ -1,0 +1,450 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>概率论基础（三）随机向量 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="由于疫情在家，之间参考的陈老的那本教材留在学校了，所以从这部分开始主要参考了北大李东风教授的公开讲义，见 http:&#x2F;&#x2F;www.math.pku.edu.cn&#x2F;teachers&#x2F;lidf&#x2F;course&#x2F;probstathsy&#x2F;probstathsy.pdf 。因此也对于笔记结构稍做了些调整。  这部分主要包括  随机向量的概念 离散随机向量 连续随机向量 随机向量函数的分布 条件分布  随机向量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论基础（三）随机向量">
+<meta property="og:url" content="https://lightblues.github.io/posts/364e0280/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="由于疫情在家，之间参考的陈老的那本教材留在学校了，所以从这部分开始主要参考了北大李东风教授的公开讲义，见 http:&#x2F;&#x2F;www.math.pku.edu.cn&#x2F;teachers&#x2F;lidf&#x2F;course&#x2F;probstathsy&#x2F;probstathsy.pdf 。因此也对于笔记结构稍做了些调整。  这部分主要包括  随机向量的概念 离散随机向量 连续随机向量 随机向量函数的分布 条件分布  随机向量">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/SamuraiChamploo/samurai-champloo-8.jpg">
+<meta property="article:published_time" content="2020-05-05T02:41:42.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.820Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/SamuraiChamploo/samurai-champloo-8.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/364e0280/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '概率论基础（三）随机向量',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/SamuraiChamploo/samurai-champloo-8.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">概率论基础（三）随机向量</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-05-05T02:41:42.000Z" title="Created 2020-05-05 10:41:42">2020-05-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.820Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/Statistic/">Statistic</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="概率论基础（三）随机向量"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>由于疫情在家，之间参考的陈老的那本教材留在学校了，所以从这部分开始主要参考了北大李东风教授的公开讲义，见 <a target="_blank" rel="noopener" href="http://www.math.pku.edu.cn/teachers/lidf/course/probstathsy/probstathsy.pdf" class="uri">http://www.math.pku.edu.cn/teachers/lidf/course/probstathsy/probstathsy.pdf</a> 。因此也对于笔记结构稍做了些调整。</p>
+</blockquote>
+<p>这部分主要包括</p>
+<ul>
+<li>随机向量的概念</li>
+<li>离散随机向量</li>
+<li>连续随机向量</li>
+<li>随机向量函数的分布</li>
+<li>条件分布</li>
+</ul>
+<h2 id="随机向量">随机向量</h2>
+<ul>
+<li>随机向量 <span class="math inline">\((X,Y)\)</span></li>
+<li>联合概率分布 <span class="math inline">\(F(x,y)=P(X\le x,Y\le y)\)</span></li>
+<li>边缘分布 <span class="math inline">\(F_X(x)=P(X\le x,Y\le\infty)=F(x,\infty)\)</span></li>
+</ul>
+<p><strong>随机向量，或者说是向量之间的独立性</strong>：对于事件我们已经定义过了其独立性，显然为了自洽我们需要根据事件的独立性来进行定义。对于 <span class="math inline">\(\forall x,y\)</span> ，事件 <span class="math inline">\(\{X\le x\}, \{Y\le y\}\)</span> 独立，则称随机变量 X 和 Y 独立。显然，对于这个定义，我们用概率的形式写出来就是 <span class="math display">\[
+P(X\le x,Y\le y)=P(X\le x)P(Y\le y)\tag{1.1}\\
+F(x,y)=F_X(x)F_Y(y)
+\]</span> 上面的两条概率分布的形式对于判断离散或者连续的随机变量的独立性都是适用的。（然而事实上我们无法得到一些分布函数的形式，所以更常用的是之后会提到的 pmf/pdf 形式）</p>
+<p>这是两个变量独立性的式子，事实上我们可以推导出更高维的式子，<strong>即其联合分布函数可以写成各自的边缘分布的乘积的形式</strong>。另外，对于独立性，我们有性质</p>
+<ul>
+<li>对于数集 <span class="math inline">\(A_1,...,A_n\)</span> ，事件 <span class="math inline">\(\{X_1\in A_1\}, ...,\{X_n\in A_n\}\)</span> 也独立。</li>
+<li>一元/多元函数变换后独立，例如 <span class="math inline">\(\varphi(X_1,...,X_k), g_{k+1}(X_{k+1}),...,g_n(X_n)\)</span> 之间也独立。</li>
+</ul>
+<h2 id="离散随机向量">离散随机向量</h2>
+<p><strong>独立性</strong>： <span class="math display">\[
+X\perp \!\!\! \perp Y\Leftrightarrow \forall x_j,y_j, P(X=x_i,Y=y_j)=P(X=x_i)P(Y=y_j)
+\]</span> e.g. <strong>多项分布</strong>：对于二项分布的拓展，每一次实验的结果可能有 r 种。其 pmf 为 <span class="math display">\[
+P(X_1=k_1,...,X_r=k_r)={n!\over k_1!...k_r!}p_1^{k_1}...p_r^{k_r}
+\]</span></p>
+<h2 id="连续随机向量">连续随机向量</h2>
+<ul>
+<li><p>Def：若对于随机向量 <span class="math inline">\((X,Y)\)</span> 有 <span class="math inline">\(P((X,Y)\in D)=\int\int_Df(x,y)dxdy\)</span> ，则称 <span class="math inline">\((X,Y)\)</span> 为<strong>连续型随机向量</strong>，并称 <span class="math inline">\(f(x,y)\)</span> 为其<strong>联合密度函数</strong>。</p></li>
+<li><p><strong>边缘 pdf</strong>：离散情况下简单相加，连续时换成积分 <span class="math inline">\(f_X(x)=\int f(x,y)dy\)</span></p></li>
+</ul>
+<p>由定义可知，仅仅是取值连续并不能保障其为连续型随机向量，因为我们要求其具有联合 pdf 才算。下面给出一个例子，来说明<strong>有连续的联合分布，并不一定是连续型随机向量</strong>。假定 <span class="math inline">\(X\sim Unif(0,1), Y=X\)</span> ，则这时候 <span class="math display">\[
+F(x,y)=P(X\le x,Y\le y)=P(X\le\min\{x,y\})=\min\{x,y\}, 0&lt;\min\{x,y\}\le 1
+\]</span> 也就是说，<span class="math inline">\((X,Y)\)</span> 只在直线 <span class="math inline">\(D=\{(x,y)|0\le x=y\le1\}\)</span> 上取值，显然在这上的积分=0。若<span class="math inline">\((X,Y)\)</span> 有联合 pdf，则会出现 <span class="math display">\[
+1=P((X,Y)\in D)=\int_Df(x,y)dxdy=0
+\]</span> 的矛盾。</p>
+<ul>
+<li>独立性</li>
+</ul>
+<p>对于连续型随机向量来说，其独立性除了根据 1.1 式来判定外，还有 pdf 的形式，即 <span class="math inline">\(f(x,y)=f_X(x)f_Y(y)\)</span> 。也就是说，我们若能将联合 pdf 分解成不同的变量乘积的形式，就能说明这些随机变量独立。</p>
+<h2 id="随机向量函数的分布">随机向量函数的分布</h2>
+<ul>
+<li>设 <span class="math inline">\(Z=X+y\)</span> ，则其 pdf 为 <span class="math inline">\(f_Z(z)=\int f(x,z-x)dx\)</span></li>
+<li>设 <span class="math inline">\(V=X+y\)</span> ，则其 pdf 为 <span class="math inline">\(f_V(v)=\int f(x,x-v)dx\)</span></li>
+</ul>
+<p>e.g. <strong>Rayleigh 分布</strong>。假设 <span class="math inline">\(X,Y\overset{iid}{\sim} N(0,1)\)</span> ，求脱靶量 <span class="math inline">\(Z=\sqrt{X^2+Y^2}\)</span> 的分布 <span class="math display">\[
+\begin{aligned}
+F_Z(z) &amp;= P(\sqrt{X^2+Y^2}\le z)=\int\int_{\sqrt{X^2+Y^2}\le z}{1\over 2\pi}\exp(-{x^2+y^2\over 2})dxdy\\
+  &amp;= {1\over 2\pi}\int _0^{2\pi}d\theta\int_1^z e^{-r^2/2}dr\\
+  &amp;= \int_0^z e^{-r^2/2} rdr
+\end{aligned}
+\]</span> 其中，第二行用了极坐标变换，且 Jacobian 行列式为 r。于是，<span class="math inline">\(f_Z(z)=z e^{-z^2/2}, z\ge 0\)</span></p>
+<p>上面举的例子是变换为一元函数，现在考虑变换为二元函数的情况，类似随机变量的变换，我们有定理：</p>
+<p><strong>定理</strong>： <span class="math inline">\(f(x,y), U=u(X,Y), V=v(X,Y)\)</span> ，若在 D 上有 <span class="math inline">\(P((U,V)\in d)=1\)</span> ，且存在逆变换 <span class="math inline">\(x=x(u,v), y=y(u,v)\)</span> ，Jacabian 行列式 <span class="math inline">\({\partial(x,y)\over\partial(u,v)}\ne 0\)</span> 则 <span class="math inline">\((U,V)\)</span> 有联合 pdf <span class="math display">\[
+g(u,v)=f(x(u,v), v(u,v))\bigg|{\partial(x,y)\over\partial(u,v)}\bigg|, (u,x)\in D
+\]</span> 这里简化了一些条件的表达，总之就是要求存在逆变换；类似一元情况，也可推广到分区域可逆的情况，最终的表达式变为累加即可（下面有个例子）。</p>
+<p>e.g. <span class="math inline">\(X,Y\sim N(0,1), (R,\Theta)\)</span> 由 <span class="math inline">\(\bigg\{\begin{matrix}X=R\cos(\Theta)\\Y=R\sin(\Theta)\end{matrix}\)</span> 决定，求 <span class="math inline">\((R,\Theta)\)</span> 的联合 pdf</p>
+<p>显然上面的表达式就构建了一个逆变换，Jacobian 行列式值为 r，于是有联合 pdf <span class="math display">\[
+g(r,\theta)=f(x,y)|{\partial(x,y)\over\partial(u,v)}|={1\over 2\pi}re^{-r^2/2}
+\]</span> 分别积分，可得边缘分布 <span class="math inline">\(R\sim Rayleigh\)</span> 即脱靶量； <span class="math inline">\(\Theta\sim Unif(0,2\pi)\)</span></p>
+<p>e.g. <span class="math inline">\(X,Y\sim N(0,1),\bigg\{ \begin{matrix}U=X/Y\\V=X^2+Y^2\end{matrix}\)</span> ，求 <span class="math inline">\((U,V)\)</span> 的 pdf</p>
+<p>定义 <span class="math inline">\(D=\{(u,v)|v&gt;0\}\)</span>，满足 <span class="math inline">\(P((U,V)\in D)=1\)</span> （忽略了为零的部分）。</p>
+<p>而对于任意 <span class="math inline">\((u,v)\in D\)</span> 我们定义函数 <span class="math display">\[
+x = u \sqrt{\frac{v}{1+u^2}} , y = \sqrt{\frac{v}{1+u^2}}
+\]</span></p>
+<p>于是事件 <span class="math display">\[
+\begin{aligned}
+  \{U=u,V=v\}=\{X/Y=u, X^2+Y^2=v\}\\
+  =\{X=x,Y=y\}+\{X=-x,Y=-y\}
+\end{aligned}
+\]</span> 另外，可计算 Jacobian 行列式 <span class="math inline">\(={1\over 2(1+u^2)}\)</span>，于是联合 pdf <span class="math display">\[
+g(u,v)=f(x,y)|J|+f(-x,-y)|J|={1\over 2}e^{-v/2}{1\over\pi(1+u^2)}
+\]</span> 从表达式可见，U 和 V 独立，并且 <span class="math inline">\(V\sim Exp({1\over 2}), U\sim Cauchy\)</span></p>
+<h2 id="条件分布">条件分布</h2>
+<p>离散时，直接根据（事件的）条件概率公式即可得到条件分布。下面推导连续时的条件分布： <span class="math display">\[
+\begin{aligned}
+  \lim_{\epsilon\rightarrow0^+}P(Y\le y|x-\epsilon&lt;X\le x)&amp;=\lim_{\epsilon\rightarrow0^+}{P(Y\le y, x-\epsilon&lt;X\le x)\over P(x-\epsilon&lt;X\le x)} \\
+  &amp;= \lim_{\epsilon\rightarrow0^+}{F(x,y)-F(x-\epsilon,y)\over F_X(x)-F_X(x-\epsilon)}\\
+  &amp;=\frac{\frac{\partial{F(x,y)}}{\partial{x}}}{F&#39;_X(x)} = \frac{\frac{\partial}{\partial x}\int_{-\infty}^x\int_{-\infty}^yf(s,t)dtds}{f_X(x)}\\
+  &amp;=\int_{-\infty}^y{f(x,t)\over f_X(x)}dt
+\end{aligned}
+\]</span> 于是，在条件 <span class="math inline">\(X=x\)</span> 下，Y 的<strong>条件分布函数</strong> <span class="math inline">\(F_{Y|X}(y|x)=P(Y\le y|X=x)=\int_{-\infty}^y\frac{f(x,t)}{f_X(x)}dt\)</span> ，另外称 <span class="math inline">\(f_{Y|X}(y|x)=\frac{f(x,t)}{f_X(x)}\)</span> 为条件 <span class="math inline">\(X=x\)</span> 下，Y 的<strong>条件 pdf</strong>。（注意到，这里我们用事件 <span class="math inline">\(\{x-\epsilon&lt;X\le x\}\)</span> 取极限，从而得到连续状态下的条件分布，并定义了条件密度函数。）</p>
+<p>e.g. （<strong>二维正态的条件分布</strong>） 我们知道二维正态分布 <span class="math inline">\((X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\)</span> 有联合 pdf <span class="math display">\[
+\begin{aligned}
+  f(x,y) &amp;={1\over 2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\{-{1\over 2\sqrt{1-\rho^2}}\big({(x-\mu_1)^2\over\sigma_1^2} \\
+  &amp;- {2\rho(x-mu_1)(y-\mu_2)\over2\sigma_1\sigma_2}  + {(y-\mu_2)^2\over\sigma_2^2}\big)\}
+\end{aligned}
+\]</span> 又知 X 的边缘分布为 <span class="math inline">\(X\sim N(\mu_1,\sigma_1^2)\)</span> ，于是 <span class="math inline">\(Y|X=x\)</span> 的条件密度为 <span class="math display">\[
+f_{Y|X}(y|x)={f(x,y)\over f_X(x)}={1\over \sqrt{2\pi(1-\rho^2)}\sigma_2}\exp(-{(y-\mu_x)^2\over 2(1-\rho^2)\sigma_2^2})
+\]</span> 即 <span class="math inline">\(Y|X=x\sim N(\mu_x, (1-\rho^2)\sigma_2^2)\)</span>，其中 <span class="math inline">\(\mu_x=\mu_2+{\rho\sigma_2\over\sigma_1}(x-\mu_1)\)</span></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/364e0280/">https://lightblues.github.io/posts/364e0280/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></div><div class="post_share"><div class="social-share" data-image="/img/SamuraiChamploo/samurai-champloo-8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/cbde0a5/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">概率论基础（四）随机变量的数学特征</div></div></a></div><div class="next-post pull-right"><a href="/posts/e6ef2203/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/test/color-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hackintosh 入门+软件配置+个人向软件推荐</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/ddce4cf5/" title="概率论基础（一）随机事件和概率"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">概率论基础（一）随机事件和概率</div></div></a></div><div><a href="/posts/7930088/" title="概率论基础（二）随机变量"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-28</div><div class="title">概率论基础（二）随机变量</div></div></a></div><div><a href="/posts/cbde0a5/" title="概率论基础（四）随机变量的数学特征"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-06</div><div class="title">概率论基础（四）随机变量的数学特征</div></div></a></div><div><a href="/posts/5026470e/" title="概率论基础：补充（1）概率的公理化定义与随机变量的概念"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">概率论基础：补充（1）概率的公理化定义与随机变量的概念</div></div></a></div><div><a href="/posts/6ba3d208/" title="AI-Adversarial Search"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-17</div><div class="title">AI-Adversarial Search</div></div></a></div><div><a href="/posts/74301372/" title="AI-Bayes Network"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">AI-Bayes Network</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">随机向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">离散随机向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">连续随机向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">随机向量函数的分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">条件分布</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/SamuraiChamploo/samurai-champloo-8.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/364e0280/'
+    this.page.identifier = 'posts/364e0280/'
+    this.page.title = '概率论基础（三）随机向量'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: 'ae50913a50ef2715cde2c9c652262dad',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

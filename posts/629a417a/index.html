@@ -1,0 +1,454 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI-Constraint Satisfaction Problems | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在搜索算法中，我们关心的是从初始节点到目标节点的一条路径；而在约束满足问题中，我们没有初始状态，只关心 goal 而不在乎 path。  Planning: sequences of actions Identification: assignments to variables  Constraint Satisfaction Problems (CSPs) are specialized fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI-Constraint Satisfaction Problems">
+<meta property="og:url" content="https://lightblues.github.io/posts/629a417a/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="在搜索算法中，我们关心的是从初始节点到目标节点的一条路径；而在约束满足问题中，我们没有初始状态，只关心 goal 而不在乎 path。  Planning: sequences of actions Identification: assignments to variables  Constraint Satisfaction Problems (CSPs) are specialized fo">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/Ukiyo-e/ukiyo-e-14.jpg">
+<meta property="article:published_time" content="2020-01-16T03:30:19.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.740Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="搜索">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/Ukiyo-e/ukiyo-e-14.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/629a417a/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AI-Constraint Satisfaction Problems',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Ukiyo-e/ukiyo-e-14.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">AI-Constraint Satisfaction Problems</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-01-16T03:30:19.000Z" title="Created 2020-01-16 11:30:19">2020-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.740Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="AI-Constraint Satisfaction Problems"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>在搜索算法中，我们关心的是从初始节点到目标节点的一条路径；而在约束满足问题中，我们没有初始状态，只关心 goal 而不在乎 path。</p>
+<ul>
+<li>Planning: sequences of actions</li>
+<li>Identification: assignments to variables</li>
+</ul>
+<p><strong>Constraint Satisfaction Problems (CSPs)</strong> are specialized for identification problems</p>
+<p>我们可以把 CSP 看成是特殊的搜索问题。对于一般的搜索问题来说，State is atomic or indivisible, known as a “black box” without internal structure，而在 CSP 中 State is represented as a <strong>feature vector</strong>；在搜索问题中 Goal test can be any function over states，而CSP 中 Goal test is a set of <strong>constraints</strong> to identify the allowable feature vector。</p>
+<p>我们来仔细看看 Feature Vector，它是由 A set of k <strong>variables</strong> (or features) 组成的，对于每个 feature 有值域 <strong>domain</strong>；而我们的目标就是找到满足约束的一组赋值。方便起见我们定义 complete state 和 partial state，后者即对部分变量赋值满足约束，其余部分待赋值。典型的问题有 Map Coloring 和 N-Queens 等。</p>
+<h2 id="constraint-graphs">Constraint Graphs</h2>
+<p>对于一个 CSP 问题，我们可以采用约束图的方式进行表示：对于一个二元约束来说可将两个 feature 连起来；所以，问题在于<strong>将 N-nary 转化为 Binary constraints</strong>。我们假定 domain 都是有限的。</p>
+<p>第一步，引入新的变量（约束）Z，例如对于加法的三元约束来说，我们引入变量，满足</p>
+<blockquote>
+<p>Domain is the set of all possible 3-tuples satisfying <span class="math inline">\(A+B=C\)</span>. <span class="math inline">\(\{(a_1 , b_1 , c _1 ), (a_ 2 , b _2 , c_ 2 ), …\}， s.t. a_1 + b_1 = c_ 1 …\)</span></p>
+</blockquote>
+<p>第二步，建立新变量 Z 与 A、B、C 之间的约束，显然可以是 A 与 Z 的 domain 中三元组的第一个元素相同。</p>
+<blockquote>
+<p>Create new constraints between Z and three original variables respectively (the position in the tuple is linked to an original variable).</p>
+</blockquote>
+<p><span class="math display">\[
+(Z,A)\in \{((a_1,b_1,c_1)a_1),...\}\tag{1}\\
+(Z,B)\in \{((a_1,b_1,c_1)b_1),...\}
+\]</span></p>
+<p>这样，我们通过引入一个新的变量，和三个二元约束，就把该三元约束转换好了；对于更多的约束，可以用相似的方法进行。</p>
+<p><strong>Note</strong>：这里可能一时没法理解，我们要<strong>理解究竟什么是约束</strong>。先来看普通的二元约束，以地图问题为例，假设每个国家的颜色均可为红黄蓝，约束的意义在于，若 A 填了红色，那么相邻的 B 就只能涂黄或蓝——也就是说，一个变量的值确定后，另一个变量的值域也变化了——反过来想我们如何表示约束？可以采用集合的形式 <span class="math inline">\(\{(R,Y),(R,B)...\}\)</span> 。我们重新来理解约束，就是 A 和 B 分别取值，构成一个二元组，要求这个二元组在约束集合中。（我在理解上的困惑实际上在于，没有搞清楚约束的形式化表达。）这样的话，我们来看加法约束，假设 A 已定，对于 A 和 Z 的约束来说，式（1）要求两者构成的二元组要在约束集合中，这样就缩减了 Z 的值域；若进一步定下了 B 的值，Z 的值域将进一步缩小，事实上这时仅可能剩下一个三元组 <span class="math inline">\((a,b,c=a+b)\)</span> ，接下来可对 C 进行赋值或者检测约束是否满足。</p>
+<h2 id="solving-csps">Solving CSPs</h2>
+<p>我们可采用 Standard search formulation of CSPs，我们的初始状态为一个 empty assignment，后继函数为对任一未赋值变量进行赋值，而目标检测则要求赋值为 complete state 且符合约束。显然，1. 我们只检查了叶节点而事实上在过程中就可以进行约束检查；2. 如前所述，我们并不关心赋值的顺序，只关心 goal。注意到无论是 BFS 还是 DFS 都是低效的，但是我们没必要存储中间节点，因此，要在 DFS 框架下进行改进。</p>
+<p><strong>Backtracking Search</strong> 算法针对了这两个问题进行了改进</p>
+<ul>
+<li>Idea 1: One variable at a time in fixed ordering</li>
+<li>Idea 2: Check constraints as you go</li>
+</ul>
+<p>简言之：<strong>Backtracking = DFS + variable-ordering + fail-on-violation</strong></p>
+<p>两个思路都是比较直观的不多介绍。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16051094159383.png" /></p>
+<p>现在的问题在于，如何 Improving Backtracking。</p>
+<h3 id="ordering">Ordering</h3>
+<p>显见，不同的赋值顺序会对效率产生影响，又可分为两类：Which variable should be assigned next? In what order should its values be tried?</p>
+<p>对于变量的顺序来说，直观来讲，为了尽早避免可能的冲突，我们会选取那些约束比较多的变量（或者说，是 domain 比较小的，回忆一下约束的意义即在于，某一变量定值之后会缩减另外的变量的 domain）。例如，在地图着色问题中，我们一般会从已着色的国家的相邻国开始进行着色。定义：</p>
+<blockquote>
+<p>Variable Ordering: <strong>Minimum remaining values (MRV)</strong></p>
+<p>Choose the variable with the fewest legal left values in its domain. Also called <strong>“most constrained variable”</strong></p>
+<p>“Fail-fast” ordering</p>
+</blockquote>
+<p>对于赋值的顺序来说，我们要尽早找到一组解（而不是回溯），那么我们肯定希望给剩余的变量更多的「可能性」，也就是说要避免其他变量的取值发生缩减；我们定义</p>
+<blockquote>
+<p>Value Ordering: <strong>Least Constraining Value (LSV)</strong></p>
+<p>Given a choice of variable, choose the least constraining value. I.e., the one that rules out the fewest values in the remaining variables</p>
+<p>Note that it may take some computation to determine this! (E.g., rerunning filtering)</p>
+</blockquote>
+<p>注意，前者可以让我们避免一些可能的错误（可以「<strong>剪枝</strong>」）；而或者只是提高了找到解的可能性（但并非保障，只能说「更快找到」）。若我们想找到全部的解，那么前者可以帮助减少计算，但后者则并不会有什么助益。</p>
+<h3 id="filtering-can-we-detect-inevitable-failure-early">Filtering: Can we detect inevitable failure early?</h3>
+<p>MRV 可以让我们避免一些简单的错误（如相邻两国填同样的颜色），然而这里我们仅仅检测了这样一个简单的约束；那么我们能否采取更多的计算来提前发现错误呢？这就是 Filtering 的思路。</p>
+<p>先来看 <strong>Forward Checking</strong>：Cross off values that violate a constraint when added to the existing assignment。我们在取定一个值（搜索）之后，对于相邻边的 domain 进行缩减（推理）。当然，这里我们只「向前看」了一步，事实上对于缩减了 domain 的变量我们可以继续进行推理，也就是约束传播 <strong>Constraint Propagation</strong> 。我们来给出定义：</p>
+<blockquote>
+<p>Consistency of A Single Arc</p>
+<p>An arc <span class="math inline">\(X \rightarrow Y\)</span> is <strong>consistent</strong> iff for every <span class="math inline">\(x\)</span> in the tail there is some <span class="math inline">\(y\)</span> in the head which could be assigned without violating a constraint</p>
+<p>Forward checking: Enforcing consistency of arcs pointing to each new assignment</p>
+</blockquote>
+<p>注意定义，对于一条弧 <span class="math inline">\(X \rightarrow Y\)</span> 来说，我们减小了 Y 的值域之后，要进行缩减的是 X 的值域；如何缩减，就是要使得 X 的任一个取值，Y 中都至少有一个能满足约束——对于那么不满足的 X 的取值，我们进行缩减。注意其方向，按照这个定义，我们在做 Forward checking 的时候，给定了 A，那么就要对于所以包含指向 A 的弧（事实上都是无向边）的变量进行值域缩减。下面给出具体的算法：!</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16051094243854.png" /></p>
+<p>更宏观的解释：在 Filtering 中，我们 <strong>交替进行搜索和推理</strong>，在为某一变量赋值之后做弧相容检查。具体来说，当 <span class="math inline">\(X_i\)</span> 赋值后，我们调用 <span class="math inline">\(AC-3\)</span>，从 <span class="math inline">\((X_j,X_i)\)</span> 中未赋值变量<span class="math inline">\(X_j\)</span>开始，进行约束传播；事实上我们维护了一个队列，一旦某一个变量的值域发生了变化，就将其 neighbors 加入其中。</p>
+<p>然而，弧相容仍不能保证不进行回溯。例如，对于一个三角形来说，若每个节点只能赋值为红蓝两色那么显然是无解的，但用弧相容找不错错误来。若想直接得到解，引入 k-相容 <strong>K-Consistency</strong> 的概念：</p>
+<ul>
+<li>1-Consistency (Node Consistency): Each single node’s domain has a value which meets that node’s unary constraints</li>
+<li>2-Consistency (Arc Consistency): For each pair of nodes, any consistent assignment to one can be extended to the other</li>
+<li>K-Consistency: For each k nodes, any consistent assignment to k-1 can be extended to the k th node.</li>
+</ul>
+<p>并给出强 k-相容 <strong>Strong k-consistency</strong>: also k-1, k-2, … 1 consistent，以及结论，对于一个 n 变量的 CSP 来说，strong n-consistency means we can solve without backtracking。这是显然的。</p>
+<h3 id="structure-can-we-exploit-the-problem-structure">Structure: Can we exploit the problem structure?</h3>
+<p>这里问题的结果指的是约束图的结构。考虑极端情况：所有节点结构独立的，那么我们可以任意赋值；更为一般的，Independent sub-problems are identifiable as connected components of constraint graph。事实上，这样可分割的情况是很少见的（如澳大利亚地图着色），一个理想的可分问题能大大降低复杂度。注意到，我们可以用 Search 问题的通用复杂度来衡量 CSP，搜索树的深度显然是节点数，宽度为 domain 的大小；若一个 n 个节点的问题可分割成大小为 c 的若干子问题，则时间复杂度从 <span class="math inline">\(O(d^n)\)</span> 降为 <span class="math inline">\(O({n \over c} d^c)\)</span> ，变成了 n 的线性函数。</p>
+<p>可分割为 <strong>sub-problems</strong> 的问题也是很少见的，一个更一般的情况是 <strong>Tree-Structured CSPs</strong>，对此我们有定理：</p>
+<blockquote>
+<p>Theorem: if the constraint graph has no loops, the CSP can be solved in <span class="math inline">\(O(n d^2 )\)</span> time</p>
+</blockquote>
+<p>同样变为了 n 的线性函数。如何做到呢？1. 对约束树进行拓扑排序；2. 逆着拓扑排序，从孩子到父节点做弧相容检查（即对于<span class="math inline">\((Parent(X_j),X_j)\)</span>进行检查）；3. 然后顺着拓扑排序，从根节点到到叶节点进行赋值。注意到，进行这样一次弧相容检查之后，我们保障了对于父节点的任意取值，子节点都至少有一个值满足约束，也就保障了算法的正确性（解的存在性）。</p>
+<p>树结构也太少见了，一个拓展是 <strong>Nearly Tree-Structured CSPs</strong> 。对其的思路是，选定一组变量，使得删去这些之后的节点构成一棵树，这样的话，我们只要遍历这组节点的所有可能赋值情况即可。</p>
+<blockquote>
+<p>Conditioning: instantiate a variable, prune its neighbors' domains</p>
+<p><strong>Cycle Cutset</strong> conditioning: instantiate (in all ways) a set of variables such that the remaining constraint graph is a tree.</p>
+</blockquote>
+<p>所以我们的任务是找到这样的 Cycle Cutset，若其大小为 c，则找到这个集合之后，搜索的时间复杂度为 <span class="math inline">\(O( (d^c ) (n-c) d^2)\)</span></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16051094337625.png" /></p>
+<h2 id="iterative-improvement">Iterative Improvement</h2>
+<p>在上述 Backtracking 算法中，我们仍一个一个对变量进行赋值，但 CSP 只关心结果，因此一个自然的想法是直接从 complete state 出发，寻找解。Iterative Improvement 是一种 <strong>Local Search</strong> 方法。我们</p>
+<ul>
+<li>Take an assignment with unsatisfied constraints</li>
+<li>然后 <strong>Operators</strong> reassign variable values。</li>
+</ul>
+<p>具体来说，我们 1. Variable selection: randomly select any conflicted variable；2. Value selection: min-conflicts heuristic: Choose a value that violates the fewest constraints。这里第二步的变量选择使得冲突最少的那一个，可以认为是一种 heuristic <span class="math inline">\(h(n)=\)</span> #total number of violated constraints。</p>
+<p>这里体现的是 <strong>Local Search versus Systematic Search</strong>，相较于 BFS, DFS, IDS, Best-First, A* 等系统搜索算法（Keeps some history of visited nodes）来说，后者的一大特点就是不保留 history，然而，这在减少了存储负担的情况带来的问题则是失去了 complet 性质，容易陷入局部最优。</p>
+<p>一些 Local Search 包括</p>
+<ul>
+<li>Hill climbing：在 neighbor 中找最优值，迭代，可能陷入局部最优</li>
+<li>Simulated annealing：结合了 random walk 和 hill climbing。在循环过程汇总，与 hill climbing 的不同在于，对于 next state 来说，若是较为「好的」则以概率 1 接受；若相较于前一个状态变差了不是直接拒绝而是以一定的概率 <span class="math inline">\(P(T)\)</span> 接受（random walk）。接受的概率随着时间降低，也就是「模拟退火」的命名原因。具体的，接受概率为 T 的函数，如 <span class="math inline">\(\exp(\Delta E/T)\)</span> 其中 <span class="math inline">\(\Delta E\)</span> 可表为 next value - current value，而<span class="math inline">\(T\)</span> 随着时间而降低，即从 random walk 逐渐变为 hill climbing。</li>
+<li>Local beam search：并行 k 个 hill climbing——对于 Systematic search 来说保留所有的历史，而前两种仅保留一个，都太极端了，Local beam search 每次保留 k 个 complete state 而它们的 successor 中找最好的（加入了 randomness）的 k 个后代进行下一次模拟。</li>
+<li>Genetic algorithm</li>
+</ul>
+<p>另，对于连续函数来说，则要采用梯度下降方法 Gradient decent。</p>
+<p>进一步阅读：《人工智能》chapter 4.1 – 4.2。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/629a417a/">https://lightblues.github.io/posts/629a417a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><a class="post-meta__tags" href="/tags/%E6%90%9C%E7%B4%A2/">搜索</a></div><div class="post_share"><div class="social-share" data-image="/img/Ukiyo-e/ukiyo-e-14.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/74301372/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">AI-Bayes Network</div></div></a></div><div class="next-post pull-right"><a href="/posts/b5c6fd42/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">AI-Search</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/6ba3d208/" title="AI-Adversarial Search"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-17</div><div class="title">AI-Adversarial Search</div></div></a></div><div><a href="/posts/b5c6fd42/" title="AI-Search"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-15</div><div class="title">AI-Search</div></div></a></div><div><a href="/posts/74301372/" title="AI-Bayes Network"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">AI-Bayes Network</div></div></a></div><div><a href="/posts/f541f0d7/" title="AI-MDP"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-11</div><div class="title">AI-MDP</div></div></a></div><div><a href="/posts/7f582aa5/" title="AI-Markov Models and Hidden Markov Models"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-17</div><div class="title">AI-Markov Models and Hidden Markov Models</div></div></a></div><div><a href="/posts/a2b26f14/" title="AI-Reinforced Learning"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-10</div><div class="title">AI-Reinforced Learning</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#constraint-graphs"><span class="toc-number">1.</span> <span class="toc-text">Constraint Graphs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solving-csps"><span class="toc-number">2.</span> <span class="toc-text">Solving CSPs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ordering"><span class="toc-number">2.1.</span> <span class="toc-text">Ordering</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filtering-can-we-detect-inevitable-failure-early"><span class="toc-number">2.2.</span> <span class="toc-text">Filtering: Can we detect inevitable failure early?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#structure-can-we-exploit-the-problem-structure"><span class="toc-number">2.3.</span> <span class="toc-text">Structure: Can we exploit the problem structure?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iterative-improvement"><span class="toc-number">3.</span> <span class="toc-text">Iterative Improvement</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Ukiyo-e/ukiyo-e-14.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/629a417a/'
+    this.page.identifier = 'posts/629a417a/'
+    this.page.title = 'AI-Constraint Satisfaction Problems'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: 'fbc075b13ee8695ed94a4b6d2c4f09c3',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

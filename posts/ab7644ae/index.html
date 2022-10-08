@@ -1,0 +1,486 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SC-Bootstrap, Jackknife | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这篇来谈谈 Bootstrap 和 Jackknife。先来一个总括：在之前的 MC in Statistic Inference 中，我们假定已知了 population 的分布，并基于此进行样本生成，对于估计的 se、MSE 、置信水平进行估计，或做假设检验；然而这种方法的应用显然有点窄——很多情况下，我们是不知道总体分布，甚至我们能采集到的样本就只有这些，限于种种原因无法采集更多的样本——那">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SC-Bootstrap, Jackknife">
+<meta property="og:url" content="https://lightblues.github.io/posts/ab7644ae/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="这篇来谈谈 Bootstrap 和 Jackknife。先来一个总括：在之前的 MC in Statistic Inference 中，我们假定已知了 population 的分布，并基于此进行样本生成，对于估计的 se、MSE 、置信水平进行估计，或做假设检验；然而这种方法的应用显然有点窄——很多情况下，我们是不知道总体分布，甚至我们能采集到的样本就只有这些，限于种种原因无法采集更多的样本——那">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/CowboyBepop/cb-1.jpg">
+<meta property="article:published_time" content="2019-12-29T23:20:10.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.760Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="统计计算">
+<meta property="article:tag" content="Bootstrap">
+<meta property="article:tag" content="Jackknife">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/CowboyBepop/cb-1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/ab7644ae/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SC-Bootstrap, Jackknife',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/CowboyBepop/cb-1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SC-Bootstrap, Jackknife</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-29T23:20:10.000Z" title="Created 2019-12-30 07:20:10">2019-12-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.760Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/Statistic/">Statistic</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SC-Bootstrap, Jackknife"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>这篇来谈谈 Bootstrap 和 Jackknife。先来一个总括：在之前的 MC in Statistic Inference 中，我们假定已知了 population 的分布，并基于此进行样本生成，对于估计的 se、MSE 、置信水平进行估计，或做假设检验；然而这种方法的应用显然有点窄——很多情况下，我们是不知道总体分布，甚至我们能采集到的样本就只有这些，限于种种原因无法采集更多的样本——那么，在不知道总体分布，或者样本量较少的情况下，我们如何对于上述这些进行估计呢？这里就用了 Bootstrap 方法，本质是上一种重抽样的方法：既然我们只知道这些数据，那么我们就把这些数据看做整体（Empirical dist.），基于这些数据再进行多次抽样并计算得我们想要的内容（更加充分运用了这些数据）。补充：1. 我们也把 MC in Statistic Inference 中的方法叫做<strong>参数 Bootstrap</strong>（因为它也涉及到了重新的多次抽样，不过是从 population 中抽取的）；而这里的方法则叫做<strong>非参数 Bootstrap</strong>，我们一般讲的 Bootstrap 就是这里的；2. Jackknife 实际上是 Bootstrap 的一种特例：一种类似于「leave-one-off」的思想。</p>
+<h3 id="two-approximations-plug-in-priniciple">Two Approximations, "Plug-in" Priniciple</h3>
+<p>理解整个过程：从 population <span class="math inline">\(X\sim F(x)\)</span> 中，我们观测到了 n 个样本 <span class="math inline">\(X=(x_1,...,x_n)\)</span>；我们把这些样本看作一个整体再次抽样，实际上是从 <strong>Empirical dist</strong>. 中进行抽样 <span class="math inline">\(X^*\sim F_n(x)\)</span>；这些新的样本又有分布 <span class="math inline">\(F_n^*(x)\)</span>。这里就涉及到了两个近似： <span class="math display">\[
+F\rightarrow X\overset{(x_i)}{\rightarrow} \hat F\\\hat F\rightarrow X^*\overset{(x_i^*)}{\rightarrow} \hat F^*
+\]</span> 在进入 Bootstrap 之前，还需要对统计量和分布的关系；以及 "Plug-in" Priniciple 进行理解。</p>
+<ul>
+<li><strong>对于一个 parameter <span class="math inline">\(\theta\)</span> 来说，我们可以把它看作是分布 F 上的一个函数 <span class="math inline">\(\theta=t(F)\)</span> 。</strong></li>
+<li>这是对于 population 的，而在 sample level，我们认为 statistic/estimator 是 sample(<span class="math inline">\(\hat F\)</span>) 的一个函数 <span class="math inline">\(\hat\theta=t(\hat F)\)</span></li>
+</ul>
+<p>例如，对于期望来说是在 F 上的一个积分；而其估计则是样本的均值。</p>
+<p>而 <strong>"Plug-in" Priniciple</strong> ，简单的理解就是对于我们要估计的参数/统计量，我们用 sample level 上的数来代替 population level 上的数，给出两个例子：</p>
+<p>对于均值来说 <span class="math display">\[
+\theta=\mu=E_F[X]=\int xdF(x)\\\hat\theta=\hat\mu={1\over n}\sum x_i=\int xd\hat F(x)=E_{\hat F}(X)
+\]</span> 注意这里我们给出了期望及其估计值的另一种表示：用<span class="math inline">\(E_{\hat F}(X)\)</span> 来估计<span class="math inline">\(E_{ F}(X)\)</span> 。</p>
+<p>对于 standard error of the mean estimator <span class="math display">\[
+F\sim(\mu,\sigma^2), E_F(X)=\mu, Var_F(X)=\sigma^2
+\]</span> 因为有 <span class="math display">\[
+\sigma^2=E_F[(X-E_F[X])^2]\\\hat \sigma^2=E_{\hat F}[(X-E_{\hat F}[X])^2]={1\over n}\sum(x_i-\bar x)^2\\
+\]</span> （注意，这里我们用了<strong>两次</strong> "Plug-in" Priniciple ，并给出了其具体的表达形式。）对于 <span class="math inline">\(se(\bar X)={\sigma \over\sqrt{n}}\)</span> 我们有估计 <span class="math inline">\(\hat {se}(\bar X)={\hat\sigma \over\sqrt{n}}\)</span>。</p>
+<h3 id="bootstrap">Bootstrap</h3>
+<p>接下来正式进入 Bootstrap，我们先用它来估计 估计量的 se, bias：</p>
+<p>前面讲过，Bootstrap 就是多次抽样，这样就得到了 Empirical dist. <span class="math inline">\(\hat F(x)\)</span> ，而我们的估计量则是 <span class="math inline">\(t(\hat F)\)</span> 。我们先来看 se，考虑 <span class="math display">\[
+Var(\hat\theta)=E[(\hat\theta -E[\hat\theta])^2]=E_F\big[(t(\hat F)-E_F[t(\hat F)])^2\big]
+\]</span> （注意这里取的期望都是在原分布下的）我们使用 "Plug-in" Priniciple，则 <span class="math display">\[
+\hat{Var}(\hat\theta)=E_{\hat F}\big[(t({\hat F}^*)-E_{\hat F}[t(\hat{F}^*)])^2\big]=\frac{1}{B-1} \sum(\hat\theta^{(i)}-\bar{\hat\theta^*})^2
+\]</span> 其中的 <span class="math inline">\(\bar{\hat\theta^*}\)</span> 为 B 个 Bootstrap 估计量的均值；分母用了<span class="math inline">\(B-1\)</span> 是为了无偏。于是我们得到了 <code>se</code> 的 Bootstrap 估计公式</p>
+<p><span class="math display">\[
+\hat{se}(\hat\theta)=\sqrt{\frac{1}{B-1}\sum(\hat\theta^{(i)}-\bar{\hat\theta^{*}})^2}\tag{2.1}
+\]</span></p>
+<p>对于 <code>bias</code>，由于</p>
+<p><span class="math display">\[
+bias(\hat\theta)=E[\hat\theta-\theta]=E_F[t(\hat F)-t(F)]
+\]</span></p>
+<p><span class="math display">\[
+\hat{bias}(\hat\theta)=E_{\hat F}[t(\hat F^*)-t(\hat F)]=E_{\hat F}[\hat\theta^*]-\hat\theta = \bar{\hat\theta^*}-\hat\theta\tag{2.2}
+\]</span></p>
+<p>注意从第一行到第二行（其估计）中，我们用了三次 "Plug-in" Priniciple。 其中的 <span class="math inline">\(\bar{\hat\theta^*}\)</span> 为 B 个 Bootstrap 估计量的均值。</p>
+<p>还讲了 Bootstrap 方法来估计置信区间，我们把这部分放到后面去讲，接下来，看看一个特例：Jackknife。</p>
+<h3 id="jackknife">Jackknife</h3>
+<p>这里，我们用了两个例子，来说明该公式与 Bootstrap 下的区别。给出 Jackknife 的流程为：对于一个大小为 n 的样本，每次去除第 i 个样本，将剩下的其余样本作为第 i 次重抽样得到的数据；也就是说，在 Jackknife 下，我们只能有 n 个重抽样结果（而在 Bootstrap 下是不限制的）；每个抽样结果的大小为 <span class="math inline">\(n-1\)</span>（在 Bootstrap 下为 n）。</p>
+<p>来看 <code>bias</code>，以 <span class="math inline">\(\theta=\sigma^2\)</span> 为例，估计量为<span class="math inline">\(\hat \theta={1\over n}\sum(x_i-\bar x)^2\)</span> 。注意到有 <span class="math display">\[
+bias(\hat\theta)=E[\hat\theta-\theta]=...={1\over n}\sigma^2\tag{3.1}
+\]</span> 我们考虑 <span class="math display">\[
+E[\hat\theta^{(j)}-\hat\theta]=E[\hat\theta^{(j)}-\theta]-E[\hat\theta-\theta]\\=(-{\sigma^2\over n-1})-(-{\sigma^2\over n})={1\over n-1}bias(\hat\theta)
+\]</span> 上式第一行到第二行成立，是因为，我们把 <span class="math inline">\(x_j\)</span> 去除，也可以把剩余的观测看做是 population 的<span class="math inline">\(n-1\)</span> 次 realization，因此和式（3.1）的估计在形式上是一致的。另，上式只是考虑了编号为 j 的一组抽样，我们将 n 组式子相加，容易得到 <span class="math display">\[
+\hat{bias}_{Jack}(\hat\theta)=(n-1)(\bar{\hat\theta^*}-\hat\theta)\tag{3.2}
+\]</span> 其中 <span class="math inline">\(\bar{\hat\theta^*}\)</span>为 n 个估计量的均值。</p>
+<p>再来看 <code>se</code>，以 <span class="math inline">\(\theta=EX\)</span>为例，<span class="math inline">\(\hat\theta=\bar X\)</span>。注意到 <span class="math display">\[
+se(\hat\theta)=\sqrt{Var(\bar{X})}={\sigma\over\sqrt{n}}
+\]</span> 另外，我们仔细看这几个估计量， <span class="math display">\[
+\hat\theta^{(j)}={1\over n-1}(n\bar{x}-x_i),\\
+\bar{\hat\theta^*}={1\over n}\sum{n\bar{x}-x_i\over n-1}=\bar{x}
+\]</span> 则有 <span class="math display">\[
+\sum(\hat\theta-\bar{\hat\theta^*})^2=\sum ({n\bar{x}-x_i\over n-1}-\bar{x})^2={1\over(n-1)^2}\sum(x_i-\bar{x})^2={s^2\over n-1}
+\]</span></p>
+<p>显然 <span class="math inline">\({s\over\sqrt{n}}\)</span> 是<span class="math inline">\(se(\hat\theta)={\sigma\over\sqrt{n}}\)</span> 的无偏估计，比较形式，我们可以得到最终的形式 <span class="math display">\[
+\hat{se}_{Jack} (\hat\theta)=\sqrt{\frac{n-1}{n}\sum(\hat\theta-\bar{\hat\theta^*})^2}\tag{3.3}
+\]</span> 比较（3.2）（3.3）和（2.1）（2.2），我们可以发现 Jackknife 估计要比 Bootstrap 估计在分子上多一个<span class="math inline">\(n-1\)</span>，这可以理解为，<strong>the Jackknife sample <span class="math inline">\(x^{(i)}\)</span> is very similar to <span class="math inline">\(x\)</span> compared with Bootstrap replicates</strong>。</p>
+<h3 id="bootstrap-ci">Bootstrap CI</h3>
+<p>下面回过头来继续介绍使用 Bootstrap 方法来估计置信区间。主要介绍了 5 中方法：</p>
+<ol type="1">
+<li>Standard normal</li>
+<li>Basic CI</li>
+<li>Percential CI</li>
+<li>Bootstrap t CI</li>
+<li>Better BCa CI</li>
+</ol>
+<p>第一种 <strong>Standard normal</strong> 中，引入了 pivot quantity <span class="math display">\[
+Z={\hat\theta-E[\hat\theta]\over se(\hat\theta)}
+\]</span> 显然，该量在 n 很大情况下由 CLL 可知是近似标准正态；那么1. 再假设该统计量是无偏的，即<span class="math inline">\(\theta=E[\hat\theta]\)</span> ；2. 使用 Bootstrap 方法估计 se，我们就可以得到 <span class="math inline">\(\theta\)</span> 的一个置信区间 <span class="math display">\[
+[\hat\theta\pm z_{\alpha/2}\hat{se}(\hat\theta)]\tag{5}
+\]</span> 其中 <span class="math inline">\(z_{\alpha/2}=\Phi(1-\alpha/2)\)</span> ，即标准正态的上 <span class="math inline">\(\alpha /2\)</span>分位数。</p>
+<p>第二种 <strong>Basic CI</strong>中，我们对于偏差进行考虑： <span class="math display">\[
+P((\hat\theta-\theta)_{\alpha/2}&lt;\hat\theta-\theta&lt; (\hat\theta-\theta)_{1-\alpha/2})=1-\alpha
+\]</span> 我们用 <span class="math inline">\(\hat\theta^*-\hat\theta\)</span> 来估计 <span class="math inline">\(\hat\theta-\theta\)</span> ，就有 <span class="math display">\[
+P((\hat\theta^*-\hat\theta)_{\alpha/2}&lt;\hat\theta-\theta&lt; (\hat\theta^*-\hat\theta)_{1-\alpha/2})\approx 1-\alpha
+\]</span> 整理可得结果 <span class="math display">\[
+[2\hat\theta-\hat\theta^*_{1-\alpha/2}, 2\hat\theta-\hat\theta^*_{\alpha/2}]\tag{6}
+\]</span> 第三种 <strong>Percential CI</strong> 仅和 Basic CI 有微小的区别：直接使用了 <span class="math inline">\(\hat\theta\)</span> 的分布来估计 <span class="math inline">\(\theta\)</span> ，因此形式为 <span class="math display">\[
+[\hat\theta^*_{\alpha/2}, \hat\theta^*_{1-\alpha/2}]\tag{7}
+\]</span> 注意到，这里没有出现 <span class="math inline">\(\hat\theta\)</span> ！</p>
+<p>第四种 <strong>Bootstrap t CI</strong> 是对 Standard normal 的改进——显然，后者的要求过高了（1. 无偏；2. 近似正态）。在 Bootstrap t CI 中，我们引入了一个 t-type statistic ，作为对于（1）中 pivot quantity <span class="math inline">\(Z\)</span> 的改进： <span class="math display">\[
+t^{(b)}={\hat\theta^{(b)}-\hat\theta\over\hat{se}(\hat\theta^{(b)})}
+\]</span> 注意到，在 Standard normal 中，我们仅需要用 Bootstrap 方法来估计 <span class="math inline">\(se(\hat\theta)\)</span> 。而在这里，我们需要使用 Bootstrap 生成 B 个 t-type statistic；对于每一个 <span class="math inline">\(t^{(b)}\)</span>，我们都需要估计<span class="math inline">\(\hat{se}(\hat\theta^{(b)})\)</span> ，也就是说，我们要在内部再嵌套一个 Bootstrap。显然，Bootstrap t CI 提高了计算的成本，但也避免了简单的 Standard normal 所具有的一些不足；并且带来了后面讲到的二阶性质。</p>
+<p>参考 Standard normal 中的结果，其最终的形式是 <span class="math display">\[
+[\hat\theta-t_{1-\alpha/2}^*\hat{se}(\hat\theta), \hat\theta-t_{\alpha/2}^*\hat{se}(\hat\theta)]\tag{8}
+\]</span></p>
+<p>第五种 <strong>Better BCa CI</strong>，太过复杂在此不做展开，感兴趣可自行搜索。它主要的思想是对于 Percential CI 进行提升。最终形式为 <span class="math display">\[
+[\hat\theta^*_{1-\alpha/2}, \hat\theta^*_{\alpha/2}]\tag{9}
+\]</span> 最后，我们从两个维度来比较这些 CI：1. Transformation respecting: given <span class="math inline">\(t(.)\)</span> , whether CI for <span class="math inline">\(\theta\)</span> can be t-transformed directly to CI for <span class="math inline">\(t(\theta)\)</span> ; 2. Second order accuracy</p>
+<p>第一点，变换性指出了，在一定的变换下，我们直接对 CI 的 upper 和 lower 进行相应的变换就可以得到 <span class="math inline">\(t(\theta)\)</span> 的 CI（似乎是说，upper 和 lower 似乎和分位数相关？）。第二点，二阶精准意味着 <span class="math display">\[
+P(\theta&lt;\hat\theta_{lower})={\alpha\over 2}+{C_{lower}\over n}\\
+P(\theta&lt;\hat\theta_{upper})={\alpha\over 2}+{C_{upper}\over n}
+\]</span> 这是相较于一阶，也就是说下面的 <span class="math inline">\(n\)</span> 变为 <span class="math inline">\(\sqrt{n}\)</span> ，借助数值的内容刻画了某种「收敛速度」。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Trans</th>
+<th>Second order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Standard normal</td>
+<td>✕</td>
+<td>✕</td>
+</tr>
+<tr class="even">
+<td>Basic</td>
+<td>✕</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Percentile</td>
+<td>✓</td>
+<td>✕</td>
+</tr>
+<tr class="even">
+<td>Bootstrap t</td>
+<td>✕</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Better BCa</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/ab7644ae/">https://lightblues.github.io/posts/ab7644ae/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97/">统计计算</a><a class="post-meta__tags" href="/tags/Bootstrap/">Bootstrap</a><a class="post-meta__tags" href="/tags/Jackknife/">Jackknife</a></div><div class="post_share"><div class="social-share" data-image="/img/CowboyBepop/cb-1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/a2b26f14/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">AI-Reinforced Learning</div></div></a></div><div class="next-post pull-right"><a href="/posts/346b3c08/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-7.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">SC-EM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/346b3c08/" title="SC-EM"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-7.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-28</div><div class="title">SC-EM</div></div></a></div><div><a href="/posts/331fe944/" title="SC-复习提纲"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-16.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-16</div><div class="title">SC-复习提纲</div></div></a></div><div><a href="/posts/6ba3d208/" title="AI-Adversarial Search"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-17</div><div class="title">AI-Adversarial Search</div></div></a></div><div><a href="/posts/74301372/" title="AI-Bayes Network"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">AI-Bayes Network</div></div></a></div><div><a href="/posts/629a417a/" title="AI-Constraint Satisfaction Problems"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-14.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">AI-Constraint Satisfaction Problems</div></div></a></div><div><a href="/posts/f541f0d7/" title="AI-MDP"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-11</div><div class="title">AI-MDP</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#two-approximations-plug-in-priniciple"><span class="toc-number">1.</span> <span class="toc-text">Two Approximations, &quot;Plug-in&quot; Priniciple</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap"><span class="toc-number">2.</span> <span class="toc-text">Bootstrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jackknife"><span class="toc-number">3.</span> <span class="toc-text">Jackknife</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootstrap-ci"><span class="toc-number">4.</span> <span class="toc-text">Bootstrap CI</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/CowboyBepop/cb-1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/ab7644ae/'
+    this.page.identifier = 'posts/ab7644ae/'
+    this.page.title = 'SC-Bootstrap, Jackknife'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '9443a913f6d9fc80c891f85de07aa7f8',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

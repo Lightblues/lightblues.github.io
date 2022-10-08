@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CMD 命令笔记 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="【这里完全是对于下文的摘录，虽然感觉之后使用 Windows，尤其是 CMD 的机会已经很少了。】  Windows 用户需要知道的 CMD 常用命令总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMD 命令笔记">
+<meta property="og:url" content="https://lightblues.github.io/posts/a360810/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="【这里完全是对于下文的摘录，虽然感觉之后使用 Windows，尤其是 CMD 的机会已经很少了。】  Windows 用户需要知道的 CMD 常用命令总结">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/SamuraiChamploo/samurai-champloo-4.jpg">
+<meta property="article:published_time" content="2020-05-02T06:13:26.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.760Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="CMD">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/SamuraiChamploo/samurai-champloo-4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/a360810/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CMD 命令笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/SamuraiChamploo/samurai-champloo-4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CMD 命令笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-05-02T06:13:26.000Z" title="Created 2020-05-02 14:13:26">2020-05-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.760Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Interest/">Interest</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">863</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CMD 命令笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>【这里完全是对于下文的摘录，虽然感觉之后使用 Windows，尤其是 CMD 的机会已经很少了。】</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/67513308">Windows 用户需要知道的 CMD 常用命令总结</a></li>
+</ul>
+<span id="more"></span>
+<h3 id="打开-cmd">打开 CMD</h3>
+<ul>
+<li>方法一：开始菜单 -&gt; Windows 系统 -&gt; 命令提示符。</li>
+<li>方法二：按下快捷键 Win + R 打开运行，输入 cmd 回车。</li>
+<li>方法三：点击任务栏搜索按钮，搜索 cmd 并打开。</li>
+<li>方法四：在资源管理器的地址栏输入 cmd 并回车，cmd 打开后会自动定位到当前目录。</li>
+<li>方法五：右键点击开始菜单的 Win 图标 -&gt; 命令提示符。</li>
+</ul>
+<p>每条命令输入后，回车运行。命令正确则执行完毕后回到 <code>&gt;</code> 状态；命令错误返回错误信息。</p>
+<h3 id="关机重启注销休眠定时">关机、重启、注销、休眠、定时</h3>
+<ul>
+<li>关机：<code>shutdown /s</code></li>
+<li>重启：<code>shutdown /r</code></li>
+<li>注销：<code>shutdown /l</code></li>
+<li>休眠：<code>shutdown /h /f</code></li>
+<li>取消关机：<code>shutdown /a</code></li>
+<li>定时关机：<code>shutdown /s /t 3600</code>（3600 秒后关机）</li>
+</ul>
+<h3 id="目录操作">目录操作</h3>
+<p>切换目录，进入指定文件夹：</p>
+<ul>
+<li>切换磁盘：<code>d:</code>（进入 d 盘）</li>
+<li>切换磁盘和目录：<code>cd /d d:/test</code>（进入 d 盘 test 文件夹）</li>
+<li>进入文件夹：<code>cd \test1\test2</code>（进入 test2 文件夹）</li>
+<li>返回根目录：<code>cd \</code></li>
+<li>回到上级目录：<code>cd ..</code></li>
+<li>新建文件夹：<code>md test</code></li>
+</ul>
+<p>显示目录内容：</p>
+<ul>
+<li>显示目录中文件列表：<code>dir</code></li>
+<li>显示目录结构：<code>tree d:\test</code>（d 盘 test 目录）</li>
+<li>显示当前目录位置：<code>cd</code></li>
+<li>显示指定磁盘的当前目录位置：<code>cd d:</code> 【实测这个在 Powershell 下是切换目录】</li>
+</ul>
+<h3 id="网络操作">网络操作</h3>
+<ul>
+<li>延迟和丢包率：<code>ping ip/域名</code></li>
+<li>Ping 测试 5 次：<code>ping ip/域名 -n 5</code></li>
+<li>清除本地 DNS 缓存：<code>ipconfig /flushdns</code></li>
+<li>路由追踪：<code>tracert ip/域名</code></li>
+</ul>
+<h3 id="进程服务操作">进程/服务操作</h3>
+<p><strong>进程管理：</strong></p>
+<ul>
+<li>显示当前正在运行的进程：<code>tasklist</code></li>
+<li>运行程序或命令：<code>start 程序名</code></li>
+<li>结束进程，按名称：<code>taskkill /im notepad.exe</code>（关闭记事本）</li>
+<li>结束进程，按 PID：<code>taskkill /pid 1234</code>（关闭 PID 为 1234 的进程）</li>
+</ul>
+<p><strong>服务管理：</strong></p>
+<ul>
+<li>显示当前正在运行的服务：<code>net start</code></li>
+<li>启动指定服务：<code>net start 服务名</code></li>
+<li>停止指定服务：<code>n</code></li>
+</ul>
+<h3 id="保存为-.bat-可执行文件">保存为 .bat 可执行文件</h3>
+<p>我们可以将常用的命令输入记事本中，并保存为后缀为 <code>.bat</code> 的可执行文件。</p>
+<p>以后只要双击该文件即可执行指定命令；将文件放入系统【启动】目录中，可以实现开机自动运行。</p>
+<p>注：启动目录位置：[C:Menu]</p>
+<p>例如，在资源管理器卡死时，我们可以使用 <code>taskkill</code> 命令重启。将下面命令保存为 <code>ReExplorer.bat</code>，在需要时双击即可强制重启资源管理器。或直接打开 CMD 运行命令也可以。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /im explorer.exe &amp; <span class="built_in">start</span> explorer.exe</span><br></pre></td></tr></table></figure>
+<p>迅雷会在后台自动运行 ThunderPlatform.exe 进程和 XLServicePlatform 服务，如果当前没有使用迅雷的话显然没必要。</p>
+<p>我们可以将如下代码保存为 <code>killxl.bat</code>，并放入【启动】目录，开机后会自动运行该脚本，清除这两个进程。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net stop XLServicePlatform</span><br><span class="line">taskkill /F /im ThunderPlatform.exe</span><br></pre></td></tr></table></figure>
+<h3 id="编辑文件">编辑文件</h3>
+<p>使用<code>type</code>命令可以在<code>cmd</code>命令行下面浏览文本文件</p>
+<p>安装好<code>VScode</code>之后,在<code>cmd</code>中的一个目录下输入<code>code .</code>即可用<code>vscode</code>打开这个目录；编辑结束时候,关闭<code>Vscode</code>即可在<code>cmd</code>中进行下一步的操作。</p>
+<ul>
+<li>若要直接用 VScode 打开当前目录下的一个文件，直接 <code>code 文件名</code>即可。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/a360810/">https://lightblues.github.io/posts/a360810/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CMD/">CMD</a><a class="post-meta__tags" href="/tags/Windows/">Windows</a></div><div class="post_share"><div class="social-share" data-image="/img/SamuraiChamploo/samurai-champloo-4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/e6ef2203/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/test/color-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Hackintosh 入门+软件配置+个人向软件推荐</div></div></a></div><div class="next-post pull-right"><a href="/posts/64f7b7e2/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-6.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Terminal 配置+美化 iTerm + zsh</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/fa8ab620/" title="Windows To Go 安装记录"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-12</div><div class="title">Windows To Go 安装记录</div></div></a></div><div><a href="/posts/e6f44ed5/" title="Windows 新开始"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-20</div><div class="title">Windows 新开始</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80-cmd"><span class="toc-number">1.</span> <span class="toc-text">打开 CMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF%E6%B3%A8%E9%94%80%E4%BC%91%E7%9C%A0%E5%AE%9A%E6%97%B6"><span class="toc-number">2.</span> <span class="toc-text">关机、重启、注销、休眠、定时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">网络操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%9C%8D%E5%8A%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">进程&#x2F;服务操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E4%B8%BA-.bat-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">保存为 .bat 可执行文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">编辑文件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/SamuraiChamploo/samurai-champloo-4.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/a360810/'
+    this.page.identifier = 'posts/a360810/'
+    this.page.title = 'CMD 命令笔记'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '0812093088fb7c9a4daed5547687db57',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

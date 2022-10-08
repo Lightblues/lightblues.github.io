@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hackintosh+Windows+Arch 新体验 | Easonshi's Space</title><meta name="keywords" content="Hackintosh,Arch,Windows"><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="回家复归台式机, 重新配置一下. 尝试在 Windows 环境下写代码, 终归是哪儿都觉得不太顺; 而 Arch 美则美矣一些常用软件还是有些不方便; 故, 半年之后终又折腾起了黑苹果, 从 Clover 转到 OC; 在调整硬盘划分的过程中将 Arch 转到了新的分区. 总结一下. 硬件列表 12345技嘉Z390 AORUS PRO WIFII5 9600K金士顿 Fury 2666 *2西数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hackintosh+Windows+Arch 新体验">
+<meta property="og:url" content="https://lightblues.github.io/posts/185494e9/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="回家复归台式机, 重新配置一下. 尝试在 Windows 环境下写代码, 终归是哪儿都觉得不太顺; 而 Arch 美则美矣一些常用软件还是有些不方便; 故, 半年之后终又折腾起了黑苹果, 从 Clover 转到 OC; 在调整硬盘划分的过程中将 Arch 转到了新的分区. 总结一下. 硬件列表 12345技嘉Z390 AORUS PRO WIFII5 9600K金士顿 Fury 2666 *2西数">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/CowboyBepop/cb-11.jpg">
+<meta property="article:published_time" content="2022-01-30T04:27:03.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.760Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="playing">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="study">
+<meta property="article:tag" content="runner">
+<meta property="article:tag" content="idiot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/CowboyBepop/cb-11.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/185494e9/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hackintosh+Windows+Arch 新体验',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/CowboyBepop/cb-11.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hackintosh+Windows+Arch 新体验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-01-30T04:27:03.000Z" title="Created 2022-01-30 12:27:03">2022-01-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.760Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/">Software</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hackintosh+Windows+Arch 新体验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>回家复归台式机, 重新配置一下. 尝试在 Windows 环境下写代码, 终归是哪儿都觉得不太顺; 而 Arch 美则美矣一些常用软件还是有些不方便; 故, 半年之后终又折腾起了黑苹果, 从 Clover 转到 OC; 在调整硬盘划分的过程中将 Arch 转到了新的分区. 总结一下.</p>
+<p>硬件列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">技嘉Z390 AORUS PRO WIFI</span><br><span class="line">I5 9600K</span><br><span class="line">金士顿 Fury 2666 *2</span><br><span class="line">西数SN750 + 三星 970EVO</span><br><span class="line">fenvi T919 网卡</span><br></pre></td></tr></table></figure>
+<p>分区记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">(base) ➜  ~ diskutil list</span><br><span class="line">/dev/disk0 (internal, physical):</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      GUID_partition_scheme                        *500.1 GB   disk0</span><br><span class="line">   1:                 Apple_APFS Container disk3         214.7 GB   disk0s1 <span class="comment"># Time Macktime</span></span><br><span class="line">   2:       Microsoft Basic Data disk0s2                 285.4 GB   disk0s2 <span class="comment"># 待定</span></span><br><span class="line"></span><br><span class="line">/dev/disk1 (internal, physical):</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      GUID_partition_scheme                        *500.1 GB   disk1</span><br><span class="line">   1:           Windows Recovery                         523.2 MB   disk1s1 <span class="comment"># EFI 分区</span></span><br><span class="line">   2:                        EFI NO NAME                 104.9 MB   disk1s2</span><br><span class="line">   3:         Microsoft Reserved                         16.8 MB    disk1s3</span><br><span class="line">   4:                 Apple_APFS Container disk2         184.9 GB   disk1s4 <span class="comment"># macOS</span></span><br><span class="line">   5:           Linux Filesystem                         157.3 GB   disk1s5 <span class="comment"># Arch</span></span><br><span class="line">   6:           Linux Filesystem                         52.4 GB    disk1s6 <span class="comment"># Ubuntu, 基本不用了</span></span><br><span class="line">   7:       Microsoft Basic Data Win11                   104.9 GB   disk1s7 <span class="comment"># Windows</span></span><br><span class="line"></span><br><span class="line">/dev/disk2 (synthesized):</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      APFS Container Scheme -                      +184.9 GB   disk2</span><br><span class="line">                                 Physical Store disk1s4</span><br><span class="line">   1:                APFS Volume Macintosh - Data        36.0 GB    disk2s1</span><br><span class="line">   2:                APFS Volume Preboot                 338.8 MB   disk2s2</span><br><span class="line">   3:                APFS Volume Recovery                1.1 GB     disk2s3</span><br><span class="line">   4:                APFS Volume VM                      1.1 MB     disk2s4</span><br><span class="line">   5:                APFS Volume Macintosh               15.8 GB    disk2s5</span><br><span class="line">   6:              APFS Snapshot com.apple.os.update-... 15.8 GB    disk2s5s1</span><br><span class="line"></span><br><span class="line">/dev/disk3 (synthesized):</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      APFS Container Scheme -                      +214.7 GB   disk3</span><br><span class="line">                                 Physical Store disk0s1</span><br><span class="line">   1:                APFS Volume TimeMachime             27.2 GB    disk3s2</span><br></pre></td></tr></table></figure>
+<h2 id="mackintosh">Mackintosh</h2>
+<h3 id="opencore-安装">OpenCore 安装</h3>
+<ul>
+<li>主教程 | <strong>国光的黑苹果安装教程</strong> <a target="_blank" rel="noopener" href="https://apple.sqlsec.com/">https://apple.sqlsec.com/</a></li>
+<li>官方教程 <a target="_blank" rel="noopener" href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a></li>
+<li>OC 编辑器
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/corpnewt/ProperTree">ProperTree</a></li>
+<li><a target="_blank" rel="noopener" href="https://mackie100projects.altervista.org/download-opencore-configurator/">OpenCore Configurator</a></li>
+</ul></li>
+<li>可以先找一个类似的配置好的 EFI 参考，例如 <a target="_blank" rel="noopener" href="https://github.com/timche/hackintosh-opencore-z390-aorus-pro-wifi">hackintosh-opencore-z390-aorus-pro-wifi</a>; 我的放在了 <a target="_blank" rel="noopener" href="https://github.com/Lightblues/EFI-Aorus-Z390">here</a></li>
+</ul>
+<h4 id="debug">Debug</h4>
+<ul>
+<li>蓝牙
+<ul>
+<li>原本以为不能用是网卡的问题, 尝试 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/BrcmPatchRAM">BrcmPatchRAM</a> 无果; 结果还是 USB 的问题</li>
+</ul></li>
+<li>有线网卡
+<ul>
+<li>IntelMausi</li>
+</ul></li>
+<li>多引导
+<ul>
+<li>Fight Windows 引导: 还是直接看国光的 <a target="_blank" rel="noopener" href="https://apple.sqlsec.com/5-%E5%AE%9E%E6%88%98%E6%BC%94%E7%A4%BA/5-6.html">教程6.6</a> 吧, 就是用 <a target="_blank" rel="noopener" href="https://sqlsec.lanzouw.com/iDaQ1ubeg6h">EasyUEFI</a> 配置</li>
+<li>详见 <a target="_blank" rel="noopener" href="https://dortania.github.io/OpenCore-Multiboot/empty/diffdisk.html">教程</a></li>
+</ul></li>
+<li>HDMI 睡眠后显示器无法唤醒: 启动参数添加 <code>igfxonln=1</code>; from <a target="_blank" rel="noopener" href="https://macoshome.com/hackintosh/hcourse/5449.html">here</a>
+<ul>
+<li>休眠的问题比较复杂, <a target="_blank" rel="noopener" href="https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html">教程</a></li>
+<li>尝试过 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/HibernationFixup">HibernationFixup</a> 没作用</li>
+<li>关于 macOS 的睡眠种类参见 <a target="_blank" rel="noopener" href="https://heipg.cn/tutorial/enable-sleep-mode-for-hackintosh.html#%E9%80%89%E6%8B%A9%E4%BC%91%E7%9C%A0%E6%A8%A1%E5%BC%8F">here</a></li>
+</ul></li>
+<li>USB 映射
+<ul>
+<li>遇到的: 要么是 USB3.0 失效, 要么 USB2.0 失效: 需要用到 <a target="_blank" rel="noopener" href="https://github.com/Sniki/OS-X-USB-Inject-All/releases">USBInjectAll</a> 和 <a target="_blank" rel="noopener" href="https://github.com/corpnewt/USBMap">USBMap</a>.</li>
+<li>具体的 USB map 参见 <a target="_blank" rel="noopener" href="https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html">教程</a></li>
+<li>另外司波图也有一个自己定制的 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Aa4y1j7CL">教程</a></li>
+</ul></li>
+<li>关于 NTFS 挂载
+<ul>
+<li>同一张硬盘上的分区会被自动只读形式挂载, 看着有点难受</li>
+<li>尝试配置了 fstab 但好像不太行; 参见 <a target="_blank" rel="noopener" href="https://gist.github.com/CharlesThierry/7305166b208d6f6cdd37962761d5ac23">here</a>; 另外参见 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6897075697849171975">解决Linux无法读写U盘中的NTFS问题</a></li>
+<li>看到有用 ntfs-3g <a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv13273551">实现</a> 的, 有需求尝试吧</li>
+</ul></li>
+<li>关于更新
+<ul>
+<li>看到小红点没忍住, 尝试从 Monterey 10.1 更新到 10.2, 果然失败了; 然后发现 OC 好像回归到了很早的一个版本, 无论怎样修改 plist 都没用, 最后 <strong>重置 NVRAM</strong> 解决了</li>
+<li>No zuo, no die</li>
+</ul></li>
+<li>添加其他系统的引导
+<ul>
+<li>参见 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qlpdong/article/details/118572750">OpenCore添加ubuntu引导，引导三系统（Macos+Windows+Linux）</a> 其实就是在 OC 的配置项中添加了一列</li>
+</ul></li>
+</ul>
+<h3 id="回顾-clover-安装">回顾 Clover 安装</h3>
+<p>总结一下之前写的 Clover 安装过程, 以资比较.</p>
+<ul>
+<li>安装主要参考了 Sleele 大佬的 <a target="_blank" rel="noopener" href="https://sleele.com/2019/07/14/gettingstartedtutorial/">黑苹果入门教程</a></li>
+<li>资源来自 <a target="_blank" rel="noopener" href="https://blog.daliansky.net/">黑果小兵的部落格</a></li>
+<li>选购指南 <a target="_blank" rel="noopener" href="https://www.tonymacx86.com/">TonyMacX86</a></li>
+</ul>
+<p>安装流程</p>
+<ul>
+<li>下载, 制作安装 U盘
+<ul>
+<li>这里用的是 App Store 下载的方式, <code>sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</code> 即可</li>
+<li>找到的对应机型的 EFI 文件复制到启动盘的 EFI 分区下, 参见 <a target="_blank" rel="noopener" href="https://github.com/daliansky/Hackintosh">Hackintosh 黑苹果长期维护机型 EFI 及安装教程整理</a></li>
+</ul></li>
+<li>U盘 启动, 安装系统</li>
+<li>配置 EFI
+<ul>
+<li>第一次很顺利, 直接用了他人配置好的 EFI 就上车了, 因此没有太多研究</li>
+<li>用 <code>sudo diskutil mount disk0s1</code> 挂载替换 EFI 即可; 或者用 Clover Configurator 挂载</li>
+</ul></li>
+</ul>
+<p>定制 USB</p>
+<ul>
+<li>用了 sleele 的 <a target="_blank" rel="noopener" href="https://sleele.com/2019/06/07/%E4%BD%BF%E7%94%A8hackintool%E5%AE%9A%E5%88%B6%E9%BB%91%E8%8B%B9%E6%9E%9Cusb%E9%A9%B1%E5%8A%A8/">使用Hackintool定制黑苹果USB驱动</a></li>
+<li>关于 WiFi 等问题, 由于用了 PCIE 网卡, 需要禁用主板 WiFi</li>
+</ul>
+<h3 id="macos-软件栈">macOS 软件栈</h3>
+<ul>
+<li>Hackintosh
+<ul>
+<li>Hackintool</li>
+<li>OpenCore Configurator: OC配置; EFI挂载</li>
+</ul></li>
+<li>软件管理
+<ul>
+<li><a target="_blank" rel="noopener" href="https://brew.sh/">brew</a>:
+<ul>
+<li><a target="_blank" rel="noopener" href="https://formulae.brew.sh/cask/visual-studio-code">VS Code</a>: 官方下载安装包好慢来着</li>
+<li>uTools: 启动管理</li>
+<li>其他列表见下</li>
+</ul></li>
+</ul></li>
+<li>工具
+<ul>
+<li>阿里云盘 aDriver: 文件下载</li>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/">Notion</a>: 跨平台笔记同步</li>
+<li>效率
+<ul>
+<li>PopClip</li>
+<li>Magnet 窗口管理</li>
+<li>MacCleaner 系统清理/管理</li>
+</ul></li>
+</ul></li>
+<li>常用
+<ul>
+<li>PDF Expert</li>
+<li>MWeb</li>
+<li>Transmit SFTP工具, 同步配置</li>
+<li>MagNet 窗口管理</li>
+</ul></li>
+<li>Code
+<ul>
+<li>git: <code>ssh-keygen</code></li>
+<li>其他的直接看下面代码吧</li>
+<li>EasyConnect 学校 VPN</li>
+</ul></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># brew</span></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 复制已有的配置文件</span></span><br><span class="line">cp code/00-config/configs/shell/.vimrc ~/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 zsh</span></span><br><span class="line">brew install --cask iterm2</span><br><span class="line"><span class="comment"># Install Oh My Zsh</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh) <span class="comment"># 似乎  Monterey 默认就是 zsh?</span></span><br><span class="line"><span class="comment"># ! 因为备份了配置, 直接复制过来</span></span><br><span class="line">cp code/00-config/configs/shell/.zshrc ~/</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">brew install autojump <span class="comment"># j</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"><span class="comment"># 基本软件</span></span><br><span class="line">brew install tree</span><br><span class="line">brew install trash <span class="comment"># 用 trash 替换 rm</span></span><br><span class="line">brew install carlocab/personal/unrar <span class="comment"># x=extract 解压 rar 文件调用</span></span><br><span class="line">brew install bat <span class="comment"># 增强 cat</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># VS Code; Sublime</span></span><br><span class="line">brew install --cask visual-studio-code</span><br><span class="line">brew install --cask sublime-text</span><br><span class="line"></span><br><span class="line"><span class="comment"># conda</span></span><br><span class="line">brew install --cask miniconda</span><br><span class="line">conda init zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># go</span></span><br><span class="line">brew install go <span class="comment"># VS Code 可以自动识别安装相关调试工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Applications</span></span><br><span class="line">brew install --cask neteasemusic <span class="comment"># 网易云音乐</span></span><br><span class="line">brew install --cask iina <span class="comment"># IINA</span></span><br><span class="line">brew install --cask wechat qq <span class="comment"># WeChat QQ</span></span><br><span class="line">brew install --cask keka <span class="comment"># 压缩软件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tools</span></span><br><span class="line">brew install --cask utools <span class="comment"># uTools</span></span><br><span class="line">brew install --cask eudic <span class="comment"># 欧路词典</span></span><br><span class="line">brew install --cask karabiner-elements <span class="comment"># 改键</span></span><br></pre></td></tr></table></figure>
+<p>记录一下目前安装列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(base) ➜  code brew list</span><br><span class="line">==&gt; Formulae</span><br><span class="line">autojump gdbm  mpdecimal python@3.10 sqlite  tree</span><br><span class="line">ca-certificates go  openssl@1.1 readline trash  xz</span><br><span class="line"></span><br><span class="line">==&gt; Casks</span><br><span class="line">eudic   miniconda  qq   visual-studio-code</span><br><span class="line">iina   neteasemusic  sublime-text  wechat</span><br><span class="line">iterm2   popclip</span><br></pre></td></tr></table></figure>
+<h2 id="arch-linux">Arch Linux</h2>
+<h3 id="将系统转移到新的分区">将系统转移到新的分区</h3>
+<p>出于两张硬盘分区比较混乱, 试图重新整理一下, 这里将西数盘上安装的 Arch 系统转移到三星那张的一个分区下, EFI 统一管理.</p>
+<p>在此过程中重新看了一点点 Arch 的教程, 真的极为全面; 接受其一定门槛和投入时间的前提下收获也是很多的. 所以下面附了很多官方的教程</p>
+<ul>
+<li>主教程
+<ul>
+<li>Arch 迁移到另外的硬盘 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">migrate installation</a></li>
+<li>Arch 安装教程 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/installation_guide">Install</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">UEFI</a> 统一可扩展固件界面. 例如其中提到使用 <code>efibootmgr</code> 来操作 UEFI 固件启动管理器设置, 似乎很赞!</li>
+<li>另外参见 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6990623175906164772">Arch Linux 系统迁移</a></li>
+</ul></li>
+<li>具体包括
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Rsync">Rsync</a> 带有权限全盘拷贝</li>
+<li>分区, <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">partition</a></li>
+<li>文件系统 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">file system</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/fstab">fstab</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">GRUB</a></li>
+</ul></li>
+<li>其他的
+<ul>
+<li>引导过程 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch Boot Process</a></li>
+<li>包管理 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Pacman</a></li>
+<li>编辑器 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Vim</a></li>
+<li>软件列表 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/List_of_applications">List of Applications</a></li>
+</ul></li>
+</ul>
+<p>简单记录相关命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 将系统复制到新驱动器</span></span><br><span class="line"><span class="comment"># 分区，构建文件系统</span></span><br><span class="line">sudo fdisk /dev/nvme1n1</span><br><span class="line">lsblk -f <span class="comment"># --fs 输出文件系统信息</span></span><br><span class="line">sudo mkfs.ext4 /dev/nvme1n1p5</span><br><span class="line"><span class="comment"># 用 rsync 将全盘复制到新分区</span></span><br><span class="line">sudo pacman -Syy rsync</span><br><span class="line">rsync -aAXHv --exclude=&#123;<span class="string">&quot;/dev/*&quot;</span>,<span class="string">&quot;/proc/*&quot;</span>,<span class="string">&quot;/sys/*&quot;</span>,<span class="string">&quot;/tmp/*&quot;</span>,<span class="string">&quot;/run/*&quot;</span>,<span class="string">&quot;/mnt/*&quot;</span>,<span class="string">&quot;/media/*&quot;</span>,<span class="string">&quot;/lost+found&quot;</span>&#125; / /mnt</span><br><span class="line">lsblk -f <span class="comment"># 检查一下</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 更新fstab</span></span><br><span class="line">sudo mount /dev/nvme1n1p5 /mnt</span><br><span class="line">sudo arch-chroot /mnt</span><br><span class="line"><span class="comment"># 这里进了新系统的环境，生成新的 fstab, 因此需要根据新系统下的挂载情况挂载相应的磁盘</span></span><br><span class="line">mount /dev/nvme1n1p2 /efi <span class="comment"># 这块磁盘上的 EFI 分区</span></span><br><span class="line">sudo pacman -S --needed arch-install-scripts <span class="comment"># 包括 arch-chroot, genfstab 等</span></span><br><span class="line">genfstab -U / &gt;&gt; /etc/fstab <span class="comment"># 如果是直接 mount 的话应该是 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 重新安装引导加载程序 grub</span></span><br><span class="line"><span class="comment"># 安装，这里的 esp 即EFI系统分区，例如上面 mount /dev/nvme1n1p2 /efi 就是用 /efi</span></span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=[esp] --bootloader-id=GRUB</span><br><span class="line"><span class="comment"># 下面配置 grub，采用 grub-mkconfig 自动生成 (也可以手动写)</span></span><br><span class="line"><span class="comment"># 多系统引导，采用 os-prober </span></span><br><span class="line">sudo pacman -S os-prober </span><br><span class="line"><span class="comment"># 挂载其他系统所在分区; 经测试 Windows 也可以识别</span></span><br><span class="line">sudo mount /dev/nvme1n1p6 /root/sysA</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 完成!</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<h3 id="软件配置更新">软件配置更新</h3>
+<p>包管理基本语法; 安装软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pacman</span></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">pacman -Qs gold <span class="comment"># 查询相关软件</span></span><br><span class="line">sudo pacman -Rs goldendict <span class="comment"># 卸载包及用不到的依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># yay</span></span><br><span class="line"><span class="comment"># 注意 yay 不要用 sudo</span></span><br><span class="line">yay -S google-chrome</span><br><span class="line">yay -S eudic        <span class="comment"># 欧陆词典</span></span><br><span class="line">yay -S notion-app   <span class="comment"># Notion</span></span><br></pre></td></tr></table></figure>
+<h3 id="相关命令记录">相关命令记录</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分区</span></span><br><span class="line">fdisk -l <span class="comment"># 查看</span></span><br><span class="line">fdisk <span class="comment"># m 帮助; w 写入</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件系统</span></span><br><span class="line"><span class="comment"># 查看现有文件系统</span></span><br><span class="line">lsblk -f</span><br><span class="line">mkfs.ext4 /dev/partition <span class="comment"># 比如 ext4 格式</span></span><br><span class="line">mount /dev/sda1 /mnt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 fstab, 其实可以自己写，这里用了 arch-install-scripts 包里的 genfstab</span></span><br><span class="line">sudo pacman -S --needed arch-install-scripts <span class="comment"># 包括 arch-chroot, genfstab 等命令</span></span><br><span class="line"><span class="comment"># 生成前将所需的目录都挂载好</span></span><br><span class="line">genfstab -U -p / | less <span class="comment"># 检查一下</span></span><br><span class="line">genfstab -U -p / &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>GRUB</p>
+<ul>
+<li>Arch <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GRUB">GRUB</a>; 例如用到了其中的 rescue
+<ul>
+<li>参见 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/peach-blossoms/p/15228957.html">linux 开机如何进入grub 命令行模式，并通过grub命令进入系统</a></li>
+</ul></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rescue</span></span><br><span class="line">grub rescue&gt; <span class="built_in">set</span> prefix=(hdX,Y)/boot/grub <span class="comment"># ls 找到系统分区</span></span><br><span class="line">grub rescue&gt; insmod (hdX,Y)/boot/grub/i386-pc/normal.mod <span class="comment"># 可能是 /boot/grub/x86_64-efi/normal.mod</span></span><br><span class="line">rescue:grub&gt; normal</span><br></pre></td></tr></table></figure>
+<h2 id="windows">Windows</h2>
+<p>简单记录一些常用软件</p>
+<ul>
+<li>系统相关
+<ul>
+<li>鲁大师?</li>
+<li>refus, balenaEtcher</li>
+<li>CPU-Z， GPU-Z</li>
+<li>DiskGenius 磁盘管理</li>
+<li>CrystalDisk</li>
+<li>EasyUEFI 直接配置 BIOS, 类似 <code>efibootmgr</code></li>
+</ul></li>
+<li>效率
+<ul>
+<li>SpaceSniffer 空间管理</li>
+</ul></li>
+<li>工作
+<ul>
+<li>Office 系列?</li>
+<li>IDM 下载</li>
+<li>PotPlayer</li>
+<li>Everything</li>
+<li>Wox?</li>
+</ul></li>
+<li>Code
+<ul>
+<li>Xftp, Xshell</li>
+</ul></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/185494e9/">https://lightblues.github.io/posts/185494e9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/CowboyBepop/cb-11.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/536b7142/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Less is More | 写在 Guardian 之后</div></div></a></div><div class="next-post pull-right"><a href="/posts/37970cd1/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">2021 终</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mackintosh"><span class="toc-number">1.</span> <span class="toc-text">Mackintosh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#opencore-%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">OpenCore 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#debug"><span class="toc-number">1.1.1.</span> <span class="toc-text">Debug</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E9%A1%BE-clover-%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">回顾 Clover 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macos-%E8%BD%AF%E4%BB%B6%E6%A0%88"><span class="toc-number">1.3.</span> <span class="toc-text">macOS 软件栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arch-linux"><span class="toc-number">2.</span> <span class="toc-text">Arch Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%BD%AC%E7%A7%BB%E5%88%B0%E6%96%B0%E7%9A%84%E5%88%86%E5%8C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">将系统转移到新的分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%9B%B4%E6%96%B0"><span class="toc-number">2.2.</span> <span class="toc-text">软件配置更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95"><span class="toc-number">2.3.</span> <span class="toc-text">相关命令记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows"><span class="toc-number">3.</span> <span class="toc-text">Windows</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/CowboyBepop/cb-11.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/185494e9/'
+    this.page.identifier = 'posts/185494e9/'
+    this.page.title = 'Hackintosh+Windows+Arch 新体验'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '48f6c0a5481560928028fb283099bbfe',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

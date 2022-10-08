@@ -1,0 +1,970 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hackintosh 入门+软件配置+个人向软件推荐 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="近期新配了套 PC，也勉勉强强装上了 Catania10.15.4，算是正式踏入了黑苹果的大门。 从安装开始，到全新的软件配置，折腾了整整两天，把过程都记录在这里，下面也包括自己安装的软件，重要的是相关配置，避免之后可能出现的重装机&#x2F;更换设备时候的浪费时间。 所以本文的性质，应该是个人存档，本不该发出来；但考虑到自己零零散散写了也有近万字，其中包含了众多的资源链接，本身具有较大的容量，同时出现的一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hackintosh 入门+软件配置+个人向软件推荐">
+<meta property="og:url" content="https://lightblues.github.io/posts/e6ef2203/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="近期新配了套 PC，也勉勉强强装上了 Catania10.15.4，算是正式踏入了黑苹果的大门。 从安装开始，到全新的软件配置，折腾了整整两天，把过程都记录在这里，下面也包括自己安装的软件，重要的是相关配置，避免之后可能出现的重装机&#x2F;更换设备时候的浪费时间。 所以本文的性质，应该是个人存档，本不该发出来；但考虑到自己零零散散写了也有近万字，其中包含了众多的资源链接，本身具有较大的容量，同时出现的一">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/test/color-1.jpg">
+<meta property="article:published_time" content="2020-05-03T05:00:04.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.760Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="list">
+<meta property="article:tag" content="star">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="Hackintosh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/test/color-1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/e6ef2203/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hackintosh 入门+软件配置+个人向软件推荐',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/test/color-1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hackintosh 入门+软件配置+个人向软件推荐</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-05-03T05:00:04.000Z" title="Created 2020-05-03 13:00:04">2020-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.760Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Index/">Index</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>30min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hackintosh 入门+软件配置+个人向软件推荐"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>近期新配了套 PC，也勉勉强强装上了 Catania10.15.4，算是正式踏入了黑苹果的大门。 从安装开始，到全新的软件配置，折腾了整整两天，把过程都记录在这里，下面也包括自己安装的软件，重要的是相关配置，避免之后可能出现的重装机/更换设备时候的浪费时间。</p>
+<p>所以本文的性质，应该是个人存档，本不该发出来；但考虑到自己零零散散写了也有近万字，其中包含了众多的资源链接，本身具有较大的容量，同时出现的一些问题也可能是常见的，因此有兴趣的话可以参看；然而，这里毕竟都是个人的配置，也不免存在诸多谬误，直接套用显然是不可取的，这也是我为什么在其中添加了无数🔗的原因，请在配置/安装软件时阅读参考链接并自行查阅官方材料，祝阅读愉快~</p>
+<span id="more"></span>
+<p>你可以看到</p>
+<ul>
+<li>入门版安装 Hackintosh</li>
+<li>如何进行 USB 定制</li>
+<li>支持蓝牙和 Airdrop</li>
+<li>支持 Handoff</li>
+<li>macOS 个性化配置：原则是简明有效</li>
+<li>个人向的软件推荐</li>
+<li>相关软件使用/配置的建议</li>
+</ul>
+<h2 id="黑苹果资源链接">黑苹果资源链接</h2>
+<h3 id="综合">综合</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59202039">黑苹果（hackintosh）技术整合指南</a> 知乎上的一套整合资源</li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/category/%e9%bb%91%e8%8b%b9%e6%9e%9c/">sleele 博客的黑苹果部分</a></li>
+<li>黑果小兵的部落格 <a target="_blank" rel="noopener" href="https://blog.daliansky.net/" class="uri">https://blog.daliansky.net/</a> 这个当然是少不了的</li>
+<li>tonymacx86 <a target="_blank" rel="noopener" href="https://www.tonymacx86.com/" class="uri">https://www.tonymacx86.com/</a> 想要纯净版安装的话仔细研究一下</li>
+<li>OpenCore 简体中文参考手册 <a target="_blank" rel="noopener" href="https://oc.skk.moe/" class="uri">https://oc.skk.moe/</a> 若是用 OpenCore 的话，这个是中文版翻译（需要一定基础才能看）</li>
+</ul>
+<h3 id="安装部分">安装部分</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2019/07/14/gettingstartedtutorial/">黑苹果入门教程</a> 这是此次安装主要参考的 sleele 博客教程，写的比较简洁</li>
+<li><a target="_blank" rel="noopener" href="https://blog.daliansky.net/Lenovo-Xiaoxin-Air-13-macOS-Mojave-installation-tutorial.html">联想小新Air 13安装黑苹果兼macOS Mojave安装教程</a> 当然还有黑果小兵的这篇入门教程</li>
+<li><a target="_blank" rel="noopener" href="https://mrmad.com.tw/hackintosh-macos-high-sierra">踏上黑蘋果(Hackintosh)之路：從購買至安裝macOS系統教學</a> 这里是基于 Tonymac 的一个全流程安装指南，之后有机会尝试一下吧</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55256660">完美黑苹果之技嘉篇 —小白也能搞定 hackintosh</a> 这篇似乎也很全面，和符合自己的配置</li>
+</ul>
+<p>再来两份简书上 10.11.6 的教程，用的是 Tonymac 的方案 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/529392e7b0f6">基础</a> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/69cb2c3b86ef">进阶</a></p>
+<h3 id="阅读列表">阅读列表</h3>
+<p>这部分直接从安装教程那边盗了过来，之后有机会研究下；</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2019/06/07/使用hackintool定制黑苹果usb驱动/">使用Hackintool定制黑苹果USB驱动</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2019/05/05/hackintosh-pcidevices/">黑苹果生成/显示 PCI信息</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2019/04/26/黑苹果激活imessage、facetime，handoff/">黑苹果激活iMessage、Facetime，Handoff</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2019/03/21/smbios/">为自己的黑苹果生成随机三码</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2018/10/31/用fbpatcher驱动uhd630/">用FBPatcher驱动UHD630</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2018/09/27/更新到macos-mojave后字体变细发虚的解决办法/">更新到macOS Mojave后字体变细发虚的解决办法</a></li>
+</ul>
+<h2 id="黑苹果安装">黑苹果安装</h2>
+<p>安装之前请务必多看不同的几份教程，这样可以明确哪些步骤是必要的，出了问题也好排查。</p>
+<h3 id="硬件列表">硬件列表</h3>
+<p>感觉黑苹果重要的还是选对硬件，之后的安装还是挺顺畅的。我主要参考了 <a target="_blank" rel="noopener" href="https://www.tonymacx86.com/buyersguide/building-a-customac-hackintosh-the-ultimate-buyers-guide/">Tonymac</a> ，原本的基准是 <code>CustoMac Pro</code> ；此外看到的比较好的硬件推荐有</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://heipg.cn/tutorial/diy-hackintosh-2020.html">2020年黑苹果硬件配置推荐表</a>，给出了常见的坑，另外良心地列出了几套配置；</li>
+<li><a target="_blank" rel="noopener" href="https://www.imacpc.net/?p=1267">MACOS CATALINA台式機黑蘋果硬件選購指南</a>：这也是一个不错的黑苹果硬件指南</li>
+</ul>
+<p>因此，在这里放一下自己的硬件清单</p>
+<table>
+<thead>
+<tr class="header">
+<th>硬件</th>
+<th>价格</th>
+<th>渠道</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I5 9600K</td>
+<td>1000</td>
+<td>咸鱼</td>
+</tr>
+<tr class="even">
+<td>技嘉Z390 AORUS PRO WIFI</td>
+<td>1330</td>
+<td>闲鱼</td>
+</tr>
+<tr class="odd">
+<td>蓝宝石 RX580 4G</td>
+<td>578</td>
+<td>4G</td>
+</tr>
+<tr class="even">
+<td>先马黑洞 6</td>
+<td>188</td>
+<td>188</td>
+</tr>
+<tr class="odd">
+<td>长城 G6 650 金牌</td>
+<td>439</td>
+<td>闲鱼全新</td>
+</tr>
+<tr class="even">
+<td>玄冰 400</td>
+<td>70</td>
+<td>闲鱼全新</td>
+</tr>
+<tr class="odd">
+<td>金士顿 Fury 2666</td>
+<td>499</td>
+<td>京东</td>
+</tr>
+<tr class="even">
+<td>三星 970EVO</td>
+<td>559</td>
+<td>559</td>
+</tr>
+<tr class="odd">
+<td>西数SN750</td>
+<td>569</td>
+<td>569</td>
+</tr>
+<tr class="even">
+<td>绿联 m.2 硬盘盒</td>
+<td>100</td>
+<td>闲鱼</td>
+</tr>
+<tr class="odd">
+<td>AOC U2790B</td>
+<td>1600</td>
+<td>闲鱼全新</td>
+</tr>
+<tr class="even">
+<td>耳机转接线</td>
+<td>8.2</td>
+<td>咸鱼</td>
+</tr>
+<tr class="odd">
+<td>罗技 M720 鼠标</td>
+<td>195</td>
+<td>京东</td>
+</tr>
+<tr class="even">
+<td>罗技 K780 键盘</td>
+<td>296</td>
+<td>京东</td>
+</tr>
+<tr class="odd">
+<td>SanDisk 128G Type-C 双头 U 盘</td>
+<td>120</td>
+<td>京东</td>
+</tr>
+<tr class="even">
+<td>fenvi T919 网卡</td>
+<td>255</td>
+<td>咸鱼全新</td>
+</tr>
+</tbody>
+</table>
+<p>放下之前娱乐大师的检测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">------鲁大师 Build V5.1020.1190.515------</span><br><span class="line"></span><br><span class="line">电脑型号: 技嘉 Z390 AORUS PRO WIFI 台式电脑</span><br><span class="line">操作系统: Windows 10 64位</span><br><span class="line"></span><br><span class="line">  处理器: 英特尔 Core i5-9600K @ 3.70GHz 六核</span><br><span class="line">    主板: 技嘉 Z390 AORUS PRO WIFI-CF</span><br><span class="line">    内存: 16 GB ( 金士顿 DDR4 2666MHz )</span><br><span class="line">  主硬盘: 三星 SSD 970 EVO 500GB ( 500 GB / 固态硬盘 )</span><br><span class="line">    显卡: 英特尔 UHD Graphics 630 ( 128 MB / 技嘉 )</span><br><span class="line">  显示器: 冠捷 AOC2790 U2790B ( 27.2 英寸  )</span><br><span class="line">    光驱: Msft Virtual DVD-ROM DVD光驱</span><br><span class="line">    声卡: 瑞昱  @ 英特尔 High Definition Audio 控制器</span><br><span class="line">    网卡: 英特尔 Wireless-AC 9560</span><br></pre></td></tr></table></figure>
+<h3 id="安装过程">安装过程</h3>
+<p>这里首选的一份主要安装材料是 sleele 博客上的这篇</p>
+<ul>
+<li>黑苹果入门教程 <a target="_blank" rel="noopener" href="https://sleele.com/2019/07/14/gettingstartedtutorial/" class="uri">https://sleele.com/2019/07/14/gettingstartedtutorial/</a></li>
+</ul>
+<p>主要的步骤包括：</p>
+<ol type="1">
+<li><p>下载镜像制作安装 U 盘</p>
+<ol type="1">
+<li>macOS 下格式化为 GUID 分区图，选择「Mac OS 拓展（日志式）」</li>
+<li><p>去 App Store 下载镜像，教程多为 Mojave 版本，不过自己仅能搜到 Catalina？不知是否可选</p></li>
+<li>在 Mac 下制作的话，用的是 <a target="_blank" rel="noopener" href="https://sleele.com/2019/05/14/制作macos-安装u盘-教程/">制作macOS 安装U盘–教程</a> ，在 Terminal 中使用类似 <code>sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</code> 的命令</li>
+<li><p>然后需要把在 GitHub 上找到的对应机型的 EFI 文件复制到启动盘的 EFI 分区下，直接替换即可；可以在 <a target="_blank" rel="noopener" href="https://github.com/daliansky/Hackintosh">Hackintosh黑苹果长期维护机型EFI及安装教程整理</a> 中寻找，根据主板型号，我用的是这个 <a target="_blank" rel="noopener" href="https://github.com/shiruken/hackintosh" class="uri">https://github.com/shiruken/hackintosh</a></p></li>
+</ol></li>
+<li><p>安装 macOS</p>
+<ol type="1">
+<li>之后就可以开始安装了，细节参考黑果小兵的这篇入门 <a target="_blank" rel="noopener" href="https://blog.daliansky.net/Lenovo-Xiaoxin-Air-13-macOS-Mojave-installation-tutorial.html">联想小新Air 13安装黑苹果兼macOS Mojave安装教程</a></li>
+<li>BIOS 设置，<code>F2</code> 进入，我没动什么😂</li>
+<li>开机，按 <code>F12</code> 选择 U 盘引导；</li>
+<li>进入系统后用「磁盘工具」格式化需要安装的磁盘；</li>
+<li>开始安装，进行相关的个性化设定，其中会重启若干次，若是本身有 Windows 系统的话若不调整启动项每次都有手动 <code>F12</code> 调整，我是在 BIOS 中调整了一下；</li>
+<li>到这里就算顺利安装完成了，之后的修改部分结合了黑果小兵和主文档，简化处理；</li>
+</ol></li>
+<li><p>安装后配置</p>
+<ol type="1">
+<li><p>安装之后，为了脱离 U 盘启动，需要将 U 盘中的 EFI 文件夹替换到系统 EFI 分区下；由于连了网线，所以是可以直接用 Safari 下载 Clover Configurator 进行的（当然可以直接放在 U 盘里）；黑果小兵那里介绍了用 <code>diskutil</code> 指令进行挂载</p>
+<ol type="1">
+<li>查看磁盘分区表 <code>diskutil list</code></li>
+<li>挂载磁盘和 U 盘分区表，类似于 <code>sudo diskutil mount disk0s1</code> 记得要选择正确的磁盘和分区（Orz 当时是因为分不清两个 EFI 分区所以又下了 Clover Configurator 来 check）</li>
+<li>打开 Finder，可以采用 <code>open .</code> 指令</li>
+</ol></li>
+<li><p>添加 UEFI 引导选项</p>
+<ol type="1">
+<li>教程中的设置是安装 Clover <a target="_blank" rel="noopener" href="https://github.com/Dids/clover-builder/releases" class="uri">https://github.com/Dids/clover-builder/releases</a>，不过自己走了一遍之后没在 EFI 分区下看到 <code>nvram.plist</code>，用的 Clover 版本不一样设定也有所不同，不过万幸的是不影响系统使用，之后有机会在研究~</li>
+<li>黑果小兵那里的方案不知道为什么转到了 Windows 下，用了 <code>BOOTICE</code> 进行配置，修改了启动项；</li>
+</ol></li>
+<li><p>摘录黑果小兵那里的「完善驱动」部分</p>
+<blockquote>
+<ol type="1">
+<li>声卡：型号为ALC236，注入ID：2，使用AppleALC仿冒，顺利加载；修正HDMI Audio输出信息；安装完系统后请安装 <a target="_blank" rel="noopener" href="https://github.com/daliansky/Lenovo-Air13-IWL/tree/master/ALCPlugFix_for_ALC_node12_19">ALCPlugFix_for_ALC_node12_19</a> 声卡守护进程，耳麦工作正常；</li>
+<li>网卡：REALTEK <code>10EC:B822</code>的无线网卡截止到目前还是无解，更换为DW1560/DW1830；</li>
+<li>显卡：Intel HD Graphics 500，Whiskey Lake平台目前还没有驱动程序，使用Coffee Lake仿冒驱动，Platform-id为：<code>0x3e9b0009</code>，添加DVMT补丁；采用Devices-Properties方法注入；核显版外接HDMI显示器工作正常；睡眠唤醒正常；</li>
+<li>蓝牙工作正常；睡眠唤醒工作正常；</li>
+<li>电池信息正常；</li>
+<li>触摸板：使用 <code>VoodooI2C</code> 驱动，多手势全功能正常工作；</li>
+<li>显示器亮度调节正常；亮度调节快捷键：<code>F11</code> 和 <code>F12</code></li>
+<li>USB端口识别，未进行端口订制；摄像头、无线网卡已内建，避免睡眠问题；</li>
+</ol>
+</blockquote></li>
+</ol></li>
+</ol>
+<h3 id="关于定制-usb-驱动">关于定制 USB 驱动</h3>
+<blockquote>
+<p>这一部分需要解决的问题是 USB 驱动可能失效的问题。具体表现为：机箱 USB 无法使用或是使用异常；</p>
+<p>当然，自己要解决这一问题的最根本起因，是自己想用 Airdrop 和蓝牙功能，新如的 T919 连接 USB 口没有反应，这才进行下面配置的~</p>
+<p>如果你用的是黑果小兵的文件，那么很大程度上你不会遇到这一问题，因为会帮你打好完善的驱动了；如果你用的是从 App Store 下载的安装包，那么可能会遇到这一问题。</p>
+</blockquote>
+<p>主要参考的 sleele 大佬的 <a target="_blank" rel="noopener" href="https://sleele.com/2019/06/07/%E4%BD%BF%E7%94%A8hackintool%E5%AE%9A%E5%88%B6%E9%BB%91%E8%8B%B9%E6%9E%9Cusb%E9%A9%B1%E5%8A%A8/">使用Hackintool定制黑苹果USB驱动</a> 这篇文。</p>
+<p>不过在此之前，需要用到 <a target="_blank" rel="noopener" href="https://heipg.cn/tag/usbinjectall">USBInjectAll.kext</a> 这一进行调试/注入 USB端口需要的驱动，以下引自 <a target="_blank" rel="noopener" href="https://heipg.cn/tutorial/custom-usbports-for-hackintosh.html" class="uri">https://heipg.cn/tutorial/custom-usbports-for-hackintosh.html</a></p>
+<blockquote>
+<p>默认你已经把 USBInjectAll.kext 放到了该放的地方，如果没有，运行Clover Configurator，挂载EFI分区，并把USBInjectAll.kext 放到Clover的驱动文件夹：/EFI/Clover/kexts/other</p>
+</blockquote>
+<p>上面那份需要网站会员，随便搜一下网上可以找到公开资源如我用的 <a target="_blank" rel="noopener" href="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/">这份</a>。</p>
+<p>接下来，按照上文的方式用 Hackintool 配置引导，替换 <code>config.plist</code> 文件之后重启，似乎所有的 USB 口都已经能正常使用了？</p>
+<p>下面的隐藏内容没看，再回到 sleele 大佬那篇定制 USB 驱动的方案，参考其中的「定制 USB」部分，写得很详细了，最后将相关配置放到 <code>EFI/CLOVER/ACPI/patched</code> 文件夹后，重启~</p>
+<h3 id="支持蓝牙-airdrop">支持蓝牙 &amp; Airdrop</h3>
+<blockquote>
+<p>如上，用的是技嘉的 Z390 AORUS PRO WIFI，自带了一张英特尔的网卡，直接插上 T919 会有蓝牙冲突，因此需要在 BIOS 中禁用WIFI（当然更为粗暴的方案是直接拆掉板载网卡）。</p>
+<p>之后才发现的问题就是👆的 USB 口缺驱动的问题，解决方案如上。</p>
+</blockquote>
+<p>要想使用蓝牙的话，主板自带的网卡大多是不行的（不过神奇的是，这张主板的网卡原生支持 WIFI）；从网上的主流方案，选的是 fenvi 的 T919，网卡是 BCM94360CD，用过 PCIE 口连接，另外蓝牙部分需要连 USB。</p>
+<p>禁用主板 WIFI 的话，大致是在 BIOS 的「Setting-PCIE-WIFI」下，选择为「关闭」即可。</p>
+<p>解决 USB 问题后，即可正常使用 Airdrop 和蓝牙的问题，不过 Handoff 似乎还要另外设置。</p>
+<h3 id="支持-handoff">支持 Handoff</h3>
+<blockquote>
+<p>还不是太懂，不过暂且能用了</p>
+</blockquote>
+<p>可参考 sleele 大佬的 <a target="_blank" rel="noopener" href="https://sleele.com/2019/04/26/%E9%BB%91%E8%8B%B9%E6%9E%9C%E6%BF%80%E6%B4%BBimessage%E3%80%81facetime%EF%BC%8Chandoff/">黑苹果激活iMessage、Facetime，Handoff</a> ，不过自己没怎么懂，另外需求仅仅是用到 Handoff，于是在另外一文中找到一个简单的解决方案，目前是成功了。</p>
+<p>一步完成，仅需在 <code>Clover Configurator</code> 中 「ACPI 设置」中勾选「修复 LAN」和「修复 Airport」。试了一下，可以从 iphone 接收到 iMac 上的网页、Notes；也可以在 iMac 上看到手机上的 Notes，不过奇怪的是无法从 macOS 上看到手机 Safari 上的网页——不论是 Hackintosh 还是 MBP，奇怪~</p>
+<h2 id="安装后一些设定疑问">安装后：一些设定&amp;疑问</h2>
+<blockquote>
+<p>这里记录了一些在安装之后出现不习惯的地方，并给出了部分解决方案；当然很多的设定都是个人喜好；随便罗列了下没有条理 Orz</p>
+</blockquote>
+<h3 id="简单设置">简单设置</h3>
+<ul>
+<li>设定时区
+<ul>
+<li>话说为什么不会自动设定时区？还是自己安装时候哪里设定错误了？</li>
+<li>简单的解决方案是到 设定-日期与实践-时区 里，手动设置时区为上海</li>
+</ul></li>
+<li>移除 Dock 里面一些没用的 APP（绝大部分）</li>
+<li>非官方下载的软件无法打开的问题
+<ul>
+<li>参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/74f8a411c8b0" class="uri">https://www.jianshu.com/p/74f8a411c8b0</a></li>
+<li>命令行执行 <code>sudo spctl --master-disable</code></li>
+<li>然后到「系统偏好设置-安全性与隐私」解锁「允许以下位置下载的应用」中的「任何来源」</li>
+</ul></li>
+</ul>
+<h3 id="快捷键">快捷键</h3>
+<ul>
+<li>Finder
+<ul>
+<li><code>Cmd+C</code> 之后 <code>Opt+Cmd+V</code> ，可以实现移动到目标文件，类似于 Windows 下的「剪切」；当然，在一个磁盘下直接拖动文件即可，而不同磁盘之间的移动就可以用这个组合键；</li>
+<li><code>Ctrl+Back</code> 删除文件，可实现 Windows 下的删除快捷键；</li>
+</ul></li>
+</ul>
+<h3 id="如何备份">如何备份？</h3>
+<blockquote>
+<p>之后的折腾肯定是需要备份和还原的，不过目前没有合适的备份盘，这里仅供参考</p>
+</blockquote>
+<ul>
+<li>Bilibili <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v7411K71H">给你的黑苹果一瓶后悔药！如何备份黑苹果？让折腾后顾无忧！</a>；</li>
+<li>这里是时间机器的官方文档 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201250" class="uri">https://support.apple.com/zh-cn/HT201250</a> ；</li>
+<li>少数派的这个系列 <a target="_blank" rel="noopener" href="https://sspai.com/post/30550" class="uri">https://sspai.com/post/30550</a> 似乎有关于时间机器的完整论述</li>
+</ul>
+<h3 id="在-finder-中显示隐藏文件">在 Finder 中显示隐藏文件</h3>
+<ul>
+<li>快捷键 <code>Shift+Cmd+.</code> 即可，比偏好设置多了一个 <code>Shift</code> 还挺好记的</li>
+</ul>
+<h3 id="system-preferences">System Preferences</h3>
+<blockquote>
+<p>借着这个机会重新翻看了一下 System Preferences，把自己的设定全都记录了下来~</p>
+</blockquote>
+<ul>
+<li><p>通用</p>
+<ul>
+<li>安装的时候就可以选「深色」；</li>
+<li>「默认浏览器」选 Chrome；<br />
+</li>
+<li>「关闭文稿时要求保存更改」选项开了更为保险，可以有点烦人，还是没有勾选；</li>
+</ul></li>
+<li><p>桌面与保护程序</p></li>
+<li><p>这里设置一下桌面，其他没什么好选的；</p></li>
+<li><p>Dock/程序坞</p>
+<ul>
+<li>调整为合适的大小，勾选了一定的「放大」效果；</li>
+<li>「最小化窗口」选「缩放」，「神奇效果」有点太花里胡哨了；</li>
+<li><del>目前设定「自动显示和隐藏程序坞」</del>（没有了，在 27 寸的显示器上直接放在下面就很好了）</li>
+</ul></li>
+<li><p>Siri</p>
+<ul>
+<li>Hi, Siri! 你给关着呢听不到~</li>
+</ul></li>
+<li><p>Spotlight/聚焦</p>
+<ul>
+<li>默认即可</li>
+</ul></li>
+<li><p><strong>语言与地区</strong></p>
+<ul>
+<li>也是一个之前纠结的地方，之前用了近一年的英文，这两天用了中文之后居然没有啥不习惯的；反而因为中文的表达方式，寻找重点起来更快一点；所以近期还是以中文为主；这也免了之前要在「语言与地区-APP」部分反复设定的麻烦；</li>
+<li>目前困扰的一个问题大概是文件夹的中文显示问题，Mac 的文件夹本地化方案应该是在需要的下面新增 <code>.localized</code> 隐藏文件，然后由 Finder 渲染；所以要更改文英文的话，手动删去即可；当然，若是要重新变为中文，则 <code>touch ~/Downloads/.localized</code> 即可；</li>
+<li>这个问题想在 「App」里面单独设置，但好像无法提供这样的选项？#搁置</li>
+<li>这个问题关于文件夹的本地化，在 Linux 中应该是可以设定的，这里不知为什么难以找到，另外 <a target="_blank" rel="noopener" href="https://havee.me/mac/2014-06/localizing-directory-name-on-mac-os-x.html">OS X 下本地化目录</a> 介绍了系统配置和用户目录下本地化的两种方式。</li>
+</ul></li>
+<li><p>通知</p>
+<ul>
+<li>可以对于所有要求通知权限的 APP 进行管理；</li>
+<li>「勿扰模式」：从晚上十点到上午七点打「打开『勿扰模式』」</li>
+</ul></li>
+<li><p>拓展</p>
+<ul>
+<li>可以<strong>管理第三方拓展</strong>，其中最重要的应该是「Finder 拓展」，类似于 Windows 下的「右键管理」</li>
+<li>还可以管理通知栏那边的「今天」组件，类似于 iOS 下的 Widget，但 Mac 下好像不怎么用；</li>
+</ul></li>
+<li><p><strong>安全性与隐私</strong></p>
+<ul>
+<li>很多有硬件或是其他数据请求的软件在第一次打开时都会弹出这一项的请求，需要到「安全性与隐私-隐私」里面去找对应的栏目允许；问题在于有些 APP 跳转得不够好，自己手动找还很难找到；</li>
+</ul></li>
+<li><p>软件更新</p>
+<ul>
+<li><p><strong>关闭系统更新</strong>：到「系统偏好设置-软件更新-高级」里面看着把所有的取消就行了</p></li>
+<li><p>附带的一个强迫症的小问题：「软件更新」那里总会有个小红点，这个的话参考 <a target="_blank" rel="noopener" href="https://www.douzi.link/remove-mac-system-and-new-red-dot/">这篇</a> 在终端运行 <code>defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</code> 即可，或许需要重启一下 Dock <code>killall Dock</code></p></li>
+</ul></li>
+<li><p>网络</p>
+<ul>
+<li>目前仅有「以太网」「蓝牙 PAN」选项；</li>
+<li>这部分真的了解不多，但也是用的多用的设置之一</li>
+</ul></li>
+<li><p>声音</p>
+<ul>
+<li>似乎没啥好设置的，不知道为啥 Apple 要把「声音效果-提醒声音」防在这么高的 Priority 上；</li>
+<li>不过鉴于目前声卡的问题，#待补充</li>
+</ul></li>
+<li><p>鼠标</p>
+<ul>
+<li>这里可以简单设定，包括一些蓝牙的鼠标；</li>
+<li>这里用的是 Logitech 的优联，单独在下面的 APP 里；</li>
+</ul></li>
+<li><p>显示器</p>
+<ul>
+<li>「缩放」选了第二个（共五个），调整到较为合适的字体大小</li>
+<li>「颜色」部分应该也可以设定，不过自己没试过；</li>
+<li>「夜览」，这个部分务必打开，这两天用下来眼睛的疲劳问题足以说明一切，目前设了晚上 8 点到早上 8 点</li>
+</ul></li>
+<li><p><strong>节能</strong></p>
+<ul>
+<li>电源设定，这里没有内置电池，也就简单设置「此时间段后关闭显示器」为 10 分钟</li>
+</ul></li>
+<li><p>日期与时间</p>
+<ul>
+<li>「时钟」部分，由于自己可能连今天是几号都可能不知道，需要启用「在菜单栏中显示日期和时间」，选「数码」，「日期选项」全部勾选；#显示日期</li>
+</ul></li>
+<li><p>共享</p>
+<ul>
+<li>文件共享部分 #待补充</li>
+</ul></li>
+</ul>
+<h3 id="finder">Finder</h3>
+<ul>
+<li>「偏好设置」
+<ul>
+<li>通用里面全部勾上；</li>
+<li>新窗口的时候打开「下载」；</li>
+<li>「边栏」部分，「个人收藏」目前剩下了 桌面、下载；
+<ul>
+<li><strong>「位置」</strong> 部分，勾选第一个选项「iMac/MBP」的话，可以显示所有挂载了的硬盘盒网络地址，第二个「硬盘」会讲当前挂载的所有硬盘显示在边栏，相当于上一个选项的展开，显示的好处就是在需要去 <code>/Library</code> 等位置的时候就不需要「前往-前往文件夹」或快捷键 <code>Shift+Cmd+G</code> 了（因为自己是双系统，所以会有另一张硬盘下的三个分区，其中一个分区格式化为 exFat 用于交换文件，其他的两个只需要拖出去一段时间即可删去）</li>
+</ul></li>
+</ul></li>
+<li>「显示」里面喜欢全部打开，大概是因为被 MBP 容量支配的恐惧吧</li>
+</ul>
+<h2 id="必备工具软件">必备/工具软件</h2>
+<ul>
+<li>装完黑苹果后必装的几个软件 <a target="_blank" rel="noopener" href="https://sleele.com/2018/12/02/macsoftware1/" class="uri">https://sleele.com/2018/12/02/macsoftware1/</a> 由于之前的安装经历，理所当然地参考了这篇和下面的第二弹</li>
+<li>macOS软件推荐·第二弹 <a target="_blank" rel="noopener" href="https://sleele.com/2019/03/21/macsoftware2/" class="uri">https://sleele.com/2019/03/21/macsoftware2/</a></li>
+<li>从零开始的 MacBook 配置教程 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48207191" class="uri">https://zhuanlan.zhihu.com/p/48207191</a> 这篇从基本设置、常用软件等角度进行展开，涉及到的内容都极合我的胃口</li>
+</ul>
+<h3 id="科学上网">科学上网</h3>
+<ul>
+<li>SSX
+<ul>
+<li>MacOS 下的版本是 <a target="_blank" rel="noopener" href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases/download/1.4.4-r8/ShadowsocksX-NG-R8.dmg">这个</a></li>
+<li>已下架</li>
+</ul></li>
+<li>现用 ClashX</li>
+</ul>
+<h3 id="浏览器chrome">浏览器：Chrome</h3>
+<ul>
+<li>安装 Chrome <a target="_blank" rel="noopener" href="https://www.google.cn/intl/zh-CN/chrome/" class="uri">https://www.google.cn/intl/zh-CN/chrome/</a>
+<ul>
+<li>习惯了用Chrome，优点在于全平台同步，可玩性也很高；</li>
+<li>大概也有自己对于隐私还没有太过关注/受困扰的原因吧</li>
+</ul></li>
+</ul>
+<h3 id="远不止聊天软件telegram">远不止聊天软件：Telegram</h3>
+<ul>
+<li><strong>Telegram</strong>：<a target="_blank" rel="noopener" href="https://desktop.telegram.org" class="uri">https://desktop.telegram.org</a>
+<ul>
+<li>记得人工设定，如果是用上面链接中下载的 SSX 的话，默认似乎是 127.0.0.1:1086，端口号不是常见的 1080，建议人工设定 SOCKS 之前去「高级设置」里 check 一下；</li>
+<li>登录之后就可以作为文件传输工具啦~</li>
+<li>下载默认会自建一个文件夹，个人喜欢设定地址为 <code>~/Downloads</code></li>
+</ul></li>
+</ul>
+<h3 id="黑果-toolshackintoolclover-configuratoretcher-等">黑果 Tools：Hackintool、Clover Configurator、Etcher 等</h3>
+<blockquote>
+<p>不完全罗列，自己目前最常用的是 Clover Configurator，所以其他的有待补充</p>
+</blockquote>
+<ul>
+<li><strong>Hackintool</strong>：<a target="_blank" rel="noopener" href="https://github.com/headkaze/Hackintool/releases" class="uri">https://github.com/headkaze/Hackintool/releases</a>
+<ul>
+<li>Hackintool(原Intel FB-Patcher)使用教程及插入姿势 <a target="_blank" rel="noopener" href="https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html" class="uri">https://blog.daliansky.net/Intel-FB-Patcher-tutorial-and-insertion-pose.html</a> 黑果小兵的这篇教程，挺硬核的</li>
+</ul></li>
+<li><strong>Clover Configurator</strong>：<a target="_blank" rel="noopener" href="https://mackie100projects.altervista.org/download-clover-configurator/" class="uri">https://mackie100projects.altervista.org/download-clover-configurator/</a>
+<ul>
+<li>配置文件以及挂载 EFI 文件夹都需要，常备</li>
+</ul></li>
+<li><strong>Etcher</strong>：<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/" class="uri">https://www.balena.io/etcher/</a>
+<ul>
+<li>用来制作启动盘，不过自己没用上</li>
+</ul></li>
+</ul>
+<h3 id="联网控制tripmode">联网控制：TripMode</h3>
+<blockquote>
+<p>之所以将这个独立起来写，是因为最近被各种网络问题烦扰甚剧；反思下来，网络也确实是计算机组成中 Priority 极高的几个成分了，而在硬件成本不断降低的过程中，网络所起到的作用无疑愈发重要，与此同时网络管制也越来越严格；抽象地说，其实我们的网络质量，我们能够浏览到的信息的质与量，决定了我们可以接触到的网络世界的向度。</p>
+<p>而这款软件的话，可以显式地对于整台计算机的网络使用进行控制，细化到每个 APP，另外流量统计的功能也极为实用，是以专门进行讨论。</p>
+</blockquote>
+<ul>
+<li>使用的话直接打开，默认是全部关着的，必须手动点击才能允许联网；然后在有未允许的应用请求网络的时候小火车图标会变红，就可以在下面的灰色应用中找到需要的进行设置了；</li>
+<li>刚开始用的时候一个困惑大概是启用代理之后，需要启用 Chrome, ss-local, privoxy 之后才能在浏览器中使用，而 SSX 使用的流量很少；</li>
+</ul>
+<h3 id="系统工具monitorcontrolnewfilemenutencent-lemon">系统工具：MonitorControl、NewFileMenu、Tencent Lemon</h3>
+<ul>
+<li><strong>MonitorControl</strong>： <a target="_blank" rel="noopener" href="https://github.com/the0neyouseek/MonitorControl/releases/tag" class="uri">https://github.com/the0neyouseek/MonitorControl/releases/tag</a>
+<ul>
+<li>在 macOS 下调节外接显示器的亮度、声音</li>
+</ul></li>
+<li><strong>NewFileMenu</strong>：App Store 有免费版
+<ul>
+<li>右键「新建」，延续 Windows 风格的一款良心工具</li>
+</ul></li>
+<li><strong>Tencent Lemon</strong>：<a target="_blank" rel="noopener" href="https://lemon.qq.com/" class="uri">https://lemon.qq.com/</a>
+<ul>
+<li>可以说是很良心的 Mac 下的<strong>应用管理+简单系统监控</strong>软件了，之前纠结了很多其他的，要么是很贵要么太过臃肿，这款符合自己的极简美学了；</li>
+<li>用过上面的推荐第二弹中的 <code>AppCleaner</code> <a target="_blank" rel="noopener" href="https://freemacsoft.net/appcleaner/" class="uri">https://freemacsoft.net/appcleaner/</a>，两者在清理上的功能差不多，而这款还有其他的（虽然自己不怎么用）也很美观；</li>
+</ul></li>
+</ul>
+<h3 id="拓展应用popclipmoom">拓展应用：PopClip、Moom</h3>
+<ul>
+<li><p><strong>PopClip</strong>：<a target="_blank" rel="noopener" href="https://pilotmoon.com/popclip/" class="uri">https://pilotmoon.com/popclip/</a> 【TG 备份】</p>
+<ul>
+<li>一款增强划词选项的软件，似乎支持很多插件 #待探索</li>
+<li>似乎和 Eudic 的划词翻译功能相冲突，PopClip 自带了系统的字典选项，或是更好的选择；</li>
+</ul></li>
+<li><p><strong>Moom</strong>：<a target="_blank" rel="noopener" href="https://manytricks.com/moom/" class="uri">https://manytricks.com/moom/</a> 窗口管理 【TG 备份】</p>
+<ul>
+<li>在 Windows 下有自带的靠边窗口管理选项，这算是一个增强版；原本以为在 mac 如此优秀的触摸板下是不需要这种窗口管理软件的，在黑苹果下就尝试了一下，结果试用之后停不下来；</li>
+<li>设定部分，「general」选登录启动，以「menu bar」 application 的形式运行比较熟悉；</li>
+<li>「mouse」中
+<ul>
+<li>「Zoom Button Controls」中点选「Pop up controls when hovering over a Zoom button」可以增强 macOS 中缩放没有一个提示符的问题，开启「Enable <code>full screen</code> grid」 可以在全屏按钮上出现调整窗口大小的弹出；后面两个看不懂~</li>
+<li>「Snap to Edges and Corners」中开启，可以达到 Windows 下一样的效果</li>
+</ul></li>
+<li>「keyboard」部分，自定义一个快捷键，可以实现更为精细的控制，我用的是 <code>Shift+Cmd+G</code> （emm 当时应该是想好了用一个合适的字母的，不过现在就忘了为啥选 G），其中的控制按自己欢喜挑选；</li>
+<li>「Custom」部分，可以自定义几个喜欢的窗口方式，配合👆的快捷键使用；</li>
+</ul></li>
+</ul>
+<h3 id="系统监测istat-menusmenubar-stats">系统监测：iStat Menus、MenuBar Stats</h3>
+<p>这篇知乎文 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/90503124" class="uri">https://zhuanlan.zhihu.com/p/90503124</a> 给出了几款监控软件，不过自己仅用过👇的两个</p>
+<ul>
+<li><strong>iStat Menus</strong>：
+<ul>
+<li>上面的🔗中给出的下载地址是 <a target="_blank" rel="noopener" href="https://www.macdown.com/mac/2941.html" class="uri">https://www.macdown.com/mac/2941.html</a> 6.40；而我是从 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/mVxJYiGrfselJx1b9XdvYw" class="uri">https://mp.weixin.qq.com/s/mVxJYiGrfselJx1b9XdvYw</a> 这里下载的 6.30 版本；</li>
+<li>用起来感觉清晰有效，比下面的 MenuBar Stats 更清爽；</li>
+</ul></li>
+<li><strong>MenuBar Stats</strong>：<a target="_blank" rel="noopener" href="https://www.macdown.com/mac/4269.html" class="uri">https://www.macdown.com/mac/4269.html</a>
+<ul>
+<li>在本文之前的版本丢失之前先用的是这个，安装好后推荐去官网看一下教程之后再使用；</li>
+<li>相较而言有点麻烦，而且若是需要（内存监测？）还要去官网下载 Plugins Manager 配合使用；</li>
+</ul></li>
+</ul>
+<h3 id="包管理homebrew">包管理：Homebrew</h3>
+<p>略</p>
+<h3 id="播放器iina">播放器：IINA</h3>
+<ul>
+<li><strong>IINA</strong>
+<ul>
+<li>Mac 下必备的播放器了；</li>
+<li>按照之前的想法，应该是用指令 <code>brew cask install iina</code> 安装的，然而，如上一节的🔗中所说，「因为<code>cask</code>是基于<code>GitHub</code>下载软件，所以目前是无法加速的」，所以带来的问题是速度还是非常慢……</li>
+<li>或许直接从 Github 下载是更好的选择，<a target="_blank" rel="noopener" href="https://github.com/lhc70000/iina/releases" class="uri">https://github.com/lhc70000/iina/releases</a></li>
+</ul></li>
+</ul>
+<h3 id="quick-look-插件">Quick Look 插件</h3>
+<ul>
+<li>这个 <a target="_blank" rel="noopener" href="https://github.com/sindresorhus/quick-look-plugins" class="uri">https://github.com/sindresorhus/quick-look-plugins</a> Github 页面收录了一些常见的 QuickLook 拓展，一般只要 <code>brew cask  install &lt;package&gt;</code> 即可安装，另外发现这些拓展是安装在 <code>~/Library/QuickLook</code> 目录下的
+<ul>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/Nyx0uf/qlImageSize">qlImageSize</a>： 预览的时候显示图片大小</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/whomwah/qlstephen">QuicklookStephen</a>: 查看未知拓展名的纯文本文件</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/toland/qlmarkdown">QLMarkdown</a>: 空格键预览 Markdown 文本效果</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/n8gray/QLColorCode">QLColorCode</a>： 预览代码高亮</li>
+</ul></li>
+</ul>
+<h3 id="下载软件motrixfolxqbittorrent">下载软件：Motrix、Folx、qbittorrent</h3>
+<blockquote>
+<p>这一部分重要参考上面的推荐列表，目前仅用了 Motrix，其他尝试之后要么卸载要么搁置；下载也是需要需要反复折腾的方案，自己也还在不断尝试；</p>
+<p>BT 的话，本身就不怎么用，更重要的或许是资源的质量？尝试了下面的 qbittorrent 和迅雷都不太行，想到自己没啥使用场景就不折腾了；</p>
+</blockquote>
+<ul>
+<li><strong>Motrix</strong>：<a target="_blank" rel="noopener" href="https://motrix.app/zh-CN/" class="uri">https://motrix.app/zh-CN/</a>
+<ul>
+<li>「全功能下载软件，封装了Aria2，下Bt不太行，Http还不错」；</li>
+<li>下载后面要用的 Office 全家桶，速度乍一看就跑到了 30M/s，多线程无敌~</li>
+<li><del>一直想要一款在 Mac 上类似 IDM 的软件，有时候甚至为了下载东西而专门到 Windows 平台，现在似乎找到了</del>~ 并没有，IDM 视频捕捉下载、浏览器下载接管 等功能还是没有找到合适的替代方案；</li>
+</ul></li>
+<li><strong>Folx</strong>：<a target="_blank" rel="noopener" href="https://mac.eltima.com/cn/download-manager.html" class="uri">https://mac.eltima.com/cn/download-manager.html</a>
+<ul>
+<li>「macOS上最好的下载软件，但是也是Bt不太行」</li>
+</ul></li>
+<li><strong>qbittorrent</strong>：<a target="_blank" rel="noopener" href="https://www.qbittorrent.org" class="uri">https://www.qbittorrent.org</a>
+<ul>
+<li>「Bt下载届的新一哥，我觉得可以说是目前最优秀的Bt下载软件，全平台」</li>
+</ul></li>
+</ul>
+<h3 id="压缩软件ezipkeka">压缩软件：Ezip、Keka</h3>
+<ul>
+<li><strong>Ezip</strong>：<a target="_blank" rel="noopener" href="https://ezip.awehunt.com" class="uri">https://ezip.awehunt.com</a>
+<ul>
+<li>下载界面有点好看；</li>
+<li>「压缩解压软件，支持Quicklook，我一般和Keka一起使用，kaka负责解压和压缩，他负责预览」；预览这一点的话，在 Mac 下习惯直接点击解压缩了，用得不多；</li>
+</ul></li>
+<li><strong>Keka</strong>：<a target="_blank" rel="noopener" href="https://www.keka.io/en/" class="uri">https://www.keka.io/en/</a>
+<ul>
+<li>「简单快捷的压缩解压缩软件，没有预览界面，点击压缩包就自动解压，可以看作是系统自带归档的扩展版」</li>
+</ul></li>
+</ul>
+<h3 id="截图xnip">截图：Xnip</h3>
+<ul>
+<li><strong>Xnip</strong>：<a target="_blank" rel="noopener" href="https://zh.xnipapp.com/" class="uri">https://zh.xnipapp.com/</a>
+<ul>
+<li>之前可以说是系统快捷键的死忠了，<code>Cmd+4</code> 选区截图，并保存到桌面，<code>Cmd+Ctrl+4</code> 选区截图并保存到剪切板；</li>
+<li>看到这个小 APP 之后感觉好用至极，考虑换到这一方案下，快捷键设置为 <code>Shift+Cmd+X</code> ，自带简单实用的标注；#快捷键</li>
+<li>解决了截长图的难点，注意必须是自行选区，然后滚轮移动，自己会生成，所以要注意选区必须完整；</li>
+<li>配置
+<ul>
+<li>需要勾选「单窗口截图阴影效果」，已消除白边；存储格式选 png 勾选透明背景，效果会比较好~</li>
+<li>指定「保存位置」后可以直接保存而不需要再两步设置；</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="七七八八logitech-options搜狗输入法">七七八八：Logitech Options、搜狗输入法</h3>
+<ul>
+<li><p><strong>Logitech Options</strong>： <a target="_blank" rel="noopener" href="https://support.logi.com/hc/zh-cn/articles/360025297893" class="uri">https://support.logi.com/hc/zh-cn/articles/360025297893</a></p>
+<ul>
+<li>由于用的是罗技的键鼠套餐，所以这个是必不可少的；之前在 win 上死活下不下来，这次居然很顺畅（即使用 IDM，下载速度真的是门玄学），登录账号之后就可以直接使用了</li>
+<li>打开 Launchpad 的话，可以用 <code>F5</code> 【K780 可用】</li>
+</ul></li>
+<li><p><strong>搜狗输入法</strong>：<a target="_blank" rel="noopener" href="https://pinyin.sogou.com/mac" class="uri">https://pinyin.sogou.com/mac</a></p>
+<ul>
+<li>登录之后可以自动同步设置，因此可以避免一些奇奇怪怪的设定，还算比较良心</li>
+</ul></li>
+</ul>
+<h3 id="网盘baidunetdiskgoogle-driver">网盘：BaiduNetdisk、Google Driver</h3>
+<ul>
+<li><strong>百度云盘/BaiduNetdisk</strong>：<a target="_blank" rel="noopener" href="http://pan.baidu.com/download#pan" class="uri">http://pan.baidu.com/download#pan</a>
+<ul>
+<li>为了一些同步工作，主要是因为之前入了百度云的会员</li>
+</ul></li>
+<li><strong>Google Driver</strong>
+<ul>
+<li>个人的话，免费仅有 15G，可以备份一些重要的文档；</li>
+<li>不太懂那个（个人版）客户端，功能有限，下不了团队盘不知道如何；</li>
+<li>用的话直接网页版就行了，搭配自家的 Chrome 很流畅；</li>
+<li>通过某些渠道蹭了一个团队盘，可以用来做一些不重要的备份，这里 <a target="_blank" rel="noopener" href="https://shikey.com/2020/03/04/free-google-drive-team-disk-unlimited-space-and-tutorials.html" class="uri">https://shikey.com/2020/03/04/free-google-drive-team-disk-unlimited-space-and-tutorials.html</a> 似乎有一份挺完整的教程，不过自己没细看；</li>
+</ul></li>
+</ul>
+<h3 id="文字输出方案typoraupicoffice">文字&amp;输出方案：Typora、uPic、Office</h3>
+<blockquote>
+<p>这部分其实是放在自己很重要的位置上的，主要是 Typora+图床的配置，Office 的话，之前在 MBP 上直接用 WPS 替代也很好，不过现在空间充足就用微软爸爸的好了；</p>
+<p>这套输出方案是此前的最优配置了，Mardown 的简洁，加上 Typora 优秀的界面和渲染；最难处理的应该是在线图床了，用图床的一大原因就是其便捷性——一个链接通行，在本地码完复制黏贴直接可以到 CNblog 上，无损显示，这是本地存储方案无法媲美的；理想很美好，不过（限于贫穷）在稳定性上就有很大的问题，尝试过用 NAS 来做图床，不过还是需要折腾，而且学校的网络环境估计也堪忧，当然也有很多云存储的方案提供，之后有机会尝试一下；之前用 GitHub，不过太不稳定了，经常只有在全局状态才能 load 出来。</p>
+</blockquote>
+<ul>
+<li><strong>Typora</strong> ：<a target="_blank" rel="noopener" href="https://typora.io/" class="uri">https://typora.io/</a>
+<ul>
+<li>这个自然是不能少的，不知道为啥在台式机上下载超级慢，最后还失败了，这里就是用 Telegram 从 MBP 上传输过来的；</li>
+<li>设置中，「通用-启动选项」：因为自己是把所有 Markdown 文件放在一个文件夹下的，因此选择「重新打开上次使用的文件和目录」；在运行过程中，这一文件夹是常驻的，最小化；另外，在使用的时候，若打开了其他文件夹下的 MD 文件，则把其他的那个文件先关掉，这样就可以保障下次打开的时候还是你的 Markdown 文件夹；</li>
+<li>「编辑器」部分
+<ul>
+<li>「使用成对的符号」下点选所有；</li>
+<li>「即时渲染-显示当前快元素的 Markdown 源码」若开启的话，当指针位于标题部分会显示源码，移出的时候又会重新渲染为显示形式，这对于在这样一个实时渲染的软件下会带来一些操作上的困惑，我把它给关了；</li>
+</ul></li>
+</ul></li>
+<li><p>「Markdown」部分</p>
+<ul>
+<li>点选「Markdown 拓展语法」部分「内联公式」</li>
+<li>点选「代码块」里的「显示行号」</li>
+</ul></li>
+<li>重新启动后生效</li>
+<li><strong>uPic</strong>： <a target="_blank" rel="noopener" href="https://blog.svend.cc/upic/" class="uri">https://blog.svend.cc/upic/</a>
+<ul>
+<li>一款免费的多平台图床工具，从原来 MBP 上的 IPic 转向这款 Windows 和 macOS 上都有的 APP 了；</li>
+<li>是支持 <code>brew</code> 的，但和上面的 <code>IINA</code> 一样，由于下载速度的原因还不如直接从 GitHub 上用浏览器下载；</li>
+<li>关于图床的使用的话，推荐用 <strong>Gitee</strong>，因为 Github 的上传和链接都需要在代理模式下才能使用，在找不到一款合适的系统级代理软件的情况下无法在 PAC 模式而只能在全局模式下上传，以及在 Typora 中使用，造成了很大的麻烦，相关配置见 <a target="_blank" rel="noopener" href="https://blog.svend.cc/upic/tutorials/gitee/" class="uri">https://blog.svend.cc/upic/tutorials/gitee/</a>；
+<ul>
+<li>发现有个问题：文件 &gt;1M 下 Gitee 只能登录后才可见，是个坑；</li>
+</ul></li>
+<li>我的「保存路径设置了」 <code>uPic/&#123;filename&#125;&#123;year&#125; &#123;month&#125; &#123;day&#125; &#123;hour&#125; &#123;minute&#125; &#123;second&#125; &#123;.suffix&#125;</code>；</li>
+</ul></li>
+</ul>
+<h3 id="书影音neteastmusicgif-brewery">书影音：NeteastMusic、GIF Brewery</h3>
+<ul>
+<li><strong>网易云音乐/NeteastMusic</strong>：<a target="_blank" rel="noopener" href="https://music.163.com/#/download" class="uri">https://music.163.com/#/download</a>
+<ul>
+<li>这个为啥不能是 App Store 版，版权问题吗？</li>
+</ul></li>
+<li><strong>GIF Brewery</strong> ：生成 GIF
+<ul>
+<li>正好这次的作业想要生成一个 GIF 展示，找到了简书上的 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/39beb685d38a" class="uri">https://www.jianshu.com/p/39beb685d38a</a> 一个简易教程：使用丝带的 QucikTime Player 进行屏幕录制；</li>
+<li>然后就是用 GIF Brewery 转为 GIF，我用的是 <a target="_blank" rel="noopener" href="http://www.sdifen.com/gifbrewery302.html" class="uri">http://www.sdifen.com/gifbrewery302.html</a> 这里的资源，版本号都是 3.0.2 但不知道为什么和上文中的截图界面不太一样，不过不影响使用~</li>
+</ul></li>
+</ul>
+<h3 id="终端iterm2ohmyzsh">终端：iTerm2、ohmyzsh</h3>
+<p>略，参见 <a href="mweblib://16197027224155">Terminal 配置/美化: iTerm, zsh</a></p>
+<h2 id="专业软件">专业软件</h2>
+<h3 id="vscode">VSCode</h3>
+<ul>
+<li><p>在这里安装以及学习教程 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/?dv=osx" class="uri">https://code.visualstudio.com/docs/?dv=osx</a></p>
+<ul>
+<li>插件部分，最近发现一款从 Markdown 发布到知乎的插件，<code>Zhihu On VSCode</code> 教程在这里 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=niudai.vscode-zhihu" class="uri">https://marketplace.visualstudio.com/items?itemName=niudai.vscode-zhihu</a> 非常好用</li>
+</ul></li>
+</ul>
+<h3 id="sublime-text">Sublime Text</h3>
+<ul>
+<li>一款非常轻量级的代码编辑器，使用非常非常快，我用于打开各类的文本/配置文档；</li>
+<li><code>View -show console</code> ，或者使用 <code>Control+~</code> 键显示或隐藏 Console ；</li>
+<li>安装插件
+<ul>
+<li>例如，一个场景就是默认状态打开 win 下的文档会乱码，需要安装插件 <code>ConvertToUTF8</code>；</li>
+<li>为了顺利安装插件，首先需要一个插件管理，在 Console 下输入 <code>Install Package Control</code> 进行安装，参考 <a target="_blank" rel="noopener" href="https://packagecontrol.io/installation" class="uri">https://packagecontrol.io/installation</a> ；</li>
+<li>接着，在 <code>Preferences - Package Control</code> 下输入 <code>install package</code> （也可以直接 <code>Shift+Cmd+P</code> 进行搜索），打开一个搜索界面，在其中输入 <code>ConvertToUTF8</code> 选择合适的那一个就可以安装了；</li>
+<li>在 Console 中可以看到安装进度，另外安装成功后在 <code>Package Control: Install Package</code> 中搜索不到那个包了；</li>
+</ul></li>
+</ul>
+<h3 id="r-rstudio">R &amp; Rstudio</h3>
+<ul>
+<li>到清华源下载 R <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/" class="uri">https://mirrors.tuna.tsinghua.edu.cn/CRAN/</a> ，直接安装即可，大小约为 100M；</li>
+<li>到这里安装 Rstudio <a target="_blank" rel="noopener" href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a>，直接安装；</li>
+<li>安装之后，可以到 <code>Option-Package</code> 下将 CRAN repository 源换成清华的 <code>China(Beijing 1)</code> ；另外推荐在 <code>Option-Code-Saving</code> 将 Default text encoding 换成 <code>UTF-8</code> 这样可以避免每次保存的时候提示 encoding 为何；</li>
+</ul>
+<h3 id="winbugsopenbugswinecrossover">WinBUGS：OpenBUGS+WINE/CrossOver</h3>
+<ul>
+<li><p>本来就可以愉快使用 Rstudio 了，可惜这次的生统作业还要用到 BUGS ，官网的页面是 <a target="_blank" rel="noopener" href="https://www.mrc-bsu.cam.ac.uk/software/bugs/" class="uri">https://www.mrc-bsu.cam.ac.uk/software/bugs/</a>；</p></li>
+<li><p>项目最先起源于 WinBUGS，如其名显然是在 Windows 下运行的；其延续是 OpenBUGS ，提供了 Windows 和 Linux 版本，不过 macOS 没有人权的吗，居然推荐的是用 WINE 进行类似虚拟机的运行；<a target="_blank" rel="noopener" href="http://www.openbugs.net/w/Downloads" class="uri">http://www.openbugs.net/w/Downloads</a> 这里的官方描述是</p>
+<blockquote>
+<p>The Windows version of OpenBUGS has been successfully installed on Mac OS X (Intel) using WINE. The Windows installer currently produces an error message at shutdown, but appears to install the program successfully. Testing under WINE has been VERY limited so far.</p>
+<p>The MAC binary version of R2OpenBUGS on CRAN (3.2-1.4) is out of date and will not work with OpenBUGS 3.2.2. For now, Mac users should use install.packages('R2OpenBUGS',type='source') to install the latest (3.2-2.1) version of R2OpenBUGS.</p>
+</blockquote>
+<p>没有更为具体的描述了；</p></li>
+<li><p>这里有一份基于 WineSkin 的教程，安好之后可以直接用 GUI 进行操作，不给似乎不支持 <code>R2OpenBUGS</code> How to use OpenBUGS on Mac OS <a target="_blank" rel="noopener" href="https://chenghanyu.wordpress.com/2014/03/26/how-to-use-openbugs-on-mac-os/" class="uri">https://chenghanyu.wordpress.com/2014/03/26/how-to-use-openbugs-on-mac-os/</a> ；</p>
+<ul>
+<li>使用 WineSkin 出了问题，所以试用了 <strong>CrossOver</strong> <a target="_blank" rel="noopener" href="https://www.crossoverchina.com/" class="uri">https://www.crossoverchina.com/</a>，有一个月的试用期，成功；</li>
+<li>可能的原因在于 WineSkin 暂定开发了？可以正常安装，但是更新下载到最后无法安装，看官网 <a target="_blank" rel="noopener" href="http://wineskin.urgesoftware.com/tiki-index.php" class="uri">http://wineskin.urgesoftware.com/tiki-index.php</a> 也长时间没更新了；</li>
+</ul></li>
+<li><p>另外一种思路是基于完整的 WINE 的，同样可以参考「统计城」的这篇中文教程 Use OpenBUGS in R on Mac OS <a target="_blank" rel="noopener" href="https://chenghanyu.wordpress.com/2014/03/27/use-openbugs-in-r-on-mac-os/" class="uri">https://chenghanyu.wordpress.com/2014/03/27/use-openbugs-in-r-on-mac-os/</a>；不过有点复杂，而且 WINE 有点大，不知道以后是否会用到</p>
+<ul>
+<li>需要安装 Wine 的话，可以参考 在 Mac OS X 上安装和配置 Wine <a target="_blank" rel="noopener" href="https://beginor.github.io/2016/06/30/install-wine-and-winetricks-on-mac.html" class="uri">https://beginor.github.io/2016/06/30/install-wine-and-winetricks-on-mac.html</a> ，不过可能是配置问题 brew 找不到源，待考；</li>
+<li>另外，还有 <a target="_blank" rel="noopener" href="https://miao1007.github.io/mac%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8wine4%E6%9C%80%E5%85%A8%E6%8C%87%E5%AF%BC/">Mac下安装与使用Wine4最全指导</a></li>
+</ul></li>
+<li><p>关于如何使用 <code>WinBUGS</code>，这里有一份简单的教程 WinBUGS 在统计分析中的应用（第一部分）<a target="_blank" rel="noopener" href="https://cosx.org/2008/12/statistical-analysis-and-winbugs-part-1/" class="uri">https://cosx.org/2008/12/statistical-analysis-and-winbugs-part-1/</a>；</p></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/e6ef2203/">https://lightblues.github.io/posts/e6ef2203/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/list/">list</a><a class="post-meta__tags" href="/tags/star/">star</a><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a><a class="post-meta__tags" href="/tags/Hackintosh/">Hackintosh</a></div><div class="post_share"><div class="social-share" data-image="/img/test/color-1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/364e0280/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">概率论基础（三）随机向量</div></div></a></div><div class="next-post pull-right"><a href="/posts/a360810/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">CMD 命令笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/c9014219/" title="Ubuntu 笔记"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-10</div><div class="title">Ubuntu 笔记</div></div></a></div><div><a href="/posts/e6f44ed5/" title="Windows 新开始"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-20</div><div class="title">Windows 新开始</div></div></a></div><div><a href="/posts/3105dffb/" title="Joplin 尝试 & 资源汇总"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-12</div><div class="title">Joplin 尝试 & 资源汇总</div></div></a></div><div><a href="/posts/cd72d6b9/" title="Mendeley 转 Zotero 记"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">Mendeley 转 Zotero 记</div></div></a></div><div><a href="/posts/64f630a8/" title="Mendeley 使用笔记"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">Mendeley 使用笔记</div></div></a></div><div><a href="/posts/3dbb612a/" title="RSS 与稍后读软件横向比较"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-7.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-19</div><div class="title">RSS 与稍后读软件横向比较</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%91%E8%8B%B9%E6%9E%9C%E8%B5%84%E6%BA%90%E9%93%BE%E6%8E%A5"><span class="toc-number">1.</span> <span class="toc-text">黑苹果资源链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88"><span class="toc-number">1.1.</span> <span class="toc-text">综合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">安装部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%85%E8%AF%BB%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">阅读列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">黑苹果安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-number">2.1.</span> <span class="toc-text">硬件列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%9A%E5%88%B6-usb-%E9%A9%B1%E5%8A%A8"><span class="toc-number">2.3.</span> <span class="toc-text">关于定制 USB 驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E8%93%9D%E7%89%99-airdrop"><span class="toc-number">2.4.</span> <span class="toc-text">支持蓝牙 &amp; Airdrop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-handoff"><span class="toc-number">2.5.</span> <span class="toc-text">支持 Handoff</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%90%8E%E4%B8%80%E4%BA%9B%E8%AE%BE%E5%AE%9A%E7%96%91%E9%97%AE"><span class="toc-number">3.</span> <span class="toc-text">安装后：一些设定&amp;疑问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">简单设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">3.2.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BD"><span class="toc-number">3.3.</span> <span class="toc-text">如何备份？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-finder-%E4%B8%AD%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">在 Finder 中显示隐藏文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system-preferences"><span class="toc-number">3.5.</span> <span class="toc-text">System Preferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finder"><span class="toc-number">3.6.</span> <span class="toc-text">Finder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">必备&#x2F;工具软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">4.1.</span> <span class="toc-text">科学上网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8chrome"><span class="toc-number">4.2.</span> <span class="toc-text">浏览器：Chrome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E4%B8%8D%E6%AD%A2%E8%81%8A%E5%A4%A9%E8%BD%AF%E4%BB%B6telegram"><span class="toc-number">4.3.</span> <span class="toc-text">远不止聊天软件：Telegram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%91%E6%9E%9C-toolshackintoolclover-configuratoretcher-%E7%AD%89"><span class="toc-number">4.4.</span> <span class="toc-text">黑果 Tools：Hackintool、Clover Configurator、Etcher 等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%BD%91%E6%8E%A7%E5%88%B6tripmode"><span class="toc-number">4.5.</span> <span class="toc-text">联网控制：TripMode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7monitorcontrolnewfilemenutencent-lemon"><span class="toc-number">4.6.</span> <span class="toc-text">系统工具：MonitorControl、NewFileMenu、Tencent Lemon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E5%BA%94%E7%94%A8popclipmoom"><span class="toc-number">4.7.</span> <span class="toc-text">拓展应用：PopClip、Moom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%9B%91%E6%B5%8Bistat-menusmenubar-stats"><span class="toc-number">4.8.</span> <span class="toc-text">系统监测：iStat Menus、MenuBar Stats</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86homebrew"><span class="toc-number">4.9.</span> <span class="toc-text">包管理：Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%AD%E6%94%BE%E5%99%A8iina"><span class="toc-number">4.10.</span> <span class="toc-text">播放器：IINA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#quick-look-%E6%8F%92%E4%BB%B6"><span class="toc-number">4.11.</span> <span class="toc-text">Quick Look 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6motrixfolxqbittorrent"><span class="toc-number">4.12.</span> <span class="toc-text">下载软件：Motrix、Folx、qbittorrent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6ezipkeka"><span class="toc-number">4.13.</span> <span class="toc-text">压缩软件：Ezip、Keka</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E5%9B%BExnip"><span class="toc-number">4.14.</span> <span class="toc-text">截图：Xnip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E4%B8%83%E5%85%AB%E5%85%ABlogitech-options%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">4.15.</span> <span class="toc-text">七七八八：Logitech Options、搜狗输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%9B%98baidunetdiskgoogle-driver"><span class="toc-number">4.16.</span> <span class="toc-text">网盘：BaiduNetdisk、Google Driver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E8%BE%93%E5%87%BA%E6%96%B9%E6%A1%88typoraupicoffice"><span class="toc-number">4.17.</span> <span class="toc-text">文字&amp;输出方案：Typora、uPic、Office</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A6%E5%BD%B1%E9%9F%B3neteastmusicgif-brewery"><span class="toc-number">4.18.</span> <span class="toc-text">书影音：NeteastMusic、GIF Brewery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E7%AB%AFiterm2ohmyzsh"><span class="toc-number">4.19.</span> <span class="toc-text">终端：iTerm2、ohmyzsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%93%E4%B8%9A%E8%BD%AF%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">专业软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode"><span class="toc-number">5.1.</span> <span class="toc-text">VSCode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime-text"><span class="toc-number">5.2.</span> <span class="toc-text">Sublime Text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#r-rstudio"><span class="toc-number">5.3.</span> <span class="toc-text">R &amp; Rstudio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#winbugsopenbugswinecrossover"><span class="toc-number">5.4.</span> <span class="toc-text">WinBUGS：OpenBUGS+WINE&#x2F;CrossOver</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/test/color-1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/e6ef2203/'
+    this.page.identifier = 'posts/e6ef2203/'
+    this.page.title = 'Hackintosh 入门+软件配置+个人向软件推荐'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '200e879bc2e76cbd0d757dea5ff66f48',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

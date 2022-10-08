@@ -1,0 +1,550 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>概率论基础（一）随机事件和概率 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="说明  这部分开头是早先试图写的一个知乎专栏，后不了了之，现在准备整合一下内容变为一个参考性质的手册。  关于使用的教材，课上使用的是 Ross 的 A Fist Course in Probability ，初学时翻阅过浙大茆诗松的概统，前者仅针对概率论，内容较为详实丰富，但读起来不算晓畅，后者则是中规中矩的中文入门教材。直到看到陈希孺《概率论与数理统计》，对于随机事件和概率的讲解鞭辟入里，惊为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论基础（一）随机事件和概率">
+<meta property="og:url" content="https://lightblues.github.io/posts/ddce4cf5/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="说明  这部分开头是早先试图写的一个知乎专栏，后不了了之，现在准备整合一下内容变为一个参考性质的手册。  关于使用的教材，课上使用的是 Ross 的 A Fist Course in Probability ，初学时翻阅过浙大茆诗松的概统，前者仅针对概率论，内容较为详实丰富，但读起来不算晓畅，后者则是中规中矩的中文入门教材。直到看到陈希孺《概率论与数理统计》，对于随机事件和概率的讲解鞭辟入里，惊为">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/CowboyBepop/cb-5.jpg">
+<meta property="article:published_time" content="2019-10-24T02:30:58.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.820Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/CowboyBepop/cb-5.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/ddce4cf5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '概率论基础（一）随机事件和概率',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/CowboyBepop/cb-5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">概率论基础（一）随机事件和概率</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-10-24T02:30:58.000Z" title="Created 2019-10-24 10:30:58">2019-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.820Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/Statistic/">Statistic</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>16min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="概率论基础（一）随机事件和概率"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="说明">说明</h2>
+<blockquote>
+<p>这部分开头是早先试图写的一个知乎专栏，后不了了之，现在准备整合一下内容变为一个参考性质的手册。</p>
+</blockquote>
+<p>关于使用的教材，课上使用的是 Ross 的 A Fist Course in Probability ，初学时翻阅过浙大茆诗松的概统，前者仅针对概率论，内容较为详实丰富，但读起来不算晓畅，后者则是中规中矩的中文入门教材。直到看到陈希孺《概率论与数理统计》，对于随机事件和概率的讲解鞭辟入里，惊为天书。最近重新整理，使用的是北大陈家鼎的《概率与统计》分为两小册，内容算是比较难的偏向数理证明，文字很精炼适合有一定基础的进行深入阅读。</p>
+<p>以下为目录</p>
+<ul>
+<li>事件的概率 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/easonshi/p/12828891.html" class="uri">https://www.cnblogs.com/easonshi/p/12828891.html</a>
+<ul>
+<li>随机事件、概率的定义、古典概型、事件的运算、条件概率与独立性</li>
+</ul></li>
+<li>随机变量及概率分布 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/easonshi/p/12119486.html" class="uri">https://www.cnblogs.com/easonshi/p/12119486.html</a>
+<ul>
+<li>一维随机变量、多维随机变量（随机向量）、条件概率分布与随机变量的独立性、随机变量的函数的概率分布</li>
+<li>补充：概率的公理化定义与随机变量的概念 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/easonshi/p/12828674.html" class="uri">https://www.cnblogs.com/easonshi/p/12828674.html</a></li>
+</ul></li>
+<li>随机向量 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/easonshi/p/12830303.html" class="uri">https://www.cnblogs.com/easonshi/p/12830303.html</a>
+<ul>
+<li>随机向量的分布、边缘分布、条件分布、函数的概率分布</li>
+<li>随机变量的数学特征 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/easonshi/p/12830767.html" class="uri">https://www.cnblogs.com/easonshi/p/12830767.html</a>
+<ul>
+<li>数学期望（均值）与中位数、方差与矩、协方差与相关系数、大数定理和中心极限定理</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="reference">Reference</h3>
+<ol type="1">
+<li>《概率论与数理统计》陈希孺；</li>
+<li>《A Fist Course in Probability》Shelen M. Ross；</li>
+<li>《概率论与数理统计教程（第二版）》茆诗松 等；</li>
+<li>《概率与统计（第二版）》陈家鼎 郑忠国</li>
+</ol>
+<hr />
+<p>本节内容主要可分为</p>
+<ul>
+<li>什么是概率</li>
+<li>古典概率计算</li>
+<li>事件的关系与运算
+<ul>
+<li>条件概率与独立性</li>
+<li>全概率公式和贝叶斯公式</li>
+</ul></li>
+</ul>
+<p>概率论是一门数学分支，同数学科目的其他分支一样，是建立在一些公理上的严格的数学体系，其研究的主要对象是随机变量、随机分布和随机过程。对于随机事件是不可能准确预测其结果的，但是我们可以描述其规律，分别是<strong>大数定理</strong>和<strong>中心极限定理</strong>，<strong>统计学</strong>正是建立在这个基础之上的。</p>
+<h2 id="什么是概率">什么是概率</h2>
+<p>概率是一个生活中常见的词汇，笼统地说来很容易理解，但若从理论或者从哲学地高度去分析，就可以提出一系列问题，具体可参考<strong>测度学</strong>，在此不给出一个定义，直接从一些实例中理解：</p>
+<ol type="1">
+<li>简单的例子如投骰子、扔硬币等事件，虽然可能的结果又多种，但是根据生活的经验，我们可能会对于每种可能出现的结果给出一个描述其“<strong>可能性</strong>”的数量指标，是即为概率。如果忽略一个硬币的物理不均匀性和投掷因素的影响，我们有理由认为正反两面出现的机会是均等的，称之为“<strong>等可能性</strong>”。</li>
+<li>生活中，第二天的天气也是未知的，但是我们每个人根据自己的经验可以对“明天是否会下雨”给出一个可能性的估计，可理解为一种心态或倾向性，是为<strong>主观概率</strong>。</li>
+<li>对于一个随机的事件，比如说从一批产品中随机抽取一个，其合格的可能性是为知的。但若我们持续抽取，根据抽出的产品的质量情况，可以对其做出一个估计，或者说是<strong>用频率来估计概率</strong>，是为<strong>统计概率</strong>。</li>
+</ol>
+<p>以下对于相关概念做一些解释：</p>
+<ul>
+<li>从上述例子也可以看出，概率是对于<strong>事件</strong>而言的，不同于生活中的意思，概率论中，“事件”是指某种情况的的“陈述”，它可能发生，也可能不发生，发生与否，要到有关的“试验”有了结果以后，才能知晓。</li>
+<li>对于“事件”进一步解释：1. 有一个明确界定的实验，即人为主动的意思，只是记录而不干预称为“<strong>观察</strong>”；2. 这个实验的全部可能结果，是在实验前就明确的。</li>
+<li>对于“<strong>必然事件</strong>”“<strong>不可能事件</strong>”等同于概率为1和0的事件，严格的理论而言二者有所区别，但这种区别并无实际的重要性。</li>
+</ul>
+<h2 id="古典概率计算">古典概率计算</h2>
+<p>古典概型可以说是我们生活中最为常见、也是最好理解的概率场景。其核心在于假定试验中所有结果出现的可能性是相等的，即上述所谓的等可能性，而古典概率的计算主要基于排列组合。在《A Fist Course in Probability》中第一章就讲排列组合，在此给出基本公式。</p>
+<h3 id="组合分析">1 组合分析</h3>
+<ul>
+<li>排列：从n个元素中取出k个元素，k个元素的排列数量为 <span class="math inline">\(P_k^n=n!/(n−k)!\)</span></li>
+<li>组合：和排列不同的是，组合取出元素的顺序不考虑 $C_k^n=n!/k!(n−k)! $</li>
+<li>常用公式 <span class="math display">\[
+  \begin{aligned}
+    (2n)!!=(2n)(2n−2)…2 \\
+    C_n^0+C_n^1+…+C_n^n=2^n \\
+    C_n^0+C_n^2+…=2^{n−1} \\
+    C_m^{n+m}+C_{m+1}^{n+m}=C_{m+1}^{n+m+1}
+  \end{aligned}
+  \]</span></li>
+</ul>
+<blockquote>
+<p>古典概型中涉及到一些计数公式；原以为除了在概率论的考试中涉及以后不会遇到，没想到后来一次通选课的考试居然也涉及到了；在此补充。</p>
+<ul>
+<li>高中时候讲到的分类的加法原理、分步骤的乘法原理</li>
+<li>有重复的排列数：n 种球放回取 m 次，共 <span class="math inline">\(n^m\)</span></li>
+<li>排列数：无放回取 m 次，共 <span class="math inline">\(A_n^m={n!\over (n-m)!}\)</span></li>
+<li>组合数：n 种球无放回取 m 次，不计顺序，共 <span class="math inline">\(C_n^m=(\begin{matrix}n\\m\end{matrix})={n!\over m!(n-m)!}\)</span></li>
+<li>分组方式数：n 个不同元素分为有顺序的 k 组，共 <span class="math inline">\((\begin{matrix}n\\ n_1, ...,n_k\end{matrix})={n!\over n_1!...n_k!}\)</span> 。形式上看是组合数的推广，后者可以看做是特例，其关注的是两组中的一组。直观的对于公式的理解：n 个不同元素排列共 <span class="math inline">\(n!\)</span> 种可能，将依次的 <span class="math inline">\(n_1,...,n_k\)</span> 个元素认为是一组的，顺序无关，所以分母上除以各自的组内排列的可能。再次注意，组间是有顺序的。如 5 个元素分为 <span class="math inline">\((1,2,2)\)</span> 三组，不讲顺序，则还要在公式上除以 2。</li>
+<li>可重复分组数：n 个球有放回取 m 次，结果不计顺序，共 <span class="math inline">\(C_{n+m-1}^{m}=C_{n+m-1}^{n-1}\)</span> 。这里和上一中情况的区别在于取到的 m 个球随机。需要换一种想法：和每个球标号序号，然后把 m 个球按序号排列，显然就变成了有序的 n 组，其中有 <span class="math inline">\(n-1\)</span> 个「空格」；反过来，我们还没有取出球，但我们知道了最终的结果是 <span class="math inline">\(n-1\)</span> 个分隔符分割了 m 个球（高中时候好像是用 0 和 1 来示意），也就是从 <span class="math inline">\(n+m-1\)</span> 个元素中选 <span class="math inline">\(n-1\)</span> 个分隔符，所以是 <span class="math inline">\(C_{n+m-1}^{m}=C_{n+m-1}^{n-1}\)</span> 。注意，这里的每一个分组是<strong>非等可能</strong>的（前面的分组方式数按这种定义是等可能的）。</li>
+</ul>
+</blockquote>
+<h3 id="计算示例">2 计算示例</h3>
+<ul>
+<li>n双相异的鞋共2n只，随机分为n堆，每堆2只，问“各堆都自成一双鞋”这一事件E的概率是多少？
+<ul>
+<li>对于把n个相异物件分成k堆，分法有 $n!/(r_1 !r_2 !…r_k !) $，注意上式是有序的，所以对于本题可分为 <span class="math inline">\(N=(2n)!/2^n\)</span> 种（所有可能情况）。对于事件<span class="math inline">\(E\)</span> ，可以看作把每一双鞋看成一个整体分成n堆，可见有 <span class="math inline">\(M=n!\)</span> 种可能性。于是 $P(E)=M/N=(2^n n!)/(2n)!=1/(2n−1)!! $</li>
+<li>另一种算法：把这2n个鞋子从左到右排成一排，然后把1，2位置的看作一堆，3，4看成一堆。因此有所可能情况为种，而各成一堆的情况下，每组中第一个元素取定后，第二个元素是确定了的，因此可能的情况有$ (2n)(2n−2)…2=(2n)!!<span class="math inline">\(种，因此\)</span>P(E)=M/N=2^n/(2n)!!=1/(2n−1)!!$</li>
+</ul></li>
+</ul>
+<h2 id="事件的关系与运算">事件的关系与运算</h2>
+<h3 id="基本关系与运算">1 基本关系与运算</h3>
+<p>上述已对随机事件有所介绍，对于任一事件，我们想要用概率的方式去描述它。但是对于我们感兴趣的复杂事件来说，直接计算其概率是困难的，<strong>因此我们希望能够利用复杂事件与简单事件之间的关系，以便利用简单事件的概率去计算复杂事件的概率</strong>。正如微积分中，利用导数所满足的法则，可据此计算出复杂函数的导数，若直接利用定义来计算则太过复杂。以下对于事件的关系和运算做简单描述，很多是符合直觉的，注意这部分可以从<strong>集合论</strong>的角度来考虑。</p>
+<ul>
+<li><strong>蕴含、包含和相等</strong></li>
+</ul>
+<p>字面理解，若A蕴含B，也可说为B包含A，记为 <span class="math inline">\(A\subset B\)</span>，这意味着A发生则B一定发生，从集合论的角度来说A是B的子集，从韦恩图上来看A被B所“包围”。</p>
+<ul>
+<li><strong>互斥和对立</strong></li>
+</ul>
+<p>若A和B不能在同一次试验内都发生，则称它们为互斥的。对立事件是一种特殊的互斥事件，即B是A的补集，记作 $ B={A} $ 。</p>
+<ul>
+<li><strong>事件的和（并）</strong></li>
+</ul>
+<p>对于两事件A和B，定义事件和<span class="math inline">\(C = \{A发生，或B发生\}\)</span>，记作 <span class="math inline">\(A\cup B\)</span>, 或 $A+B $，即为代表两事件的集合的并集，通过韦恩图来看更为直观。</p>
+<p><strong>概率的加法定理</strong>：对于互斥事件，我们有，若干互斥事件之和的概率，等于各事件概率之和。即<span class="math inline">\(P(A_1+A_2+…)=P(A_1 )+P(A_2 )+…\)</span></p>
+<ul>
+<li><strong>事件的积（交）、事件的差</strong></li>
+</ul>
+<p>定义事件积<span class="math inline">\(C = \{A，B都发生\}\)</span>，记为 <span class="math inline">\(A\cap B\)</span> 或 $AB $。 定义事件差 <span class="math inline">\(C = \{A发生，B不发生\}\)</span>，记为 <span class="math inline">\(A−B\)</span> 。</p>
+<p>容易看出上述定义的事件关系及其运算满足以下性质。同时，虽然上面借用了算术中的相关名词，算术法则不一定能用于计算事件运算（因为本质上可以说是集合之间的关系）。注：可以根据韦恩图进行直观的理解不需要死记硬背。</p>
+<ul>
+<li><strong>事件和、事件积的交换律、结合律</strong></li>
+</ul>
+<p><span class="math inline">\(A\cup B = B\cup A,AB=BA\)</span></p>
+<p><span class="math inline">\(A\cup B\cup C = (A\cup B)\cup C = A \cup (B\cup C), ABC = (AB)C = A(BC)\)</span></p>
+<ul>
+<li><strong>事件和对事件积、事件积对事件和的分配律</strong></li>
+</ul>
+<p><span class="math inline">\((A\cup B)C = AC\cup BC\)</span></p>
+<p><span class="math inline">\((AB)\cup C = (A\cup C)(B\cup C)\)</span></p>
+<ul>
+<li><strong>棣莫弗公式（对偶法则）</strong></li>
+</ul>
+<p><span class="math inline">\(\overline{A\cup B} =\bar{A}\cap\bar{B}\)</span></p>
+<p><span class="math inline">\(\overline{A\cap B} = \bar{A} \cup \bar{B}\)</span></p>
+<p>此公式可以推广到n个事件：<strong>事件和的非等于事件非的积；事件积的非等于事件非的和</strong>。</p>
+<blockquote>
+<p>当时怎么没有介绍概率的加法公式，补充如下： <span class="math display">\[
+P(A\cup B)=P(A)+P(B)-P(AB)
+\]</span> 其推广，Jordan 公式 <span class="math display">\[
+P(\bigcup^n_{i=1}A_i)=\sum_{k=1}^n(-1)^{k-1}p_k
+\]</span> 其中 <span class="math display">\[
+p_k=\sum_{1\le j_1\le j_2\le...\le n}P(A_{j_1}...A_{j_k})
+\]</span> 可以根据韦恩图直观理解。</p>
+</blockquote>
+<h3 id="条件概率">2 条件概率</h3>
+<p>条件概率是概率论中非常重要的概念，此后随机变量的条件分布等一系列知识点需要建立在对于条件概率的理解上。一般来讲，条件概率就是在附加一定条件之下所计算的概率。严格来说，现实中的任何概率都是条件概率：假定你在实验室投掷硬币，出现正面的频率约为1/2，你只能说在此时此地，在这种试验条件下，可以认为这枚硬币是均匀的，试验环境即为“<strong>条件</strong>”。形式化的定义：设有两事件A，B，在给定B发生的条件下A的条件概率记为 <span class="math inline">\(P(A|B)\)</span> ：</p>
+<p><span class="math display">\[
+P(A|B) = \frac{P(AB)}{P(B)}
+\]</span></p>
+<p>其中，当<span class="math inline">\(P(B)=0\)</span>时，上式无意义，因此在一般的定义中还要求<span class="math inline">\(P(B)\)</span>不为零。当然，在高等概率论中也会给出在<span class="math inline">\(P(B)=0\)</span>时概率的定义，在此不表。</p>
+<h3 id="事件的独立性">3 事件的独立性</h3>
+<p>一般情况下，A的无条件概率和在给定B发生之下的条件概率是有差异的，这反映了两者之间的<strong>关联</strong>。例如，若 $P(A|B)&gt;P(A) $，则B的发生使A发生的可能性增加的，B促进了A的发生。反之，若 $P(A|B)=P(A) $，则B的发生与否与A发生的可能性无关，这就称为两事件独立。因此上式即可作为事件独立的定义。然而，根据条件概率的定义，上式<strong>等价于：</strong></p>
+<p>$P(AB)=P(A)P(B) $</p>
+<p>在这条式子中，A和B是对称的，即“<strong>A和B相互独立</strong>”，更好得反映了事件独立的概念，因此在一般的教材中采用此作为独立性定义。推广到多个事件，其独立性定义如下：设 $A_1,A_2,...; $为有限或无限个事件，若从中任意取出有限个事件，都有：</p>
+<p><span class="math display">\[
+P(A_{i_{1}}A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})P(A_{i_{2}})...P(A_{i_{m}})
+\]</span></p>
+<p>则称事件 <span class="math inline">\(A_1,A2,...\)</span><strong>（相互）独立</strong>。注意，这个定义与由条件概率出发的定义等价：<span class="math inline">\(P(A_{i_{1}}|A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})\)</span> 对于任意的 $A_{i_1} $都成立。从这里也可以看到，n个事件独立和此n个事件两两独立是不同的，后者只能保证在“简单条件”下某一事件的概率不受影响，但不意味着其他任意多个事件的发生与否与它是否有关联。</p>
+<p>在实际运用中，虽然我们常用两种等价定义来形式化得证明事件的独立性，但在更多的情况中，我们假定事件满足独立性，然后用<span class="math inline">\(P(A_{i_{1}}A_{i_{2}}...A_{i_{m}}) = P(A_{i_{1}})P(A_{i_{2}})...P(A_{i_{m}})\)</span>式，从简单事件的概率出发计算事件积的概率。因此，从另一个角度出发来看定义式，则可认为是<strong>独立事件事件积的乘法公式</strong>。</p>
+<h3 id="全概率公式">4 全概率公式</h3>
+<p>对于一组事件 <span class="math inline">\(B_1,B_2,...\)</span> 来说，若它们两两互斥，并且在每次试验中至少发生一个（事件积为空，概率之和为1），则称这组事件为一个“<strong>完备事件群</strong>”。形象地理解，这些事件对于所有可能发生的情况构成了一个分割，用集合论或文氏图来理解更为直观。例如，一个事件B和它的对立事件即构成完备事件群。考虑任一事件A， $A=A=AB_1 +AB_2 + ... $ ，因 $B_i $两两互斥，可见 <span class="math inline">\(AB_i\)</span> 也两两互斥，因此有 <span class="math inline">\(P(A)= P(AB_1) +P(AB_2) + ...\)</span> ，再由条件概率公式，</p>
+<p><span class="math display">\[
+P(A)= P(B_1)P(A|B_1) +P(B_2)P(A|B_2) + ...
+\]</span></p>
+<p>称为全<strong>概率公式</strong>，即全部概率被分成许多部分之和，因此，在现实中，若某一事件A经常伴随 <span class="math inline">\(B_i\)</span> 发生，我们可以构造一组 <span class="math inline">\(B_i\)</span> 来计算A的概率。</p>
+<p>从另一个角度来理解，可以把 <span class="math inline">\(B_i\)</span> 看作导致事件 <span class="math inline">\(A\)</span> 发生的一种可能途径。对不同途径，A发生的概率即条件概率各各不同，而采取哪个途径却是随机的。因此对于所有可能的途径 $ P(B_i)$ 作加权平均。</p>
+<blockquote>
+<p>特别的， <span class="math inline">\(A,\bar A\)</span> 构成一个完备事件组，于是 <span class="math inline">\(P(B)=P(A)P(A|B)+P(A)P(A|\bar B)\)</span></p>
+</blockquote>
+<blockquote>
+<p>补充一道题：证明 n 个签中有 m 个为目标，无放回抽样，<strong>则每一次「中签」的概率均为</strong> <span class="math inline">\(m/n\)</span> 。</p>
+<p>记抽中这一事件为 <span class="math inline">\(A_j\)</span>。下用归纳法证明。首先，必有 <span class="math inline">\(P(A_1)=m/n\)</span>；假设上面的概率公式在 <span class="math inline">\(j-1\)</span> 时成立，则对于第 j 次抽样，我们用全概率公式： <span class="math display">\[
+P(A_j)=P(A_1)P(A_j|A_1)+P(\overline{A_1})P(A_j\overline {A_1})
+\]</span> 这样，后面的两个条件概率就转化成了 <span class="math inline">\(j-1\)</span> 的形式，代入假设中的公式（分别为 <span class="math inline">\(m-1\over n-1\)</span>, <span class="math inline">\(m \over n-1\)</span>）即可得 <span class="math inline">\(P(A_j)={m\over n}\)</span></p>
+</blockquote>
+<h3 id="贝叶斯逆概率公式">5 贝叶斯（逆概率）公式</h3>
+<p>由全概率公式可得著名的<strong>贝叶斯公式</strong>：</p>
+<p><span class="math display">\[
+P(B_i|A)= \frac{P(AB_i)}{P(A)} = \frac{P(B_i)P(A|B_i)}{\sum_{j}{P(B_j)P(A|B_j)}}
+\]</span></p>
+<p>刚看到这个公式有点绕，似乎只是一个数学变换，更重要的是理解其意义。在等式的右边，我们已知了 <span class="math inline">\(P(B_i)\)</span> 和 $P(A|B_i) $，而在等式右边，我们希望得到的是 $P(B_i|A) $，也就是在A发生的情况下，新的信息之下我们对于事件 <span class="math inline">\(B_i\)</span> 的可能性有了新的认识。</p>
+<p>如果我们把A看成“结果”，把看成导致者结果的可能“原因”，则可形象地把全概率公式看作成为“<strong>由原因推结果</strong>”，而贝叶斯公式作用在于“<strong>由结果推原因</strong>”：现在一个结果A发生了，在众多可能的原因中，哪一个导致了结果。</p>
+<p>好的说了这么多也不知道有没有表达清楚，反正我一开始学的时候一脸懵逼，还是看一个例子理解一下：</p>
+<ul>
+<li>某种病菌在人群中带菌率为0.03，由于检测技术存在一定的误差，带菌者检测出阳性的概率为0.99，而未带菌者检出阳性的概率为0.05，问若一人检测出阳性，其带菌的概率。</li>
+<li><span class="math inline">\(P(阳性|带菌) = 0.99\)</span>； <span class="math inline">\(P(阳性|不带菌) = 0.05\)</span>；<span class="math inline">\(P(带菌)= 0.03\)</span>； 问 $P(带菌|阳性) $</li>
+<li>由贝叶斯公式，易得答案为 <span class="math inline">\(\frac{0.03\times0.99}{0.03\times0.99+0.97\times0.05} = 0.380\)</span></li>
+</ul>
+<p>一个有趣的结论：检测结果为阳性的患者带菌的可能性不到0.4，理由很简单：因为人群中带菌率很低，即使误检的可能性很低，因为其基数很大，所以检测结果为阳性的人中任有很大一部分是这些误检患者。</p>
+<p>从这个例子也可以看出贝叶斯公式在统计学之中的重要意义。在统计学中，我们搜集相关的数据，希望能找到所感兴趣问题的答案（由结果找原因），然而，在此之前，我们需要对其有一个大致的估计（即<strong>先验概率</strong>），然后根据所得到的信息更新我们的估计（即<strong>后验概率</strong>）。事实上，根据这个公式的思想发展了一整套统计推断方法，叫做“<strong>贝叶斯统计</strong>”。</p>
+<hr />
+<p>以下补充关于贝叶斯公式的论述</p>
+<ul>
+<li>在贝叶斯公式中，我们把 <span class="math inline">\(P(B_i)\)</span> 叫作<strong>先验概率</strong>，它们的值是根据先前的只是和经验确定出，既可以利用频率和概率的关系来确定，也可以基于「主观概率」来确定。</li>
+<li><span class="math inline">\(P(B_i|A)\)</span> 是在观察到事件A后发生 <span class="math inline">\(B_i\)</span> 的概率，称之为<strong>后验概率</strong>，贝叶斯公式可以看成是从先验概率到后验概率的转换公式。</li>
+</ul>
+<blockquote>
+<p>贝叶斯公式在之后的无论什么课程中真的用的超级多……</p>
+</blockquote>
+<hr />
+<p>另外，在《概率与统计》一书中，「补充知识」部分提到了和概率相关的一些内容，有助于对其理解，在此列出。</p>
+<p>分为四部分：1. 关于概率论的起源；2. 几何概型；3. 熵；4. 概率的另类应用（概率方法解决确定性问题）。</p>
+<p>信息量；熵；熵定理（各事件等概率是熵最大为 <span class="math inline">\(\log(n)\)</span> ）；熵增加原理</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/ddce4cf5/">https://lightblues.github.io/posts/ddce4cf5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></div><div class="post_share"><div class="social-share" data-image="/img/CowboyBepop/cb-5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5026470e/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">概率论基础：补充（1）概率的公理化定义与随机变量的概念</div></div></a></div><div class="next-post pull-right"><a href="/posts/a02b9abd/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-11.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">思修课程论文：欲望与幸福——构成幸福的多方面因素</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/364e0280/" title="概率论基础（三）随机向量"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-05</div><div class="title">概率论基础（三）随机向量</div></div></a></div><div><a href="/posts/7930088/" title="概率论基础（二）随机变量"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-28</div><div class="title">概率论基础（二）随机变量</div></div></a></div><div><a href="/posts/cbde0a5/" title="概率论基础（四）随机变量的数学特征"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-06</div><div class="title">概率论基础（四）随机变量的数学特征</div></div></a></div><div><a href="/posts/5026470e/" title="概率论基础：补充（1）概率的公理化定义与随机变量的概念"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">概率论基础：补充（1）概率的公理化定义与随机变量的概念</div></div></a></div><div><a href="/posts/6ba3d208/" title="AI-Adversarial Search"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-17</div><div class="title">AI-Adversarial Search</div></div></a></div><div><a href="/posts/74301372/" title="AI-Bayes Network"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">AI-Bayes Network</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reference"><span class="toc-number">1.1.</span> <span class="toc-text">Reference</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A6%82%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">什么是概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">古典概率计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E5%88%86%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">1 组合分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">2 计算示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">事件的关系与运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="toc-number">4.1.</span> <span class="toc-text">1 基本关系与运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">4.2.</span> <span class="toc-text">2 条件概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">4.3.</span> <span class="toc-text">3 事件的独立性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">4.4.</span> <span class="toc-text">4 全概率公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E9%80%86%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">4.5.</span> <span class="toc-text">5 贝叶斯（逆概率）公式</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/CowboyBepop/cb-5.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/ddce4cf5/'
+    this.page.identifier = 'posts/ddce4cf5/'
+    this.page.title = '概率论基础（一）随机事件和概率'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '1252bf1d51a1457442e5ee22a6794e81',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

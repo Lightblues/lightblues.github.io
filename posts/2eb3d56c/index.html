@@ -1,0 +1,981 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>区块链 课程笔记 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="课程笔记，主要是从 PPT 上摘录的，用的课本是刘百祥的《区块链技术基础与实践》（非常不推荐），主要介绍了区块链的基础概念、Go 语言基本语法、HyperLedger Fabric 和 Ethereum，但都是蜻蜓点水。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链 课程笔记">
+<meta property="og:url" content="https://lightblues.github.io/posts/2eb3d56c/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="课程笔记，主要是从 PPT 上摘录的，用的课本是刘百祥的《区块链技术基础与实践》（非常不推荐），主要介绍了区块链的基础概念、Go 语言基本语法、HyperLedger Fabric 和 Ethereum，但都是蜻蜓点水。">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/GhostBlade-WLOP/ghost-blade-11.jpg">
+<meta property="article:published_time" content="2020-11-19T20:59:20.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.772Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="密码学">
+<meta property="article:tag" content="HyperLedger">
+<meta property="article:tag" content="Fabric">
+<meta property="article:tag" content="Ethereum">
+<meta property="article:tag" content="Solidity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/GhostBlade-WLOP/ghost-blade-11.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/2eb3d56c/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '区块链 课程笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/GhostBlade-WLOP/ghost-blade-11.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">区块链 课程笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-11-19T20:59:20.000Z" title="Created 2020-11-20 04:59:20">2020-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.772Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">18.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>62min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="区块链 课程笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>课程笔记，主要是从 PPT 上摘录的，用的课本是刘百祥的《区块链技术基础与实践》（非常不推荐），主要介绍了区块链的基础概念、Go 语言基本语法、HyperLedger Fabric 和 Ethereum，但都是蜻蜓点水。</p>
+</blockquote>
+<span id="more"></span>
+<p>资源汇总</p>
+<ul>
+<li>HyperLedger 中文文档 <a target="_blank" rel="noopener" href="https://hyperledgercn.github.io/hyperledgerDocs/" class="uri">https://hyperledgercn.github.io/hyperledgerDocs/</a></li>
+<li>shim 包 API <a target="_blank" rel="noopener" href="https://godoc.org/github.com/hyperledger/fabric-chaincode-go/shim" class="uri">https://godoc.org/github.com/hyperledger/fabric-chaincode-go/shim</a></li>
+<li>以太坊官网 <a target="_blank" rel="noopener" href="https://ethereum.org/zh/" class="uri">https://ethereum.org/zh/</a> 提供了非常详细的教程；</li>
+<li>奇客谷教程 <a target="_blank" rel="noopener" href="https://www.qikegu.com" class="uri">https://www.qikegu.com</a> 有后端、JAVA、前端、区块链等语法的教程，比如 Go Solidity Ethereum 等，简洁有效；</li>
+<li>C 语言中文网的区块链教程 <a target="_blank" rel="noopener" href="http://c.biancheng.net/blockchain/" class="uri">http://c.biancheng.net/blockchain/</a></li>
+<li>Remix 网页
+<ul>
+<li>官方 <a target="_blank" rel="noopener" href="https://remix.ethereum.org/" class="uri">https://remix.ethereum.org/</a></li>
+<li>中文版 <a target="_blank" rel="noopener" href="http://remix.hubwiz.com" class="uri">http://remix.hubwiz.com</a></li>
+</ul></li>
+<li>TokenView <a target="_blank" rel="noopener" href="https://tokenview.com" class="uri">https://tokenview.com</a> 查看各种 token</li>
+</ul>
+<h2 id="概念列表">概念列表</h2>
+<ul>
+<li>区块链特点
+<ul>
+<li>去中心化（架构层 政治层 逻辑层）</li>
+<li>不可篡改（哈希函数 链式数据结构）</li>
+<li>匿名性 pseudonymous 而非 anonymous</li>
+<li>公开账本</li>
+</ul></li>
+<li>编码
+<ul>
+<li>Base64 Base58 Base58Check</li>
+</ul></li>
+<li>加密
+<ul>
+<li>对称加密 DES 3DES AES（密钥长度可谓 128 192 256） RC5 RC6</li>
+<li>非对称 RSA DSA ECDH ECDSA</li>
+<li>哈希函数 SHA MD5</li>
+</ul></li>
+<li>公钥密码学
+<ul>
+<li>数据完整性 Hash 函数 MD5 SHA</li>
+<li>数据真实性（不可抵赖）
+<ul>
+<li>消息认证码 MAC 可理解为带密钥的 Hash，但需要解决共享密钥的问题</li>
+<li>数字签名：私钥加密</li>
+</ul></li>
+<li>公钥的合法性：认证机构 CA，公钥证书 PKC</li>
+</ul></li>
+<li>共识机制
+<ul>
+<li>工作量证明 PoW</li>
+<li>权益证明 PoS</li>
+<li>DPOS（EOS 首先提出）</li>
+</ul></li>
+<li>智能合约
+<ul>
+<li>2016 年 TheDAO攻击事件</li>
+</ul></li>
+<li>Hyperledger Fabric
+<ul>
+<li>节点架构
+<ul>
+<li>客户端</li>
+<li>Peer 节点：都是记账节点（Committer）；有时承担 背书（Endorser）节点的角色；还可能是 主节点（Leader Peer）承担和排序服务节点通信；</li>
+<li>Orderer 节点：接收包含背书签名的交易，排序，广播，</li>
+<li>CA 节点</li>
+</ul></li>
+<li>账本（子系统）
+<ul>
+<li>世界状态</li>
+<li>交易记录</li>
+</ul></li>
+<li>通道：一个链由1个通道 + 1个账本 + N个成员(peer)组成</li>
+<li>成员服务提供者 MSP</li>
+</ul></li>
+<li>Go 语言</li>
+<li>以太坊 Ethereum
+<ul>
+<li>EVM</li>
+<li>两类账户
+<ul>
+<li>外部账户EOA</li>
+<li>合约账户CA</li>
+</ul></li>
+</ul></li>
+<li>地址类型
+<ul>
+<li>存储一个 20 字节的值，表示一个以太坊地址</li>
+<li>地址类型有成员变量 balance, transfer, send</li>
+</ul></li>
+<li>特殊/全局变量与函数
+<ul>
+<li>区块属性</li>
+<li>交易属性
+<ul>
+<li>msg.data msg.sender msg.value（随消息发送的 wei 的数量）</li>
+</ul></li>
+<li>和约相关
+<ul>
+<li>this 当前和约</li>
+</ul></li>
+</ul></li>
+<li>ERC-20 接口规范
+<ul>
+<li>常量 name symbol decimals</li>
+<li>函数 totalSupply transfer transferFrom approve allowance</li>
+<li>事件 Transfer Approval</li>
+</ul></li>
+</ul>
+<h2 id="概论">概论</h2>
+<ul>
+<li><strong>分布式账本(Distributed ledger)</strong> 以分布式方式存储在多个网络节点的账本（数据库），区块链(Blockchain)是分布式账本的一种，</li>
+<li><strong>区块链(Blockchain)</strong>互联网底层多种技术的集合体，包括P2P通信协议、分布式存储数据库技术、加密算法、共识算法等技术，通过这些技术的整合创造了一种按时间序列、按区块记录数据的模式。区块链会用到三种底层技术：点对点网络（P2P通信协议）、密码学、分布式一致性算法。区块链系统还会“免费附赠”一种被称为<strong>智能合约</strong>的功能。</li>
+</ul>
+<p>2008年，一位自称“中本聪”的匿名人士在一个邮件讨论组中发布了自己关于数字货币的设想：《比特币:一种点对点的电子现金系统》 “Bitcoin: A Peer-to-Peer Electronic Cash System” (<a target="_blank" rel="noopener" href="https://bitcoin.org/bitcoin.pdf" class="uri">https://bitcoin.org/bitcoin.pdf</a>)</p>
+<h3 id="一些基础研究">一些基础研究</h3>
+<ul>
+<li>链式存储的数据 链式存储的数据在计算机领域广泛应用，各类链表结构是非常常见的数据结构 区块链的数据结构特色在于：利用哈希函数计算出的数据块特征并利用特征进行关联的链式结构，数据利用数字签名进行保护，利用易于验证的树状数据结构组装数据块。</li>
+<li>如何保护数字文件 《How to Time-Stamp a Digital Document》 基于哈希函数、数字签名、伪随机数生成器的链式时间戳服务设计。文中使用了指向前一份文件的链接哈希，顺序号，当前时间，用户标识，文件内容哈希进行签名，形成链式(Link)的数据证据，确保文件无法被篡改，时间戳服务真实可信。</li>
+<li>Improving the Efficiency and Reliability of Digital Time-Stamping 定期把需要验证的数据记录组合形成树结构，而验证者只需判断少量信息(tree root)即可验证树的有效性（The root of each tree is then certified）</li>
+<li><p>Secure names for bit-strings 这篇文章中，探讨了利用密码学来标记数字文档、URL的方法。 三篇论文都出现在中本聪关于论文《Bitcoin: A Peer-to-Peer Electronic Cash System》的引用列表中，成为比特币重要的研究基础之一。 1997年，S. Haber, W.S. Stornetta, 又于Proceedings of the 4th ACM Conference on Computer and Communications Security 发表了论文 "Secure names for bit-strings," 在这篇文章中，探讨了利用密码学来 标记数字文档、URL 的方法。</p></li>
+<li>Hashcash（挖矿）</li>
+<li>数字货币 b-money</li>
+<li>数字货币 Bit Gold</li>
+<li>Protocols for public key cryptosystems</li>
+<li><p>An introduction to probability theory and its applications</p></li>
+</ul>
+<p>除了各类的数据结构研究以外，早期的一些数字货币研究也给后期的 比特币提供了基础。例如 W. Dai, 在 1998 年的邮件组中所发表的"b- money" (<a target="_blank" rel="noopener" href="http://www.weidai.com/bmoney.txt" class="uri">http://www.weidai.com/bmoney.txt</a>)，就是一种匿名分布式 电子现金系统架构，从某种意义上，比特币即为该架构的一个具体项目实现。 此外，由 NickSazbo 在 1998 年发表于博客之中的比特黄金(Bit Gold)方案，也可以认为是比特币的基础之一。</p>
+<h2 id="区块链特点能力">区块链特点（能力）</h2>
+<h3 id="去中心化">去中心化</h3>
+<ul>
+<li>如 微博、BT 下载、滴滴</li>
+<li>从 <strong>架构层、政治层、逻辑层</strong> 看是否为中心化系统</li>
+<li>比特币在架构层去中心化，由多个用户和矿工构成；政治层去中心化，没有人可以控制区块链；逻辑层中心化，整体看上去好像一台计算机</li>
+<li>去中心化系统的优势：<strong>容错、抵抗攻击、抵抗合谋</strong></li>
+<li>但也有问题：同步成本、效率、规则难于统一</li>
+</ul>
+<h3 id="不可篡改性">不可篡改性</h3>
+<p>区块链之所以能够在去中心化的同时解决信<strong>任问题，最本质的原因是区块链具有不可篡改的特性。 其建立在</strong>哈希函数与其特殊的链式数据结构之上。</p>
+<p>区块是一种记录交易的数据结构。每个区块由 区块头和区块主体组成；区块主体只负责记录前一段时间内的所有交易信息；区块链的大部分功能都由区块头实现。</p>
+<p>区块头由三组区块元数据组成：</p>
+<ul>
+<li>第一组引用父区块头哈希值的数据，这组元数据用于将该区块与区块链中前一区块相连接。</li>
+<li>第二组元数据，即难度、 高度、时间戳和nonce， 与挖矿竞争相关 。</li>
+<li>第三组 元数据是merkle树根的哈希值 ，默克尔树（Merkel tree）根为当前区块中所有交易按照树形结构生成的256位哈希值</li>
+</ul>
+<p>篡改的理论可能性 - <strong>51%攻击（双花攻击）</strong></p>
+<p>区块链的一致性协议中认为：得到半数以上支持的提议将被确定为最终协议。 以比特币为例，假如一个人拥有比特币网络中50%以上的算力，并且不计成本，那么他就可以用自己的绝对算力优势篡改比特币网络中的数据，建立一条比当前主链更长的链，并将自己篡改后的区块链同步到所有对等节点中，这就是51%攻击。</p>
+<h3 id="匿名性">匿名性</h3>
+<p>两种主流的解释</p>
+<ul>
+<li><strong>anonymous</strong>，完全隐藏个人身份，即在事务处理时不使用任何身份表识；</li>
+<li><strong>pseudonymous</strong>，相对的身份隐藏，即在事务处理时使用某种标识来代替真实身份，即创造一个“假名”或“假身份”来代替自己的真实身份，即非实名</li>
+</ul>
+<p>区块链的匿名性是符合第二种解释的匿名性，即通过非实名的方式来达到的相对匿名。 区块链中每一个组织或个人使用一串无意义的数字来代替自己进行交易，这串数字就是地址，并且只要用户愿意，他可以生成无数个地址。地址与真实信息是无关联的，即人们无法把地址与现实生活中的身份对应起来。</p>
+<p>匿名的区块链应用 匿名的区块链应用在其他领域也大有作为，比如说基于区块链的匿名社交软件Telegram、WhatApp，借助匿名社交维护人民的言论自由。此外，匿名投票、艺术品拍卖等隐私需求高的场景都是区块链匿名性可以优化的方向</p>
+<h3 id="公开账本">公开账本</h3>
+<p>大多区块链项目均使用分布式公开账本数据库，它的数据是完全公开和透明的。 在区块链中只可以进行数据的读写而不可进行修改与删除，各节点遵循一致性共识确认进行广播的交易和交易发生的次序，从而形成了统一、唯一的全球交易总账本。</p>
+<p>优点</p>
+<ul>
+<li>每一个节点本地都可以保存完整总账本
+<ul>
+<li>记录着从创世区块到当前时刻的所有交易</li>
+</ul></li>
+<li>区块链中所有的交易都是可查询的
+<ul>
+<li>大部分区块链项目都提供区块链浏览器，可以用来查询区块链系统运行状态， 比如说 blockchain.info。</li>
+<li>每个人都知道网络的真实状态，防止了诸如双重攻击 (double-spending)之类的攻击</li>
+</ul></li>
+<li>数据公开解决了中心化难以监管、缺乏信任的弊端
+<ul>
+<li>将数据的所有权归还给用户，使每个参与其中的用户都成为监管系统数据、维护系统真实可靠性的一员，增强了可信性 。</li>
+</ul></li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>容量问题：如何在维持长期运行的详细历史记录与扩展其未来处理日益增长的交易量的能力的需求之间取得平衡</li>
+<li>隐私：一个永久记录每笔交易的公共账本也将方便黑客、政府或不法分子跟踪公共记录以及网络参与者的行为，这使区块链参与者的匿名性和隐私受到威胁</li>
+<li>黑客攻击：任何基于公共账本的加密货币始终会受到黑客攻击，窃取加密货币以及黑客堵塞网络的威胁，这些问题都亟待去完善 。</li>
+</ul>
+<h2 id="编码与密码">编码与密码</h2>
+<h3 id="相关编码">相关编码</h3>
+<p>区块链常见的编码格式：将二进制转可视字符串的算法</p>
+<ul>
+<li>Base64编码</li>
+<li>Base58编码</li>
+<li>Base58Check编码</li>
+</ul>
+<p>Base58 在 Base64 的基础上去除了容易混淆的字符，不同应用中的字符集是不同的。Base58 没有校验机制，Base58Check 在此基础上增加了校验机制，在原数据的前面加数据类型后面加校验和，最后进行 Base58 编码。</p>
+<h3 id="公钥密码学">公钥密码学</h3>
+<h4 id="简单总结">简单总结</h4>
+<p>【以下的一个部分是对于 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/songwenlong/p/6517165.html">加解密算法、消息摘要、消息认证技术、数字签名与公钥证书</a> 一文的总结，感觉写得很清楚】</p>
+<ul>
+<li><strong>数据传输的安全</strong>，即保证不被窃听或解密，在传统的<strong>对称加密</strong>中双方都需要相同的密钥安全性有问题；而<strong>非对称加密</strong>利用公私钥的区分可解决该问题。对称加密常见算法有DES 3DES AES RC5 RC6；非对称加密有 RSA 等。</li>
+<li><strong>保证数据完整性</strong>，即查看数据是否出了差错或被篡改。即「<strong>信息摘要/信息指纹</strong>」的概念，常见的例子是网上下载的软件会提供散列值进行校验。一般用哈希函数来完成，不可逆，常见算法有 MD5 SHA。</li>
+<li><strong>保证数据真实性</strong>，即<strong>信息认证</strong>。有一种「<strong>消息认证码</strong>（Message Authentication Code，简称MAC）」的功能类似于对称加密，问题在于无法保证发送者不否认该消息。「<strong>数字签名</strong>（Digital Signature）」可解决该问题——数字签名的重点在于发送方和接收方使用不同的密钥来进行验证，并且保证发送方密钥的唯一性，<strong>将公钥算法反过来使用</strong>可以达到此目的：A发送消息前，使用私钥对消息进行签名，B接收到消息后，使用配对的公钥对签名进行验证；如果验证通过，说明消息就是A发送的，因为只有A采用配对的私钥；第三方机构也是依据此来进行裁决，保证公正性。</li>
+<li><strong>公钥的合法性</strong>，上面的公钥加密和数字签名都有如何保证公钥的合法性的问题。解决办法是将公钥交给一个第三方权威机构——<strong>认证机构（Certification Authority）CA</strong> 来管理。接收方将自己的公钥注册到CA，由CA提供数字签名生成<strong>公钥证书（Public-Key Certificate）PKC</strong>，简称证书。证书中有CA的签名，接收方可以通过验签来验证公钥的合法性。</li>
+</ul>
+<h4 id="简介">简介</h4>
+<p>网络安全</p>
+<ul>
+<li>机密性 Confidentiality：仅发送方和接收方能够理解</li>
+<li>完整性 Integrity 1. 消息来源的完整性；2. 消息内容的完整性</li>
+<li>可用性 Availability</li>
+</ul>
+<p>古典密码学（ 1949年之前）：密码学是一门艺术 近代密码学（1949~1975）：密码学成为科学的分支 现代密码学（1976年之后）：密码学的新方向—公钥密码学</p>
+<h4 id="近代密码学">近代密码学</h4>
+<p>主要想法是分块进行加密，利用函数决定置换顺序，<strong>密钥</strong>决定了函数是如何进行置换的。</p>
+<p><strong>对称加密</strong>：DES 3DES AES【密钥可以是128，192，256】 RC5 RC6</p>
+<h4 id="公钥密码学-1">公钥密码学</h4>
+<p>1976年，Diffie和Hellman在“New Directions in Cryptography”中首次给出了公钥密码学的定义，开创了现代密码学的新领域 1977年，Rivest，Shamir和Adleman提出了RSA公钥算法 90年代逐步出现了椭圆曲线等其他公钥算法， 主要特点：公钥密码使得发送端和接收端无秘钥传输的保密通信成为可能【为了确认发送方的身份，需要 数字签名】</p>
+<ul>
+<li>非对称加密算法
+<ul>
+<li>每个用户都有一个公钥PK（可公开）和一个私钥SK（必须保密）</li>
+<li>公钥用于加密，私钥进行解密</li>
+<li>解决了传统密码体制的两个大难题：<strong>密钥分配和数字签名</strong></li>
+</ul></li>
+</ul>
+<h5 id="数字签名">数字签名</h5>
+<p>在使用公钥加密算法时，公钥是公开的，因此中间者可以冒充发送方给接收方发送消息，而发送方无法证明该消息不是他发送的。</p>
+<p>如果发送方在发送消息时带上只有他自己才能生成的数据（字符串），接收者就能验证消息的来源。通常这个<strong>能证实身份的数据（字符串）就称之为数字签名</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058426625085.jpg" /></p>
+<p>非对称加密：公钥加密、私钥解密 数字签名：私钥签名、公钥验签</p>
+<h5 id="公钥算法">公钥算法</h5>
+<p>具有实用性的公钥算法只有以下三类，其中区块链中常用的公钥加密算法是椭圆曲线算法。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058427386942.jpg" /></p>
+<h4 id="其他一些数字签名">其他一些数字签名</h4>
+<p>除了传统理解上的数字签名之外，还包括</p>
+<ul>
+<li>群签名：有一定的匿名性（作为群体）；但在特殊情况下管理员可以进行追踪信息源（可追追踪性）；</li>
+<li>环签名：无条件匿名性，作为群体进行签名；一个例子，内个成员举报总统；</li>
+<li>盲签名：签名者并不知道消息的内容；</li>
+</ul>
+<h3 id="哈希函数">哈希函数</h3>
+<p>Hash函数h用于将任意长的消息（或数据）m映射为较短的、固定长度的一个值 h(m)，函数值h(m)也被称为消息的指纹或摘要。</p>
+<p>三个特性：</p>
+<ol type="1">
+<li>碰撞阻力；</li>
+<li>隐秘性：即给出结果无法计算输入；</li>
+<li>谜题友好性：通俗来说就是在反向求解哈希函数时，没有比随机去尝试输入的取值有更好的办法。</li>
+</ol>
+<h3 id="默克尔树">默克尔树</h3>
+<p>在区块链中，使用<strong>哈希指针和默克尔树</strong>可以用来防止信息被篡改。</p>
+<p>在默克尔树中，将数据两两分组，然后每一组建立的两个哈希指针分别指向这两个元素；像这样得到根哈希指针。</p>
+<p>另外一个优势，利用默克尔树可以提高<strong>隶属证明</strong>的效率：要证明某个数据数据默克尔树，仅需要 <span class="math inline">\(\log(n)\)</span> 次计算。</p>
+<h2 id="共识机制">共识机制</h2>
+<p><strong>区块链共识机制的目标是使所有的诚实节点保存一致的区块链视图</strong>。</p>
+<h3 id="工作量证明proof-of-workpow">工作量证明(Proof-of-Work，PoW)</h3>
+<p>从比特币的挖矿开始说起</p>
+<p>工作量证明算法的具体步骤归纳如下：</p>
+<ul>
+<li>通过 Merkle Tree 算法生成 Merkle Tree Root；</li>
+<li>将所有区块头的相关字段组装成区块头，将80字节的区块头数据作为工作量证明的输入；</li>
+<li>不断变更区块头中的随机数 Nonce 的值，对每次变更后的区块头做两次 SHA256 计算，即 SHA256(SHA256(Block Header))；</li>
+<li>将结果值与当前的难度目标进行比较，如果小于难度目标，则工作量证明完成；</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058537988215.jpg" /></p>
+<p>优点：</p>
+<ul>
+<li>安全性好</li>
+<li>去中心化</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>高能耗</li>
+<li>速度慢，公式时间长</li>
+<li>弱中心化：矿场集中化</li>
+</ul>
+<h3 id="posproof-of-stake权益证明">PoS（Proof-of-stake，权益证明）</h3>
+<p>PoS 机制根据每个节点拥有代币的比例和时间，依据算法等比例地降低节点的工作量证明难度，从而加快了寻找随机数的速度 任何人只要拥有电子货币，就可以参与生产区块（无门槛） PoS 类似于财产储存在银行，这种模式会根据持有货币的量和时间，分配相应的利息。 会引入一系列问题，无法确定“记账”节点的数量，无法确定“记账”节点之间的网络环境，节点越多会导致网络环境越复杂，这种不确定性会大大增加区块链分叉的概率，并且由于节点数量与网络环境的复杂性，区块链性能将会趋于低下。</p>
+<h3 id="dpos">DPoS</h3>
+<p>号称区块链 3.0 的 <strong>EOS 区块链</strong>，在 PoS 的基础上进行了优化，采用了 <strong>DPoS 机制（Delegated-Proof-of-Stake，代理权益证明）</strong> 解决了 PoS 的一些问题，可以事先确定“记账”节点和其数量,并让全网节点投票决定哪些节点成为“记账”节点</p>
+<p>将区块生产者由 PoS 机制下的所有节点转换成指定节点数组成的小圈子，作为“记账”节点。这个圈子的节点数取决于区块链的设计，EOS 使用了 <strong>21</strong> “记账” 节点由全网所有节点投票得到，这一过程也叫投票选举。指定数量的节点来“记账“不代表其他节点丧失了参与共识的权利，只不过其他节点以一种间接的形式行使共识权。 由于“记账”节点的数量不多，那么可以在算法设计时规定一个固定的出块时间，并由“记账”节点轮流进行记账。</p>
+<p>优缺点</p>
+<p>提升确认速度：DPoS 区块生产性能非常高，这就意味着交易确认会变得更实时 EOS每生成1个区块只需要0.5秒，一笔交易大概经过6-10次确认，时间不超过1分钟。</p>
+<p>大量降低能耗：在DPOS中生产区块的节点数量极少，大致几十或几百个，每次只授权一个生产者在给定时间生产区块，区块生产是井然有序的，这些节点之间的关系是合作而不是竞争，因此不需要消耗大量的算力去竞争记账权，这样就极大地降低了能源消耗</p>
+<p>即使在有生产者出现恶意行为的情况下，DPoS 机制也是强健而稳定的，因为可以随时替换掉不合格的区块生产者</p>
+<p><strong>但是 DPoS 在一定程度上违背了去中心化的思想</strong>，由于数量不多，所以区块生产节点的权力都比较大，可以认为 DPoS 是带有一定中心化思想的共识机制。</p>
+<h3 id="拜占庭故事-byzantine-generals-problem-与-pbft-实用拜占庭式容错-practical-byzantine-fault-tolerancepbft">拜占庭故事 (Byzantine Generals Problem) 与 pBFT (实用拜占庭式容错 practical Byzantine Fault Tolerance，pBFT)</h3>
+<p>pBFT 降低了原始的 BFT 的算法复杂度，使得 pBFT 在实际应用中具有可行性，并且做到能够同时容纳故障节点和作恶节点，提供了安全性与鲁棒性； 但是算法复杂度仍然过高，可拓展性比较差，在节点数量变多时，系统性能将会下降的很快，带来更高的延迟；</p>
+<h3 id="分布式系统共识的意义">分布式系统共识的意义</h3>
+<p>在区块链中，每个参与者都是一个独立的、有自治性的节点。不同节点都各自维护着一条内容相同的数据链，同时也独立地将网络中新产生的数据打包为一个区块，广播给其他节点。 最终只能有一个区块加入到主链，如何选择这个区块是区块链共识的重要任务之一。在这个过程中，如果将主链视为账本，共识算法所做的就是决定将哪个节点整理的账目写入总账，即如何分配记账权 共识机制作为区块链技术的重要组件之一，其目的是让所有诚实节点保存一致的区块链视图，并且能同时满足两个性质，这也是共识机制的目标</p>
+<ul>
+<li>一致性：所有诚实节点保存的区块链的前缀部分完全相同。</li>
+<li>有效性：由某一诚实节点所发布的信息终将被其他所有的诚实节点记录到自己的区块链中去。</li>
+</ul>
+<h2 id="智能合约">智能合约</h2>
+<p>早在1994年，几乎是与互联网的概念提出的同时，密码学家和数字货币研究者尼克·萨博发表了《智能合约》（Smart contracts）论文，提出“智能合约”的概念。</p>
+<p>传统合约需要交易双方或者多方必须信任彼此，通过协议进行交易。智能合约则不同，智能合约的协议逻辑通过代码来体现，通过代码定义并强制执行，不会通过人的主观干预而发生改变。 <strong>换句话说智能合约实际就是一段编写好的代码，一旦被调用就会严格公正地去执行代码的内容。</strong></p>
+<p>智能合约概念的提出远早于区块链概念，但为什么到了现在才开始进入大众眼中呢？这其实跟技术有关的，早期的构想是把智能合约烧写到硬件上以此来避免攻击者去攻击合约，但是因为当时的执行，安全和技术落地困难等原因就被搁置了。 2008年中本聪提出的比特币将区块链技术带入大众视野。区块链技术的不可篡改性，可追溯性及多方计算等特性与智能合约的应用需要不谋而合，这使人们开始思考着14年前提出的智能合约概念是不是可以依靠区块链技术去实现。</p>
+<p>2014 年一位名叫 Vitalik Buterin（以下简称布特林）的俄罗斯小伙在《比特币杂志》上发表文章《以太坊：一个下一代加密货币和去中心化应用平台》，第一个将区块链与智能合约结合起来的区块链平台正式问世。</p>
+<p>每当区块链网络中出现一个新交易，该交易会被矿工节点们捕获并在自己的 <strong>EVM</strong> 上模拟运行出结果，并将自己的结果广播至网络中等待被其他节点验证，被所有节点承认正确的结果才会成为此交易的正确执行结果，不被承认的交易结果则不会具有记录上链的资格。 这种多方计算并达成共识的机制使作弊成本大大提高，而且区块链的不可篡改性和可追溯性更可以帮助查找以往智能合约的执行记录。</p>
+<p>优点：</p>
+<ul>
+<li>高效性：相比于传统合约，智能合约的执行不需要人为的第三方权威或中心化代理服务的参与，其能够在任何时候响应用户的请求，从而提升了交易进行的效率。</li>
+<li>准确执行：智能合约的所有条款和执行过程是提前制定好的，并在计算机的绝对控制下进行计算。</li>
+<li><strong>多方计算</strong>：区块链中是多方计算产生结果并达成共识的，如果想要作弊的话就需要最少控制51%以上的节点来帮助作弊，这极大的提高了在区块链网络中作弊的成本。</li>
+<li>不可篡改性：区块链中智能合约一旦被部署上链则会永远存储在区块链网络中且不会被篡改（理论上可以从记录该信息的块前再生成新的一条链来重写此交易结果，但是人为分叉一条新链的成本大的超乎想象，因此可以忽略此风险）</li>
+<li>可追溯性：所有在区块链网络中执行的智能合约结果一旦被上链后都具有能被查询到。</li>
+<li><strong>较低的运行成本</strong>：智能合约的执行仅需要电费的支出，这相比于传统合约的人力支出真的少了很大的成本。</li>
+</ul>
+<p>当然，只要是人为编写的代码，肯定有出错的可能性。 <strong>2016 年，TheDAO攻击事件</strong></p>
+<p>三个应用案例</p>
+<ul>
+<li>博彩交易</li>
+<li>差价和约</li>
+<li>遗产分配</li>
+</ul>
+<h2 id="fabric-架构">Fabric 架构</h2>
+<p>Hyperledger Fabric 是一个<strong>开源的企业级分布式账本技术平台</strong>。 最初由 Digital Asset 和 IBM 贡献, 来自一场黑客松 2015年12月，Linux基金会主导发起了 Hyperledger 项目，Hyperledger Fabric 是 Hyperledger 旗下的项目之一。 目标是发展跨行业的区块链技术。该项目是一个全球协作项目，成员包括一些不同领域的先驱者们，这些先驱者们的目标是建立一个强大的、业务驱动的区块链框架</p>
+<p>Hyperledger Fabric 特点（与其他区块链系统不同点）</p>
+<ul>
+<li>最大的不同：<strong>私有和许可</strong>。 Hyperledger Fabric通过成员服务提供者(Membership Service Provider)来登记 有的成员。这意味着参与者彼此都是已知的、互相信任的，而不是匿名的、 彼此完全不信任的。</li>
+<li>最关键的不同点：是它支持<strong>可插拔的共识协议</strong>，这使得平台能够更有效地定制以适应特定的场景。</li>
+<li>允许账本非公开，提供了<strong>建立通道(channel)</strong> 的功能，允许参与者为交易新建一个单独的账本。只有在同一个通道中的参与者，才会拥有该通道中的账本，而其他不在此通道中的参与者则看不到这个账本，实现按需共享的目的。 更符合现实生活的商业场景。</li>
+<li>Hyperledger Fabric 的 SDK 支持多种语言，与其他区块链网络的专用语言相比，大大降低了应用开发的门槛。</li>
+</ul>
+<p>节点架构 账本 通道 <strong>成员服务提供者 MSP</strong> 针对背书策略的交易评估 Fabric 在实际场景中的交易流程</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058560327379.jpg" /></p>
+<h3 id="节点架构">节点架构</h3>
+<h4 id="客户端节点">客户端节点</h4>
+<p>客户端或者应用程序代表由最终用户操作的实体，它必须连接到某一个 Peer 节点或者排序服务节点上与区块链网络进行通信。 客户端向背书节点（Endorser）提交交易提案（Transaction Proposal），当收集到足够背书后，向排序服务广播交易，进行排序，生成区块。</p>
+<h4 id="peer-节点">Peer 节点</h4>
+<p>所有的Peer节点都是<strong>记账节点（Committer）</strong>，负责验证从排序服务节点发送的区块里的交易，维护状态数据和账本的副本。 部分节点会执行交易并对结果进行签名背书，充当<strong>背书（Endorser）节点</strong>的角色。背书节点是动态的角色，是与具体链码绑定的。<strong>每个链码在实例化的时候都会设置背书策略（共识）</strong>。也只有在应用程序向它发起交易背书请求的时候才是背书节点，其他时候就是普通的记账节点，只负责验证交易并记录账本。 Peer节点还有一种角色是<strong>主节点（Leader Peer）</strong>，代表的是和排序服务节点通信的节点，负责从排序服务节点处获取最新的区块并在组织内部同步。主节点可以通过强制设置产生，也可以动态选举产生。</p>
+<h4 id="排序服务节点">排序服务节点</h4>
+<p>接收<strong>包含背书签名的交易</strong>，对未打包的交易进行排序生成区块，广播给Peer节点。排序服务提供的是<strong>原子广播（Atomic Broadcast）</strong>，保证同一个链上的节点接收到相同的消息，并且有相同的逻辑顺序 提供交付保证的通信架构，为客户端和 Peer 节点提供共享的通信信道，为包含交易的消息提供广播服务。 排序服务的<strong>多通道（Multi-Channel）</strong>实现了了多链的数据隔离，保证只有同一个链的Peer节点才能访问链上的数据，保护用户数据的隐私。 排序服务可以采用集中式服务，也可以采用分布式协议。可以实现不同级别的容错处理。 一组排序节点形成 <strong>排序服务(ordering-service)</strong></p>
+<h4 id="ca-节点">CA 节点</h4>
+<p>CA节点是Fabric的<strong>证书颁发机构（Certificate Authority）</strong>，由服务器和客户端组件组成。 CA节点接收客户端的注册申请，返回注册密码用于用户登录，以便获取身份证书。在区块链网络上所有的操作都会验证用户的身份</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058564293105.jpg" /></p>
+<h3 id="账本">账本</h3>
+<p>Hyperledger Fabric包含一个账本子系统，这个子系统包含两个组件：世界状态(world state)和交易记录。</p>
+<ul>
+<li><strong>世界状态</strong>组件描述了账本在特定时间点的状态，它是账本的当前快照，通过版本键值对存储(KVS)，由区块链上链码进行存取。状态s持续存储并且其更新也被记录，被存储为一个映射K -&gt; (V X N)，K是一组键，V是一组值，N是无限有序的版本号集。</li>
+<li><strong>交易记录</strong>组件记录了产生世界状态当前值的所有交易，它是世界状态的更新历史。它包含所有的状态更改（有效交易）的记录和不成功的状态更改（无效交易）的尝试，由Order服务构建的有序的交易哈希块，并被保存在Peer节点。</li>
+</ul>
+<h3 id="通道">通道</h3>
+<p><strong>客户端连接到通道（Channel）上</strong>，在通道上广播的消息会最终发送给通道内所有的Peer节点。通道支持消息的原子广播（Atomic Broadcast），通道给所有相连的Peer节点输出相同的消息，并且有相同的逻辑顺序。这种原子通信也称为全序广播（Total-order Broadcast）。 客户端连接到一个通道上，就可以发送和获取消息。客户端可以连接到多个通道，通道之间相互隔离。通道（Channel）使交易者可以创建不同的账本，达到数据隔离的目的。只有在同一个通道中的参与者，才会拥有该通道中的账本，而其他不在此通道中的参与者则看不到这个账本。 排序服务支持<strong>多通道（Multi-Channel）</strong></p>
+<p>节点之间，节点与应用通过消息通道通信 节点间通过消息通道和排序服务联系，形成交易信息<strong>隔离</strong>的通讯链路 环境中可以并行存在多个消息通道，每个通道一个账本 Channel 配置包含 channel 的所有管理信息</p>
+<ul>
+<li>channel的成员属于哪个组织</li>
+<li>包含channel级别的全局配置，比如channel访问策略、区块大小等</li>
+</ul>
+<p>Channel 消息通道作用：<strong>适配组织架构的多链机制</strong></p>
+<ul>
+<li><strong>一个链由1个通道 + 1个账本 + N个成员(peer)组成</strong></li>
+<li>共识由Ordering Service提供，可共享</li>
+<li>成员可加入多个链</li>
+</ul>
+<h3 id="成员服务提供者-msp">成员服务提供者 MSP</h3>
+<p>成员服务提供者 MSP 是 Hyperledger Fabric 引入的一个组件，其将证书颁发、用户认证、后台的加密机制和协议都进行了抽象。每个MSP可以定义自己的规则，这些规则包括身份的认证，签名的生成和认证。 每个Fabric区块链网络可以引入一个或者多个MSP来进行网络管理，这样将成员本身和成员之间的操作、规则和流程都模块化。 Hyperledger Fabric 基于 PKI 体系，生成数字证书以标识用户的身份。每个身份和成员服务管理提供者（Membership Service Provider, MSP）的编号进行关联。</p>
+<ul>
+<li>成员（Member）是拥有网络唯一根证书的合法独立实体。在 Fabric 区块链中，peer 节点和 app client 这样的网络组件实际上就是一个 Member。</li>
+<li>成员服务（Member Service）在许可的区块链网络上认证、授权和管理身份。在peer和order中运行的成员服务的代码都会认证和授权区块链操作。它是基于 PKI 的 MSP 实现。</li>
+</ul>
+<p>MSP 的具体功能是<strong>成员管理</strong>。包括 会员注册、身份保护、内容保密、交易审计功能；保证平台访问的安全性。</p>
+<h3 id="针对背书策略的交易评估">针对背书策略的交易评估</h3>
+<p>背书（Endorsement）（达成共识过程） 背书是指一个节点执行一个交易并返回交易是否通过的消息给生成交易提案的客户端应用程序的过程。 <strong>每个chaincode都具有相应的背书策略，用于指定背书节点</strong>。链码的调用交易需要经过背书策略要求的背书才会有效。正式的背书策略是以背书为基础，以及潜在的进一步评估为真假状态。 对于部署交易，获得背书的依据是系统系统范围策略（如系统链码）。背书通过被每个peer节点本地独立评估，但所有正确的peer节点以相同的方式评估背书策略。</p>
+<p>背书策略（Endorsement policy） 背书策略是认可交易的条件。对于某一链码，背书策略可指定认可交易的最小背书节点数或者最小背书节点百分比。背书策略可以用来防止成员的不良行为。在安装和实例化 Chaincode 时需要指定背书策略。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16058578111034.jpg" /></p>
+<p>交易过程</p>
+<p>Step1：客户端创建交易并发送给背书peer节点 Step2：验证交易事务协议请求并模拟执行 Step3：验证背书节点签名并发送给排序服务节点 Step4：排序服务节点合并交易并创建区块 Step5：排序服务节点广播给Channel的Leader节点 Step6：账本更新</p>
+<h3 id="例题架构设计">例题：架构设计</h3>
+<p>请阅读如下材料，完成项目的区块链架构设计，在“lianmen.docx”文件中填写完成所需步骤。 Hyperledger Fabric可以用来搭建联盟链，现有一个名为university.cn的联盟，其中有5个组织org1、org2、org3、org4和org5决定利用区块链合作传输数据，包括公共数据和秘密数据。联盟商定每个组织创建2个节点，org5额外承担排序节点工作，公共数据允许全部组织访问，秘密数据只允许org1、org3和org5访问。处理公共数据的智能合约有CCP1和CCP2；处理秘密数据的智能合约有CCS1和CCS2。</p>
+<p>步骤一：创建节点 生成12个节点的配置文件并完成相关部署，包括10个peer节点，2个orderer节点，说明理由（例：为组织X1生成XXX）：为组织org1、org2、org3、org4和org5各生成2个peer节点，共10个；另外为组织org5生成2个orderer节点 步骤二：创建通道 生成2个消息通道的配置文件并完成相关部署，包括1个公共数据通道，1个秘密数据通道，说明理由：公共数据和秘密数据需要数据隔离，所以需要2个通道. 步骤三，通道节点操作： 分别将peer和orderer加入两通道，org1、org2、org3、org4和org5加入公共数据通道ChannelPublic，org1、org3和org5加入秘密数据通道ChannelPrivate，orderer节点为两个通道提供排序服务 步骤四，通道合约操作： 分别在两个通道部署合约，CCP1和CCP2部署在公共数据通道channelPublic，CCS1和CCS2部署在公共数据通道channelPrivate</p>
+<h2 id="go-语言语法">Go 语言语法</h2>
+<p>参见 <a href="mweblib://16057741036129">Go语言大纲</a>。下面对于 PPT 内容简单摘录。</p>
+<p>程序结构 基础语法 数据类型 变量和常量 运算符 数组(Array)和切片(Slice) 结构体 逻辑控制语句 循环语句 条件语句 函数 接口</p>
+<h3 id="相关的包">相关的包</h3>
+<p>在chaincode的开发中，需要导入chaincode的依赖库来提供接口支持，需要导入 <code>shim</code> 库</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ( </span><br><span class="line"><span class="string">&quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;</span></span><br><span class="line"><span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>shim库包含一系列chaincode依赖的API，提供和区块链环境进行交互的方法，包括访问状态数据，交易数据，链码之间调用等等。</p>
+<h3 id="方法">方法</h3>
+<p>一个方法就是一个包含了接受者的函数，接受者可以是命名类型或者结构体类型的一个值或者是一个指针。所有给定类型的方法属于该类型的方法集。</p>
+<p>定义的语法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func (v_name v_datatype) func_name() [return_type] &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="接口">接口</h3>
+<p>Go 语言提供了另外一种数据类型即接口，它把所有的具有共性的方法或行为定义在一起，在功能和该功能的使用者之间构建了一层薄薄的抽象层，任何其他类型只要实现了这些方法就是实现了这个接口。</p>
+<p>Hyperledger Fabric 的 ChainCode 的每个 chaincode 程序都必须实现chaincode 接口，接口中的方法会在响应传来的交易时被调用</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Chaincode <span class="keyword">interface</span> &#123;</span><br><span class="line">    Init (stub ChaincodeStubInterface) pb.Response</span><br><span class="line">    Invoke (stub ChaincodeStubInterface) pb.Response</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Init</code>（初始化）方法会在chaincode接收到instantiate（实例化）或者upgrade(升级)交易时被调用，进而使得chaincode顺利执行必要的初始化操作，包括初始化应用的状态。 <code>Invoke</code>（调用）方法会在响应 invoke（调用）交易时被调用以执行交易。</p>
+<h2 id="fabric的chaincode的编写与单元测试golang版">Fabric的chaincode的编写与单元测试（Golang版）</h2>
+<h3 id="什么是链码chaincode">什么是链码（chaincode）</h3>
+<ul>
+<li>账本
+<ul>
+<li>在Fabric中，每个通道都有其账本，每个peer节点都保存着其加入的通道的账本，包含着<strong>交易日志（账本数据库）、状态数据库以及历史数据库</strong>。</li>
+<li><strong>账本数据库</strong>：以区块链方式存储，是一个交易记录的集合，每个区块中包含一些列有序交易，简单的说，是一系列有序的、不可篡改的状态转移记录日志。每笔交易都可以当做对世界状态的一次查询或者更新，称之为状态转移，<strong>状态转移是链码（chaincode）执行（交易）的结果</strong>，每个交易都是通过增删改操作提交一系列键值对到账本。</li>
+<li><strong>状态数据库</strong>：维护账本当前的状态，这些中间状态的最新值是以键值对方式保存在数据库中的。他们被称为世界状态。和链上数据一同组织形成了账本，可以认为世界状态是由区块链上数据完整执行获得的最终结果。</li>
+</ul></li>
+<li>什么是链码
+<ul>
+<li><strong>链码（chaincode）</strong>是在 Hyperledger Fabric 中所提供的智能合约。从程序的角度，链码可以认为是运行在区块链平台上的可以对外提供服务的小程序。</li>
+<li>链码部署在平台上后，对外提供了一组可被调用的接口，应用程序（客户端）通过调用链码这些接口访问这些 world state 所存放的状态，通过状态的 key 来存，取，删除状态。</li>
+<li>对许多的应用开发者来说，链码其实才是最重要的，链码可以使用不同的程序设计语言来编写实现，比如：java，go，typescript，JavaScript，不管是哪种语言编写的链码，链码结构和实现方式都是差不多的。</li>
+</ul></li>
+</ul>
+<h3 id="链码的结构">链码的结构</h3>
+<ul>
+<li>引入必要的包
+<ul>
+<li>对于每一个链码，它都会实现预定义的接口，包括Init和Invoke函数接口。所以我们首先为我们的链码引入必要的依赖。这里的shim层是节点与链码交互的中间层。</li>
+<li>shim包是Fabric系统提供的主要的API，包含了链码和平台交互的接口，在链码中，执行状态修改、状态查询等功能都需要通过shim访问。</li>
+</ul></li>
+<li>声明一个结构体，即chaincode的主体结构体</li>
+<li>实现一个能部署到平台中的链码，需要满足特定的约束，具体来说，就是链码都需要实现特定的接口： chaincode 接口，实现其中的 Init() 和 Invoke() 函数，在其中利用 shim.ChaincodeStubInterface 结构，实现跟账本的交互逻辑。
+<ul>
+<li><strong>Init（初始化）方法</strong>：会在chaincode接收到instantiate（实例化）或者upgrade(升级)交易时被调用，进而使得chaincode顺利执行必要的初始化操作，包括初始化应用的状态。</li>
+<li><strong>Invoke（调用） 方法</strong>：主要用于实现链码的内部业务逻辑，用户可以在该方法中实现相关的业务。用Fabric的术语就是会在响应invoke（调用）交易时被调用以执行交易
+<ul>
+<li>链码初始化好之后，就能被区块链应用从外部调用。区块链平台将记录下调用的历史（交易日志），并更新worldstate中状态数据。</li>
+<li>调用链码中的方法的统一入口为Invoke，比如，如果要调用获取字典项"a"的服务，需要调用Invoke，并带参数("get","a"),其中，"get"为函数名，"a"为参数。参数可以有多个。</li>
+</ul></li>
+</ul></li>
+<li>主函数，需要调用shim.Start()方法</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Chaincode <span class="keyword">interface</span> &#123;</span><br><span class="line">    <span class="comment">// Init is called during Instantiate transaction after the chaincode container</span></span><br><span class="line">    <span class="comment">// has been established for the first time, allowing the chaincode to</span></span><br><span class="line">    <span class="comment">// initialize its internal data</span></span><br><span class="line">    Init(stub ChaincodeStubInterface) pb.Response</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Invoke is called to update or query the ledger in a proposal transaction.</span></span><br><span class="line">    <span class="comment">// Updated state variables are not committed to the ledger until the</span></span><br><span class="line">    <span class="comment">// transaction is committed.</span></span><br><span class="line">    Invoke(stub ChaincodeStubInterface) pb.Response</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"> <span class="string">&quot;strconv&quot;</span></span><br><span class="line"></span><br><span class="line"> <span class="string">&quot;github.com/hyperledger/fabric-chaincode-go/shim&quot;</span>  <span class="comment">// shim包是Fabric系统提供的上下文环境，提供了Chaincode和Fabric交互的API，在Chaincode中，执行对world state的查询、更新和删除等都需要通过shim</span></span><br><span class="line"> <span class="string">&quot;github.com/hyperledger/fabric-protos-go/peer&quot;</span>     <span class="comment">// chaincode结构体需要实现Fabric提供的接口 peer</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 该结构体需要实现Fabric提供的接口&quot;github.com/hyperledger/fabric/protos/peer&quot;，其中必须实现下面的两个方法</span></span><br><span class="line"><span class="keyword">type</span> SimpleContract <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Init 链码在初始化和升级时调用此接口，初始化相关的数据。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *SimpleContract)</span> <span class="title">Init</span><span class="params">(stub shim.ChaincodeStubInterface)</span> <span class="title">peer</span>.<span class="title">Response</span></span> &#123;</span><br><span class="line"> <span class="comment">//该方法中实现链码初始化或升级是的处理逻辑，</span></span><br><span class="line"> <span class="comment">//编写时可以灵活使用stub中的API</span></span><br><span class="line"> args := stub.GetStringArgs()</span><br><span class="line"> <span class="keyword">if</span> <span class="built_in">len</span>(args) != <span class="number">2</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(<span class="string">&quot;Incorrect arguments. Expecting a key and a value&quot;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> _, err := strconv.Atoi(args[<span class="number">1</span>])</span><br><span class="line"> <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(<span class="string">&quot;Expecting integer value for state&quot;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//将参数中的Key/Value更新到</span></span><br><span class="line"> err = stub.PutState(args[<span class="number">0</span>], []<span class="keyword">byte</span>(args[<span class="number">1</span>]))</span><br><span class="line"> <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(fmt.Sprintf(<span class="string">&quot;Failed to create state: %s&quot;</span>, args[<span class="number">0</span>]))</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> shim.Success(<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *SimpleContract)</span> <span class="title">get</span><span class="params">(stub shim.ChaincodeStubInterface, args []<span class="keyword">string</span>)</span> <span class="title">peer</span>.<span class="title">Response</span></span> &#123;</span><br><span class="line"> <span class="keyword">if</span> <span class="built_in">len</span>(args) != <span class="number">1</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(<span class="string">&quot;Incorrect arguments. Expecting a key and a value&quot;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> key := args[<span class="number">0</span>]</span><br><span class="line"> valBytes, err := stub.GetState(key)</span><br><span class="line"> <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(fmt.Sprintf(<span class="string">&quot;Fail to get state: %s&quot;</span>, key))</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span> valBytes == <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(fmt.Sprintf(<span class="string">&quot;Nil amount: %s.&quot;</span>, key))</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> shim.Success(valBytes)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *SimpleContract)</span> <span class="title">set</span><span class="params">(stub shim.ChaincodeStubInterface, args []<span class="keyword">string</span>)</span> <span class="title">peer</span>.<span class="title">Response</span></span> &#123;</span><br><span class="line"> <span class="keyword">if</span> <span class="built_in">len</span>(args) != <span class="number">2</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(<span class="string">&quot;Incorrect arguments. Expecting a key and a value&quot;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> _, err := strconv.Atoi(args[<span class="number">1</span>])</span><br><span class="line"> <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(<span class="string">&quot;Expecting integer value for state&quot;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> err = stub.PutState(args[<span class="number">0</span>], []<span class="keyword">byte</span>(args[<span class="number">1</span>]))</span><br><span class="line"> <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shim.Error(fmt.Sprintf(<span class="string">&quot;Failed to set state: %s&quot;</span>, args[<span class="number">0</span>]))</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> shim.Success(<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Invoke 来自区块链应用的调用的入口</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *SimpleContract)</span> <span class="title">Invoke</span><span class="params">(stub shim.ChaincodeStubInterface)</span> <span class="title">peer</span>.<span class="title">Response</span></span> &#123;</span><br><span class="line"> function, args := stub.GetFunctionAndParameters()</span><br><span class="line"> <span class="keyword">if</span> function == <span class="string">&quot;get&quot;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> t.get(stub, args)</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> function == <span class="string">&quot;set&quot;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> t.set(stub, args)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> shim.Error(<span class="string">&quot;Invalid invoke function name. Expecting \&quot;get\&quot; \&quot;set\&quot;&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"> <span class="keyword">if</span> err := shim.Start(<span class="built_in">new</span>(SimpleContract)); err != <span class="literal">nil</span> &#123;</span><br><span class="line">  fmt.Printf(<span class="string">&quot;Error starting SimpleContract chaincode: %s&quot;</span>, err)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="需要应用的fabric的api">需要应用的Fabric的API</h3>
+<p>作为参数传入的ChaincodeStubInterface接口提供了Chaincode和Fabric交互的API，一个链码最主要的功能就是根据区块链应用调用时所传递的参数，对平台中的信息，特别是账本信息，进行访问和修改。 着重介绍示例代码用到的API GetState/PutState/DelState /GetStateByRange GetFunctionAndParameters GetStringArgs</p>
+<p>Fabric区块链的应用中，一个核心的需求就是获取和保存交易的状态信息也就是在worldstate中的状态数据，而其存储都是用键值对（key-value)的方式。 key-value是最简单，同时也是最高效的存储方式。在区块链的应用中，由于平台性能的约束，通常应用的业务逻辑比较简单，key-value足够使用。</p>
+<ul>
+<li>API：PutState
+<ul>
+<li><code>func (s *ChaincodeStub) PutState(key string, value []byte) error</code></li>
+</ul></li>
+<li>API：GetState
+<ul>
+<li><code>func (s *ChaincodeStub) PutState(key string, value []byte) error</code></li>
+</ul></li>
+<li>API：DelState
+<ul>
+<li><code>func (stub *ChaincodeStub) DelState(key string) error</code></li>
+</ul></li>
+<li>API：GetStateByRange
+<ul>
+<li><code>func (stub *ChaincodeStub) GetStateByRange(startKey, endKey string) (StateQueryIteratorInterface, error)</code></li>
+<li>查询指定范围内的键值，startKey为起始key，endKey为终止key，返回账本状态键迭代器,可用来获取指定的起始键与结束键（半闭半开区间）之间的状态键</li>
+</ul></li>
+<li>API：GetFunctionAndParameters
+<ul>
+<li><code>func (stub *ChaincodeStub) GetFunctionAndParameters() (function string, params []string)</code></li>
+<li>通过该API，可以提取获取应用App调用链码链码交易中的参数，其中第一个作为被调用的函数名称，剩下的参数作为函数的执行参数。</li>
+</ul></li>
+<li>API：GetStringArgs
+<ul>
+<li><code>func (stub *ChaincodeStub) GetStringArgs() []string</code></li>
+<li>获取区块链应用App调用链码时调用的参数列表，要求参数列表是字符串。</li>
+</ul></li>
+<li>API: Success/Error
+<ul>
+<li><code>func Success(payload []byte) pb.Response</code></li>
+<li><code>func Error(msg string) pb.Response</code></li>
+<li>无论是Init还是Invoke，在实现的时候都要求返回一个Response对象，使用Success和Error分别对应于构建处理成功和失败时的Response。 Success 方法负责将正确的消息返回给调用Chaincode的客户端， Error方法将错误的信息返回给调用Chaincode的客户端。</li>
+</ul></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GetArgs returns the arguments intended for the chaincode Init and Invoke</span></span><br><span class="line"><span class="comment">// as an array of byte arrays.</span></span><br><span class="line">GetArgs() [][]<span class="keyword">byte</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// GetStringArgs returns the arguments intended for the chaincode Init and</span></span><br><span class="line"><span class="comment">// Invoke as a string array. Only use GetStringArgs if the client passes</span></span><br><span class="line"><span class="comment">// arguments intended to be used as strings.</span></span><br><span class="line">GetStringArgs() []<span class="keyword">string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// GetFunctionAndParameters returns the first argument as the function</span></span><br><span class="line"><span class="comment">// name and the rest of the arguments as parameters in a string array.</span></span><br><span class="line"><span class="comment">// Only use GetFunctionAndParameters if the client passes arguments intended</span></span><br><span class="line"><span class="comment">// to be used as strings.</span></span><br><span class="line">GetFunctionAndParameters() (<span class="keyword">string</span>, []<span class="keyword">string</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// GetState returns the value of the specified `key` from the</span></span><br><span class="line"><span class="comment">// ledger. Note that GetState doesn&#x27;t read data from the writeset, which </span></span><br><span class="line"><span class="comment">// doesn&#x27;t</span></span><br><span class="line"><span class="comment">// consider data modified by PutState that has not been committed.</span></span><br><span class="line"><span class="comment">// If the key does not exist in the state database, (nil, nil) is returned.</span></span><br><span class="line">GetState(key <span class="keyword">string</span>) ([]<span class="keyword">byte</span>, error)</span><br><span class="line"></span><br><span class="line"><span class="comment">// PutState puts the specified `key` and `value` into the transaction&#x27;s</span></span><br><span class="line"><span class="comment">// writeset as a data-write proposal. PutState doesn&#x27;t effect the ledger</span></span><br><span class="line"><span class="comment">// until the transaction is validated and successfully committed.</span></span><br><span class="line"><span class="comment">// Simple keys must not be an empty string and must not start with a</span></span><br><span class="line"><span class="comment">// null character (0x00) in order to avoid range query collisions with</span></span><br><span class="line"><span class="comment">// composite keys, which internally get prefixed with 0x00 as composite</span></span><br><span class="line"><span class="comment">// key namespace. In addition, if using CouchDB, keys can only contain</span></span><br><span class="line"><span class="comment">// valid UTF-8 strings and cannot begin with an underscore (&quot;_&quot;).</span></span><br><span class="line">PutState(key <span class="keyword">string</span>, value []<span class="keyword">byte</span>) error</span><br><span class="line"></span><br><span class="line"><span class="comment">// DelState records the specified `key` to be deleted in the writeset of</span></span><br><span class="line"><span class="comment">// the transaction proposal. The `key` and its value will be deleted from</span></span><br><span class="line"><span class="comment">// the ledger when the transaction is validated and successfully committed.</span></span><br><span class="line">DelState(key <span class="keyword">string</span>) error</span><br></pre></td></tr></table></figure>
+<h3 id="编写一个简单的chaincode">编写一个简单的chaincode</h3>
+<h3 id="链码单元测试">链码单元测试</h3>
+<p>尽管通常链码都比较简单，但是还是需要经过测试验证其正确。我们可以通过自动化的方法，通过写程序验证代码逻辑上的正确性，Fabric提供了自动化测试框架。自动化测试框架的一个最大的优点是：不需要将链码部署到复杂的平台上，不需要启动任何网络节点，通过我们的测试文件就可以在本地对链码中的接口进行调用测试。。 Fabric通过一个名为 <code>MockStub</code> 的类用于单元测试。 MockStub主要提供两个函数来模拟背书节点对链码的调用：MockInit()和MockInvoke()，分别调用Init和Invoke接口。接收的参数均为类型为string的uuid（用于链码开始前和结束后开始事务的标志，无实际意义，可随便设置即可），以及一个二维byte数组（用于测试的提供参数）。 单元测试的要求： 1.需要导入testing包 2.单元测试文件以_test.go结尾 3.测试用例的函数必须以Test_开头</p>
+<p>输入 <code>go test</code> 进行测试，加入参数 <code>-v</code> 可查看详细结果。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"> <span class="string">&quot;testing&quot;</span></span><br><span class="line"></span><br><span class="line"> <span class="string">&quot;github.com/hyperledger/fabric-chaincode-go/shim&quot;</span></span><br><span class="line"> <span class="string">&quot;github.com/hyperledger/fabric-chaincode-go/shimtest&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">performInit</span><span class="params">(t *testing.T, stub *shimtest.MockStub, args [][]<span class="keyword">byte</span>)</span></span> &#123;</span><br><span class="line"> <span class="comment">//通过stub调用链码中的Init</span></span><br><span class="line"> res := stub.MockInit(<span class="string">&quot;1&quot;</span>, args)</span><br><span class="line"> <span class="comment">/*- 1为uuid，用于链码开始前和结束后开始事务的标志，无实际意义</span></span><br><span class="line"><span class="comment">   - args为初始化需要的参数*/</span></span><br><span class="line"> <span class="keyword">if</span> res.Status != shim.OK &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;Init failed&quot;</span>, <span class="keyword">string</span>(res.Message))</span><br><span class="line">  <span class="comment">//如果没有启动成功，则报告失败</span></span><br><span class="line">  t.FailNow()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//确认指定key的状态值是否为预期的值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">checkState</span><span class="params">(t *testing.T, stub *shimtest.MockStub, name <span class="keyword">string</span>, value <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line"> <span class="comment">//获取链码维护的指定key的状态值</span></span><br><span class="line"> bytes := stub.State[name]</span><br><span class="line"> <span class="keyword">if</span> bytes == <span class="literal">nil</span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;State&quot;</span>, name, <span class="string">&quot;failed to get value&quot;</span>)</span><br><span class="line">  t.FailNow()</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//如果不是期望的值，则报告失败</span></span><br><span class="line"> <span class="keyword">if</span> <span class="keyword">string</span>(bytes) != value &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;State value&quot;</span>, name, <span class="string">&quot;was not&quot;</span>, value, <span class="string">&quot;as expected&quot;</span>)</span><br><span class="line">  t.FailNow()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test_Init</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> <span class="comment">//构建链码</span></span><br><span class="line"> cc := <span class="built_in">new</span>(SimpleContract)</span><br><span class="line"> <span class="comment">// 将其部署到模拟MockStub平台， 传入名称和链码实体</span></span><br><span class="line"> stub := shimtest.NewMockStub(<span class="string">&quot;SimpleChaincode&quot;</span>, cc)</span><br><span class="line"> <span class="comment">//带参数（“a&quot;,&quot;10)调用链码中的Init，并确认是否成功</span></span><br><span class="line"> performInit(t, stub, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;a&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;10&quot;</span>)&#125;)</span><br><span class="line"> <span class="comment">//确认初始化后，指定key的状态值是否为预期的值，即健“a&quot; 的vlaue 应该为“10”</span></span><br><span class="line"> checkState(t, stub, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;10&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test_Get</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> cc := <span class="built_in">new</span>(SimpleContract)</span><br><span class="line"> <span class="comment">// 获取MockStub对象， 传入名称和链码实体</span></span><br><span class="line"> stub := shimtest.NewMockStub(<span class="string">&quot;SimpleChaincode&quot;</span>, cc)</span><br><span class="line"> performInit(t, stub, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;a&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;10&quot;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"> <span class="comment">//调用invoke方法中的get方法，查询a的值，得到a为10，说明get方法成功</span></span><br><span class="line"> res := stub.MockInvoke(<span class="string">&quot;1&quot;</span>, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;get&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;a&quot;</span>)&#125;)</span><br><span class="line"> <span class="keyword">if</span> <span class="keyword">string</span>(res.Payload) != <span class="string">&quot;10&quot;</span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">&quot;get value a  was not 10 as expected&quot;</span>)</span><br><span class="line">  t.FailNow()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test_Set</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line"> cc := <span class="built_in">new</span>(SimpleContract)</span><br><span class="line"> <span class="comment">// 获取MockStub对象， 传入名称和链码实体</span></span><br><span class="line"> stub := shimtest.NewMockStub(<span class="string">&quot;SimpleChaincode&quot;</span>, cc)</span><br><span class="line"> performInit(t, stub, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;a&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;10&quot;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"> <span class="comment">//调用invoke方法中的set方法，update key &quot;a&quot; value &quot;20&quot;</span></span><br><span class="line"> stub.MockInvoke(<span class="string">&quot;1&quot;</span>, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;set&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;a&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;20&quot;</span>)&#125;)</span><br><span class="line"> checkState(t, stub, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;20&quot;</span>)</span><br><span class="line"> <span class="comment">//调用invoke方法中的set方法， add key &quot;b&quot;  value &quot;30&quot;</span></span><br><span class="line"> stub.MockInvoke(<span class="string">&quot;1&quot;</span>, [][]<span class="keyword">byte</span>&#123;[]<span class="keyword">byte</span>(<span class="string">&quot;set&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;b&quot;</span>), []<span class="keyword">byte</span>(<span class="string">&quot;30&quot;</span>)&#125;)</span><br><span class="line"> checkState(t, stub, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;30&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="以太坊-ethereum-简介区块链-2.0">以太坊 Ethereum 简介（区块链 2.0）</h2>
+<p>2014年一位名叫 Vitalik Buterin（以下简称布特林）的俄罗斯小伙在《比特币杂志》上发表文章 ”一代智能合约和去中心化应用平台“——以太坊白皮书 一个开源的“可编程区块链“——Ethdocs ”以太坊在整体上可以看作一个基于交易的状态机: 起始于一个<strong>创世状态</strong>，然后随着交易的执行状态逐步改变达到一个最终状态。该最终状态将被看作以太坊世界的权威”版本“。状态中包含的信息有:账户余额、信誉度、现实世界相关数据等。——以太坊黄皮书</p>
+<p>从“奥林匹克”“前沿”“家园”到 “大都会”（“拜占庭”“君士坦丁堡”）</p>
+<ul>
+<li>EVM
+<ul>
+<li><strong>以太坊虚拟机 (EVM)</strong> 是智能合约的运行环境。它是一个对外完全隔离的沙盒环境，在其中运行的代码无法访问网络、文件系统和其他进程。不同合约之间的访问也是有限制的。</li>
+</ul></li>
+<li>账户
+<ul>
+<li>以太坊有两类不同类型的账户，分别为<strong>外部账户EOA和合约账户CA</strong>，它们共用一个地址空间。
+<ul>
+<li><strong>外部账户</strong>由公钥-私钥对控制，账户地址由公钥生成。该类账户被私钥控制（由人控制），没有关联任何代码</li>
+<li><strong>合约账户</strong>则由智能合约的代码控制，合约地址在合约创建时自动生成(通过合约创建者的地址和从该地址发出的交易数量计算得到) 。</li>
+</ul></li>
+<li>外部账户可以发起交易，而合约账户不能主动发起交易，只能通过外部账户发起交易触发后，按照预先编写的合约代码执行。</li>
+<li>每个账户都记录了四个字段，分别是<strong>nonce值，余额，存储哈希和合约代码哈希</strong>。
+<ul>
+<li>nonce 值: 为该账户地址发出的交易数量</li>
+<li>余额: 用来记录该账户的以太币余额</li>
+<li>存储: 是一个键值对形式的持久化存存储</li>
+<li>合约代码哈希: <strong>用于指向合约代码，只有合约账户有值，外部账户为空</strong>。</li>
+</ul></li>
+</ul></li>
+<li>交易
+<ul>
+<li>交易可以看作是从一个帐户发送到另一个帐户的消息。</li>
+<li>交易包含消息的接受者，用于确认发送者的签名，二进制数据和发送的以太币的数量。除此以外，交易还包含两个和gas有关的变量: gas price和 gas limit。</li>
+<li>交易的目标账户
+<ul>
+<li>目标账户是外部账户，则转入指定的以太币数量到该账户。</li>
+<li>目标账户是合约账户，则合约代码会被执行，发送的数据会作为代码的参数。</li>
+<li>目标账户是零账户(账户地址为 0 )，此交易将创建一个新合约， 发送的数据会转化为EVM字节码并执行，代码的输出将作为合约代码被永久存储。<br />
+</li>
+</ul></li>
+<li><strong>合约部署就是将编译好的合约字节码通过外部账号发送交易的形式部署到以太坊区块链上</strong>（由实际矿工出块之后，才真正部署成功）。</li>
+<li>在两个外部账户之间传送消息是价值转移的过程。</li>
+<li>从外部账户到合约账户的消息会激活合约账户的代码，允许它执行各种动作（比如转移代币，写入内部存储，挖出一个新代币，执行一些运算等）</li>
+</ul></li>
+<li>货币</li>
+<li>Gas
+<ul>
+<li>和云计算相似，占用区块链的资源（不管是简单的转账交易，还是合约的部署和执行）同样需要付出相应的费用。以太坊的每笔交易都会收取一定数量的gas作为交易的手续费。</li>
+<li>以太坊上用 Gas 机制来计费，Gas 也可以认为是一个工作量单位，智能合约越复杂（计算步骤的数量和类型，占用的内存等），用来完成运行就需要越多 Gas。gas limit 指定用户愿意为该笔交易花费的最大gas数量，在 EVM 执行交易时，gas limit会按照特定规则逐渐消耗。</li>
+<li>而 Gas price由运行合约的人在提交运行合约请求的时候设定，以确定他愿意为这次交易愿意付出的费用：Gas 价格（用以太币计价） * Gas 数量。发送者账户需要预付的以太币为 <code>gas price * gas limit</code>。【最高可能支付的手续费】</li>
+</ul></li>
+</ul>
+<h3 id="智能合约应用案例">智能合约应用案例</h3>
+<ul>
+<li>差价和约
+<ul>
+<li>金融衍生品是“智能合约”的最普遍的应用之一。实现金融合约的主要挑战是它们中的大部分需要参照一个外部的价格发布器；例如，一个需求非常大的应用是一个用来对冲以太币（或其它密码学货币）相对美元价格波动的智能合约，但该合约需要知道以太币相对美元的价格。最简单的方法是 通过由某特定机构（例如纳斯达克）维护的“数据提供“合约进行，该合约的设计使得该机构能够根据需要更新合约，并提供一个接口使得其它合约能够通过发送一个消息给该合约以获取包含价格信息的回复。</li>
+</ul></li>
+</ul>
+<h3 id="以太坊中的交易">以太坊中的交易</h3>
+<ul>
+<li>以太坊中的交易(Transaction)是指存储一条从外部账户发送到区块链上另一个账户的消息的签名数据包，它既可以是简单的数字货币一一以太币的转账，也可以是包含智能合约代码的消息 。</li>
+<li>一条交易包含以下内容
+<ul>
+<li>from: 交易发送者的地址，必填;</li>
+<li>to: 交易接收者的地址，如果为空则意味这是一个创建智能合约的交易;</li>
+<li>value: 发送者要转移给接收者的以太币数量;</li>
+<li>data (也写作 input): 存在的数据字段，如果存在，则是表明该交易是一个创建或者调用智能合约交易;</li>
+<li>Gas Limit(也写作 Gas, StartGas): 表示这个交易允许消耗的最大 Gas 数量;</li>
+<li>GasPrice: 表示发送者愿意支付给矿工的 Gas 价格;</li>
+<li>nonce: 用来区别同一用户发出的不同交易的标记;</li>
+<li>hash: 由以上信息生成的散列值(哈希值)，作为交易的 ID;</li>
+<li>r s v:交易签名的三个部分，由发送者的私钥对交易 hash 进行签名生成</li>
+</ul></li>
+<li>三种类型的交易
+<ul>
+<li><ol type="1">
+<li><strong>转账交易</strong>: 转账是最简单的一种交易， 从一个账户向另一个账户发送以太币 。 发送 转账交易时只需要指定交易的发送者、接收者、转移的以太币数量即可(在客户端发送交易时， Gas Limit、 Gas Price、 nonce、 hash、签名可 以按照默认方式生成)</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li><strong>创建智能合约的交易</strong>: 创建合约是指将合约部署到区块链上，这也是通过发送交易来实现的。 在创建合约的交易中， “to” 字段是一个空字符串，在 data 字段中指定初始化合约的二进制代码，在之后合约被调用时，该代码的执行结果将作为合约代码。</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li><strong>执行智能合约的交易</strong>: 顾名思义，该交易是为了执行已经部署在区块链上的智能合约，在该交易中，需要将 “to” 字段指定为要调用的智能合约的地址，通过“data” 字段指定要调用的方法以及向该方法传递参数。</li>
+</ol></li>
+</ul></li>
+</ul>
+<h3 id="以太坊的主流开源项目">以太坊的主流开源项目</h3>
+<h4 id="以太坊客户端">以太坊客户端</h4>
+<p>目前，以太坊协议及其客户端有多种语言版本的实现，其中最受欢迎的包括 Go­ethereum、 CPP-ethereum、 Parity 和 Pyethapp 等，这些开源项目均可在以太坊的官方 GitHub 目录下找到( <a target="_blank" rel="noopener" href="https://github.com/ethereum/" class="uri">https://github.com/ethereum/</a>)</p>
+<p>1 ) <strong>Go-ethereum</strong>: 以太坊协议 Go 语言实现的版本，既包括了一个独立的以太坊客户端，即本地节点可以作为完全节点或轻节点连接到以太坊的主网络，测试网络或私有网络，用于挖矿，组建私有链，管理账号，部署智能合约等常用功能，不可以编译智能合约。也可作为一个 Go 版本的以太坊库被调用， 即其他进程可以通过HTTP，WebSocket或IPC通道的方式连接到geth的JSON RPC端口，进而访问以太坊网络。 Go-ethereum客户端又称 Geth，是目前使用最为广泛的以太坊客户端。 2) CPP-ethereum:以太坊协议 C++语言实现的版本，也是目前最受欢迎的以太坊客户端之一。 CPP-ethereum 的最大特点是可移植性强，适用于 Windows、 Linux 和 OS X 等各个 版本的操作系统以及多种硬件平台 。 3) Parity :以太坊协议 Rust 语言实现的版本。 Parity客户端实现了以太坊钱包功能，可用于创建和管理以太坊账户，管理账户中的以太币和各种代币以及创建智能合约等。 4) Pyethapp:以太坊协议 Python语言实现的版本，其主要特点为创建了一个易扩展的以太坊核心代码版本。</p>
+<h4 id="以太坊浏览器和拓展工具">以太坊浏览器和拓展工具</h4>
+<ul>
+<li>Mist。由以太坊官方开发的工具，用于浏览各类 DApp 项目 。而是将来DAPP（智能合约的应用APP）市场，类似于苹果市场，在这里可以有你的账号，可以浏览、发布和买卖以太坊的DAPP应用。</li>
+<li>MetaMask 一个用于接人以太坊去中心化网络的浏览器插件 ，目前适用于 Chrome 和 Brave 浏览器 。 用户无需在本地安装运行以太坊节点，只需通过 MetaMask 便可在浏览器上连接以太坊网络，运行以太坊 DApp。<br />
+</li>
+<li>Web3.js: 一个兼容了以太坊核心功能的 JavaScript 库，为以太坊客户端及 DApp提 供了一系列以太坊功能调用的 JavaScriptAPI 接口 。</li>
+<li><strong>Remix</strong>:又称为 Browser-Solidity，是一个基于网页浏览器的 SolidityIDE 和编译器。 Remix 网页终端整合了 Solidity 代码的编写、调试和运行等功能，为用户提供了开发以太坊智能合约的综合环境 。</li>
+<li>Truffle : 一套针对以太坊 DApp 的开发框架，本身是基于 Node.js编写的。 Truffle 框架对 Solidity 智能合约的开发 、 测试、部署等进行全流程管理，帮助开发者更专业地开发 以太坊 DApp。</li>
+<li>ENS-registrar :以太坊域名服务( Ethereum Name Service, ENS)是为以太坊账户 提供简单、易记域名的服务，类似于互联网的 DNS。 ENS-registrar是一个基于以太坊的开 源 DApp 项目，在以太坊区块链上为以太坊账户提供域名注册服务 。</li>
+</ul>
+<h2 id="solidity-语言">Solidity 语言</h2>
+<p>已转移到 <a href="mweblib://16095815772969">Solidity 语言概要</a>，下面简单列举一些概念。</p>
+<h3 id="合约结构">合约结构</h3>
+<p>Solidity 中的合约（ contract ）与面向对象编程语言中的类 (Class) 很相似，在一个合约中可以声明多种成员，包括：</p>
+<ul>
+<li>状态变量：是永久存储在合约账户存储中的值</li>
+<li>函数：函数是合约代码的执行单位， 一个合约中可能包含许许多多提供各种功能的函数 ， 它们相互调用，共同组成合约的工作逻辑，一些特殊的函数 如构造函数等</li>
+<li>函数修改器 ：函数修改器可用于改变函数的行为，在函数执行前或执行后插入其他逻辑</li>
+<li>事件：事件是以太坊日志协议的高层次抽象， 用于记录合约执行过程中发生的各种事件和状 态变化。</li>
+</ul>
+<p>同时，一个合约可以继承另一个合约。</p>
+<h3 id="地址类型">地址类型</h3>
+<ul>
+<li>存储一个 20 字节的值，表示一个以太坊地址</li>
+<li>地址类型有成员变量 <code>balance, transfer, send</code></li>
+</ul>
+<h3 id="特殊全局变量与函数">特殊/全局变量与函数</h3>
+<ul>
+<li>区块属性</li>
+<li>交易属性
+<ul>
+<li>msg.data msg.sender msg.value（随消息发送的 wei 的数量）</li>
+</ul></li>
+<li>和约相关
+<ul>
+<li>this 当前和约</li>
+</ul></li>
+</ul>
+<h2 id="以太坊ethereum智能合约token实现">以太坊Ethereum智能合约：Token实现</h2>
+<h3 id="token">Token</h3>
+<p>Token--以太坊上的数字资产 Digital Asset on Ethereum</p>
+<ul>
+<li><strong>以太坊设计目标就是让各种数字资产以智能合约的形式运行在以太坊虚拟机上</strong>。 目前， 在以太坊上的众多智能合约之中，应用最为广泛的是<strong>代币合约 (Token Contract)</strong>。</li>
+<li>代币合约是在以太坊上管理账户及其拥有的代币的智能合约，实质上可以理解为一张账户地址和对应账户代币余额的映射表。</li>
+<li>太坊上数字资产的发行和流通更加简便灵活，相关的操作一般由代币合约创建者在代币合约中实现，包括：
+<ul>
+<li>记录账户及代币余额</li>
+<li>代币转账</li>
+<li>通过铸造代币、销毁代币来增加或减少代币供应总量</li>
+<li>数字资产的查询、权限控制，甚至经济学公式计算等</li>
+</ul></li>
+</ul>
+<h3 id="erc-20-接口规范">ERC-20 接口规范</h3>
+<ul>
+<li>常量 name symbol decimals</li>
+<li>函数 totalSupply transfer transferFrom approve allowance</li>
+<li>事件 Transfer Approval</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">contract EIP20Interface &#123;</span><br><span class="line">   string public constant name = ” Token Name<span class="string">&quot;; </span></span><br><span class="line"><span class="string">   string public constant symbol =”SYM”;</span></span><br><span class="line"><span class="string">   uint8 public constant decimals = 18; </span></span><br><span class="line"><span class="string">   function totalSupply() public view returns (uint256);</span></span><br><span class="line"><span class="string">   function balanceOf(address _owner) public view returns (uint256 balance);</span></span><br><span class="line"><span class="string">   function transfer(address _to, uint256 _value) public returns (bool success);</span></span><br><span class="line"><span class="string">   function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);</span></span><br><span class="line"><span class="string">   function approve(address _spender, uint256 _value) public returns (bool success);</span></span><br><span class="line"><span class="string">   function allowance(address _owner, address _spender) public view returns (uint256 remaining);</span></span><br><span class="line"><span class="string">   event Transfer(address indexed _from, address indexed _to, uint256 _value);</span></span><br><span class="line"><span class="string">   event Approval(address indexed _owner, address indexed _spender, uint256 _value);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>11 个标准接口可分为三类</p>
+<ul>
+<li>常量
+<ul>
+<li>代币名称 name
+<ul>
+<li>代币名称(name)是由代币合约创建者指定的完整名称，是一串公开的字符串常量【可通过构造方法传值进行初始化，也可直接在代码中指定返回当前 Token 的名称 function name() public view returns (string)】</li>
+</ul></li>
+<li>代币符号 symbol
+<ul>
+<li>代币符号( symbol)是由代币合约创建者指定的代币简称，是一串公开的字符串常量， 一般由3~4个大写字母组成，便于标识该代币，如EXT 【可通过构造方法传值进行初始化，也可直接在代码中指定，返回当前 Token 的符号 function symbol() public view returns (string)】</li>
+</ul></li>
+<li>小数点位 decimals
+<ul>
+<li>小数点位(decimals)是由代币合约创建者指定的一个公开的无符号整数常量，用于指定代币的最小精度值， 一般为 18。小数点位的数值表示该代币在交易中最小单位在小数点后的位数，比如 18 表示该代币在交易中的最小单位为 l × 10 18 个代币 ，可以分割为小数点后 18 位的精度。一般情况下，当查询一个 Token 余额时，是按照最小精度的整型来显示的【可通过构造方法传值进行初始化，也可直接在代码中指定，返回当前 Token 的精度 function decimals() public view returns (uint8)】</li>
+</ul></li>
+</ul></li>
+<li>函数功能包含总供应量、余额、转账、从他人处转账、允许量值以及限额 6个功能函数，分别规定了实现代币合约所必需的查询、转账 、权限控制等基本功能的函数接口 。
+<ul>
+<li>总供应量 <code>function totalSupply() public view returns (uint256);</code>
+<ul>
+<li>用于查看代币当前的总供应量，即当前合约账本中所有账户余额的总和。 该函数没有输入参数，返回值为无符号整数常量。 【 uint256 public totalSupply与上面的属性一样，可通过构造方法传值进行初始化】</li>
+</ul></li>
+<li>余额 <code>function balanceOf(address _owner) public view returns (uint256 balance);</code>
+<ul>
+<li>用于查看当前合约中指定账户的代币余额。 该函数的输入参数为账户地址，返回值为账户代币余额，为无符号整数常量 。【所有的地址与余额之间的关联都是通过此 mapping 进行存储： mapping (address =&gt; uint256) public balanceOf】</li>
+</ul></li>
+<li>转账 <code>function transfer(address _to, uint256 _value) public returns (bool success);</code>
+<ul>
+<li>用于从当前账户向其他账户进行代币转账。 该函数的输入参数为目标账户地址和转账的代币数额，返回值为布尔型变量。 当账户满足当前有足够的余额、 转账数额为正数以及合约编写者指定的其他条件时，转账成功，则合约中当前账户的余额减 少，目标账户中的余额增加，函数返回值为真;否则转账失败，函数返回值为假 。</li>
+</ul></li>
+<li>从他人处转账 <code>function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);</code>
+<ul>
+<li>用于从他人账户向其他账户进行代币转账，在有些情况下，用户不仅可以使用 transfer( )函数自己发起转账，还可以授权他人在一定限额下调用 transferFrom( )函数从自己账户中转出代币，而无须自己介入。</li>
+<li>例如，在一个银行合约中， 由于合约无法控制用户的行为，不能命令用户使用 transfer( )发起转账，但可以由用户提前授权，并通过 transferFrom( )从用户账户中转出钱款，自动完成转账过程，而无须通知用户参与。 该函数的输入参数为转账的发起地址、目标地址以及转账数额。 与 transfer( )函数一样，当转账成功时返回值为真，转账失败则返回值为假 。</li>
+</ul></li>
+<li>允许量值 <code>function approve(address _spender, uint256 _value) public returns (bool success);</code>
+<ul>
+<li>用于设定当前账户对指定账户的允许转账量值(allowed)。 该函数的输入参数为代币使用方地址和允许使用的额度，返回值为设置是否成功的布尔型变 量 。</li>
+<li>必须对其他人利用transferFrom( )接口从本账户中转走的代币数额进行限制，于是 ERC 20 标 准引入了允许量值 allowed。</li>
+<li>allowed 是一个二元组， <strong>allowed[A][B]记录的是用户 A 对本账户中允许账户B转走的代币额度</strong>。 用户A通过调用approve()函数并指定账户B和允许额度，对 allowed[A][B]进行设置;当账户 B 调用 transferFrom( )函数从账户 A 中转出代币时，需先通过检查，确保转出的数额不超过账户 A 设置的 allowed[A][B]值，并且转账之后 allowed[A][B]值会减少相应的数额 。</li>
+</ul></li>
+<li>限额 <code>allowance(address _owner, address _spender) public view returns (uint256 remaining);</code>
+<ul>
+<li>用于查看当前的 allowed 值 。 该函数的输入参数为代币持有方A 的地址和代币使用方 B 的地址，返回值为当前在账户 A 中允许账户 B 转出的代币数额之后 allowed[A][B] ，为无符号整型常量 。</li>
+</ul></li>
+</ul></li>
+<li>智能合约中还包括了记录事件的 event 类型接口， ERC 20 合约标准也对代币合约基本的事件接口进行了规范。 ERC20 标准要求代币合约包含至少两个事件:转账(Transfer)和 允许(Approval)。
+<ul>
+<li>转账 <code>event Transfer(address indexed _from, address indexed _to, uint256 _value);</code>
+<ul>
+<li>Transfer()事件用于记录代币合约最基本的功能一一转账。 事件的输入参数为转账的发起方、接收方以及转账的代币金额，一般位于 transfer( )函数和 transferFrom( )函数中转账成功之后触发。 用户可以从交易收据(receipt)中查看每一笔代币转账的相关信息 。<br />
+</li>
+</ul></li>
+<li>允许 <code>event Approval(address indexed _owner, address indexed _spender, uint256 _value);</code>
+<ul>
+<li>Approval( )事件用于记录代币合约的进阶功能一一允许他人从本账户中转出代币。事件的输入是代币的持有者、使用者以及所设置的允许金额，一般位于 approve()函数中，设 置允许限额成功之后触发 。 用户可以从交易收据( receipt)中查看代币持有者对他人设置的 允许转账限额等相关信息 。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="token智能合约实现">Token智能合约实现</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.21</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明合约和状态变量</span></span><br><span class="line">contract EIP20 is EIP20Interface &#123;</span><br><span class="line">   uint256 constant private MAX_UINT256 = <span class="number">2</span>**<span class="number">256</span> - <span class="number">1</span>;</span><br><span class="line">   <span class="comment">//balances 保存每个地址的余额</span></span><br><span class="line">   mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint256) public balances;</span><br><span class="line">   <span class="comment">//保存每个地址可以允许其他地址取出的 token 的剩余数量 </span></span><br><span class="line">   mapping (<span class="function"><span class="params">address</span> =&gt;</span> mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint256)) public allowed;</span><br><span class="line">   string public name;     <span class="comment">//token名称</span></span><br><span class="line">   uint8 public decimals;  <span class="comment">//小数位数</span></span><br><span class="line">   string public symbol;   <span class="comment">//token代码</span></span><br><span class="line">   uint256 public _totalSupply; <span class="comment">//发行总量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明合约的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EIP20</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">      uint256 _initialAmount,</span></span></span><br><span class="line"><span class="params"><span class="function">      string _tokenName,</span></span></span><br><span class="line"><span class="params"><span class="function">      uint8 _decimalUnits,</span></span></span><br><span class="line"><span class="params"><span class="function">      string _tokenSymbol</span></span></span><br><span class="line"><span class="params"><span class="function">   </span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">      balances[msg.sender] = _initialAmount; <span class="comment">//给合约创建者所有的token</span></span><br><span class="line">      _totalSupply = _initialAmount;         <span class="comment">//更新totalSupply等</span></span><br><span class="line">      name = _tokenName;</span><br><span class="line">      decimals = _decimalUnits;</span><br><span class="line">      symbol = _tokenSymbol;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下三个方法只是简单的从状态变量中返回 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">totalSupply</span>(<span class="params"></span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span> (<span class="params">uint256</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> _totalSupply;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">balanceOf</span>(<span class="params">address _owner</span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span> (<span class="params">uint256 balance</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> balances[_owner];</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">allowance</span>(<span class="params">address _owner, address _spender</span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span> (<span class="params">uint256 remaining</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> allowed[_owner][_spender];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// transfer方法是从消息发送者的地址中转出</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">address _to, uint256 _value</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">bool success</span>) </span>&#123;</span><br><span class="line">   <span class="built_in">require</span>(balances[msg.sender] &gt;= _value);</span><br><span class="line">   balances[msg.sender] -= _value;</span><br><span class="line">   balances[_to] += _value;</span><br><span class="line">   emit Transfer(msg.sender, _to, _value);</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// transferFrom方法的实现与transfer方法相似，不同的是transferFrom方法需要指定转出账户 ，以及需要将 allowed[A][B]值减少相应的数额 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transferFrom</span>(<span class="params">address _from, address _to, uint256 _value</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">bool success</span>) </span>&#123;</span><br><span class="line">   uint256  allowance = allowed[_from][msg.sender];     </span><br><span class="line">   <span class="built_in">require</span>(balances[_from] &gt;= _value &amp;&amp; allowance &gt;= _value);</span><br><span class="line">      balances[_to] += _value;</span><br><span class="line">      balances[_from] -= _value;</span><br><span class="line">      <span class="keyword">if</span> (allowance &lt; MAX_UINT256) &#123;</span><br><span class="line">            allowed[_from][msg.sender] -= _value;</span><br><span class="line">      &#125;</span><br><span class="line">      emit Transfer(_from, _to, _value); </span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后实现approve方法，授权指定账户转账和允许的额度</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">approve</span>(<span class="params">address _spender, uint256 _value</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">bool success</span>) </span>&#123;</span><br><span class="line">   allowed[msg.sender][_spender] = _value;</span><br><span class="line">   emit Approval(msg.sender, _spender, _value); </span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  Token事件【这里仅仅声明了一下？】</span></span><br><span class="line">event Transfer(address indexed _from, address indexed _to, uint _value); </span><br><span class="line">event Approval(address indexed _owner, address indexed _spender, uint _value);</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/2eb3d56c/">https://lightblues.github.io/posts/2eb3d56c/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a><a class="post-meta__tags" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><a class="post-meta__tags" href="/tags/HyperLedger/">HyperLedger</a><a class="post-meta__tags" href="/tags/Fabric/">Fabric</a><a class="post-meta__tags" href="/tags/Ethereum/">Ethereum</a><a class="post-meta__tags" href="/tags/Solidity/">Solidity</a></div><div class="post_share"><div class="social-share" data-image="/img/GhostBlade-WLOP/ghost-blade-11.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3e1ab733/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-17.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">NAS + 记一次 Chevereto 升级翻车事故 &amp; 关于 Synology 的代理配置</div></div></a></div><div class="next-post pull-right"><a href="/posts/5223f70c/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/GhostBlade-WLOP/ghost-blade-5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">法治与公民课程论文：以公民身份视角观「占海特事件」</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">概念列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">概论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%A0%94%E7%A9%B6"><span class="toc-number">2.1.</span> <span class="toc-text">一些基础研究</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%89%B9%E7%82%B9%E8%83%BD%E5%8A%9B"><span class="toc-number">3.</span> <span class="toc-text">区块链特点（能力）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">去中心化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E7%AF%A1%E6%94%B9%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">不可篡改性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E6%80%A7"><span class="toc-number">3.3.</span> <span class="toc-text">匿名性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%80%E8%B4%A6%E6%9C%AC"><span class="toc-number">3.4.</span> <span class="toc-text">公开账本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E4%B8%8E%E5%AF%86%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">编码与密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%BC%96%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">相关编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="toc-number">4.2.</span> <span class="toc-text">公钥密码学</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93"><span class="toc-number">4.2.1.</span> <span class="toc-text">简单总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">4.2.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="toc-number">4.2.3.</span> <span class="toc-text">近代密码学</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6-1"><span class="toc-number">4.2.4.</span> <span class="toc-text">公钥密码学</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">4.2.4.1.</span> <span class="toc-text">数字签名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.4.2.</span> <span class="toc-text">公钥算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">4.2.5.</span> <span class="toc-text">其他一些数字签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">哈希函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91"><span class="toc-number">4.4.</span> <span class="toc-text">默克尔树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">共识机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8Eproof-of-workpow"><span class="toc-number">5.1.</span> <span class="toc-text">工作量证明(Proof-of-Work，PoW)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#posproof-of-stake%E6%9D%83%E7%9B%8A%E8%AF%81%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">PoS（Proof-of-stake，权益证明）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dpos"><span class="toc-number">5.3.</span> <span class="toc-text">DPoS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%95%85%E4%BA%8B-byzantine-generals-problem-%E4%B8%8E-pbft-%E5%AE%9E%E7%94%A8%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%BC%8F%E5%AE%B9%E9%94%99-practical-byzantine-fault-tolerancepbft"><span class="toc-number">5.4.</span> <span class="toc-text">拜占庭故事 (Byzantine Generals Problem) 与 pBFT (实用拜占庭式容错 practical Byzantine Fault Tolerance，pBFT)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%85%B1%E8%AF%86%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-number">5.5.</span> <span class="toc-text">分布式系统共识的意义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6"><span class="toc-number">6.</span> <span class="toc-text">智能合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fabric-%E6%9E%B6%E6%9E%84"><span class="toc-number">7.</span> <span class="toc-text">Fabric 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%9E%B6%E6%9E%84"><span class="toc-number">7.1.</span> <span class="toc-text">节点架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%8A%82%E7%82%B9"><span class="toc-number">7.1.1.</span> <span class="toc-text">客户端节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#peer-%E8%8A%82%E7%82%B9"><span class="toc-number">7.1.2.</span> <span class="toc-text">Peer 节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%9C%8D%E5%8A%A1%E8%8A%82%E7%82%B9"><span class="toc-number">7.1.3.</span> <span class="toc-text">排序服务节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ca-%E8%8A%82%E7%82%B9"><span class="toc-number">7.1.4.</span> <span class="toc-text">CA 节点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A6%E6%9C%AC"><span class="toc-number">7.2.</span> <span class="toc-text">账本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%81%93"><span class="toc-number">7.3.</span> <span class="toc-text">通道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85-msp"><span class="toc-number">7.4.</span> <span class="toc-text">成员服务提供者 MSP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%92%88%E5%AF%B9%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E4%BA%A4%E6%98%93%E8%AF%84%E4%BC%B0"><span class="toc-number">7.5.</span> <span class="toc-text">针对背书策略的交易评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.6.</span> <span class="toc-text">例题：架构设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">Go 语言语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8C%85"><span class="toc-number">8.1.</span> <span class="toc-text">相关的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">8.2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-number">8.3.</span> <span class="toc-text">接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fabric%E7%9A%84chaincode%E7%9A%84%E7%BC%96%E5%86%99%E4%B8%8E%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95golang%E7%89%88"><span class="toc-number">9.</span> <span class="toc-text">Fabric的chaincode的编写与单元测试（Golang版）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%93%BE%E7%A0%81chaincode"><span class="toc-number">9.1.</span> <span class="toc-text">什么是链码（chaincode）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E7%A0%81%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">9.2.</span> <span class="toc-text">链码的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%BA%94%E7%94%A8%E7%9A%84fabric%E7%9A%84api"><span class="toc-number">9.3.</span> <span class="toc-text">需要应用的Fabric的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84chaincode"><span class="toc-number">9.4.</span> <span class="toc-text">编写一个简单的chaincode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E7%A0%81%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">9.5.</span> <span class="toc-text">链码单元测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A-ethereum-%E7%AE%80%E4%BB%8B%E5%8C%BA%E5%9D%97%E9%93%BE-2.0"><span class="toc-number">10.</span> <span class="toc-text">以太坊 Ethereum 简介（区块链 2.0）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">10.1.</span> <span class="toc-text">智能合约应用案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E7%9A%84%E4%BA%A4%E6%98%93"><span class="toc-number">10.2.</span> <span class="toc-text">以太坊中的交易</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E4%B8%BB%E6%B5%81%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE"><span class="toc-number">10.3.</span> <span class="toc-text">以太坊的主流开源项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">10.3.1.</span> <span class="toc-text">以太坊客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E6%8B%93%E5%B1%95%E5%B7%A5%E5%85%B7"><span class="toc-number">10.3.2.</span> <span class="toc-text">以太坊浏览器和拓展工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solidity-%E8%AF%AD%E8%A8%80"><span class="toc-number">11.</span> <span class="toc-text">Solidity 语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E7%BA%A6%E7%BB%93%E6%9E%84"><span class="toc-number">11.1.</span> <span class="toc-text">合约结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E7%B1%BB%E5%9E%8B"><span class="toc-number">11.2.</span> <span class="toc-text">地址类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="toc-number">11.3.</span> <span class="toc-text">特殊&#x2F;全局变量与函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6token%E5%AE%9E%E7%8E%B0"><span class="toc-number">12.</span> <span class="toc-text">以太坊Ethereum智能合约：Token实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#token"><span class="toc-number">12.1.</span> <span class="toc-text">Token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#erc-20-%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83"><span class="toc-number">12.2.</span> <span class="toc-text">ERC-20 接口规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#token%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0"><span class="toc-number">12.3.</span> <span class="toc-text">Token智能合约实现</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/GhostBlade-WLOP/ghost-blade-11.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/2eb3d56c/'
+    this.page.identifier = 'posts/2eb3d56c/'
+    this.page.title = '区块链 课程笔记'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: 'fbc70892b1a5e4bee6a109784ea823bb',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

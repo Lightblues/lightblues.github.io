@@ -1,0 +1,822 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>社交网络挖掘-Note1 | Easonshi's Space</title><meta name="keywords" content="社交网络,图,推荐"><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1-概论 从社会的角度去分析和理解个人的行为。  “人的本质并不是单个人所固有的抽象物。在 其现实性上，它是一切社会关系的总和”——马克思《关于费尔巴哈的提纲》 “社会不是由个人构成，而是表示这些个人彼 此发生的那些联系和关系的总和”—— 《马克思恩格斯全集》V.46, P.220, 人民出版社, 1979年  相关应用  精准营销：用户画像、个性化推荐、社会化营销 舆情管理：危机预警、观点挖掘、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="社交网络挖掘-Note1">
+<meta property="og:url" content="https://lightblues.github.io/posts/c87a6cee/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="1-概论 从社会的角度去分析和理解个人的行为。  “人的本质并不是单个人所固有的抽象物。在 其现实性上，它是一切社会关系的总和”——马克思《关于费尔巴哈的提纲》 “社会不是由个人构成，而是表示这些个人彼 此发生的那些联系和关系的总和”—— 《马克思恩格斯全集》V.46, P.220, 人民出版社, 1979年  相关应用  精准营销：用户画像、个性化推荐、社会化营销 舆情管理：危机预警、观点挖掘、">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/EVA/eva-1.jpg">
+<meta property="article:published_time" content="2020-07-03T20:01:54.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:22.008Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="社交网络">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="推荐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/EVA/eva-1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/c87a6cee/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '社交网络挖掘-Note1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/EVA/eva-1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">社交网络挖掘-Note1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-07-03T20:01:54.000Z" title="Created 2020-07-04 04:01:54">2020-07-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:22.008Z" title="Updated 2022-10-08 23:36:22">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/">Notes</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Notes/major/">major</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">7.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>24min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="社交网络挖掘-Note1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="概论">1-概论</h2>
+<p>从社会的角度去分析和理解个人的行为。</p>
+<blockquote>
+<p>“人的本质并不是单个人所固有的抽象物。在 其现实性上，它是一切社会关系的总和”——马克思《关于费尔巴哈的提纲》</p>
+<p>“社会不是由个人构成，而是表示这些个人彼 此发生的那些联系和关系的总和”—— 《马克思恩格斯全集》V.46, P.220, 人民出版社, 1979年</p>
+</blockquote>
+<p>相关应用</p>
+<ul>
+<li>精准营销：用户画像、个性化推荐、社会化营销</li>
+<li>舆情管理：危机预警、观点挖掘、情感分析</li>
+<li>分析预测：市场研判、新闻热点预测、用户行为画像与预测</li>
+<li>刑侦反恐：潜在关系挖掘、犯罪社团挖掘</li>
+</ul>
+<p>用的教材主要是《社会媒体挖掘》一书，英文版 PDF 和 Slides 见 <a target="_blank" rel="noopener" href="http://dmml.asu.edu/smm/" class="uri">http://dmml.asu.edu/smm/</a></p>
+<p>主要内容包括</p>
+<ul>
+<li>图论基础</li>
+<li>网络度量：网络权威/中心用户查找</li>
+<li>网络挖掘：小世界现象</li>
+<li>数据挖掘：社区（团）挖掘</li>
+<li>社交网络的信息传播：影响力最大化、热门话题预测</li>
+<li>影响力和同质性</li>
+<li>用户行为分析：网络学、社会学、经济学、博弈论</li>
+<li>推荐系统</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092884441698.jpg" /></p>
+<p>参考书目</p>
+<p>• 《社会媒体挖掘》，Reza Zafarani等</p>
+<p>• 《网络、群体与市场》，⼤卫·伊斯科，乔恩·克莱因伯格</p>
+<p>• 《Pajek蜘蛛: 社会网络分析技术》，沃特·德·诺伊等</p>
+<p>• 《社会网络分析：⽅法与应⽤》，沃瑟曼等</p>
+<p>• 《在线社交网络分析》，⽅滨兴等</p>
+<p>• 《社会网络分析法》，约翰·斯科特</p>
+<p>• 《社交网站的数据挖掘与分析》，Russell</p>
+<p>• 《Web数据挖掘》，Bing Liu</p>
+<h3 id="社交网络概述">社交网络概述</h3>
+<blockquote>
+<p>由英国⽜津⼤学的⼈类学家罗宾·邓巴（Robin Dunbar）于2009年 提出：根据猿猴的智⼒与社交⺴⽹网络推断出：⼈类智⼒将允许⼈类拥有 稳定社交⺴⽹网络的⼈数是148⼈，四舍五⼊⼤约是150⼈。因此，150⼜ 称<strong>邓巴数字</strong>。</p>
+<p>该定律指出：⼈的⼤脑新⽪层⼤⼩有限，提供的认知能⼒只能使⼀个 ⼈维持与⼤约150个⼈的稳定⼈际关系，这⼀数字是⼈们拥有的、与 ⾃⼰有私⼈关系的朋友数。也就是说，⼈们可能拥有150名好友，甚 ⾄更多社交⺴⽹网站的“好友”，但只维持好与现实⽣活中⼤约150个⼈ 的“内部圈⼦”。⽽“内部圈⼦”好友在此理论中指⼀年⾄少联系⼀ 次的⼈。</p>
+</blockquote>
+<h3 id="社会网络分析">社会网络分析</h3>
+<p>为理解⼈类各种社交关系的形成、⾏为特点以及信息传播 的规律，采⽤相关的分析⽅法，涉及信息学、数学、社会 学、管理学、⼼理学等多学科的融合理论和⽅法</p>
+<p>社会网络分析⽅法基于⼀个直觉性观念，即⾏动者嵌⼊在 其中的<strong>社会关系的模式</strong>对于他们的⾏动结果有重要的影响， 社会网络分析者则⼒求揭⽰不同类别的模式</p>
+<p>社会网络分析的特点包括</p>
+<ul>
+<li><p>源⾃于联系社会⾏动者关系基础之上的结构性思想</p></li>
+<li><p>以系统的经验数据为基础</p></li>
+<li><p>⾮常重视关系图形的绘制</p></li>
+<li><p>依赖于数学或计算模型的使⽤</p></li>
+</ul>
+<h3 id="社会计算">社会计算</h3>
+<p>2009年2⽉，美国哈佛⼤学⼤卫·拉泽（David Lazer）等15位美国学者 在《Science》上联合发表了⼀篇具有⾥程碑意义的⽂章 《Computational Social Science》</p>
+<p>社会计算（Social Computing），⼜称计算社会学（Computational Social Science）。 ⼀般指社会⾏为和计算系统交叉融合⽽成的⼀个研究领域，研究如何利⽤计算 系统帮助⼈们进⾏沟通与协作，如何利⽤计算技术研究社会运⾏的规律与发展 趋势。</p>
+<p>社会计算的研究目标</p>
+<p>1）在深⼊理解当前社会问题动态性、快速性、开放性、 交互性、数据海量性和复杂性的基础上，为解决新兴社会 问题建⽴统⼀的<strong>社会科学基础模型和理论框架</strong>；</p>
+<p>2）社会科学基础模型和理论“计算化”或建⽴其<strong>到计算 技术的映射机制</strong>，研究与社会相关应⽤中的建模与计算⽅ 法，⾃下⽽上地为解决新兴社会问题提供整套理论和技术 ⽀撑；</p>
+<p>3）深化学科交叉研究，为⺴⽹网络化社会背景下的社会科学 研究提供实验⽅法；同时，以新兴问题促进相关研究领域 内涵和内容的延拓，推动基础理论和⽅法的创新和突破。</p>
+<p>而社交网络挖掘是社会计算的研究内容的一部分。</p>
+<h3 id="社交网络挖掘">社交网络挖掘</h3>
+<p><strong>Social Media Mining</strong> is the process of representing, analyzing, and extracting meaningful patterns from social media data</p>
+<p>社交网络挖掘的挑战：</p>
+<ul>
+<li>大数据悖论
+<ul>
+<li>个体数据是往往是稀疏的，因此才需要汇聚群体/整体的⼤大数据
+<ul>
+<li>举例：社会推荐中的冷启动问题</li>
+</ul></li>
+<li>个体⾏行为模式不能简单等同于整体，因此不能是个体的简单相加来代表整体，也不能整体的简单拆分来刻画个体</li>
+</ul></li>
+<li><p>数据采集与获取：爬虫、API等需要掌握的重要技术⼿手段</p></li>
+<li>数据清理与噪⾳音消除
+<ul>
+<li>⼤大数据可以允许个体数据的错误，但不等于不需要数据清理</li>
+<li>消除噪⾳音个体trade-off 个体数据价值挖掘</li>
+</ul></li>
+<li>性能/作⽤用评价
+<ul>
+<li>ground truth（事实/标准答案）如何获取？</li>
+<li>没有客观标准答案的如何评价？</li>
+<li>数据挖掘出来的模式/结果能否解答“为什么”？</li>
+</ul></li>
+</ul>
+<p><strong>数据分析/挖掘的结果往往能较好地解释</strong> <strong>what/where/when/how many/how often</strong> <strong>但较难回答why</strong></p>
+<p><strong>我们面对的是社会学的问题，我们⽤用交叉的思想去寻找解决方案，并利⽤数学和信息学的手段来解决它</strong>。</p>
+<h2 id="图论基础">2-图论基础</h2>
+<p>图是网络结构的数学模型</p>
+<p>网络问题一般可以转化成一个图论的问题</p>
+<ul>
+<li>微博信息传播网络：Given a piece of information, a network of individuals, and the cost to propagate information among any connected pair, find the minimum cost to disseminate the information to all individuals.</li>
+<li>科尼斯堡问题：奇点的数目不是0个(起点即终点)就是2个（一个是起点，一个是终点）</li>
+<li><strong>欧拉环路</strong>：途经每条边恰好 一次，起点=终点</li>
+<li><strong>哈密顿回路</strong>（点之间只能遍历一次</li>
+<li>四色猜想/问题（<strong>拓扑学topology</strong> 原意“地质学”）</li>
+</ul>
+<h3 id="图的基本结构">图的基本结构</h3>
+<ul>
+<li>结点/节点 vertex/node：用户 user/actor、组织、网络、各类资源item/resource（商品、电影、音乐、论文）</li>
+<li>边 edge：有向图，入度邻居 Nin，出度邻居 Nout
+<ul>
+<li>边的重数：具有相同始点和终点的边称为平⾏边，平⾏边的条数称为 边的重数</li>
+</ul></li>
+<li>度 degree
+<ul>
+<li>度数为1的结点是悬挂结点，其关联的边是悬挂边</li>
+<li>度数为0的结点是孤⽴点</li>
+<li>度分布</li>
+</ul></li>
+<li>图的密度：实际边数与理论上最⼤的边数之⽐
+<ul>
+<li>对无向图，<span class="math inline">\({L\over n(n-1)/2}\)</span></li>
+<li>有向图，没有系数 2</li>
+</ul></li>
+</ul>
+<p>一些简单的结论</p>
+<ol type="1">
+<li>无向图中，所有节点的度数之和是其图中边数的两倍</li>
+<li>无向图中，度数为奇数的节点有偶数个</li>
+<li>有向图中，所有节点的入度和等于出度和</li>
+</ol>
+<h3 id="图的表示">图的表示</h3>
+<p><strong>图的同构 graph isomorphism</strong></p>
+<ul>
+<li>如果图 G 中的结点集 V 与图 G’ 中的结点集 V’ 具有一一对应的关系，并且对应的边都具有相同的重数，则称 G 与 G’ 同构，记作 <span class="math inline">\(G\cong G&#39;\)</span>。</li>
+<li>因此，两图同构必须满足下列关系：节点数、边数相同、度数相同的节点相同。（必要非充分）</li>
+<li>判断：双射函数</li>
+</ul>
+<h3 id="图的类型">图的类型</h3>
+<ul>
+<li><p>零图 null graph：没有节点没有边</p></li>
+<li><p>空图 empty graph：边集空，节点集可以非空——零图是空图</p></li>
+<li><p>完全图 complete graph：任何节点之间有边</p></li>
+<li><p>无向/有向/混合图</p></li>
+<li><p>补图：由图G中的所有结点和构成完全图需添加的边所组成的图称为G的补 图，记作 <span class="math inline">\(\bar G\)</span></p></li>
+<li><p>简单图：两节点间最多一条边</p></li>
+<li><p><strong>多重图 multigraph</strong>：可以多条边</p></li>
+<li><p>带权图/赋权图</p></li>
+<li><p>标号图：权重用+/-或0/1等二元表示</p></li>
+<li><p>树与森林：</p>
+<ul>
+<li>树是特殊的⽆无向图，没有回路</li>
+<li>树的任意两点之间恰好有⼀一条路径</li>
+<li>森林由多个互不相连的树组成</li>
+</ul></li>
+<li><p><strong>生成树 spanning tree</strong></p>
+<ul>
+<li>包含图中<strong>所有结点</strong>的树型子图</li>
+<li>带权图中，权重最小的生成树为<strong>最小生成树</strong>（也可能多个）</li>
+</ul></li>
+<li><p><strong>斯坦纳树 steiner tree</strong></p>
+<ul>
+<li>对于带权图的一个结点子集 V’，包含这个子集中所有结点且权重之和最小的子树即斯坦纳树</li>
+<li>与最小生成树的区别在于，由于关注的一个图的子集，也就意味着在所给定的节点之外<strong>利用额外的节点</strong>以减少网络的代价</li>
+</ul></li>
+<li><p><strong>正则图</strong>：所有结点的度数相同，k-正则图</p></li>
+<li><p><strong>二分图/二部图</strong> <strong>bipartite graph</strong></p>
+<ul>
+<li>所有的结点分为两个集合，每条边的两个端点分别在这两个集合中，即同一集合的结点间没有边相连</li>
+<li><strong>An affiliation network</strong> is a bipartite graph. If an individual is associated with an affiliation, an edge connects the corresponding nodes.</li>
+<li>例如这样的隶属关系网络，还比如，推荐算法：找出连个兴趣相似的人，以购买的书的数量决定，在图中表现为（用户间）通路数量</li>
+</ul></li>
+<li><p><strong>多分图多部图</strong> <strong>multipartite graph</strong></p>
+<p>用户-标签-电影（三类结点）</p></li>
+</ul>
+<h3 id="图的连通性">图的连通性</h3>
+<ul>
+<li>相邻节点 adjacent
+<ul>
+<li>一条边联结的两个点</li>
+</ul></li>
+<li>相邻边 incident
+<ul>
+<li>无向图：具有相同端点</li>
+<li>有向图：一条边终止结点必须是另一条便的开始结点，即两条边方向一致</li>
+</ul></li>
+<li><strong>路径 path</strong>
+<ul>
+<li>依次遍历相邻边产⽣的<strong>结点序列</strong>称为路径</li>
+<li><strong>简单路径</strong> path：<strong>不包含重复节点</strong>（所以也没有重复边）的路径称之为简单路径<em>（本课程重点）</em></li>
+<li>起点和终点相同，但其他结点都不重复，且至少包含三条边的路径称之为<strong>回路/圈（cycle）</strong>，即闭合 path</li>
+</ul></li>
+<li>通路 walk: sequence of incident edges visited one after another
+<ul>
+<li>依次遍历相邻边产生的<strong>边序列</strong>称之为通路</li>
+<li><strong>开通路</strong> open walk：起始结点不同于终止结点</li>
+<li><strong>闭通路</strong> closed walk：起始结点和终止结点是同⼀个结点（圈）</li>
+<li>通路长度 length of walk：通路中遍历的边数量</li>
+<li><strong>简单通路</strong> trail：每条边只遍历一次的通路</li>
+<li><strong>环路</strong> tour/circuit：闭合简单通路</li>
+</ul></li>
+</ul>
+<p>哈密顿回路 Hamiltonian Cycle：遍历了图中所有结点的回路</p>
+<p>欧拉环路 Eulerian Tour：图中所有边均只被遍历⼀次，Konigsberg bridges</p>
+<ul>
+<li>连通性
+<ul>
+<li>图中任意两个结点间存在一条路径，则为连通图</li>
+<li>有向图中，图中任何两个结点都有路径（不考虑沿边的方向前进），则为<strong>弱连通图</strong></li>
+<li>有向图中，考虑沿着边的方向前进，图中任何两个结点存在有向路径，则为强连通图</li>
+</ul></li>
+<li><strong>连通分支</strong>
+<ul>
+<li>若子图中任意两个结点间存在一条路径，则该子图为连通分支（连通分量）</li>
+<li>有向图中，连通分支内任何两个结点u, v，无论是 u 到 v 还是 v 到 u，都存在有向路径连通，则为强连通分支</li>
+</ul></li>
+<li>最短路径
+<ul>
+<li>连通图中任何两个结点之间长度最短的路径为最短路径，其长度为该两个结点间的最短距离</li>
+<li>图中所有结点对的最短路径平均值为图的平均路径长度，或称之为<strong>特征路径长度</strong></li>
+<li>结点 v 的 n 阶邻居（n-hop neighbor）是指所有到 v 的最短路径不大于 n 的结点</li>
+</ul></li>
+<li>直径
+<ul>
+<li>图中任何两个结点之间最短路径的最大值为图的直径（社交，聚拢程度）</li>
+<li>直径只定义在连通图中</li>
+</ul></li>
+<li>桥
+<ul>
+<li>移除某条边会导致图中连通分支增加，这样的边为桥</li>
+<li>桥是<strong>超大连通分⽀</strong>形成的关键</li>
+</ul></li>
+</ul>
+<h3 id="图算法">图算法</h3>
+<ul>
+<li>随机游走：带权图上的</li>
+<li>图/树遍历 Traversal：BFS、DFS</li>
+<li>最短路径：Dijkstra 算法，针对非负带权图，建立一个优先队列</li>
+<li>最小生成树：Prim 算法，从一个初始节点，每次在边缘中找最小的那条边</li>
+<li>网络流算法：给定一个图 <span class="math inline">\(G(V,E,C)\)</span> 其中 C 是每条边的容量 capacity，有向，要求从 <span class="math inline">\(s\)</span> 到 <span class="math inline">\(t\)</span> 的最大流，注意其需要满足，1. 网络上的流是有方向限制的；2. 对于每个节点的流量守恒。
+<ul>
+<li>Ford-Fulkerson 算法</li>
+<li>基本思想：寻找⼀条从源点到汇点的路径，使路径中的所有 边都有未使⽤的容量，使⽤该容量（路径上所有边中未使⽤ 的最⼩容量）去增加流，不断迭代直⾄没有其他路径可⽤。</li>
+<li>核心就是定义一个<strong>残流网络</strong>：对于某一条边 <span class="math inline">\((u,v)\)</span> 来说，若是还有剩余容量则画出 <span class="math inline">\((u,v)\)</span> 边和剩余流量；若是有流经过此边则画反向的边 <span class="math inline">\((v,u)\)</span> 权重是流过这条边的流量；注意后者是关键，对于正向流入此边的流来说，若是其他边满足条件，可以产生相反的流从而得到增量。</li>
+</ul></li>
+<li>二分图的最大匹配
+<ul>
+<li>⽤⼆分图 G 表⽰⽤户和商品，以及他们之间的兴趣关系</li>
+<li><strong>匹配M</strong>是 G 中边集合 E 的⼀个⼦集， 使得 G 中每个结点⾄多出现在 M 的⼀条边上（即每个⽤户⾄多买⼀个 商品/每个商品⾄多卖给⼀个⽤户）</li>
+<li>何以在二分图的前后分别加 <span class="math inline">\(s,t\)</span> 利用最大流算法解决。</li>
+</ul></li>
+</ul>
+<h2 id="网络度量">3-网络度量</h2>
+<p>我们需要从网络中找出核心的节点。</p>
+<h3 id="中心性度量"> 中心性度量</h3>
+<ul>
+<li><p>Degree centrality: ranks nodes with more connections higher in terms of centrality</p>
+<ul>
+<li>有向图中，可以用</li>
+</ul>
+<p><span class="math inline">\(C_d(v_i)=d_i^{in}\)</span> , prestige</p>
+<p><span class="math inline">\(C_d(v_i)=d_i^{out}\)</span> , gregariousness</p>
+<ul>
+<li>Normalized Degree Centrality：可以用理论最大度/图中最大度/图中度之和进行归一化</li>
+</ul></li>
+<li><p>特征向量中心性</p>
+<ul>
+<li><p>Eigenvector centrality generalizes degree centrality by incorporating the importance of the neighbors (undirected) 朋友多不一定重要，要有重要的朋友才是关键</p></li>
+<li><p>计算公式 <span class="math display">\[
+  C_e(v_i)={1\over \lambda}\sum_{j=1}^nA_{j,i}C_e(v_j)\\
+  \lambda C_e=A&#39;C_e
+  \]</span> 其中 A 为邻接矩阵，于是就变成了求特征向量的问题，其中 <span class="math inline">\(\lambda\)</span> 为对应的特征值</p></li>
+</ul>
+<p>每个节点的中心性应该都为正，而根据 Perron-Frobenius 定理，可以通过求 A 的<strong>最大特征值对应的特征向量</strong>得到</p>
+<ul>
+<li><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092884992998.jpg" /></li>
+</ul></li>
+<li><p>Katz Centrality</p>
+<ul>
+<li><p>注意到上面的 Theo 中似乎要求是在连通图的情况下，所以特征向量中心性一般在无向图中较为稳定；而在有向图中，中心性将从有向边中流出，在一定情况下，例如图是 acyclic 的，则可能出现某一个节点有很多入边但是中心性为零的情况</p></li>
+<li><p>在此基础上加了偏置项 <span class="math inline">\(\beta\)</span> <span class="math display">\[
+  C_{Kate}(v_i)=\alpha\sum_{j}A_{j,i}C_{Kate}(v_j)+\beta\\
+  C_{Kate}=\alpha A&#39;C_{Kate}+\beta\mathbf 1\\
+  C_{Kate}=\beta(\mathbf I-\alpha A&#39;)^{-1}\mathbf1
+  \]</span> 其中第一行加了偏置项；整体写成第二行的形式；解析解是第三行的样子，注意到涉及到矩阵求逆，而我们知道当选取 <span class="math inline">\(\alpha={1\over\lambda}\)</span> 时 <span class="math inline">\(det(I-\alpha A&#39;)=0\)</span> ，会出现问题，所以一般会取一个小一点的数值。</p></li>
+</ul></li>
+<li><p>PageRank 中心性</p>
+<ul>
+<li><p>想法是「权威的出边并不一定是权威」，因此对传递的权重进行衰减，于是有 <span class="math display">\[
+  C_p(v_i)=\alpha\sum_{j}A_{j,i}{C_p(v_j)\over d_j}+\beta\\
+  C_p=\alpha A&#39;D^{-1}C_p+\beta 1\\
+  C_p=\beta(I-\alpha A&#39;D^{-1})^{-1}1
+  \]</span></p></li>
+<li><p>类似的，若 <span class="math inline">\(\lambda\)</span> 为 <span class="math inline">\(A&#39;D^{-1}\)</span> 的最大特征值，我们要求 <span class="math inline">\(\alpha&lt;{1\over\lambda}\)</span></p></li>
+<li><p>当然，这和我们熟悉的 PageRank 公式不太一样，差别只是两个权重的形式，我们可以从随机浏览的角度来理解。</p></li>
+</ul></li>
+<li><p>Betweenness Centrality 中间/中介中心性</p>
+<ul>
+<li>从一个节点在网络上连接其他节点意义上的重要性 <span class="math display">\[
+  C_b(v_i)=\sum_{s\ne t\ne v_i}{\sigma_{st}(v_i)\over\sigma_{st}}
+  \]</span> 其中分母是从 <span class="math inline">\(s\)</span> 到 <span class="math inline">\(t\)</span> 的最优最短路径，分子是这些路径中经过 <span class="math inline">\(v_i\)</span> 的数量；这样定义的中心性可能对大于 1，因此需要进行归一化操作，最好情况下，对于所有的 <span class="math inline">\(s\)</span> 和 <span class="math inline">\(t\)</span> 来说分式均为 1，于是极大值为 <span class="math inline">\(2\binom{n-1}{2}=(n-1)(n-2)\)</span> 除掉即可 <span class="math display">\[
+  C_b^{norm}(v_i)={C_b(v_i)\over 2\binom{n-1}{2}}
+  \]</span></li>
+</ul></li>
+<li><p>Closeness Centrality 接近中心性</p>
+<ul>
+<li><p>想法是你距离其他节点有多远</p></li>
+<li><p>因此，考虑公式 <span class="math display">\[
+  C_c(i)=1/({1\over n-1}\sum_{j\ne i}l_{i,j})
+  \]</span> 其中 <span class="math inline">\(l_{i,j}\)</span> 为 i 到 j 的最短路径长度</p></li>
+<li><p>接近中心性高的节点往往是社交网络信息传播的关键人物</p></li>
+</ul></li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885126882.jpg" /></p>
+<h4 id="群体中心性">群体中心性</h4>
+<p>基于上面的对于单个节点的中心性讨论，可以将这些概念拓展到一组结点的中心性度量</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885346405.jpg" /></p>
+<h3 id="传递性与相互性-transitivity-and-reciprocity">传递性与相互性 Transitivity and Reciprocity</h3>
+<h4 id="传递性">传递性</h4>
+<p><strong>传递性和相互性用于表示社交网络总个体间的连接行为</strong>。</p>
+<p>其中，传递性的思想是：若 BC 两人拥有一个共同的朋友 A，则 BC 之间未来成为朋友的可能性也会提高，即，我朋友的朋友也是我的朋友（考虑现实场景下的情况，可以联系到社会学、经济学的各种理论）。从网络结构的角度来看，就是容易形成紧密连接的三角形，<strong>三元闭包</strong>。</p>
+<p>三元闭包的数量体现了图的传递性强弱，通常用 <strong>聚类/聚集系数</strong> cluster coefficient 来表示传递性。</p>
+<p>以下定义 <strong>Global Cluster Coefficient</strong>: Count paths of length two and check whether the</p>
+<p>third edge exists <span class="math display">\[
+C={|Closed\ Paths\ of \ Length\ 2|\over |Paths\ of\ Length\ 2|}, or\\
+C={(Number\ of\ Triangles)\times6\over |Paths\ of\ Length\ 2|}
+\]</span> 这里关注的是 path，因此计算起来是有方向的，更为简单的计算方法是根据 <strong>三元组</strong> Triple，即关注一组结点，没有方向，一个三角形中包含三个不同的 Triple <span class="math display">\[
+C={(Number\ of\ Triangles)\times3\over Number\ of\ Connected\ Triples\ of\ Nodes}
+\]</span> 基于上面的思想，还可以定义 <strong>Local Clustering Coefficient</strong>: Computes how strongly neighbors of a node 𝑣 (nodes adjacent to 𝑣 ) are themselves connected</p>
+<p><span class="math display">\[
+C(v_i)={Number\ of\ Pairs\ of\ Nerghbors\ of\ v_i\ That\ Are\ Connected\over Number\ of\ Pairs\ of\ Neighbors\ of\ v_i}
+\]</span></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885481322.jpg" /></p>
+<h4 id="相互性">相互性</h4>
+<p>相互性是传递性在 <strong>有向图</strong> 中的简化表示。例如，在微博上好友之间的相互关注，即，如果你是我的朋友，那么我也是你的朋友。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885600766.jpg" /></p>
+<h3 id="结构平衡与社会地位-balance-and-status">结构平衡与社会地位 Balance and Status</h3>
+<h4 id="结构平衡">结构平衡</h4>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885704457.jpg" /></p>
+<p>结构平衡理论由 Cartwright 和 Harary(1956) 在 Heider(1946) 提出的平衡理论基础上形成的；该理论认为，由于不平衡的三角关系是心理压力和心理失调的原因，人们在人际关系总试图让他们尽量少地出现，因此在显示社交网络中，不平衡三角关系要比平衡三角关系少。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885795202.jpg" /></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885884091.jpg" /></p>
+<h4 id="社会地位">社会地位</h4>
+<p><strong>Status</strong>: how prestigious an individual is ranked within a society</p>
+<p>既然社会地位是一个 rank，其满足不等关系的传递性。例如下面的左图即不符合社会地位理论，而右图则是符合的；另外，需要注意到，虽然这里都用符号图来进行表示，但要注意 Status 图和 Balance 图之间没有什么关系。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092885980443.jpg" /></p>
+<h3 id="相似性-similarity">相似性 Similarity</h3>
+<p>网络节点相似性的度量有着重要的意义，</p>
+<ul>
+<li>可以判定/预测结点间关联的重要程度
+<ul>
+<li>进行用户行为预测（第 9 章）：电影票房/产品市场预测、精准营销、个性化推荐</li>
+<li>用户类别判定：垃圾用户识别、潜在用户预测、用户影响力估计</li>
+</ul></li>
+</ul>
+<h4 id="structural-equivalence">Structural Equivalence</h4>
+<p>在结构等价性中，We look at the neighborhood shared by two nodes; The size of this shared neighborhood defines how similar two nodes are.</p>
+<p>下面的几个指标直接利用了节点 i 和 j 之间的共同邻居，并用不同的方式进行了归一化处理</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886135428.jpg" /></p>
+<p>还有另外的出发点：我们计算两点之间的共同邻居的数量，与其在随机连接下的期望值之间的差距。图中共有 <span class="math inline">\(d_j\)</span> 的节点为 j 的邻居，而对于任一个结点，其与 i 的邻居的概率为 <span class="math inline">\(d_i\over n\)</span> ，于是两者的共同邻居的期望值为 <span class="math inline">\({d_id_j\over n}\)</span> ；而实际 i 与 j 的邻居数为 <span class="math inline">\(|N(v_i)\cap N(v_j)|=\sum_kA_{i,k}A_{j,k}\)</span> ，于是</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886223768.jpg" /></p>
+<p>可以看到将 i 和 j 的连接关系表示向量看成随机变量的形式，则上面的差值可以写成两个随机变量 Covariance 的形式，进一步作归一化处理，得到 Pearson correlation coefficient</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886320482.jpg" /></p>
+<h4 id="regular-equivalence">Regular Equivalence</h4>
+<p>在规则等价性中，我们不再关注两节点的共同邻居数量，而关注的是 How neighborhoods themselves are similar。其显示的考量是，例如两个运动员之间可能并不认识，但事实上其存在着很高的相似性（社交圈子，相似的教练、队友、经理人、球迷），这可以体现在社会网络上。</p>
+<p>其代表性的度量模型为 SimRank，<strong>基于邻居节点之间的相似度来递归定义两个节点的相似度</strong>；基于递归度量的代价比较高，可以做适当放宽。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886431006.jpg" /></p>
+<p>然后我们设法将其写成矩阵形式。这里的想法很巧妙，将求两个节点的邻居之间相似度的计算转化为了节点 j 和节点 i 的邻居之间的相似度（这样的转换是否会有一定误差？），然后就可以写成下面的矩阵形式；进一步基于相似性的意义加上一个 Identity matrix，从而得到最终的表达式。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886550033.jpg" /></p>
+<p>和之前在 Katz 中心性时的讨论一样，我们一般假定选取的 <span class="math inline">\(\alpha\)</span> 要小于 A 的最大特征值的倒数，从而使得该矩阵可逆。</p>
+<h4 id="其他度量方式">其他度量方式</h4>
+<p>课上还介绍了其他的一些度量方式，例如</p>
+<ul>
+<li>基于结点间路径
+<ul>
+<li>Katz 度量：参考路径长度，相似度与路径长度成反比</li>
+<li>Hitting/Commute Time：考虑一个节点随机游走到另一个节点的概率</li>
+<li>Rooted PageRank/Personalized PageRank</li>
+</ul></li>
+<li><strong>基于图/网络嵌入的向量表示</strong></li>
+</ul>
+<h2 id="网络模型-network-models">4-网络模型 Network Models</h2>
+<h3 id="网络属性-properties-of-real-world-networks">网络属性 Properties of Real-World Networks</h3>
+<p>这些介绍一些能在不同的网络中使用一致方法来计算的属性，包括</p>
+<ul>
+<li>度分布</li>
+<li><p>聚类系数：衡量网络的 <strong>传递性</strong></p></li>
+<li><p>平均路径长度：衡量节点之间信息传播路径的长度 <strong>可达性</strong></p></li>
+</ul>
+<h4 id="度分布">度分布</h4>
+<p>来看一些现实生活中的客观现象</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886667193.jpg" /></p>
+<p>更为常见的表述的 <strong>帕累托法则</strong>（二八定律）；更为精确的描述则是 Power-Law Degree Distribution <strong>幂律分布</strong> ；注意到这里归一化成了概率分布的形式，因此也称之为 <strong>Zipf 分布</strong>，来源于一个语言学家对于词汇使用频率的发现。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886773091.jpg" /></p>
+<p>PPT 中介绍了 Zipf 分布的一些性质，在此略过。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886863585.jpg" /></p>
+<p>补充：符合 Zipf 分布是 <strong>无标度网络</strong> （scale-free network）的重要特征，即少数重要节点连接了很多的节点。在无标度网络中，数据存在着明显的 <strong>长尾现象</strong>。</p>
+<h4 id="聚类系数-clustering-coefficient">聚类系数 Clustering Coefficient</h4>
+<h4 id="平均路径长度-average-path-length">平均路径长度 Average Path Length</h4>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092886980328.jpg" /></p>
+<h3 id="随机图模型-random-graphs">随机图模型 Random Graphs</h3>
+<p>即图中任意两点之间的边的产生是随机的。</p>
+<p>具体又可分为两类</p>
+<ul>
+<li><span class="math inline">\(G(n,p)\)</span> 模型，假设网络中有 n 个节点，对于所有可能的 <span class="math inline">\(\binom{n}{2}\)</span> 边中，每一条边产生概率为 p</li>
+<li><span class="math inline">\(G(n,m)\)</span> 模型，固定图的边数为 m 从所有可能的边中随机选取 m 条</li>
+</ul>
+<p>下面主要研究第一种情况，事实上当图较大的时候，我们可以选取 <span class="math inline">\(p={m\over \binom{n}{2}}\)</span> ，两者是类似的。</p>
+<p>我们可以证明以下的一些性质</p>
+<ul>
+<li>在模型 <span class="math inline">\(G(n,p)\)</span> 中，连接到一个节点的边的期望数为 <span class="math inline">\((n-1)p\)</span> 条</li>
+<li>整张图的期望边数为 <span class="math inline">\(\binom{n}{2}p\)</span></li>
+<li>观察到 m 条边的概率为 <span class="math inline">\(P(|E|=m)=\binom{\binom{n}{2}}{m}p^m(1-p)^{\binom{n}{2}-m}\)</span></li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887198806.jpg" /></p>
+<p>在随机图的演化过程中，有一个有趣的现象：当随机图的节点平均度数 <span class="math inline">\(c=1\)</span> 时，会有大部分的结点被连接在一起，出现 大连通分支 giant component，这时候的图直径很大，平均路径长度较长。</p>
+<p>称之为 <strong>相变点</strong> Phase Transition: the point where diameter value starts to shrink in a random graph</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887321713.jpg" /></p>
+<h4 id="度分布-1">度分布</h4>
+<p>对于一个随机图来说，其每一个节点的度数的分布显示服从二项分布 <span class="math inline">\(Binom(p, n-1)\)</span> ；当 n 很大的时候，可以近似为泊松分布 <span class="math inline">\(Poisson(c), c=p(n-1)\)</span> 。</p>
+<p>因此，随机图的度分布满足平均值为 c 的泊松分布，有明显的 <strong>尺度特征</strong>，其产生的网络 <strong>不是无标度网络</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887418036.jpg" /></p>
+<blockquote>
+<p>另外，基于近似的泊松分布，PPT 中给出了「第二相变点」，即 When the graph is connected there are no nodes with degree 0 ，这里的假定是 <span class="math inline">\(P(d_v=0)=e^{-c}\le {1\over n}\)</span> ，则据此计算得到的 <span class="math inline">\(c=\ln n, p={1\over n-1}\ln n\)</span></p>
+</blockquote>
+<h4 id="聚类系数">聚类系数</h4>
+<ul>
+<li>对于随机图来说，每个结点的聚类系数为 p。</li>
+</ul>
+<p>可以通过条件期望公式来说明：假定其中一个节点的度数为 d，则去聚类系数为 <span class="math display">\[
+E(C(v)|d_v=d)={number\ of\ connected\ pairs\ of\ v&#39;s\ neighbors\over number\ of\ pairs\ of\ v&#39;s\ neighbors}={p\binom{d}{2}\over \binom{d}{2}}=p
+\]</span> 利用条件期望公式 <span class="math display">\[
+E(C(v))=E(E(C(v)|d_v))=\sum_{d=0}^{n-1}E(C(v)|d_v=d)P(d_v=d)=p\sum_{d=0}^{n-1}P(d_v=d)=p
+\]</span></p>
+<ul>
+<li>类似的，随机图的全局聚类系数也为 p</li>
+</ul>
+<h4 id="平均路径长度">平均路径长度</h4>
+<ul>
+<li>在随机图中，平均路径长度为 <span class="math inline">\(l\approx {\ln|V|\over \ln c}\)</span></li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887564204.jpg" /></p>
+<p>随机图模拟现实网络的能力</p>
+<ul>
+<li>度分布并不遵从幂律分布</li>
+<li>聚类系数远低于真实网络</li>
+<li>只有平均路径长度接近真实网络</li>
+</ul>
+<h3 id="小世界模型-small-world-model">小世界模型 Small-World Model</h3>
+<p>也叫做 Watts-Strogatz (WS) model，由此二人在 1998 的 Nature 上提出来</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887691825.jpg" /></p>
+<p>模型的想法起源于 <strong>规则网/规则格</strong> ，每一个节点连接其相邻的 c 个邻居。</p>
+<p>规则网具有 <strong>较长的平均路径长度和较大的聚类系数</strong>（均要高于真实网络）</p>
+<ul>
+<li>规则网中任一结点的邻居节点之间连接数量为 <span class="math inline">\({3\over8} c(c-2)\)</span> （分为左右两种情况）</li>
+<li><p>因此，其聚类系数为 <span class="math inline">\({3(c-2)\over 4(c-1)}\approx {3\over4}\)</span></p></li>
+<li><p>规则网的平均路径长度为 <span class="math inline">\(n\over 2c\)</span></p></li>
+</ul>
+<p>对规则网采用 <strong>边重连</strong> 的方法，可以让规则网逐渐过渡到随机网络。即对规则网中每一条边以概率 p 重新连接（固定其中一个端点）。若 p=0 则为完全规则网络；若 p=1 则为完全随机网络。</p>
+<p>我们关心的是，如何选择合适的 p，使得重连后的网络能够近似真实世界的网络性质。下图绘制了聚类系数和平均路径长度在不同 p 值情况下的变化</p>
+<p>可以看到 L 的下降比较快，我们可以选择合适的区间作为「小世界」模型，使得即能保证 L 比较小，又能维持较大的聚类系数</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887797124.jpg" /></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092887909821.jpg" /></p>
+<h3 id="优先链接模型-preferential-attachment-model">优先链接模型 Preferential Attachment Model</h3>
+<p>Proposed by Albert-László Barabási and Réka Albert，因此也叫 BA 模型；其想法类似于经济学的 <strong>马太效应</strong>：新加入网络的节点倾向于链接网络中度数比较高的节点。其可以较好地反映现实网络中的度分布（幂律分布）。新节点连接已有网络中任一节点的概率为 <span class="math inline">\(d_j\over \sum_kd_k\)</span> 。该模型有以下性质</p>
+<ul>
+<li>度分布：<span class="math inline">\(P(d)={2m^2\over d^3}\)</span></li>
+<li>聚类系数：<span class="math inline">\(C={m_0-1\over8}{(\ln t)^2\over t}\)</span></li>
+<li>平均路径长度：<span class="math inline">\(l\sim {\ln|V|\over\ln(\ln|V|)}\)</span></li>
+</ul>
+<p>PA 模型的构建详见相关材料，其中 m 为期望度数。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092888016912.jpg" /></p>
+<h3 id="马太效应">马太效应</h3>
+<p>下面简单介绍了马太效应。1968 年 Robert K. Merton 提出这一效应来概括一种社会心理现象：「相对于那些不知名的研究者，声名显赫的科学家通常得到更多的声望，即使他们的成就是相似的，同样地，在一个项目上，声誉通常给予那些已经出名的而研究者。」</p>
+<p>名字起源于新约圣经「马太福音」第二十五章：「凡有的，还要加给他叫他多余；没有的，连他所有的也要夺过来。」</p>
+<p>流行度的上升，在初始阶段是比较脆弱的；一旦一开始就被充分肯定，在富者越富 the Rich-Get-Richer Effects 的推动下，其流行度可能变得更高。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="16092888124298.jpg" /></p>
+<p>详见论文。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/c87a6cee/">https://lightblues.github.io/posts/c87a6cee/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C/">社交网络</a><a class="post-meta__tags" href="/tags/%E5%9B%BE/">图</a><a class="post-meta__tags" href="/tags/%E6%8E%A8%E8%8D%90/">推荐</a></div><div class="post_share"><div class="social-share" data-image="/img/EVA/eva-1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/51733d54/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">社交网络挖掘-Note2</div></div></a></div><div class="next-post pull-right"><a href="/posts/f723941c/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Markdown 新解决方案：Typora+本地备份+GitHub 图床</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/51733d54/" title="社交网络挖掘-Note2"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-04</div><div class="title">社交网络挖掘-Note2</div></div></a></div><div><a href="/posts/26740dc2/" title="社交网络挖掘-Note3"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-04</div><div class="title">社交网络挖掘-Note3</div></div></a></div><div><a href="/posts/d431014c/" title="课程作业：关于「Twitter 上的政治同质性」的两篇论文之评述"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-02</div><div class="title">课程作业：关于「Twitter 上的政治同质性」的两篇论文之评述</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">1-概论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">社交网络概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E4%BC%9A%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">社会网络分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E4%BC%9A%E8%AE%A1%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">社会计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98"><span class="toc-number">1.4.</span> <span class="toc-text">社交网络挖掘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">2-图论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">图的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.2.</span> <span class="toc-text">图的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">图的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">图的连通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%AE%97%E6%B3%95"><span class="toc-number">2.5.</span> <span class="toc-text">图算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%A6%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">3-网络度量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text"> 中心性度量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BE%A4%E4%BD%93%E4%B8%AD%E5%BF%83%E6%80%A7"><span class="toc-number">3.1.1.</span> <span class="toc-text">群体中心性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%80%A7%E4%B8%8E%E7%9B%B8%E4%BA%92%E6%80%A7-transitivity-and-reciprocity"><span class="toc-number">3.2.</span> <span class="toc-text">传递性与相互性 Transitivity and Reciprocity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%80%A7"><span class="toc-number">3.2.1.</span> <span class="toc-text">传递性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E4%BA%92%E6%80%A7"><span class="toc-number">3.2.2.</span> <span class="toc-text">相互性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%B9%B3%E8%A1%A1%E4%B8%8E%E7%A4%BE%E4%BC%9A%E5%9C%B0%E4%BD%8D-balance-and-status"><span class="toc-number">3.3.</span> <span class="toc-text">结构平衡与社会地位 Balance and Status</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%B9%B3%E8%A1%A1"><span class="toc-number">3.3.1.</span> <span class="toc-text">结构平衡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BE%E4%BC%9A%E5%9C%B0%E4%BD%8D"><span class="toc-number">3.3.2.</span> <span class="toc-text">社会地位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E4%BC%BC%E6%80%A7-similarity"><span class="toc-number">3.4.</span> <span class="toc-text">相似性 Similarity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#structural-equivalence"><span class="toc-number">3.4.1.</span> <span class="toc-text">Structural Equivalence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#regular-equivalence"><span class="toc-number">3.4.2.</span> <span class="toc-text">Regular Equivalence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%BA%A6%E9%87%8F%E6%96%B9%E5%BC%8F"><span class="toc-number">3.4.3.</span> <span class="toc-text">其他度量方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-network-models"><span class="toc-number">4.</span> <span class="toc-text">4-网络模型 Network Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%9E%E6%80%A7-properties-of-real-world-networks"><span class="toc-number">4.1.</span> <span class="toc-text">网络属性 Properties of Real-World Networks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%A6%E5%88%86%E5%B8%83"><span class="toc-number">4.1.1.</span> <span class="toc-text">度分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0-clustering-coefficient"><span class="toc-number">4.1.2.</span> <span class="toc-text">聚类系数 Clustering Coefficient</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6-average-path-length"><span class="toc-number">4.1.3.</span> <span class="toc-text">平均路径长度 Average Path Length</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%9B%BE%E6%A8%A1%E5%9E%8B-random-graphs"><span class="toc-number">4.2.</span> <span class="toc-text">随机图模型 Random Graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%A6%E5%88%86%E5%B8%83-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">度分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%B3%BB%E6%95%B0"><span class="toc-number">4.2.2.</span> <span class="toc-text">聚类系数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6"><span class="toc-number">4.2.3.</span> <span class="toc-text">平均路径长度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B-small-world-model"><span class="toc-number">4.3.</span> <span class="toc-text">小世界模型 Small-World Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E9%93%BE%E6%8E%A5%E6%A8%A1%E5%9E%8B-preferential-attachment-model"><span class="toc-number">4.4.</span> <span class="toc-text">优先链接模型 Preferential Attachment Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%AC%E5%A4%AA%E6%95%88%E5%BA%94"><span class="toc-number">4.5.</span> <span class="toc-text">马太效应</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/EVA/eva-1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/c87a6cee/'
+    this.page.identifier = 'posts/c87a6cee/'
+    this.page.title = '社交网络挖掘-Note1'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '378396910f928c69c59532e423b8acf4',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

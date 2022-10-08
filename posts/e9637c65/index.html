@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>「隐私」议题 + Apple 原生软件新体验 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="鉴于最近的一些事件（包括 跨平台商品推荐、对软件隐私条例的阅读、邮箱被盗用 等），对于「隐私」进行了一定反思和实践。 想来之前对其没有太多的关注，因此可能在各个场景下泄露了很多信息而不自知，之后会对这一议题进行更多的关注和实践。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「隐私」议题 + Apple 原生软件新体验">
+<meta property="og:url" content="https://lightblues.github.io/posts/e9637c65/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="鉴于最近的一些事件（包括 跨平台商品推荐、对软件隐私条例的阅读、邮箱被盗用 等），对于「隐私」进行了一定反思和实践。 想来之前对其没有太多的关注，因此可能在各个场景下泄露了很多信息而不自知，之后会对这一议题进行更多的关注和实践。">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/CowboyBepop/cb-11.jpg">
+<meta property="article:published_time" content="2021-04-11T03:46:43.000Z">
+<meta property="article:modified_time" content="2022-10-08T15:36:21.772Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="Apple">
+<meta property="article:tag" content="隐私">
+<meta property="article:tag" content="邮箱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/CowboyBepop/cb-11.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/e9637c65/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '「隐私」议题 + Apple 原生软件新体验',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-08 23:36:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/CowboyBepop/cb-11.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">「隐私」议题 + Apple 原生软件新体验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-04-11T03:46:43.000Z" title="Created 2021-04-11 11:46:43">2021-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-08T15:36:21.772Z" title="Updated 2022-10-08 23:36:21">2022-10-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Interest/">Interest</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="「隐私」议题 + Apple 原生软件新体验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>鉴于最近的一些事件（包括 跨平台商品推荐、对软件隐私条例的阅读、邮箱被盗用 等），对于「隐私」进行了一定反思和实践。 想来之前对其没有太多的关注，因此可能在各个场景下泄露了很多信息而不自知，之后会对这一议题进行更多的关注和实践。</p>
+<span id="more"></span>
+<h2 id="关于隐私问题">关于隐私问题</h2>
+<p>当然，如何去定义「隐私安全」也是一个很难且模糊的问题；而对于自己一个小白来说更是如此。 对于自己来说，对于这一问题的关注出发于个体对于「被窥探」的本能厌恶和恐惧，理想的是非常朦胧的「保有个体自由」，期待：</p>
+<ol type="1">
+<li>平台之间的数据独立：能够在不同的平台呈现/扮演个性中不同分量，而不被跨平台追踪；</li>
+<li>和现实的隔离：关乎个人物理信息的方方面面，不完全罗列 —— <strong>身份证、手机号、居住地（包括定位）、照片（抵制人脸识别）、教育和工作信息</strong> 等；</li>
+<li>建立在上述两点之上的「虚拟性」：套用一句话，「对方不知道这个账号之下是人是狗」；</li>
+</ol>
+<p>目前的总体实践原则：基于对 Apple 和 Google 的相对信任，减少其他平台的账号注册和信息泄露。</p>
+<p>因此，以下所讨论的多是从一些更「便捷」的软件转为 Apple 原生，去选择某种「不方便」；当然，不涉及任何道德判断，仅做个人反思与实践记录。</p>
+<h3 id="相关讨论引">相关讨论（引）</h3>
+<h4 id="手机隐私实践">手机隐私实践</h4>
+<p>少数派 <a target="_blank" rel="noopener" href="https://sspai.com/post/65277">如何更好地保护手机数据隐私？这 10 款 App 你可能用得上</a> 介绍了</p>
+<ul>
+<li>图片
+<ul>
+<li>删除照片的 EXIF 信息：EXIF Viewer &amp; Photo EXIF Editor</li>
+<li>隐私信息打码：归空 &amp; 纯纯打码</li>
+</ul></li>
+<li>上网
+<ul>
+<li>保护网络浏览、搜索信息：DuckDuckGo</li>
+<li>屏蔽网页追踪：AdGuard</li>
+</ul></li>
+<li>信息安全
+<ul>
+<li>保护真实号码：运营商小号 &amp; 阿里小号 &amp; Google Voice</li>
+<li>加密邮箱：ProtonMail</li>
+</ul></li>
+</ul>
+<h4 id="数字生活入门指南">数字生活（入门）指南</h4>
+<p>还有这篇 <a target="_blank" rel="noopener" href="https://sspai.com/post/62123">写给大学新生的数字指南</a> 谈了数字生活的几个方面</p>
+<ul>
+<li>手机号</li>
+<li>邮箱</li>
+<li>ID - 网名</li>
+<li>域名</li>
+<li>密码管理</li>
+</ul>
+<h4 id="关于密码管理的讨论">关于密码管理的讨论</h4>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/35519">如何设置密码才更安全高效？我的密码管理方法</a> 其实讲得有点细碎不够体系，但还是有很多可呼应的地方</p>
+<ul>
+<li>密码管理
+<ul>
+<li>尽量减少同一密码的多次使用</li>
+<li>大平台一定要有独立的密码</li>
+<li>尽量选择第三方登录而不是注册新账号</li>
+</ul></li>
+<li>密码分类
+<ul>
+<li>最重要的账号：支付、社交、第三方</li>
+<li>可以第三方登录的</li>
+<li>需要独立注册的</li>
+<li>注册一次就不会再回来用的</li>
+</ul></li>
+</ul>
+<h2 id="apple-原生软件尝试替换">Apple 原生软件尝试/替换</h2>
+<h3 id="地图">地图</h3>
+<p>继上周从同学那儿发现 iOS 原生的 maps 也「堪用」之后，今天下载尝试了 maps，本地化还不错。</p>
+<ul>
+<li>缺点
+<ul>
+<li>一个问题是 maps 无法单独切换软件语言（只能在设置中切换地图标记的语言，但是软件的界面仍然是英文的）；然而由于地图还是显示中文的，所以实际上对于使用体验的影响也不大（况且，最近常想到的一点：<strong>现今时代，有时需刻意制造一种「不方便」</strong>）</li>
+</ul></li>
+<li>优点
+<ul>
+<li>时间预估也还可以，定位和导航也都堪用；</li>
+<li>最满意的一点，是和原生系统的交互非常好，例如可以和 Contacts 中保存的地址交互；</li>
+</ul></li>
+</ul>
+<h3 id="输入法">输入法</h3>
+<p>iOS 输入法换成原生 inputs 之后，也尝试逃离「搜狗输入法」。初步体验之后，发现中文「简体输入法」的体验其实还不错。</p>
+<ul>
+<li>转换/技巧
+<ul>
+<li>中英文切换，相较于搜狗好用的 Shift 键，设置中可配置为「中/英」（长按则为大写锁定，而想要暂时输入大写符号可按住 <code>Shift</code> 键的同时键入）；</li>
+<li>对于 <code>「」</code> 可采用组合键 <code>Shift+[]</code> ；测试过在 Chrome 地址栏和 MWeb 中，单直角引号环境下重复上述组合键可输入 <code>『』</code>，但是在一些第三方环境例如 iCity 网页版中就无法成立；</li>
+<li>比较困难的是代码符号，现有两种方案：1. 切换为英文；2. 自定义文本替换，比如定义 <code>co</code> 和 <code>code</code>。目前都在使用。
+<ul>
+<li>另外，有人回复说「用 karabiner 把左 ctrl 或者右 shift 改成 ` 符号」，考虑到兼容性和 less 原则，暂不尝试</li>
+</ul></li>
+<li>其他一些不方便之处配合 <code>Control+Command+Space</code> <strong>唤出符号键</strong> 来解决吧～</li>
+</ul></li>
+<li>讨论
+<ul>
+<li>关于是否要在中文中使用英文标点，配置中也可设置，但考虑到习惯问题暂时放弃。1. 事实上，仅仅是「半角/全角」的切换，因此像是英文下的 <code>\</code> 和代码符号仍然无法使用；2. 还有我经常使用的 <code>【】</code> 标点；</li>
+<li>关于中英文之间自动加空格，V2EX 上 <a target="_blank" rel="noopener" href="https://www.v2ex.com/t/476875">有过讨论</a>，其中提到不应该自动化处理，想来也有道理，「形成肌肉记忆」之后自主去添加更为合理；</li>
+</ul></li>
+<li>好用的地方
+<ul>
+<li>输入中文的 emoji 名字后可直接选择 😁；其实只有一小部分，emoji 的中英文名字对照参见 <a target="_blank" rel="noopener" href="https://www.emojiall.com/zh-hans/all-emojis" class="uri">https://www.emojiall.com/zh-hans/all-emojis</a>；（当然自己日常使用也不会用到很多）</li>
+</ul></li>
+<li>几个可吐槽的地方：
+<ul>
+<li>词汇学习非常之糟糕，输了一遍之后第二遍仍然找不到姓名/词汇（应该是要反复很多次才可）；另外，如果不重复的非常「健忘」</li>
+<li>还有除了「文本替换」之外，设备之间似乎不会同步（存疑，或者说同步周期很慢）</li>
+</ul></li>
+</ul>
+<p>参 V2EX 上的讨论 <a target="_blank" rel="noopener" href="https://www.v2ex.com/t/502453">Apple 各设备之间的输入法会同步词库吗</a> 当然，这些特性在一定程度上保护了个人隐私 —— 还是选择问题，在于你是否要是否愿意去接受这种「不方便」。</p>
+<p>附一篇 <a target="_blank" rel="noopener" href="https://sspai.com/post/31525">技巧：Mac 里的文字输入效率</a> 但「不折腾」为原则，目前不想细看……</p>
+<h2 id="邮箱">邮箱</h2>
+<p>【其实邮箱的实践才关乎这里的「隐私」议题。目前总体就是从「网易邮箱大师」转为原生 Mail 和网页版。 又是一个折腾了很久的问题，以下摘录自己的一些思考/实践（原文涉及隐私就不放了，主要是自己懒得重新写了）。 自己也用不来邮箱，正在摸索中……】</p>
+<h3 id="todo-list">TODO list</h3>
+<ul>
+<li>[x] 清空邮箱</li>
+<li>[x] Gmail 使用学习
+<ul>
+<li>官方帮助 <a target="_blank" rel="noopener" href="https://support.google.com/mail" class="uri">https://support.google.com/mail</a></li>
+<li>Google Workspace 的教程，例如这一篇 <a target="_blank" rel="noopener" href="https://support.google.com/a/users/answer/9260550?hl=zh-Hans&amp;ref_topic=9259942">管理收件箱</a> 很赞</li>
+</ul></li>
+<li>用哪些邮箱
+<ul>
+<li>Gmail 主邮箱
+<ul>
+<li>需不需要副邮箱？</li>
+</ul></li>
+<li>参 macOS 设置中 「Internet Accounts」中的列表：iCloud, Microsoft Exchange, Google, yahoo, 163, 126, QQ</li>
+</ul></li>
+<li>解决 Gmail 的使用问题
+<ul>
+<li>[ ] 学点 Surge？</li>
+<li>[ ] 常规解决：用 Proxifier？【失败】参见 <a target="_blank" rel="noopener" href="https://www.xiebruce.top/1061.html">这一篇</a></li>
+<li>[x] 替代方案：采用 Chrome 程序的方式，启用「桌面通知」（在 Gmail 的配置 - 常规 - 桌面通知 中）参见 <a target="_blank" rel="noopener" href="https://support.google.com/mail/answer/1075549?hl=zh-Hans">这里</a></li>
+</ul></li>
+<li>邮箱软件的选择问题
+<ul>
+<li>原生邮箱的隐私性是主要因素
+<ul>
+<li>和系统的集成度非常高</li>
+<li>「window - connect doctor」非常好用！可以监测网络情况（考虑到邮件的特殊性，之前折腾了很久，在 global 和 rules 之间反复横跳，失败太多次了）</li>
+</ul></li>
+<li>缺点：配置相对比较复杂</li>
+</ul></li>
+</ul>
+<h3 id="当前实践">当前实践</h3>
+<p>总结一下目前的配置情况：</p>
+<ul>
+<li>Internet Accounts
+<ul>
+<li>在 macOS 的「Internet Accounts」中配置了 iCloud, Outlook(Microsoft Exchange), Google, Yahoo 和 FDU 邮箱</li>
+<li>毕竟这些账户和 Mail, Contacts, Calendars, Notes 等的集成度较高；</li>
+<li>但实际上点选了 「Mail」 的也只有 iCloud 和 FDU 邮箱，主要是网络问题；</li>
+</ul></li>
+<li>Mail
+<ul>
+<li>就「Mail」应用来说，Gmail 暂不去折腾了；</li>
+<li>另外几个国外账号的稳定性也不是很好；另外 iCloud 邮箱居然在全局模式下网络无法连接；</li>
+<li>less 原则：iCloud 本身就不常用，但是 Apple 自家所以先挂着；FDU 邮箱是需要接收信息；FDU</li>
+</ul></li>
+<li>Chrome APP
+<ul>
+<li>转 Chrome APP 居然也很好用，包括 Gmail, Outlook，另外 iCloud mail, FDU 也设置了权且作为冗余吧</li>
+<li>其中 Gmail, Outlook 是支持桌面通知的，但 Gmail 配置好了居然无效，可能仍然不是通过 HTTP 接收的？</li>
+</ul></li>
+<li>配合手机端「Gmail」使用
+<ul>
+<li>首先自然是为了解决 Gmail 的通知问题；还有点很重要的好处是 Google 账号的管理（见下）</li>
+</ul></li>
+</ul>
+<h3 id="邮件管理">邮件管理</h3>
+<p>Gmail 复杂但也好用，可翻阅其文档。</p>
+<ul>
+<li>[ ] to be added...</li>
+</ul>
+<h4 id="转邮件的层级管理">【转】邮件的层级管理</h4>
+<p>来自知乎上关于 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21361411">如何管理多个邮箱</a></p>
+<p>根据你的情况，我建议你可以分层级来管理自己的邮箱/账号。</p>
+<ul>
+<li>第一层：你有一个单独用来注册账户的邮箱，那么不重要的网站全部用其注册即可。然后你就可以完全不用管这个邮箱了，放那长草就行了。不要在客户端（尤其是移动端）里添加它，定期（比如两个星期）去网页端看一下就可以了。</li>
+<li>第二层：银行、亚马逊等网站，用另一个邮箱注册，然后想办法退订或屏蔽广告、优惠信息等无用的邮件，或者把账单等有用的邮件自动转发到第三层。这一层的邮箱可以添加到你电脑上的客户端，但是未必需要添加到移动端，因为基本不需要处理。</li>
+<li>第三层：也就是你的私人或工作邮箱，真正用来通讯的邮箱，不要用来注册任何账号，把它添加到你的电脑和移动客户端并设置提醒和推送。这些是真正需要及时处理的。可以根据自己的情况灵活地增减层级。</li>
+</ul>
+<h4 id="域名邮箱">域名邮箱？</h4>
+<p>起因是看到知乎上一篇介绍利用微信企业邮箱来给自购的域名配置邮件服务的 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22421809">文章</a>，但这个以「个性化」为目的的折腾也过于无趣…… 或许有精力可折腾自建个邮箱服务器</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/e9637c65/">https://lightblues.github.io/posts/e9637c65/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Apple/">Apple</a><a class="post-meta__tags" href="/tags/%E9%9A%90%E7%A7%81/">隐私</a><a class="post-meta__tags" href="/tags/%E9%82%AE%E7%AE%B1/">邮箱</a></div><div class="post_share"><div class="social-share" data-image="/img/CowboyBepop/cb-11.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/6f882ecb/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">记mongo高占用 &amp; launchd 与 brew 初探</div></div></a></div><div class="next-post pull-right"><a href="/posts/e8011b29/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/GhostBlade-WLOP/ghost-blade-9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">NAS + 反向代理服务设置及其他</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/46d1f363/" title="Apple Watch 上手体验"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-14</div><div class="title">Apple Watch 上手体验</div></div></a></div><div><a href="/posts/d64397e1/" title="记一次 macOS type-C 口失效 & 重制 SMC 与 NVRAM"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">记一次 macOS type-C 口失效 & 重制 SMC 与 NVRAM</div></div></a></div><div><a href="/posts/88153aab/" title="赛博漫谈｜不要问科技给了什么，问它拿走了什么"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-22</div><div class="title">赛博漫谈｜不要问科技给了什么，问它拿走了什么</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E9%9A%90%E7%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">关于隐私问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E8%AE%A8%E8%AE%BA%E5%BC%95"><span class="toc-number">1.1.</span> <span class="toc-text">相关讨论（引）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E9%9A%90%E7%A7%81%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">手机隐私实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97"><span class="toc-number">1.1.2.</span> <span class="toc-text">数字生活（入门）指南</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.1.3.</span> <span class="toc-text">关于密码管理的讨论</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apple-%E5%8E%9F%E7%94%9F%E8%BD%AF%E4%BB%B6%E5%B0%9D%E8%AF%95%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">Apple 原生软件尝试&#x2F;替换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">输入法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1"><span class="toc-number">3.</span> <span class="toc-text">邮箱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#todo-list"><span class="toc-number">3.1.</span> <span class="toc-text">TODO list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E5%AE%9E%E8%B7%B5"><span class="toc-number">3.2.</span> <span class="toc-text">当前实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%AE%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">邮件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E9%82%AE%E4%BB%B6%E7%9A%84%E5%B1%82%E7%BA%A7%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">【转】邮件的层级管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1"><span class="toc-number">3.3.2.</span> <span class="toc-text">域名邮箱？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/CowboyBepop/cb-11.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/e9637c65/'
+    this.page.identifier = 'posts/e9637c65/'
+    this.page.title = '「隐私」议题 + Apple 原生软件新体验'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: '13033d8c65915425214429165b8c152f',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
