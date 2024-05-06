@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载 | Easonshi's Space</title><meta name="author" content="Easonshi"><meta name="copyright" content="Easonshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="先说下自己的设备吧：在用 128G 的 MacBook Pro，当时购入这么小硬盘的原因是，寝室还有台式机（目前是个 NUC）所以笔记本的定位是便携性为主，不承担重量级和大文件的存储处理工作；存储的问题的话，寝室还有台 Synology 使用，因此存档的内容和一些大文件都放在上面，笔记本上仅储存课程相关文件和程序。 因为之前装过乱七八糟的各种软件折腾，还有很多课程需要的软件，存储空间一直有些紧张，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载">
+<meta property="og:url" content="https://lightblues.github.io/posts/e5232432/index.html">
+<meta property="og:site_name" content="Easonshi&#39;s Space">
+<meta property="og:description" content="先说下自己的设备吧：在用 128G 的 MacBook Pro，当时购入这么小硬盘的原因是，寝室还有台式机（目前是个 NUC）所以笔记本的定位是便携性为主，不承担重量级和大文件的存储处理工作；存储的问题的话，寝室还有台 Synology 使用，因此存档的内容和一些大文件都放在上面，笔记本上仅储存课程相关文件和程序。 因为之前装过乱七八糟的各种软件折腾，还有很多课程需要的软件，存储空间一直有些紧张，">
+<meta property="og:locale">
+<meta property="og:image" content="https://lightblues.github.io/img/CowboyBepop/cb-2.jpg">
+<meta property="article:published_time" content="2020-12-02T16:05:50.000Z">
+<meta property="article:modified_time" content="2021-10-30T16:05:50.000Z">
+<meta property="article:author" content="Easonshi">
+<meta property="article:tag" content="macOS">
+<meta property="article:tag" content="磁盘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lightblues.github.io/img/CowboyBepop/cb-2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lightblues.github.io/posts/e5232432/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-5Y8by4jIW3"/><link rel="manifest" href="/"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?07cc68228b5c4f4b4d49b36c1d3656c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-155100419-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-155100419-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-31 00:05:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Easonshi's Space" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/CowboyBepop/cb-2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Easonshi's Space</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/techNotes/"><i class="fa-fw fas fa-sticky-note"></i><span> Notes</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Galleries</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movies</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> About</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw fas fa-calendar-alt"></i><span> Timeline</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-12-02T16:05:50.000Z" title="Created 2020-12-03 00:05:50">2020-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-10-30T16:05:50.000Z" title="Updated 2021-10-31 00:05:50">2021-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/">Software</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>先说下自己的设备吧：在用 128G 的 MacBook Pro，当时购入这么小硬盘的原因是，寝室还有台式机（目前是个 NUC）所以笔记本的定位是便携性为主，不承担重量级和大文件的存储处理工作；存储的问题的话，寝室还有台 Synology 使用，因此存档的内容和一些大文件都放在上面，笔记本上仅储存课程相关文件和程序。 因为之前装过乱七八糟的各种软件折腾，还有很多课程需要的软件，存储空间一直有些紧张，一般能够剩下 25G 左右；软件删删减减，有时候遇到系统更新还是重新清理，所以还是很麻烦的。反思一下，问题在于</p>
+<ul>
+<li>自己混乱的文件管理方案，以及电脑里的部分冗余软件和残留文件；</li>
+<li>使用过一些系统管理软件如 Tencent Lemon 或者是 AppCleaner，但缺少一般的方法论；</li>
+<li>另外最近用 Time Machine 备份了系统（防止升级到 Big Sur 出问题），快照也占用了挺大空间；</li>
+</ul>
+<p>因此，今天又花了很长时间折腾了下 macOS 系统清理的方案，总结如下。 当然，这种时候的清理总归不是很好的手段，要从根本上解决问题，还是需要养成良好的文件管理习惯，精简软件使用（事实上，这反倒是用一台硬盘空间比较小的电脑的好处）；极简主义，做减法。这一部分，关联 <a href="mweblib://16057754500538">谈谈时间与信息管理</a>。</p>
+<h2 id="time-machine-清理">Time Machine 清理</h2>
+<p>参考知乎 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/39689057">清理 TimeMachine 本地快照的方法</a>。关闭 TM 之后，这面的指令可以查看和删除本地的 snapshot 系统快照（其中所谓「认证码」就是对应的快照名字中数字部分）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tmutil listlocalsnapshots /</span><br><span class="line">tmutil deletelocalsnapshots 认证码</span><br></pre></td></tr></table></figure>
+<p>另外提到 Catalina 下还有更方便的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmutil thinlocalsnapshots / 999999999999999 4</span><br></pre></td></tr></table></figure>
+<p>注意，这里要区分 快照 snapshot 和备份 backup 的概念，我是将备份放到 NAS 上的，但是系统中还是会有快照占空间，上面的方法就是手动删除本地快照。对于 tmutil 的详细用法，参见 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89735168">和时间机器的再次斗争（释放 TimeMachine 占用的空间）</a>。 我在删除的时候不知道为什么有一个主要的 snapshot 删不掉？重启系统后清除。</p>
+<p>另外，关于 Time Machine 的使用方法，可参看少数派上的一个 <a target="_blank" rel="noopener" href="https://sspai.com/post/30550">系列教程</a>；都是基础使用方式，入门级。</p>
+<h2 id="清理软件">清理软件</h2>
+<h3 id="tencent-lemon">Tencent Lemon</h3>
+<p>轻量级的系统优化软件，我用到的功能是</p>
+<ul>
+<li>MenuBar 上的资源监控（轻量级，另外把 iStat 放在了 Today 页面）</li>
+<li>软件卸载（似乎 App Cleaner &amp; Uninstaller 更棒）</li>
+<li>启动项管理</li>
+</ul>
+<p>优势在于界面简洁，功能不算强大但也到位，稳定性不错。</p>
+<h3 id="app-cleaner-uninstaller">App Cleaner &amp; Uninstaller【###】</h3>
+<p>新发现的宝藏软件</p>
+<ul>
+<li>软件卸载似乎要比 Tencent Lemon 更加干净；</li>
+<li>启动项/启动代理 的管理要比前者更为直观；</li>
+<li>插件管理也超级好用；</li>
+<li>残留文件非常厉害，可能因为之前是用 Tencent Lemon 的没删干净，刚安装好发现有很多的残留项；</li>
+<li>默认软件的功能没在用，不做介绍；</li>
+</ul>
+<h3 id="ncdu">NCDU</h3>
+<p>原本的命令行管理用 <code>du</code> 指令完成，我在配置中设置了默认 <code>alias du='du -h -d 1'</code>；配合另一个命令行工具 <code>tree</code> 使用，可以显示文件夹的目录树结构。今天发现了一个 du 命令的升级版 <code>ncdu</code> ，采用 <code>brew install ncdu</code> 安装即可。</p>
+<p>简单的教程 <a target="_blank" rel="noopener" href="https://liguoqinjim.com/post/mac/mac%E7%A3%81%E7%9B%98%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7-ncdu/">MAC磁盘清理工具 NCDU</a>。其实使用起来非常直观，安装之后 <code>ncdu .</code> 即可，等待检索完成后，使用方向键和 Enter 进行导航，需要删除则用 <code>d</code> 键，其他的基本上不需要。</p>
+<h3 id="daisy-disk">Daisy Disk</h3>
+<p>除了命令行工具，还有个可视化的磁盘空间管理工具 <a target="_blank" rel="noopener" href="https://daisydiskapp.com/">DaisyDisk</a>，界面非常好看，可以直观地看到自己电脑上的文件占用空间，以便你更好地管理自己的 Mac 硬盘空间。</p>
+<p>例如，我发现在系统更新还是更改用户文件夹名字（用户管理高级选项中的 Home Directory，非常作死的行为千万不要去尝试）后，会出现的 <code>Previously Relocated Items</code> 文件夹，在 <code>/Users/Shared</code>，看了下发现有 1G 所有，主要是交换文件，我直接把它删了。在文件夹下附有一个说明 PDF，另外关于该文件夹参看 <a target="_blank" rel="noopener" href="https://news.tongbu.com/97964.html">升级macOS Catalina：桌面出现的Relocated Items文件夹是什么？</a>。</p>
+<p>另外，目前没有共享的需求，发现在 <code>/Users/Shared</code> 目录下会有一些软件的文件都比较小，强迫症的原因，我直接把这个文件夹清空了，好像也没什么大问题……</p>
+<h2 id="个别软件">个别软件</h2>
+<h3 id="tex">Tex</h3>
+<p>参考 <a target="_blank" rel="noopener" href="https://changkun.us/archives/2014/03/149/">MacTeX 卸载方法</a>，事实上软件如 TeXShop 的卸载是很方便的，随便找个写在软件或者直接删除 <code>/Applications</code> 中的文件即可。 但这个软件一般不会很大，不超过一个 G，关键还是要卸载 Tex，一般安装目录在 <code>/usr/local/texlive/</code> 下，直接删除即可，大概有 6G 大。</p>
+<h3 id="java">JAVA</h3>
+<p>参考 <a target="_blank" rel="noopener" href="https://www.chuchur.com/article/mac-install-and-uninstall-java-jdk">Mac 上安装和卸载Java JDK</a>，事实上就是官方给出的方案，分别用来卸载 JAVA 和 jdk。</p>
+<p>卸载 JAVA，官方有 <a target="_blank" rel="noopener" href="https://www.java.com/zh-CN/download/help/mac_uninstall_java.html">教程</a>，就是三个文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin</span><br><span class="line">sudo rm -fr /Library/PreferencesPanes/JavaControlPanel.prefPane</span><br><span class="line">sudo rm -fr ~/Library/Application\ Support/Java</span><br></pre></td></tr></table></figure>
+<p>卸载 jdk，<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html#A1096903">官方教程</a>，地址在 <code>/Library/Java/JavaVirtualMachines</code> ，下面是中文教程中的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查找当前版本</span></span><br><span class="line"><span class="comment">#输入：</span></span><br><span class="line">ls /Library/Java/JavaVirtualMachines/</span><br><span class="line"><span class="comment">#输出：jdk-9.0.1.jdk</span></span><br><span class="line">sudo rm -rf /Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk</span><br></pre></td></tr></table></figure>
+<p>当然，如果不想再用的话，直接把 <code>/Library/JAVA</code> 文件夹删掉也是可以的。</p>
+<h3 id="adobe">Adobe</h3>
+<ul>
+<li><p>才发现 Adobe 居然这么难卸载……官方提供了卸载工具 <a target="_blank" rel="noopener" href="https://helpx.adobe.com/cn/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">Creative Cloud Cleaner Tool 的使用方法及使用场合 | 高级步骤</a>，下载之后使用即可。</p></li>
+<li><p>然而，这样卸载之后，还是会有残余，例如 <code>/Library/Application Support/Adobe</code> 文件夹（这是我在删除 Tex 的时候发现的，还挺大有一个 G 左右）。另外，在一篇文章中还提到了以下这些文件夹，删除即可。</p></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Application Support/Adobe</span><br><span class="line">~/Library/Preferences/Adobe</span><br><span class="line">~/Library/Caches/Adobe</span><br></pre></td></tr></table></figure>
+<ul>
+<li>除此之外，在 <a target="_blank" rel="noopener" href="https://www.macappbox.com/a/remove-adobe-from-your-mac.html">彻底删除 mac 上的 Adobe 相关文件</a> 一文，给出了比较全的文件地址：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf ~/Library/Application\ Support/Adobe* ~/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.adobe* ~/Library/Application\ Support/CrashReporter/Adobe* ~/Library/Caches/Adobe ~/Library/Caches/com.Adobe.* ~/Library/Caches/com.adobe.* ~/Library/Cookies/com.adobe.* ~/Library/Logs/Adobe* ~/Library/PhotoshopCrashes ~/Library/Preferences/Adobe* ~/Library/Preferences/com.adobe.* ~/Library/Preferences/Macromedia* ~/Library/Saved\ Application\ State/com.adobe.*</span><br><span class="line">sudo rm -rf /Applications/Adobe* /Applications/Utilities/Adobe* /Library/Application\ Support/Adobe /Library/Preferences/com.adobe.* /Library/PrivilegedHelperTools/com.adobe.* /private/var/db/receipts/com.adobe.*</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>另外，在 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131591089">2020 MAC如何彻底卸载ADOBE/PHOTOSHOP</a> 一文中，还提到了登录相关组件，位置在 <code>/Library/LaunchAgents</code> ，看到带 adobe 的一律删除……</p></li>
+<li><p>再有，发现用 App Cleaner &amp; Uninstaller 可以扫描到一个插件，位置在 <code>/Library/Internet Plug-Ins/AdobePDFViewerNPAPI.plugin</code> 也被我删去了。</p></li>
+</ul>
+<p>【这样折腾了一遍之后，其实还是会有残留……上述过程，起源于自己用 Spotlight 总会有 Adobe 更新这种软件出现很心烦，上述步骤可以把这些显示的 app 文件清除，可以说是眼不见为净。我最后用 App Cleaner &amp; Uninstaller 看了下，还有一些残留文件，虽然体积不大但是对于强迫症来说还是必要的。所以终极的解决方案还是这个软件（只是我不清楚能否直接从这个软件上卸载 Adobe 全系）】</p>
+<h3 id="joplin">Joplin</h3>
+<p>是之前非常喜欢的一款 Markdown 编辑+采集软件，作为编辑器来使用自然是没有 Typora 好用，但可以将网页内容采集为 Markdown 非常赞，替代了之前用的 Evernote。</p>
+<p>无论是 Evernote 还是 Joplin 的采集功能或多或少还是有些问题，最近开始入手 DEVONthink，直接采集为 HTML 很好地保留了网页格式，在搜索和文件管理方面的体验也是一流，因此考虑逐渐转换到这一软件。</p>
+<p>今天终于决定去卸载 Joplin，用不同的软件卸载 Joplin 的过程中，发现仅能找到软件本身（300M 左右），而导出备份的数据就比这大很多了，也就是说肯定有遗漏存储文件；寻找之后发现是在 <code>~/.config</code> 文件夹下，大概有几个 G 大。</p>
+<h3 id="docker">Docker</h3>
+<p>通过 brew <code>brew uninstall --cask docker</code>，另外下面的一些配置项；注意删除 <code>～/Library/Containers/</code> 下的文件夹，保存了存储的image还挺大的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -Rf /Applications/Docker</span><br><span class="line">sudo rm -f /usr/<span class="built_in">local</span>/bin/docker</span><br><span class="line">sudo rm -f /usr/<span class="built_in">local</span>/bin/docker-machine</span><br><span class="line">sudo rm -f /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">sudo rm -f /usr/<span class="built_in">local</span>/bin/docker-credential-osxkeychain</span><br><span class="line">sudo rm -Rf ~/.docker</span><br><span class="line">sudo rm -Rf <span class="variable">$HOME</span>/Library/Containers/com.docker.docker  <span class="comment"># here we delete stored images</span></span><br></pre></td></tr></table></figure>
+<p>注意删除 <code>～/Library/Containers/</code> 下的文件夹，保存了存储的image还挺大的。</p>
+<h3 id="go">go</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/go</span><br><span class="line">sudo rm /etc/paths.d/go</span><br></pre></td></tr></table></figure>
+<p>以及发现 <code>～/go</code> 目录，忘记了是否是自己自建的😂</p>
+<h3 id="safari">Safari</h3>
+<p>在 <code>Preference/Advanced</code> 中开启开发者面板，然后选择 <code>Empty Caches</code> 可以清理挺多缓存的。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Easonshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://lightblues.github.io/posts/e5232432/">https://lightblues.github.io/posts/e5232432/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/macOS/">macOS</a><a class="post-meta__tags" href="/tags/%E7%A3%81%E7%9B%98/">磁盘</a></div><div class="post_share"><div class="social-share" data-image="/img/CowboyBepop/cb-2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/46d1f363/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Fate/fate-10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Apple Watch 上手体验</div></div></a></div><div class="next-post pull-right"><a href="/posts/38cb8975/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/SamuraiChamploo/samurai-champloo-9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">NAS + Nextcloud 安装折腾记要</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3760e113/" title="命令行+虚拟机 代理设置方案汇总"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/Ukiyo-e/ukiyo-e-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-26</div><div class="title">命令行+虚拟机 代理设置方案汇总</div></div></a></div><div><a href="/posts/6f882ecb/" title="记mongo高占用 & launchd 与 brew 初探"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-14</div><div class="title">记mongo高占用 & launchd 与 brew 初探</div></div></a></div><div><a href="/posts/7c4c230b/" title="记一次 brew 权限错误"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/cosmos/cosmos-4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-14</div><div class="title">记一次 brew 权限错误</div></div></a></div><div><a href="/posts/d64397e1/" title="记一次 macOS type-C 口失效 & 重制 SMC 与 NVRAM"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/GhostBlade-WLOP/ghost-blade-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">记一次 macOS type-C 口失效 & 重制 SMC 与 NVRAM</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Disqus</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Easonshi</div><div class="author-info__description">Neo learner</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">113</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lightblues" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:oldcitystal@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">🎉 note 试营业</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#time-machine-%E6%B8%85%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">Time Machine 清理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">清理软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tencent-lemon"><span class="toc-number">2.1.</span> <span class="toc-text">Tencent Lemon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-cleaner-uninstaller"><span class="toc-number">2.2.</span> <span class="toc-text">App Cleaner &amp; Uninstaller【###】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ncdu"><span class="toc-number">2.3.</span> <span class="toc-text">NCDU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#daisy-disk"><span class="toc-number">2.4.</span> <span class="toc-text">Daisy Disk</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E5%88%AB%E8%BD%AF%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">个别软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tex"><span class="toc-number">3.1.</span> <span class="toc-text">Tex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java"><span class="toc-number">3.2.</span> <span class="toc-text">JAVA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adobe"><span class="toc-number">3.3.</span> <span class="toc-text">Adobe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#joplin"><span class="toc-number">3.4.</span> <span class="toc-text">Joplin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker"><span class="toc-number">3.5.</span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go"><span class="toc-number">3.6.</span> <span class="toc-text">go</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#safari"><span class="toc-number">3.7.</span> <span class="toc-text">Safari</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 理性, 试论善恶"/></a><div class="content"><a class="title" href="/posts/440b3fc6/" title="感 | 理性, 试论善恶">感 | 理性, 试论善恶</a><time datetime="2022-09-22T07:51:12.000Z" title="Created 2022-09-22 15:51:12">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b40421d0/" title="感 | 负债, 又回高中"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 负债, 又回高中"/></a><div class="content"><a class="title" href="/posts/b40421d0/" title="感 | 负债, 又回高中">感 | 负债, 又回高中</a><time datetime="2022-09-11T07:49:04.000Z" title="Created 2022-09-11 15:49:04">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2430d599/" title="感 | 欲望, 或论躺平"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/CowboyBepop/cb-9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 欲望, 或论躺平"/></a><div class="content"><a class="title" href="/posts/2430d599/" title="感 | 欲望, 或论躺平">感 | 欲望, 或论躺平</a><time datetime="2022-09-11T07:47:51.000Z" title="Created 2022-09-11 15:47:51">2022-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/be128d74/" title="感 | 沉浮, 或论封装"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/GhostBlade-WLOP/ghost-blade-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="感 | 沉浮, 或论封装"/></a><div class="content"><a class="title" href="/posts/be128d74/" title="感 | 沉浮, 或论封装">感 | 沉浮, 或论封装</a><time datetime="2022-09-09T09:29:50.000Z" title="Created 2022-09-09 17:29:50">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/EVA/eva-9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="赛博漫谈 | git 作为方法"/></a><div class="content"><a class="title" href="/posts/92983cd0/" title="赛博漫谈 | git 作为方法">赛博漫谈 | git 作为方法</a><time datetime="2022-08-26T06:46:20.000Z" title="Created 2022-08-26 14:46:20">2022-08-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/CowboyBepop/cb-2.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By Easonshi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://lightblues.github.io/posts/e5232432/'
+    this.page.identifier = 'posts/e5232432/'
+    this.page.title = 'Mac 空间清理：Time Machine 清理 + 清理软件推荐 + 特殊软件卸载'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://easonshi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '877a1cc959829e644238',
+      clientSecret: '65ce902d8041ba8ba2e11522f1fe629a52882d46',
+      repo: 'lightblues.github.io',
+      owner: 'lightblues',
+      admin: ['lightblues'],
+      id: 'c60586d229b7099b6a5b3d062869b0e1',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Disqus' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Lightblues/community',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
