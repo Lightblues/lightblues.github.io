@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    // GitHub Pages SPA routing fallback
+    // When a path like /slides/vibe-coding-share/3 returns 404,
+    // redirect to the SPA entry with the path preserved via query string,
+    // which the SPA entry then restores via replaceState.
+    (function() {
+      var p = location.pathname;
+      // Match /slides/<project-name>/<anything>
+      var m = p.match(/^(\/slides\/[^/]+)(\/.*)?$/);
+      if (m) {
+        var base = m[1] + '/';
+        var rest = (m[2] || '') + location.search;
+        location.replace(base + '?__r=' + encodeURIComponent(rest) + location.hash);
+      }
+    })();
+  </script>
+</head>
+<body></body>
+</html>

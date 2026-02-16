@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+  // Restore SPA route from GitHub Pages 404 redirect
+  (function(){
+    var q = new URLSearchParams(location.search).get('__r');
+    if (q) history.replaceState(null, '', decodeURIComponent(q) + location.hash);
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vibe Coding - Usage &amp; Insights - Slidev</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=PT+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" type="text/css">
